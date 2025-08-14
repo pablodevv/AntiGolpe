@@ -50,66 +50,68 @@ function App() {
     }
   ];
 
+
+
+
+
+
+  
   const handleVerification = async () => {
-    if (!searchQuery.trim()) return;
+  if (!searchQuery.trim()) return;
 
-    setIsVerifying(true);
-    setResult(null);
+  setIsVerifying(true);
+  setResult(null);
 
+  try {
     const resp = await fetch("/.netlify/functions/verificar", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ query: searchQuery })
-});
-const data = await resp.json();
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: searchQuery }),
+    });
 
-setResult({
-  status: data.status,
-  title: data.title,
-  message: data.message,
-  complaints: data.complaints,
-  trustScore: data.trustScore,
-  verificationTime: data.verificationTime
-});
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data?.error || "Falha na verificação");
 
+    setResult({
+      status: data.status,
+      title: data.title,
+      message: data.message,
+      complaints: data.complaints ?? 0,
+      trustScore: data.trustScore ?? 0,
+      verificationTime: data.verificationTime ?? "—",
+    });
 
-    const query = searchQuery.toLowerCase();
-    let mockResult: VerificationResult;
-
-    if (query.includes('amazon') || query.includes('mercadolivre') || query.includes('magazineluiza') || 
-        query.includes('americanas') || query.includes('casas bahia') || query.includes('extra')) {
-      mockResult = {
-        status: 'safe',
-        title: '✅ SITE TOTALMENTE SEGURO',
-        message: 'Empresa verificada e confiável. Histórico limpo, sem reclamações relevantes. Pode comprar com tranquilidade.',
-        complaints: 0,
-        trustScore: 98,
-        verificationTime: '2.3s'
-      };
-    } else if (query.includes('promo') || query.includes('desconto') || query.includes('oferta') || 
-               query.includes('barato') || query.includes('liquidação')) {
-      mockResult = {
-        status: 'suspicious',
-        title: '⚠️ CUIDADO - SITE SUSPEITO',
-        message: 'Encontramos 12 reclamações recentes sobre atrasos na entrega e dificuldade no atendimento. Recomendamos cautela.',
-        complaints: 12,
-        trustScore: 45,
-        verificationTime: '1.8s'
-      };
-    } else {
-      mockResult = {
-        status: 'danger',
-        title: '🚨 NÃO COMPRE AQUI - GOLPE CONFIRMADO',
-        message: 'ALERTA MÁXIMO: Este site tem 27 reclamações recentes de golpes, produtos não entregues e cartões clonados.',
-        complaints: 27,
-        trustScore: 8,
-        verificationTime: '1.2s'
-      };
-    }
-
-    setResult(mockResult);
+    // (Opcional) se quiser inspecionar detalhes no console:
+    console.log("Detalhes:", {
+      ssl: data.ssl,
+      whois: data.whois,
+      reclameAqui: data.reclameAqui,
+      googleResults: data.googleResults,
+      debug: data.debug,
+    });
+  } catch (e: any) {
+    setResult({
+      status: "danger",
+      title: "🚨 ERRO NA VERIFICAÇÃO",
+      message:
+        "Não foi possível concluir a análise agora. Tente novamente em alguns instantes.",
+      complaints: 0,
+      trustScore: 8,
+      verificationTime: "—",
+    });
+  } finally {
     setIsVerifying(false);
-  };
+  }
+};
+
+
+
+
+
+
+
+
+  
 
   const handleShare = () => {
     if (!result) return;
