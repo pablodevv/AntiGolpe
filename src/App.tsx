@@ -56,8 +56,22 @@ function App() {
     setIsVerifying(true);
     setResult(null);
 
-    // Simula tempo de verificação realística
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    const resp = await fetch("/.netlify/functions/verificar", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query: searchQuery })
+});
+const data = await resp.json();
+
+setResult({
+  status: data.status,
+  title: data.title,
+  message: data.message,
+  complaints: data.complaints,
+  trustScore: data.trustScore,
+  verificationTime: data.verificationTime
+});
+
 
     const query = searchQuery.toLowerCase();
     let mockResult: VerificationResult;
