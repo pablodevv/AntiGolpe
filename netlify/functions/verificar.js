@@ -247,3 +247,141 @@ export async function handler(event){
     return {statusCode:500,body:JSON.stringify({error:"Erro interno",detail:String(err)})};
   }
 }
+// ---------- Reclame Aqui Avançado com fallback ----------
+async function getReclameAquiAdvanced(query){
+  const slugGuess = query.toLowerCase().replace(/\s+/g,"-");
+  const linksToTry = [
+    `https://www.reclameaqui.com.br/empresa/${slugGuess}/`,
+    `https://www.reclameaqui.com.br/busca/?q=${encodeURIComponent(query)}`
+  ];
+
+  for(const url of linksToTry){
+    try{
+      const html = await fetchText(url,{headers:{"User-Agent":"Mozilla/5.0"}});
+      const $ = cheerio.load(html);
+
+      // Detecta se é página de empresa
+      let companyLink = null;
+      if(url.includes("/busca/")){
+        $("a").each((_,a)=>{const href=$(a).attr("href")||""; if(/^\/empresa\/[^/]+\/?$/.test(href)){ companyLink="https://www.reclameaqui.com.br"+href; return false; }});
+        if(!companyLink) continue;
+        const compHtml = await fetchText(companyLink,{headers:{"User-Agent":"Mozilla/5.0"}});
+        return parseRAHtml(compHtml, companyLink);
+      } else {
+        return parseRAHtml(html,url);
+      }
+    }catch(e){ continue; }
+  }
+  return {found:false, score:null, totalComplaints:null, last30d:null, companyLink:null};
+}
+
+function parseRAHtml(html, companyLink){
+  const $ = cheerio.load(html);
+  const score = ($$(".score .number").first().text().trim()||null)||null;
+  const totalComplaints = ($$("*:contains('Reclamações')").first().text().match(/(\d[\d\.\,]*)/g)||[null])[0];
+  const last30d = ($$("*:contains('últimos 30 dias')").first().text().match(/(\d[\d\.\,]*)/g)||[null])[0];
+  const toNumber = s=>s?Number(String(s).replace(/\./g,"").replace(",", ".")):null;
+  return {found:true, score:toNumber(score), totalComplaints:toNumber(totalComplaints), last30d:toNumber(last30d), companyLink};
+}
+
+// ---------- Redes Sociais / Menções externas ----------
+async function analyzeSocialMedia(results){
+  const socialSummary = {instagram:null, twitter:null, reddit:null, mentions:0};
+  for(const r of results){
+    if(!r.externalMentions) continue;
+    r.externalMentions.forEach(link=>{
+      if(link.includes("instagram.com")&&!socialSummary.instagram) socialSummary.instagram = link;
+      if(link.includes("twitter.com")&&!socialSummary.twitter) socialSummary.twitter = link;
+      if(link.includes("reddit.com")&&!socialSummary.reddit) socialSummary.reddit = link;
+      socialSummary.mentions++;
+    });
+  }
+  return socialSummary;
+}
+
+// ---------- Handler Avançado ----------
+export async function handler(event){
+  const t0=Date.now();
+  try{
+    const { query }=JSON.parse(event.body||"{}");
+    const q=normalizeQuery(query);
+    if(!q) return {statusCode:400, body:JSON.stringify({error:"Envie 'query'"})};
+
+    const host=extractHostFromQuery(q);
+    const brandGuess=host ? (parse(host).domainWithoutSuffix||host.split(".")[0]||q).toLowerCase() : q.split(/\s+/)[0].toLowerCase();
+
+    // Google + conteúdo
+    const serp=await searchWebTop10(q);
+
+    // SSL
+    const sslInfo=host?await getSSLCertificate(host):null;
+
+    // WHOIS
+    const whois=host?await getWhois(host):null;
+
+    // Reclame Aqui avançado
+    let ra=null;
+    try{ ra=await getReclameAquiAdvanced(host||q); }catch(e){ ra={error:String(e),found:false}; }
+
+    // Redes sociais e menções externas
+    const social=await analyzeSocialMedia(serp);
+
+    // Score inicial
+    let score=90;
+    if(host){if(!sslInfo?.present) score-=40; else if(sslInfo.present&&!sslInfo.validNow) score-=25;}
+    score += domainPenalty(host,brandGuess);
+
+    // WHOIS idade domínio
+    try{
+      const created=whois?.WhoisRecord?.registryData?.createdDate||whois?.WhoisRecord?.createdDateNormalized||whois?.WhoisRecord?.createdDate;
+      if(created){
+        const ageDays=Math.max(0,(Date.now()-new Date(created).getTime())/(1000*60*60*24));
+        if(ageDays<30) score-=25; else if(ageDays<90) score-=15;
+      }
+    }catch{}
+
+    // SERP signals
+    const serpSignals=analyzeSerpSignals(serp,brandGuess);
+    score+=serpSignals.posHits*2;
+    score-=serpSignals.negHits*4;
+
+    // Reclame Aqui
+    if(ra?.found){
+      if(ra.score!=null){if(ra.score<6) score-=20; else if(ra.score<8) score-=10; else score+=5;}
+      if(ra.last30d!=null){if(ra.last30d>100) score-=30; else if(ra.last30d>30) score-=15; else if(ra.last30d>5) score-=5;}
+    }
+
+    // Redes sociais
+    if(social.mentions>5) score+=5; // presença social é positiva
+    if(social.reddit) score-=social.mentions; // menções negativas no Reddit podem diminuir
+
+    score=Math.max(0,Math.min(100,Math.round(score)));
+    const cls=classify(score);
+
+    let message="Nenhum problema grave detectado.";
+    if(cls.status==="suspicious") message="Encontramos sinais mistos (reclamações recentes, menções negativas ou SSL/WHOIS pouco confiáveis). Recomendamos cautela.";
+    else if(cls.status==="danger") message="Vários sinais de alerta (reclamações/menções de golpe, domínio novo/suspeito ou SSL inválido). Evite comprar até verificar diretamente com a marca.";
+
+    const complaints=(ra?.last30d??ra?.totalComplaints??0)||0;
+    const verificationTime=((Date.now()-t0)/1000).toFixed(1)+"s";
+
+    return {statusCode:200, body:JSON.stringify({
+      status:cls.status,
+      title:cls.title,
+      message,
+      complaints,
+      trustScore:score,
+      verificationTime,
+      debug:{at:nowISO(),brandGuess,host,serpSignals,social},
+      ssl:sslInfo,
+      whois:whois?{hasData:true}:{hasData:false},
+      reclameAqui:ra,
+      googleResults:serp,
+      social
+    })};
+
+  }catch(err){
+    console.error(err);
+    return {statusCode:500, body:JSON.stringify({error:"Erro interno", detail:String(err)})};
+  }
+}
