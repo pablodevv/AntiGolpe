@@ -66,7 +66,7 @@ function App() {
     setShowDetails(false);
 
     try {
-      const resp = await fetch("/.netlify/functions/verificar-ultra", {
+      const resp = await fetch("/.netlify/functions/verificar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: searchQuery }),
