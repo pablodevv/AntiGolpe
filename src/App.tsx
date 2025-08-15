@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Shield, Search, Share2, CheckCircle, AlertTriangle, XCircle, Loader2, Award, Users, Clock, TrendingUp, Star, Lock, Zap, Eye, ChevronDown, ChevronUp, Crown, Sparkles, Gift, ExternalLink, ShoppingCart, CreditCard, Headphones, FileText, Smartphone } from 'lucide-react';
 
@@ -309,13 +308,6 @@ function App() {
     return alternatives;
   };
 
-
-
-
-
-
-
-  
   const getSecurityServices = () => {
     const services = [
       {
@@ -343,11 +335,6 @@ function App() {
 
     return services;
   };
-
-
-
-
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -795,172 +782,37 @@ function App() {
           </div>
         )}
 
-
-
-
-
-
-
-
-
-  {/* Security Services - Affiliate Section */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">🛡️ Proteção Completa Recomendada</h3>
-            <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-blue-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
-              <p className="text-gray-600 mb-4">Navegação 100% anônima e protegida</p>
-              <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
+        {/* Seção de Segurança Completa */}
+        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+            <Shield className="w-8 h-8 mr-3 text-blue-600" />
+            🛡️ Proteja-se Completamente Online
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {getSecurityServices().map((service, index) => (
               <a
-                href="https://nordvpn.com?ref=antigolpe"
+                key={index}
+                href={service.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg group"
               >
-                🔐 Ativar Proteção
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="font-bold text-gray-900">{service.name}</h4>
+                  <ExternalLink className="w-5 h-5 text-blue-600 group-hover:text-blue-800" />
+                </div>
+                <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-bold text-gray-900">{service.price}</span>
+                  <span className="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded-full">
+                    {service.discount}
+                  </span>
+                </div>
               </a>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-green-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">Serasa Premium</h4>
-              <p className="text-gray-600 mb-4">Monitoramento do seu CPF 24/7</p>
-              <div className="text-2xl font-bold text-green-600 mb-2">1º mês GRÁTIS</div>
-              <a
-                href="https://serasa.com.br?ref=antigolpe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
-              >
-                📊 Monitorar CPF
-              </a>
-            </div>
-
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-orange-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">Kaspersky Total</h4>
-              <p className="text-gray-600 mb-4">Antivírus premium para todos dispositivos</p>
-              <div className="text-2xl font-bold text-green-600 mb-2">-50% OFF</div>
-              <a
-                href="https://kaspersky.com.br?ref=antigolpe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
-              >
-                🦠 Eliminar Vírus
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">✅ Todos os serviços são verificados e recomendados pelo AntiGolpe</p>
+            ))}
           </div>
         </div>
 
-
-
-
-        {/* Custom Check Service */}
-        <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-10">
-          <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Headphones className="w-10 h-10 text-yellow-600" />
-            </div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">🔍 Análise Personalizada Premium</h3>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Precisa de uma análise detalhada de documentos, CNPJs, contratos ou propostas de investimento? 
-              Nossa equipe de especialistas faz uma verificação manual completa em até 1 hora.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <CreditCard className="w-6 h-6 mr-2 text-green-600" />
-                Análise Expressa - R$ 49,90
-              </h4>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
-                  Resposta em até 1 hora
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
-                  Verificação manual por especialistas
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
-                  Relatório detalhado em PDF
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
-                  Suporte via WhatsApp
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-purple-200">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <Crown className="w-6 h-6 mr-2 text-purple-600" />
-                Análise Premium - R$ 99,90
-              </h4>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
-                  Resposta em até 30 minutos
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
-                  Análise jurídica incluída
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
-                  Consultoria por videochamada
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
-                  Garantia de 30 dias
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://wa.me/5511999999999?text=Olá! Preciso de uma análise personalizada pelo AntiGolpe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              <Phone className="w-5 h-5" />
-              <span>📱 Solicitar Análise via WhatsApp</span>
-            </a>
-          </div>
-        </div>
-
-
-
-
-
-
-
-        
-
-
-
-
-        
         {/* Trust Indicators */}
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300">
@@ -1193,8 +1045,89 @@ function App() {
         </div>
       )}
 
+      {/* Modal Análise Personalizada */}
+      {showCustomAnalysis && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full">
+            <div className="p-8">
+              <div className="text-center mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Headphones className="w-10 h-10 text-green-600" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">🎯 Análise Personalizada</h3>
+                <p className="text-lg text-gray-600">Análise manual especializada para casos complexos</p>
+              </div>
 
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200">
+                  <div className="text-center">
+                    <CreditCard className="w-12 h-12 text-blue-600 mx-auto mb-3" />
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Análise Rápida</h4>
+                    <div className="text-3xl font-black text-blue-600 mb-2">R$ 49,90</div>
+                    <p className="text-sm text-gray-600 mb-4">Resposta em até 1 hora</p>
+                    <ul className="text-sm space-y-2 mb-4">
+                      <li>✅ Análise manual detalhada</li>
+                      <li>✅ Verificação de documentos</li>
+                      <li>✅ Relatório personalizado</li>
+                      <li>✅ Suporte via WhatsApp</li>
+                    </ul>
+                    <a
+                      href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar uma Análise Rápida (R$ 49,90) para verificar:"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 inline-block text-center"
+                    >
+                      <Smartphone className="w-4 h-4 inline mr-2" />
+                      Solicitar via WhatsApp
+                    </a>
+                  </div>
+                </div>
 
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border border-purple-200">
+                  <div className="text-center">
+                    <Crown className="w-12 h-12 text-purple-600 mx-auto mb-3" />
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Análise Premium</h4>
+                    <div className="text-3xl font-black text-purple-600 mb-2">R$ 99,90</div>
+                    <p className="text-sm text-gray-600 mb-4">Resposta em até 30 min</p>
+                    <ul className="text-sm space-y-2 mb-4">
+                      <li>✅ Tudo da Análise Rápida</li>
+                      <li>✅ Consultoria especializada</li>
+                      <li>✅ Verificação de CNPJs</li>
+                      <li>✅ Análise de investimentos</li>
+                      <li>✅ Suporte prioritário</li>
+                    </ul>
+                    <a
+                      href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar uma Análise Premium (R$ 99,90) para verificar:"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 inline-block text-center"
+                    >
+                      <Smartphone className="w-4 h-4 inline mr-2" />
+                      Solicitar via WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setShowCustomAnalysis(false)}
+                className="w-full text-gray-500 hover:text-gray-700 font-medium py-2"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Botão Análise Personalizada Flutuante */}
+      <button
+        onClick={() => setShowCustomAnalysis(true)}
+        className="fixed bottom-6 left-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 z-40"
+        title="Análise Personalizada"
+      >
+        <Headphones className="w-6 h-6" />
+      </button>
 
       {/* Símbolo c🔱 fixo no canto inferior direito */}
       <div className="fixed bottom-6 right-6 text-2xl font-bold text-gray-600 z-40 select-none">
