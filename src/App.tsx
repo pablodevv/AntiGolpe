@@ -782,36 +782,80 @@ function App() {
           </div>
         )}
 
-        {/* Seção de Segurança Completa */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
-            <Shield className="w-8 h-8 mr-3 text-blue-600" />
-            🛡️ Proteja-se Completamente Online
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {getSecurityServices().map((service, index) => (
+
+
+
+
+        
+       {/* Security Services - Affiliate Section */}
+        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">🛡️ Proteção Completa Recomendada</h3>
+            <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
+              <p className="text-gray-600 mb-4">Navegação 100% anônima e protegida</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
               <a
-                key={index}
-                href={service.url}
+                href="https://nordvpn.com?ref=antigolpe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg group"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-bold text-gray-900">{service.name}</h4>
-                  <ExternalLink className="w-5 h-5 text-blue-600 group-hover:text-blue-800" />
-                </div>
-                <p className="text-sm text-gray-600 mb-3">{service.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-gray-900">{service.price}</span>
-                  <span className="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded-full">
-                    {service.discount}
-                  </span>
-                </div>
+                🔐 Ativar Proteção
               </a>
-            ))}
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Serasa Premium</h4>
+              <p className="text-gray-600 mb-4">Monitoramento do seu CPF 24/7</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">1º mês GRÁTIS</div>
+              <a
+                href="https://serasa.com.br?ref=antigolpe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+              >
+                📊 Monitorar CPF
+              </a>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-8 h-8 text-orange-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Kaspersky Total</h4>
+              <p className="text-gray-600 mb-4">Antivírus premium para todos dispositivos</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">-50% OFF</div>
+              <a
+                href="https://kaspersky.com.br?ref=antigolpe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+              >
+                🦠 Eliminar Vírus
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">✅ Todos os serviços são verificados e recomendados pelo AntiGolpe</p>
           </div>
         </div>
+        
+
+
+
+        
 
         {/* Trust Indicators */}
         <div className="mt-16 grid md:grid-cols-3 gap-8">
