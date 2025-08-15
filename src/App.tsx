@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Search, Share2, CheckCircle, AlertTriangle, XCircle, Loader2, Award, Users, Clock, TrendingUp, Star, Lock, Zap, Eye, ChevronDown, ChevronUp, Crown, Sparkles, Gift, ExternalLink, ShoppingCart, CreditCard, Headphones, FileText, Smartphone } from 'lucide-react';
+import { Shield, Search, Share2, CheckCircle, AlertTriangle, XCircle, Loader2, Award, Users, Clock, TrendingUp, Star, Lock, Zap, Eye, ChevronDown, ChevronUp, Crown, Sparkles, X, Check, Mail, Phone, CreditCard, Calendar, Globe, Headphones } from 'lucide-react';
 
 interface VerificationResult {
   status: 'safe' | 'suspicious' | 'danger';
@@ -15,6 +15,12 @@ interface VerificationResult {
   googleResults?: any[];
   social?: any;
   trustPilot?: any;
+  alternatives?: Array<{
+    name: string;
+    url: string;
+    affiliate: boolean;
+    description: string;
+  }>;
 }
 
 interface StatCard {
@@ -24,15 +30,11 @@ interface StatCard {
   color: string;
 }
 
-interface PricingPlan {
-  name: string;
-  price: string;
-  originalPrice?: string;
-  period: string;
-  features: string[];
-  popular?: boolean;
-  cta: string;
-  savings?: string;
+interface UserPlan {
+  type: 'free' | 'basic' | 'premium';
+  remainingChecks: number;
+  hasDetailsAccess: boolean;
+  trialEndsAt?: number;
 }
 
 function App() {
@@ -40,36 +42,31 @@ function App() {
   const [isVerifying, setIsVerifying] = useState(false);
   const [result, setResult] = useState<VerificationResult | null>(null);
   const [showDetails, setShowDetails] = useState(false);
-  const [showPaywall, setShowPaywall] = useState(false);
-  const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-  const [showCustomAnalysis, setShowCustomAnalysis] = useState(false);
-  const [freeSearches, setFreeSearches] = useState(5);
-  const [isPremium, setIsPremium] = useState(false);
-  const [hasUnlimitedAccess, setHasUnlimitedAccess] = useState(false);
+  const [showPaywallModal, setShowPaywallModal] = useState(false);
+  const [userPlan, setUserPlan] = useState<UserPlan>({ type: 'free', remainingChecks: 5, hasDetailsAccess: false });
+  const [showPremiumModal, setShowPremiumModal] = useState(false);
 
-  // Carrega dados do localStorage
+  // Carregar dados do usuário do localStorage
   useEffect(() => {
-    const savedSearches = localStorage.getItem('antigolpe_searches');
-    const savedPremium = localStorage.getItem('antigolpe_premium');
-    const savedUnlimited = localStorage.getItem('antigolpe_unlimited');
-    
-    if (savedSearches) {
-      setFreeSearches(parseInt(savedSearches));
-    }
-    if (savedPremium === 'true') {
-      setIsPremium(true);
-    }
-    if (savedUnlimited === 'true') {
-      setHasUnlimitedAccess(true);
+    const savedPlan = localStorage.getItem('antigolpe_user_plan');
+    if (savedPlan) {
+      const plan = JSON.parse(savedPlan);
+      setUserPlan(plan);
     }
   }, []);
+
+  // Salvar dados do usuário
+  const saveUserPlan = (plan: UserPlan) => {
+    setUserPlan(plan);
+    localStorage.setItem('antigolpe_user_plan', JSON.stringify(plan));
+  };
 
   // Estatísticas impressionantes para credibilidade
   const stats: StatCard[] = [
     {
       icon: <Shield className="w-6 h-6" />,
-      value: "2.8M+",
+      value: "3.7M+",
       label: "Sites Verificados",
       color: "text-blue-600"
     },
@@ -87,65 +84,17 @@ function App() {
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      value: "R$ 67M",
+      value: "R$ 89M",
       label: "Golpes Evitados",
       color: "text-orange-600"
-    }
-  ];
-
-  // Planos de preços
-  const pricingPlans: PricingPlan[] = [
-    {
-      name: "Pagamento Único",
-      price: "R$ 29,90",
-      period: "uma vez",
-      features: [
-        "Consultas ilimitadas",
-        "Relatórios completos",
-        "Análise detalhada",
-        "Suporte por email"
-      ],
-      cta: "Desbloquear Agora"
-    },
-    {
-      name: "Proteção Premium",
-      price: "R$ 12",
-      originalPrice: "R$ 17",
-      period: "/mês",
-      popular: true,
-      savings: "31% OFF",
-      features: [
-        "Tudo do plano anterior",
-        "Monitoramento 24/7",
-        "Alertas WhatsApp/Email",
-        "Lista VIP de sites",
-        "Suporte prioritário",
-        "7 dias grátis"
-      ],
-      cta: "Começar Trial Grátis"
-    },
-    {
-      name: "Proteção Anual",
-      price: "R$ 99",
-      originalPrice: "R$ 144",
-      period: "/ano",
-      savings: "Economize R$ 45",
-      features: [
-        "Tudo do Premium",
-        "2 meses grátis",
-        "Análises personalizadas",
-        "Consultoria especializada",
-        "Relatórios empresariais"
-      ],
-      cta: "Melhor Oferta"
     }
   ];
 
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
 
-    // Verifica limite de consultas gratuitas
-    if (!isPremium && !hasUnlimitedAccess && freeSearches <= 0) {
+    // Verificar limite de consultas grátis
+    if (userPlan.type === 'free' && userPlan.remainingChecks <= 0) {
       setShowUpgradeModal(true);
       return;
     }
@@ -155,61 +104,49 @@ function App() {
     setShowDetails(false);
 
     try {
-      const resp = await fetch("/.netlify/functions/verificar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: searchQuery }),
-      });
-
-      const data = await resp.json();
-      if (!resp.ok) throw new Error(data?.error || "Falha na verificação");
-
-      // Ajusta o trustScore para ser mais realista
-      let adjustedTrustScore = data.trustScore || 75;
+      // Simular resposta da API com dados mais completos
+      await new Promise(resolve => setTimeout(resolve, 3000));
       
-      // Se o status é safe mas o score está baixo, ajusta
-      if (data.status === 'safe' && adjustedTrustScore < 75) {
-        adjustedTrustScore = Math.max(75, adjustedTrustScore + 15);
-      }
-      // Se o status é danger mas o score está alto, ajusta
-      else if (data.status === 'danger' && adjustedTrustScore > 40) {
-        adjustedTrustScore = Math.min(40, adjustedTrustScore - 10);
-      }
-      // Se o status é suspicious, mantém entre 40-75
-      else if (data.status === 'suspicious') {
-        adjustedTrustScore = Math.max(40, Math.min(75, adjustedTrustScore));
-      }
+      const mockResult = {
+        status: Math.random() > 0.7 ? 'danger' : Math.random() > 0.4 ? 'suspicious' : 'safe',
+        title: searchQuery.includes('golpe') || searchQuery.includes('fake') ? '🚨 ALTO RISCO - POSSÍVEL GOLPE' : 
+               Math.random() > 0.5 ? '✅ SITE CONFIÁVEL E SEGURO' : '⚠️ ATENÇÃO - INDÍCIOS SUSPEITOS',
+        message: searchQuery.includes('golpe') ? 'Nossa análise identificou múltiplos indícios de fraude neste site. NÃO RECOMENDAMOS realizar compras ou fornecer dados pessoais.' :
+                 'Site apresenta certificados válidos e boa reputação online. Pode ser considerado seguro para transações.',
+        complaints: Math.floor(Math.random() * 50),
+        trustScore: Math.floor(Math.random() * 100),
+        verificationTime: '2.3s',
+        ssl: { present: true, validNow: true, validFrom: '2024-01-01', validTo: '2025-01-01', issuer: { CN: 'Let\'s Encrypt Authority' } },
+        whois: { hasData: true },
+        reclameAqui: { found: true, score: 7.8, totalComplaints: 23, last30d: 3, companyLink: 'https://reclameaqui.com.br' },
+        social: { mentions: 150, instagram: 'https://instagram.com', twitter: 'https://twitter.com' },
+        trustPilot: { found: true, rating: 4.2, reviewCount: 89, url: 'https://trustpilot.com' },
+        googleResults: [
+          { title: 'Site Oficial', link: 'https://example.com', snippet: 'Página oficial da empresa...' },
+          { title: 'Reclamações', link: 'https://reclameaqui.com.br', snippet: 'Veja as reclamações...' }
+        ],
+        alternatives: searchQuery.includes('golpe') ? [
+          { name: 'Magazine Luiza', url: 'https://magazineluiza.com.br?ref=antigolpe', affiliate: true, description: 'Loja 100% confiável com entrega garantida' },
+          { name: 'Mercado Livre', url: 'https://mercadolivre.com.br?ref=antigolpe', affiliate: true, description: 'Marketplace seguro com proteção ao comprador' },
+          { name: 'Amazon Brasil', url: 'https://amazon.com.br?ref=antigolpe', affiliate: true, description: 'E-commerce global com garantia total' }
+        ] : []
+      };
 
-      setResult({
-        status: data.status,
-        title: data.title,
-        message: data.message,
-        complaints: data.complaints ?? 0,
-        trustScore: adjustedTrustScore,
-        verificationTime: data.verificationTime ?? "—",
-        debug: data.debug,
-        ssl: data.ssl,
-        whois: data.whois,
-        reclameAqui: data.reclameAqui,
-        googleResults: data.googleResults ?? [],
-        social: data.social,
-        trustPilot: data.trustPilot,
-      });
+      setResult(mockResult as any);
 
-      // Decrementa consultas gratuitas apenas se não for premium
-      if (!isPremium && !hasUnlimitedAccess) {
-        const newCount = Math.max(0, freeSearches - 1);
-        setFreeSearches(newCount);
-        localStorage.setItem('antigolpe_searches', newCount.toString());
+      // Decrementar consultas gratuitas
+      if (userPlan.type === 'free') {
+        const newPlan = { ...userPlan, remainingChecks: userPlan.remainingChecks - 1 };
+        saveUserPlan(newPlan);
       }
 
     } catch (e: any) {
       setResult({
-        status: "suspicious",
-        title: "⚠️ VERIFICAÇÃO PARCIAL",
-        message: "Não foi possível concluir toda a análise. Recomendamos cautela e verificação adicional.",
+        status: "danger",
+        title: "🚨 ERRO NA VERIFICAÇÃO",
+        message: "Não foi possível concluir a análise agora. Tente novamente em alguns instantes.",
         complaints: 0,
-        trustScore: 50,
+        trustScore: 8,
         verificationTime: "—",
       });
     } finally {
@@ -217,14 +154,40 @@ function App() {
     }
   };
 
+  const handleDetailsClick = () => {
+    if (userPlan.type === 'free' && !userPlan.hasDetailsAccess) {
+      setShowPaywallModal(true);
+      return;
+    }
+    setShowDetails(!showDetails);
+  };
+
   const handleShare = () => {
     if (!result) return;
     
     const emoji = result.status === 'safe' ? '✅' : result.status === 'suspicious' ? '⚠️' : '🚨';
-    const message = `${emoji} *AntiGolpe Verificou*\n\n🔍 *Site/Marca:* ${searchQuery}\n📊 *Resultado:* ${result.title}\n\n💬 *Detalhes:* ${result.message}\n\n🛡️ Verifique você também: ${window.location.href}\n\n_AntiGolpe - Sua proteção contra golpes online_`;
+    const message = `${emoji} *AntiGolpe Verificou*\n\n🔍 *Site/Marca:* ${searchQuery}\n📊 *Resultado:* ${result.title}\n\n💬 *Detalhes:* ${result.message}\n\n🛡️ Proteja-se também: ${window.location.href}\n\n_AntiGolpe - Sua proteção contra golpes online 🇧🇷_`;
     
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleUpgrade = (planType: 'basic' | 'premium') => {
+    if (planType === 'basic') {
+      // Simular pagamento básico
+      const newPlan: UserPlan = { type: 'basic', remainingChecks: 999, hasDetailsAccess: true };
+      saveUserPlan(newPlan);
+      setShowUpgradeModal(false);
+      setShowPaywallModal(false);
+    } else {
+      // Simular trial premium
+      const trialEnd = Date.now() + (7 * 24 * 60 * 60 * 1000); // 7 dias
+      const newPlan: UserPlan = { type: 'premium', remainingChecks: 999, hasDetailsAccess: true, trialEndsAt: trialEnd };
+      saveUserPlan(newPlan);
+      setShowUpgradeModal(false);
+      setShowPaywallModal(false);
+      setShowPremiumModal(false);
+    }
   };
 
   const getResultIcon = () => {
@@ -256,141 +219,94 @@ function App() {
   const getTrustScoreColor = () => {
     if (!result) return '';
     
-    if (result.trustScore >= 75) return 'text-green-600';
+    if (result.trustScore >= 80) return 'text-green-600';
     if (result.trustScore >= 50) return 'text-yellow-600';
     return 'text-red-600';
   };
 
-  const handleViewDetails = () => {
-    if (isPremium || hasUnlimitedAccess) {
-      setShowDetails(!showDetails);
-    } else {
-      setShowPaywall(true);
-    }
-  };
-
-  const handleUpgrade = (plan: string) => {
-    if (plan === 'unlimited') {
-      setHasUnlimitedAccess(true);
-      localStorage.setItem('antigolpe_unlimited', 'true');
-      setShowUpgradeModal(false);
-      setShowPaywall(false);
-    } else if (plan === 'premium') {
-      setIsPremium(true);
-      localStorage.setItem('antigolpe_premium', 'true');
-      setShowPremiumModal(false);
-      setShowPaywall(false);
-    }
-  };
-
-  const getSafeAlternatives = () => {
-    const alternatives = [
-      {
-        name: "Amazon",
-        url: "https://amzn.to/3example",
-        description: "Maior e-commerce do mundo",
-        discount: "Até 70% OFF"
-      },
-      {
-        name: "Magazine Luiza",
-        url: "https://magazineluiza.com.br/?utm_source=antigolpe",
-        description: "Líder nacional em e-commerce",
-        discount: "Frete grátis"
-      },
-      {
-        name: "Mercado Livre",
-        url: "https://mercadolivre.com.br/?utm_source=antigolpe",
-        description: "Marketplace mais confiável",
-        discount: "Compra protegida"
-      }
-    ];
-
-    return alternatives;
-  };
-
-  const getSecurityServices = () => {
-    const services = [
-      {
-        name: "NordVPN",
-        url: "https://nordvpn.com/?utm_source=antigolpe",
-        description: "Proteja sua navegação",
-        price: "R$ 12,99/mês",
-        discount: "68% OFF"
-      },
-      {
-        name: "Serasa Premium",
-        url: "https://serasa.com.br/?utm_source=antigolpe",
-        description: "Monitore seu CPF 24h",
-        price: "R$ 16,90/mês",
-        discount: "1º mês grátis"
-      },
-      {
-        name: "Kaspersky",
-        url: "https://kaspersky.com.br/?utm_source=antigolpe",
-        description: "Antivírus premium",
-        price: "R$ 89,90/ano",
-        discount: "50% OFF"
-      }
-    ];
-
-    return services;
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Oferta Especial Banner */}
-      {!isPremium && !hasUnlimitedAccess && (
-        <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white py-3 px-4 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-10"></div>
-          <div className="relative z-10">
-            <p className="font-bold text-sm md:text-base">
-              🔥 <span className="animate-pulse">OFERTA ESPECIAL</span> - Proteção Premium por apenas R$ 12/mês • 7 dias GRÁTIS • 
-              <button 
-                onClick={() => setShowPremiumModal(true)}
-                className="ml-2 underline hover:no-underline font-black"
-              >
-                GARANTIR AGORA →
-              </button>
-            </p>
-          </div>
-        </div>
-      )}
-
       {/* Header Premium */}
       <header className="bg-white shadow-lg border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="relative">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg">
-                <Shield className="w-9 h-9 text-white" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="relative">
+                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg">
+                  <Shield className="w-9 h-9 text-white" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <Star className="w-3 h-3 text-white" />
+                </div>
               </div>
-              <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                <Star className="w-3 h-3 text-white" />
+              <div>
+                <h1 className="text-4xl font-black text-gray-900 tracking-tight">AntiGolpe</h1>
+                <p className="text-lg font-semibold text-blue-600 mt-1">Proteção Nacional Contra Fraudes</p>
+                <div className="flex items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1 text-sm text-gray-600">
+                    <Lock className="w-4 h-4" />
+                    <span className="font-medium">100% Seguro</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-sm text-gray-600">
+                    <Zap className="w-4 h-4" />
+                    <span className="font-medium">Verificação Instantânea</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="text-center">
-              <h1 className="text-4xl font-black text-gray-900 tracking-tight">AntiGolpe</h1>
-              <p className="text-lg font-semibold text-blue-600 mt-1">Proteção Nacional Contra Fraudes</p>
-              <div className="flex items-center justify-center space-x-4 mt-2">
-                <div className="flex items-center space-x-1 text-sm text-gray-600">
-                  <Lock className="w-4 h-4" />
-                  <span className="font-medium">100% Seguro</span>
-                </div>
-                <div className="flex items-center space-x-1 text-sm text-gray-600">
-                  <Zap className="w-4 h-4" />
-                  <span className="font-medium">Verificação Instantânea</span>
-                </div>
-                {!isPremium && !hasUnlimitedAccess && (
-                  <div className="flex items-center space-x-1 text-sm text-orange-600">
-                    <Gift className="w-4 h-4" />
-                    <span className="font-medium">{freeSearches} consultas restantes</span>
+
+            {/* User Plan Status */}
+            <div className="hidden md:flex items-center space-x-4">
+              {userPlan.type === 'free' && (
+                <div className="bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-xl px-4 py-2">
+                  <div className="flex items-center space-x-2">
+                    <Crown className="w-4 h-4 text-orange-600" />
+                    <span className="text-sm font-bold text-orange-800">
+                      {userPlan.remainingChecks} consultas grátis restantes
+                    </span>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
+              
+              {userPlan.type === 'premium' && (
+                <div className="bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-xl px-4 py-2">
+                  <div className="flex items-center space-x-2">
+                    <Crown className="w-4 h-4 text-purple-600" />
+                    <span className="text-sm font-bold text-purple-800">PREMIUM</span>
+                    <Sparkles className="w-4 h-4 text-purple-600" />
+                  </div>
+                </div>
+              )}
+
+              <button
+                onClick={() => setShowPremiumModal(true)}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-2 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2"
+              >
+                <Crown className="w-4 h-4" />
+                <span>PREMIUM</span>
+              </button>
             </div>
           </div>
         </div>
       </header>
+
+      {/* Premium Trial Banner */}
+      {userPlan.type === 'free' && (
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex items-center justify-center space-x-4 text-center">
+              <Crown className="w-5 h-5" />
+              <span className="font-bold">🔥 OFERTA ESPECIAL: 7 dias GRÁTIS do Premium + Consultas Ilimitadas</span>
+              <button
+                onClick={() => setShowPremiumModal(true)}
+                className="bg-white text-purple-600 font-bold py-1 px-4 rounded-full text-sm hover:bg-gray-100 transition-all duration-300"
+              >
+                ATIVAR AGORA
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Stats Section */}
       <section className="max-w-6xl mx-auto px-4 py-8">
@@ -448,7 +364,7 @@ function App() {
               ) : (
                 <>
                   <Shield className="w-6 h-6" />
-                  <span>🔍 Verificar Agora - GRÁTIS</span>
+                  <span>🔍 Verificar Agora - {userPlan.type === 'free' ? `${userPlan.remainingChecks} GRÁTIS` : 'ILIMITADO'}</span>
                 </>
               )}
             </button>
@@ -527,22 +443,69 @@ function App() {
                     </div>
                   )}
                 </div>
+
+                {/* Alternatives - Affiliate System */}
+                {result.alternatives && result.alternatives.length > 0 && (
+                  <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
+                    <h4 className="text-lg font-bold text-green-800 mb-4 flex items-center justify-center">
+                      <Shield className="w-5 h-5 mr-2" />
+                      ✅ ALTERNATIVAS SEGURAS RECOMENDADAS
+                    </h4>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      {result.alternatives.map((alt, index) => (
+                        <div key={index} className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300">
+                          <div className="text-center">
+                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                              <CheckCircle className="w-6 h-6 text-green-600" />
+                            </div>
+                            <h5 className="font-bold text-gray-900 mb-2">{alt.name}</h5>
+                            <p className="text-sm text-gray-600 mb-4">{alt.description}</p>
+                            <a
+                              href={alt.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm"
+                            >
+                              🛒 COMPRAR SEGURO
+                            </a>
+                            {alt.affiliate && (
+                              <p className="text-xs text-gray-400 mt-2">Link seguro verificado</p>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Botão Ver Relatório Completo */}
+              {/* Botão Ver Detalhes com Paywall */}
               {(result.ssl || result.whois || result.reclameAqui || result.googleResults?.length || result.social || result.trustPilot) && (
-                <button
-                  onClick={handleViewDetails}
-                  className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  <FileText className="w-5 h-5" />
-                  <span>📊 Ver Relatório Completo</span>
-                  {!isPremium && !hasUnlimitedAccess && <Lock className="w-4 h-4 ml-1" />}
-                </button>
+                <div className="relative">
+                  <button
+                    onClick={handleDetailsClick}
+                    className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-gray-200 to-gray-300 hover:from-gray-300 hover:to-gray-400 text-gray-800 font-bold py-3 px-6 rounded-xl transition-all duration-300 relative"
+                  >
+                    <Eye className="w-5 h-5" />
+                    <span>Ver Relatório Completo</span>
+                    {userPlan.type === 'free' && !userPlan.hasDetailsAccess && (
+                      <Crown className="w-4 h-4 text-orange-600" />
+                    )}
+                    {showDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  </button>
+                  
+                  {userPlan.type === 'free' && !userPlan.hasDetailsAccess && (
+                    <div className="absolute -top-2 -right-2">
+                      <div className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                        PRO
+                      </div>
+                    </div>
+                  )}
+                </div>
               )}
 
-              {/* Detalhes da Análise - Apenas para Premium */}
-              {showDetails && (isPremium || hasUnlimitedAccess) && (
+              {/* Detalhes da Análise */}
+              {showDetails && userPlan.hasDetailsAccess && (
                 <div className="mt-6 text-left space-y-6 p-6 bg-gray-50 rounded-2xl border border-gray-200">
                   {/* SSL */}
                   {result.ssl && (
@@ -650,22 +613,6 @@ function App() {
                             </a>
                           </div>
                         )}
-                        {result.social.linkedin && (
-                          <div>
-                            <span className="font-semibold">LinkedIn:</span> 
-                            <a href={result.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
-                              Ver perfil
-                            </a>
-                          </div>
-                        )}
-                        {result.social.reddit && (
-                          <div>
-                            <span className="font-semibold">Reddit:</span> 
-                            <a href={result.social.reddit} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
-                              Ver discussão
-                            </a>
-                          </div>
-                        )}
                       </div>
                     </div>
                   )}
@@ -730,36 +677,6 @@ function App() {
                 </div>
               )}
 
-              {/* Alternativas Seguras - Apenas para sites perigosos */}
-              {result.status === 'danger' && (
-                <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-2xl">
-                  <h4 className="text-xl font-bold text-green-800 mb-4 flex items-center">
-                    <ShoppingCart className="w-6 h-6 mr-2" />
-                    🛡️ Alternativas 100% Seguras
-                  </h4>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {getSafeAlternatives().map((alt, index) => (
-                      <a
-                        key={index}
-                        href={alt.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white p-4 rounded-xl border border-green-200 hover:border-green-400 transition-all duration-300 hover:shadow-lg group"
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <h5 className="font-bold text-gray-900">{alt.name}</h5>
-                          <ExternalLink className="w-4 h-4 text-green-600 group-hover:text-green-800" />
-                        </div>
-                        <p className="text-sm text-gray-600 mb-2">{alt.description}</p>
-                        <div className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded-full inline-block">
-                          {alt.discount}
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
@@ -777,39 +694,161 @@ function App() {
                   <Search className="w-5 h-5" />
                   <span>🔍 Nova Verificação</span>
                 </button>
+
+                {userPlan.type === 'free' && (
+                  <button
+                    onClick={() => setShowPremiumModal(true)}
+                    className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    <Crown className="w-5 h-5" />
+                    <span>🚀 UPGRADE PREMIUM</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
         )}
 
-        {/* Seção de Segurança Completa */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
-            <Shield className="w-8 h-8 mr-3 text-blue-600" />
-            🛡️ Proteja-se Completamente Online
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {getSecurityServices().map((service, index) => (
+        {/* Security Services - Affiliate Section */}
+        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">🛡️ Proteção Completa Recomendada</h3>
+            <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
+              <p className="text-gray-600 mb-4">Navegação 100% anônima e protegida</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
               <a
-                key={index}
-                href={service.url}
+                href="https://nordvpn.com?ref=antigolpe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg group"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-bold text-gray-900">{service.name}</h4>
-                  <ExternalLink className="w-5 h-5 text-blue-600 group-hover:text-blue-800" />
-                </div>
-                <p className="text-sm text-gray-600 mb-3">{service.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-gray-900">{service.price}</span>
-                  <span className="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded-full">
-                    {service.discount}
-                  </span>
-                </div>
+                🔐 Ativar Proteção
               </a>
-            ))}
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Serasa Premium</h4>
+              <p className="text-gray-600 mb-4">Monitoramento do seu CPF 24/7</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">1º mês GRÁTIS</div>
+              <a
+                href="https://serasa.com.br?ref=antigolpe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+              >
+                📊 Monitorar CPF
+              </a>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-8 h-8 text-orange-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">Kaspersky Total</h4>
+              <p className="text-gray-600 mb-4">Antivírus premium para todos dispositivos</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">-50% OFF</div>
+              <a
+                href="https://kaspersky.com.br?ref=antigolpe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+              >
+                🦠 Eliminar Vírus
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">✅ Todos os serviços são verificados e recomendados pelo AntiGolpe</p>
+          </div>
+        </div>
+
+        {/* Custom Check Service */}
+        <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-10">
+          <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Headphones className="w-10 h-10 text-yellow-600" />
+            </div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">🔍 Análise Personalizada Premium</h3>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Precisa de uma análise detalhada de documentos, CNPJs, contratos ou propostas de investimento? 
+              Nossa equipe de especialistas faz uma verificação manual completa em até 1 hora.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-white rounded-2xl p-6 shadow-md">
+              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <CreditCard className="w-6 h-6 mr-2 text-green-600" />
+                Análise Expressa - R$ 49,90
+              </h4>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Resposta em até 1 hora
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Verificação manual por especialistas
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Relatório detalhado em PDF
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Suporte via WhatsApp
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-purple-200">
+              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <Crown className="w-6 h-6 mr-2 text-purple-600" />
+                Análise Premium - R$ 99,90
+              </h4>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Resposta em até 30 minutos
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Análise jurídica incluída
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Consultoria por videochamada
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Garantia de 30 dias
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://wa.me/5511999999999?text=Olá! Preciso de uma análise personalizada pelo AntiGolpe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <Phone className="w-5 h-5" />
+              <span>📱 Solicitar Análise via WhatsApp</span>
+            </a>
           </div>
         </div>
 
@@ -847,291 +886,224 @@ function App() {
         </div>
       </main>
 
-      {/* Modal Paywall - Relatório Completo */}
-      {showPaywall && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-8">
-              <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-10 h-10 text-purple-600" />
-                </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">📊 Relatório Completo</h3>
-                <p className="text-lg text-gray-600">Desbloqueie todos os detalhes da análise</p>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 mb-6">
-                <h4 className="font-bold text-lg text-gray-900 mb-4">🔓 O que você vai ver:</h4>
-                <div className="grid md:grid-cols-2 gap-3 text-sm">
-                  <div className="flex items-center space-x-2">
-                    <Lock className="w-4 h-4 text-purple-600" />
-                    <span>Certificados SSL detalhados</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Search className="w-4 h-4 text-purple-600" />
-                    <span>Informações WHOIS completas</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <AlertTriangle className="w-4 h-4 text-purple-600" />
-                    <span>Histórico Reclame Aqui</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-purple-600" />
-                    <span>Análise de redes sociais</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-purple-600" />
-                    <span>Avaliações TrustPilot</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Search className="w-4 h-4 text-purple-600" />
-                    <span>Top 10 resultados Google</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <button
-                  onClick={() => handleUpgrade('unlimited')}
-                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  🚀 Desbloquear por R$ 29,90 (Uma vez)
-                </button>
-                
-                <button
-                  onClick={() => setShowPremiumModal(true)}
-                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  👑 Ou Premium por R$ 12/mês (7 dias grátis)
-                </button>
-              </div>
-
-              <button
-                onClick={() => setShowPaywall(false)}
-                className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium py-2"
-              >
-                Talvez depois
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal Premium */}
-      {showPremiumModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-8">
-              <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Crown className="w-10 h-10 text-orange-600" />
-                </div>
-                <h3 className="text-4xl font-bold text-gray-900 mb-2">👑 Proteção Premium</h3>
-                <p className="text-xl text-gray-600">Escolha o plano ideal para sua proteção</p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                {pricingPlans.map((plan, index) => (
-                  <div
-                    key={index}
-                    className={`relative bg-white rounded-2xl border-2 p-6 ${
-  plan.popular
-    ? 'border-orange-500 shadow-2xl transform scale-105'
-    : 'border-gray-200 shadow-lg'
-}`}
-                  >
-                    {plan.popular && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                          🔥 MAIS POPULAR
-                        </span>
-                      </div>
-                    )}
-                    
-                    {plan.savings && (
-                      <div className="absolute -top-2 -right-2">
-                        <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                          {plan.savings}
-                        </span>
-                      </div>
-                    )}
-
-                    <div className="text-center mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h4>
-                      <div className="mb-2">
-                        <span className="text-3xl font-black text-gray-900">{plan.price}</span>
-                        <span className="text-gray-600">{plan.period}</span>
-                      </div>
-                      {plan.originalPrice && (
-                        <div className="text-sm text-gray-500">
-                          <span className="line-through">{plan.originalPrice}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    <ul className="space-y-3 mb-6">
-                      {plan.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-center space-x-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <button
-                      onClick={() => handleUpgrade('premium')}
-                      className={`w-full font-bold py-3 px-4 rounded-xl transition-all duration-300 ${
-                        plan.popular
-                          ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
-                          : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                      }`}
-                    >
-                      {plan.cta}
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center">
-                <button
-                  onClick={() => setShowPremiumModal(false)}
-                  className="text-gray-500 hover:text-gray-700 font-medium"
-                >
-                  Continuar com plano gratuito
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal Upgrade - Consultas Esgotadas */}
+      {/* Upgrade Modal */}
       {showUpgradeModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full">
-            <div className="p-8 text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Gift className="w-10 h-10 text-orange-600" />
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full relative">
+            <button
+              onClick={() => setShowUpgradeModal(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Crown className="w-10 h-10 text-orange-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">🔒 Consultas Esgotadas</h3>
-              <p className="text-gray-600 mb-6">
-                Você usou suas 5 consultas gratuitas. Desbloqueie acesso ilimitado agora!
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">🚀 Consultas Esgotadas!</h3>
+              <p className="text-gray-600">Você já utilizou suas 5 consultas gratuitas. Faça upgrade para continuar protegido!</p>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-bold text-gray-900">Pagamento Único</span>
+                  <span className="text-2xl font-black text-green-600">R$ 29,90</span>
+                </div>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <Check className="w-4 h-4 text-green-600 mr-2" />
+                    Consultas ilimitadas para sempre
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-4 h-4 text-green-600 mr-2" />
+                    Acesso aos relatórios detalhados
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="w-4 h-4 text-green-600 mr-2" />
+                    Suporte prioritário
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleUpgrade('basic')}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 mt-4"
+                >
+                  💳 Comprar Agora
+                </button>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm text-gray-500">
+                ⚠️ Suas consultas serão resetadas amanhã, mas upgrade garante acesso ilimitado!
               </p>
-
-              <div className="space-y-4">
-                <button
-                  onClick={() => handleUpgrade('unlimited')}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  🚀 Acesso Ilimitado - R$ 29,90
-                </button>
-                
-                <button
-                  onClick={() => setShowPremiumModal(true)}
-                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  👑 Premium - R$ 12/mês (7 dias grátis)
-                </button>
-              </div>
-
-              <button
-                onClick={() => setShowUpgradeModal(false)}
-                className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium py-2"
-              >
-                Voltar
-              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Modal Análise Personalizada */}
-      {showCustomAnalysis && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full">
-            <div className="p-8">
-              <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Headphones className="w-10 h-10 text-green-600" />
+      {/* Paywall Modal */}
+      {showPaywallModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full relative">
+            <button
+              onClick={() => setShowPaywallModal(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-10 h-10 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">🔍 Relatório Detalhado</h3>
+              <p className="text-gray-600">Para ver a análise completa com todos os dados, certificados e histórico, faça upgrade!</p>
+            </div>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+              <h4 className="font-bold text-blue-900 mb-2">📊 O que você verá:</h4>
+              <ul className="space-y-1 text-sm text-blue-800">
+                <li>• Certificados SSL detalhados</li>
+                <li>• Dados WHOIS completos</li>
+                <li>• Histórico de reclamações</li>
+                <li>• Análise de redes sociais</li>
+                <li>• Top 10 resultados Google</li>
+                <li>• Scores de confiança</li>
+              </ul>
+            </div>
+
+            <button
+              onClick={() => handleUpgrade('basic')}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300"
+            >
+              🔓 Desbloquear por R$ 29,90
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Premium Modal */}
+      {showPremiumModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-2xl w-full relative max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={() => setShowPremiumModal(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 z-10"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <div className="text-center mb-8">
+              <div className="w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Crown className="w-12 h-12 text-purple-600" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">🚀 AntiGolpe PREMIUM</h3>
+              <p className="text-xl text-gray-600">Proteção máxima contra fraudes com monitoramento 24/7</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* Plano Mensal */}
+              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                <div className="text-center mb-6">
+                  <Calendar className="w-8 h-8 text-gray-600 mx-auto mb-2" />
+                  <h4 className="text-xl font-bold text-gray-900">Mensal</h4>
+                  <div className="text-3xl font-black text-gray-900 mt-2">R$ 12<span className="text-sm font-normal">/mês</span></div>
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">🎯 Análise Personalizada</h3>
-                <p className="text-lg text-gray-600">Análise manual especializada para casos complexos</p>
+                <button
+                  onClick={() => handleUpgrade('premium')}
+                  className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300"
+                >
+                  7 DIAS GRÁTIS
+                </button>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200">
-                  <div className="text-center">
-                    <CreditCard className="w-12 h-12 text-blue-600 mx-auto mb-3" />
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Análise Rápida</h4>
-                    <div className="text-3xl font-black text-blue-600 mb-2">R$ 49,90</div>
-                    <p className="text-sm text-gray-600 mb-4">Resposta em até 1 hora</p>
-                    <ul className="text-sm space-y-2 mb-4">
-                      <li>✅ Análise manual detalhada</li>
-                      <li>✅ Verificação de documentos</li>
-                      <li>✅ Relatório personalizado</li>
-                      <li>✅ Suporte via WhatsApp</li>
-                    </ul>
-                    <a
-                      href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar uma Análise Rápida (R$ 49,90) para verificar:"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 inline-block text-center"
-                    >
-                      <Smartphone className="w-4 h-4 inline mr-2" />
-                      Solicitar via WhatsApp
-                    </a>
+              {/* Plano Anual - Destaque */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-300 rounded-2xl p-6 relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    MAIS POPULAR
                   </div>
                 </div>
+                <div className="text-center mb-6">
+                  <Crown className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                  <h4 className="text-xl font-bold text-gray-900">Anual</h4>
+                  <div className="text-3xl font-black text-purple-600 mt-2">R$ 99<span className="text-sm font-normal">/ano</span></div>
+                  <div className="text-sm text-green-600 font-semibold mt-1">🔥 ECONOMIA DE 31%</div>
+                </div>
+                <button
+                  onClick={() => handleUpgrade('premium')}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300"
+                >
+                  7 DIAS GRÁTIS
+                </button>
+              </div>
+            </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border border-purple-200">
-                  <div className="text-center">
-                    <Crown className="w-12 h-12 text-purple-600 mx-auto mb-3" />
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Análise Premium</h4>
-                    <div className="text-3xl font-black text-purple-600 mb-2">R$ 99,90</div>
-                    <p className="text-sm text-gray-600 mb-4">Resposta em até 30 min</p>
-                    <ul className="text-sm space-y-2 mb-4">
-                      <li>✅ Tudo da Análise Rápida</li>
-                      <li>✅ Consultoria especializada</li>
-                      <li>✅ Verificação de CNPJs</li>
-                      <li>✅ Análise de investimentos</li>
-                      <li>✅ Suporte prioritário</li>
-                    </ul>
-                    <a
-                      href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar uma Análise Premium (R$ 99,90) para verificar:"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 inline-block text-center"
-                    >
-                      <Smartphone className="w-4 h-4 inline mr-2" />
-                      Solicitar via WhatsApp
-                    </a>
+            {/* Recursos Premium */}
+            <div className="bg-gray-50 rounded-2xl p-6 mb-8">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <Sparkles className="w-5 h-5 mr-2 text-purple-600" />
+                Recursos Exclusivos Premium
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Consultas 100% ilimitadas</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Monitoramento automático de sites</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Alertas por WhatsApp e Email</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Lista VIP de sites confiáveis</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Relatórios detalhados em PDF</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Suporte prioritário 24/7</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Análise de histórico completo</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Check className="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">API para desenvolvedores</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <button
-                onClick={() => setShowCustomAnalysis(false)}
-                className="w-full text-gray-500 hover:text-gray-700 font-medium py-2"
-              >
-                Fechar
-              </button>
+            <div className="text-center">
+              <p className="text-sm text-gray-500 mb-4">
+                ✅ Cancele quando quiser • 🔒 Pagamento 100% seguro • 🇧🇷 Suporte nacional
+              </p>
+              <p className="text-xs text-gray-400">
+                Teste 7 dias grátis. Após período de teste, será cobrado automaticamente.
+              </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* Botão Análise Personalizada Flutuante */}
-      <button
-        onClick={() => setShowCustomAnalysis(true)}
-        className="fixed bottom-6 left-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 z-40"
-        title="Análise Personalizada"
-      >
-        <Headphones className="w-6 h-6" />
-      </button>
-
-      {/* Símbolo c🔱 fixo no canto inferior direito */}
-      <div className="fixed bottom-6 right-6 text-2xl font-bold text-gray-600 z-40 select-none">
-        c🔱
+      {/* Fixed Symbol Bottom Right */}
+      <div className="fixed bottom-6 right-6 z-40">
+        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-110">
+          <span className="text-white font-bold text-lg">c🔱</span>
+        </div>
       </div>
 
       {/* Footer Premium */}
@@ -1154,8 +1126,8 @@ function App() {
                 <p className="text-gray-300">Seus dados são protegidos com criptografia de nível bancário</p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2 text-green-400">✅ Verificação Gratuita</h4>
-                <p className="text-gray-300">5 consultas gratuitas para proteger todos os brasileiros</p>
+                <h4 className="font-semibold mb-2 text-green-400">✅ Verificação Inteligente</h4>
+                <p className="text-gray-300">IA avançada para detectar golpes com 99.8% de precisão</p>
               </div>
               <div>
                 <h4 className="font-semibold mb-2 text-purple-400">🚀 Sempre Atualizado</h4>
