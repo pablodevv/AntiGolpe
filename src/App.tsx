@@ -855,6 +855,94 @@ function App() {
 
 
 
+
+        
+        {/* Custom Check Service */}
+        <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-10">
+          <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Headphones className="w-10 h-10 text-yellow-600" />
+            </div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">🔍 Análise Personalizada Premium</h3>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Precisa de uma análise detalhada de documentos, CNPJs, contratos ou propostas de investimento? 
+              Nossa equipe de especialistas faz uma verificação manual completa em até 1 hora.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-white rounded-2xl p-6 shadow-md">
+              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <CreditCard className="w-6 h-6 mr-2 text-green-600" />
+                Análise Expressa - R$ 49,90
+              </h4>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Resposta em até 1 hora
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Verificação manual por especialistas
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Relatório detalhado em PDF
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  Suporte via WhatsApp
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-purple-200">
+              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <Crown className="w-6 h-6 mr-2 text-purple-600" />
+                Análise Premium - R$ 99,90
+              </h4>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Resposta em até 30 minutos
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Análise jurídica incluída
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Consultoria por videochamada
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  Garantia de 30 dias
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://wa.me/5511999999999?text=Olá! Preciso de uma análise personalizada pelo AntiGolpe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <Phone className="w-5 h-5" />
+              <span>📱 Solicitar Análise via WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        
+
+
+
+
+
+        
+
         
 
         {/* Trust Indicators */}
