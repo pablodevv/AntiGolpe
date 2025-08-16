@@ -852,7 +852,7 @@ function App() {
               className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               <Phone className="w-5 h-5" />
-              <span>📱 Solicitar Análise via WhatsApp</span>
+              <span>Solicitar Análise via WhatsApp</span>
             </a>
           </div>
         </div>
