@@ -789,7 +789,7 @@ function App() {
        {/* Security Services - Affiliate Section */}
         <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">🛡️ Proteção Completa Recomendada</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Proteção Completa Recomendada</h3>
             <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
           </div>
 
@@ -862,7 +862,7 @@ function App() {
             <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Headphones className="w-10 h-10 text-yellow-600" />
             </div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">🔍 Análise Personalizada Premium</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Análise Personalizada Premium</h3>
             <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Precisa de uma análise detalhada de documentos, CNPJs, contratos ou propostas de investimento? 
               Nossa equipe de especialistas faz uma verificação manual completa em até 1 hora.
