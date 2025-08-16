@@ -119,8 +119,7 @@ function App() {
         "Monitoramento 24/7",
         "Alertas WhatsApp/Email",
         "Lista VIP de sites",
-        "Suporte prioritário",
-        "7 dias grátis"
+        "Suporte prioritário"
       ],
       cta: "Começar Trial Grátis"
     },
@@ -344,7 +343,7 @@ function App() {
           <div className="absolute inset-0 bg-black opacity-10"></div>
           <div className="relative z-10">
             <p className="font-bold text-sm md:text-base">
-              🔥 <span className="animate-pulse">OFERTA ESPECIAL</span> - Proteção Premium por apenas R$ 12/mês • 7 dias GRÁTIS • 
+              🔥 <span className="animate-pulse">OFERTA ESPECIAL</span> - Proteção Premium por apenas R$12/mês • 
               <button 
                 onClick={() => setShowPremiumModal(true)}
                 className="ml-2 underline hover:no-underline font-black"
@@ -1034,7 +1033,7 @@ function App() {
                   onClick={() => setShowPremiumModal(true)}
                   className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  👑 Ou Premium por R$ 12/mês (7 dias grátis)
+                  👑 Ou Premium por R$ 12/mês
                 </button>
               </div>
 
@@ -1162,7 +1161,7 @@ function App() {
                   onClick={() => setShowPremiumModal(true)}
                   className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  👑 Premium - R$ 12/mês (7 dias grátis)
+                  👑 Premium - R$ 12/mês
                 </button>
               </div>
 
