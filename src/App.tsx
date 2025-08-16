@@ -157,7 +157,7 @@ if (path === "/annual-ativar") {
         "Lista VIP de sites",
         "Suporte prioritário"
       ],
-      cta: "Começar Trial Grátis"
+      cta: "Desbloquear Premium Agora"
     },
     {
       id: "annual",
