@@ -270,15 +270,24 @@ function App() {
 
   const handleUpgrade = (plan: string) => {
     if (plan === 'unlimited') {
-      setHasUnlimitedAccess(true);
-      localStorage.setItem('antigolpe_unlimited', 'true');
-      setShowUpgradeModal(false);
-      setShowPaywall(false);
+
+
+  window.location.href = "https://app.pushinpay.com.br/service/pay/9fa65fca-27da-4b61-b44b-3650e52c52f2";
+      
+      //setHasUnlimitedAccess(true);
+      //localStorage.setItem('antigolpe_unlimited', 'true');
+      //setShowUpgradeModal(false);
+      //setShowPaywall(false);
     } else if (plan === 'premium') {
-      setIsPremium(true);
-      localStorage.setItem('antigolpe_premium', 'true');
-      setShowPremiumModal(false);
-      setShowPaywall(false);
+
+
+      window.location.href = "https://app.pushinpay.com.br/service/pay/9fa66120-1b0d-4b0d-aafc-65784e333b2d";
+
+        
+      //setIsPremium(true);
+      //localStorage.setItem('antigolpe_premium', 'true');
+      //setShowPremiumModal(false);
+      //setShowPaywall(false);
     }
   };
 
