@@ -1047,12 +1047,13 @@ if (path === "/annual-ativar") {
 }`}
                   >
                     {plan.popular && (
-  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 md:-top-6 md:text-base">
-    <span className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold md:px-5 md:py-2.5">
+  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+    <span className="inline-block whitespace-nowrap bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">
       🔥 MAIS POPULAR
     </span>
   </div>
 )}
+
 
                     
                     {plan.savings && (
