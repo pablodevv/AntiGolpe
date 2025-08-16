@@ -63,8 +63,37 @@ function App() {
     if (savedUnlimited === 'true') {
       setHasUnlimitedAccess(true);
     }
+
+
+    // 🔥 Verifica o slug da URL
+  const path = window.location.pathname;
+
+  if (path === "/premium-ativar") {
+    setIsPremium(true);
+    localStorage.setItem('antigolpe_premium', 'true');
+    alert("✅ Premium ativado com sucesso!");
+    window.location.href = "/"; // redireciona para a home
+  }
+
+  if (path === "/unlimited-ativar") {
+    setHasUnlimitedAccess(true);
+    localStorage.setItem('antigolpe_unlimited', 'true');
+    alert("✅ Pagamento Único ativado com sucesso!");
+    window.location.href = "/";
+  }
+
+
+
+
+
+    
   }, []);
 
+
+
+  
+
+  
   // Estatísticas impressionantes para credibilidade
   const stats: StatCard[] = [
     {
