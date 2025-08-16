@@ -71,7 +71,7 @@ function App() {
   if (path === "/premium-ativar") {
     setIsPremium(true);
     localStorage.setItem('antigolpe_premium', 'true');
-    alert("✅ Premium ativado com sucesso!");
+    alert("✅ Proteção Premium ativada com sucesso!");
     window.location.href = "/"; // redireciona para a home
   }
 
@@ -82,7 +82,12 @@ function App() {
     window.location.href = "/";
   }
 
-
+if (path === "/annual-ativar") {
+    setIsPremium(true);
+    localStorage.setItem('antigolpe_premium', 'true');
+    alert("✅ Proteção Anual ativada com sucesso!");
+    window.location.href = "/"; // redireciona para a home
+  }
 
 
 
