@@ -96,6 +96,7 @@ function App() {
   // Planos de preços
   const pricingPlans: PricingPlan[] = [
     {
+      id: "unlimited",
       name: "Pagamento Único",
       price: "R$ 29,90",
       period: "uma vez",
@@ -108,6 +109,7 @@ function App() {
       cta: "Desbloquear Agora"
     },
     {
+      id: "premium",
       name: "Proteção Premium",
       price: "R$ 12",
       originalPrice: "R$ 17",
@@ -124,6 +126,7 @@ function App() {
       cta: "Começar Trial Grátis"
     },
     {
+      id: "annual",
       name: "Proteção Anual",
       price: "R$ 99",
       originalPrice: "R$ 144",
@@ -288,7 +291,13 @@ function App() {
       //localStorage.setItem('antigolpe_premium', 'true');
       //setShowPremiumModal(false);
       //setShowPaywall(false);
-    }
+    } else if (plan === 'annual') {
+    window.location.href = "https://app.pushinpay.com.br/service/pay/9fa6663e-a37d-4ba4-b042-f0e81df19aa9";
+  }
+
+
+
+    
   };
 
   const getSafeAlternatives = () => {
@@ -1042,7 +1051,7 @@ function App() {
                     </ul>
 
                     <button
-                      onClick={() => handleUpgrade('premium')}
+                      onClick={() => handleUpgrade(plan.id)}
                       className={`w-full font-bold py-3 px-4 rounded-xl transition-all duration-300 ${
                         plan.popular
                           ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
