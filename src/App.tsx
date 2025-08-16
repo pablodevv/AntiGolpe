@@ -289,18 +289,6 @@ function App() {
         url: "https://amzn.to/4mujivi",
         description: "Maior e-commerce do mundo",
         discount: "Até 70% OFF"
-      },
-      {
-        name: "Magazine Luiza",
-        url: "https://magazineluiza.com.br/?utm_source=antigolpe",
-        description: "Líder nacional em e-commerce",
-        discount: "Frete grátis"
-      },
-      {
-        name: "Mercado Livre",
-        url: "https://mercadolivre.com.br/?utm_source=antigolpe",
-        description: "Marketplace mais confiável",
-        discount: "Compra protegida"
       }
     ];
 
@@ -447,7 +435,7 @@ function App() {
               ) : (
                 <>
                   <Shield className="w-6 h-6" />
-                  <span>🔍 Verificar Agora - GRÁTIS</span>
+                  <span>Verificar Agora - GRÁTIS</span>
                 </>
               )}
             </button>
@@ -535,7 +523,7 @@ function App() {
                   className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <FileText className="w-5 h-5" />
-                  <span>📊 Ver Relatório Completo</span>
+                  <span>Ver Relatório Completo</span>
                   {!isPremium && !hasUnlimitedAccess && <Lock className="w-4 h-4 ml-1" />}
                 </button>
               )}
@@ -734,7 +722,7 @@ function App() {
                 <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-2xl">
                   <h4 className="text-xl font-bold text-green-800 mb-4 flex items-center">
                     <ShoppingCart className="w-6 h-6 mr-2" />
-                    🛡️ Alternativas 100% Seguras
+                    Alternativa 100% Segura
                   </h4>
                   <div className="grid md:grid-cols-3 gap-4">
                     {getSafeAlternatives().map((alt, index) => (
@@ -766,7 +754,7 @@ function App() {
                   className="inline-flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <Share2 className="w-5 h-5" />
-                  <span>📱 Compartilhar no WhatsApp</span>
+                  <span>Compartilhar no WhatsApp</span>
                 </button>
                 
                 <button
@@ -774,7 +762,7 @@ function App() {
                   className="inline-flex items-center justify-center space-x-3 bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <Search className="w-5 h-5" />
-                  <span>🔍 Nova Verificação</span>
+                  <span>Nova Verificação</span>
                 </button>
               </div>
             </div>
@@ -785,72 +773,7 @@ function App() {
 
 
 
-        
-       {/* Security Services - Affiliate Section */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Proteção Completa Recomendada</h3>
-            <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-blue-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
-              <p className="text-gray-600 mb-4">Navegação 100% anônima e protegida</p>
-              <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
-              <a
-                href="https://nordvpn.com?ref=antigolpe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
-              >
-                🔐 Ativar Proteção
-              </a>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-green-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">Serasa Premium</h4>
-              <p className="text-gray-600 mb-4">Monitoramento do seu CPF 24/7</p>
-              <div className="text-2xl font-bold text-green-600 mb-2">1º mês GRÁTIS</div>
-              <a
-                href="https://serasa.com.br?ref=antigolpe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
-              >
-                📊 Monitorar CPF
-              </a>
-            </div>
-
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-orange-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">Kaspersky Total</h4>
-              <p className="text-gray-600 mb-4">Antivírus premium para todos dispositivos</p>
-              <div className="text-2xl font-bold text-green-600 mb-2">-50% OFF</div>
-              <a
-                href="https://kaspersky.com.br?ref=antigolpe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
-              >
-                🦠 Eliminar Vírus
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">✅ Todos os serviços são verificados e recomendados pelo AntiGolpe</p>
-          </div>
-        </div>
-        
+    
 
 
 
