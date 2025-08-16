@@ -286,7 +286,7 @@ function App() {
     const alternatives = [
       {
         name: "Amazon",
-        url: "https://amzn.to/3example",
+        url: "https://amzn.to/4mujivi",
         description: "Maior e-commerce do mundo",
         discount: "Até 70% OFF"
       },
