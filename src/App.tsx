@@ -1721,11 +1721,12 @@ function App() {
 
                     <button
                       onClick={() => handleUpgrade(plan.id)}
-                      className={\`w-full font-bold py-3 px-4 rounded-xl transition-all duration-300 ${
-                        plan.popular
-                          ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
-                          : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                      }`}
+                      className={`w-full font-bold py-3 px-4 rounded-xl transition-all duration-300 ${
+  plan.popular
+    ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+    : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+}`}
+
                     >
                       {plan.cta}
                     </button>
