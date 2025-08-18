@@ -1674,11 +1674,12 @@ function App() {
                 {pricingPlans.map((plan, index) => (
                   <div
                     key={index}
-                    className={\`relative bg-white rounded-2xl border-2 p-6 ${
-                      plan.popular
-                        ? 'border-orange-500 shadow-2xl transform scale-105'
-                        : 'border-gray-200 shadow-lg'
-                    }`}
+                    className={`relative bg-white rounded-2xl border-2 p-6 ${
+  plan.popular
+    ? 'border-orange-500 shadow-2xl transform scale-105'
+    : 'border-gray-200 shadow-lg'
+}`}
+
                   >
                     {plan.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
