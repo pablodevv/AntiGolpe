@@ -1523,25 +1523,34 @@ function App() {
             </div>
           </div>
 
-          <div className="text-center">
-            <a
-              href={\`https://wa.me/5524999325986?text=${encodeURIComponent(
-                language === 'en' 
-                  ? 'Hello! I need a personalized analysis through AntiScam' 
-                  : language === 'es' 
-                  ? '¡Hola! Necesito un análisis personalizado a través de AntiEstafa'
-                  : language === 'zh' 
-                  ? '您好！我需要通过反诈骗进行个性化分析'
-                  : 'Olá! Preciso de uma análise personalizada pelo AntiGolpe'
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              <Phone className="w-5 h-5" />
-              <span>{t('requestAnalysis')}</span>
-            </a>
-          </div>
+
+
+
+<div className="text-center">
+  <a
+    href={`https://wa.me/5524999325986?text=${encodeURIComponent(
+      language === 'en'
+        ? 'Hello! I need a personalized analysis through AntiScam'
+        : language === 'es'
+        ? '¡Hola! Necesito un análisis personalizado a través de AntiEstafa'
+        : language === 'zh'
+        ? '您好！我需要通过反诈骗进行个性化分析'
+        : 'Olá! Preciso de uma análise personalizada pelo AntiGolpe'
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+  >
+    <Phone className="w-5 h-5" />
+    <span>{t('requestAnalysis')}</span>
+  </a>
+</div>
+
+
+
+
+
+          
         </div>
 
         {/* Trust Indicators */}
