@@ -1473,7 +1473,7 @@ function App() {
         <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Proteção Completa Recomendada</h3>
-            <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
+            <p className="text-xl text-gray-600">Serviço verificado pelo AntiGolpe para sua segurança total online</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -1501,7 +1501,7 @@ function App() {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">✅ Todos os serviços são verificados e recomendados pelo AntiGolpe</p>
+            <p className="text-sm text-gray-500">✅ O serviço é verificado e recomendado pelo AntiGolpe</p>
           </div>
         </div>
 
