@@ -1458,6 +1458,67 @@ function App() {
             </div>
           </div>
         )}
+
+
+
+
+
+
+
+
+
+
+        
+       {/* Security Services - Affiliate Section */}
+        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Proteção Completa Recomendada</h3>
+            <p className="text-xl text-gray-600">Serviços verificados pelo AntiGolpe para sua segurança total online</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
+              <p className="text-gray-600 mb-4">Navegação 100% anônima e protegida</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
+              <a
+                href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129704&url_id=902"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+              >
+                🔐 Ativar Proteção
+              </a>
+            </div>
+
+            
+
+
+            
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">✅ Todos os serviços são verificados e recomendados pelo AntiGolpe</p>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         
         {/* Custom Check Service */}
         <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-10">
