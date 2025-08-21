@@ -60,7 +60,7 @@ const translations = {
     // Main Content
     mainTitle: "Verifique Qualquer Site ou Marca em Segundos",
     mainSubtitle: "Nossa inteligência artificial analisa milhões de dados em tempo real para proteger você contra golpes online",
-    placeholder: "Digite o nome da marca ou URL do site (ex: loja-promocoes.com)",
+    placeholder: "Digite o URL do site ou nome da marca (ex: loja-promocoes.com)",
     verifyButton: "Verificar Agora - GRÁTIS",
     verifying: "Verificando Segurança...",
     
@@ -202,7 +202,7 @@ const translations = {
     // Main Content
     mainTitle: "Verify Any Website or Brand in Seconds",
     mainSubtitle: "Our artificial intelligence analyzes millions of data in real time to protect you against online scams",
-    placeholder: "Enter brand name or website URL (e.g. promo-store.com)",
+    placeholder: "Enter website URL or brand name (e.g. promo-store.com)",
     verifyButton: "Verify Now - FREE",
     verifying: "Verifying Security...",
     
@@ -344,7 +344,7 @@ const translations = {
     // Main Content
     mainTitle: "Verifica Cualquier Sitio Web o Marca en Segundos",
     mainSubtitle: "Nuestra inteligencia artificial analiza millones de datos en tiempo real para protegerte contra estafas online",
-    placeholder: "Ingresa el nombre de la marca o URL del sitio (ej: tienda-promociones.com)",
+    placeholder: "Ingresa el URL del sitio o el nombre de la marca (ej: tienda-promociones.com)",
     verifyButton: "Verificar Ahora - GRATIS",
     verifying: "Verificando Seguridad...",
     
