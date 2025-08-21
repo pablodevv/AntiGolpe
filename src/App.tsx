@@ -2812,7 +2812,7 @@ function App() {
                 {pricingPlans.map((plan, index) => (
                   <div
                     key={index}
-                    className={\`relative bg-white rounded-2xl border-2 p-4 sm:p-6 ${
+                    className={`relative bg-white rounded-2xl border-2 p-4 sm:p-6 ${
                       plan.popular
                         ? 'border-orange-500 shadow-2xl transform scale-105'
                         : 'border-gray-200 shadow-lg'
@@ -2858,7 +2858,7 @@ function App() {
 
                     <button
                       onClick={() => handleUpgrade(plan.id)}
-                      className={\`w-full font-bold py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl transition-all duration-300 text-xs sm:text-sm ${
+                      className={`w-full font-bold py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl transition-all duration-300 text-xs sm:text-sm ${
                         plan.popular
                           ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
                           : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
