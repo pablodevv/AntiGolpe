@@ -36,7 +36,7 @@ interface PricingPlan {
   savings?: string;
 }
 
-// Sistema de Tradução
+// Sistema de Tradução Expandido
 const translations = {
   pt: {
     // Header
@@ -604,6 +604,1000 @@ const translations = {
     alwaysUpdatedDesc: "数据库24/7实时更新",
     footerCopyright: "© 2025 反诈骗 - 自2024年以来保护人们免受在线诈骗",
     footerDisclaimer: "数字安全意识教育工具 • 巴西制造 🇧🇷"
+  },
+
+  fr: {
+    // Header
+    title: "AntiArnaque",
+    subtitle: "Protection Nationale Contre les Fraudes",
+    secure: "100% Sécurisé",
+    instantVerification: "Vérification Instantanée",
+    consultationsLeft: "consultations restantes",
+    
+    // Banner
+    specialOffer: "OFFRE SPÉCIALE",
+    premiumProtection: "Protection Premium pour seulement 12€/mois",
+    guaranteeNow: "OBTENIR MAINTENANT →",
+    
+    // Stats
+    sitesVerified: "Sites Vérifiés",
+    usersProtected: "Utilisateurs Protégés",
+    accuracy: "Précision",
+    fraudsPrevented: "Arnaques Évitées",
+    
+    // Main Content
+    mainTitle: "Vérifiez N'importe Quel Site ou Marque en Secondes",
+    mainSubtitle: "Notre intelligence artificielle analyse des millions de données en temps réel pour vous protéger contre les arnaques en ligne",
+    placeholder: "Entrez le nom de la marque ou l'URL du site (ex: boutique-promos.com)",
+    verifyButton: "Vérifier Maintenant - GRATUIT",
+    verifying: "Vérification de la Sécurité...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 Analyse en Cours",
+    checkingDomain: "Vérification du domaine et des certificats SSL...",
+    consultingComplaints: "Consultation de la base de plaintes...",
+    analyzingReputation: "Analyse de la réputation en ligne...",
+    
+    // Results
+    trustIndex: "Indice de Confiance",
+    analysisTime: "Temps d'Analyse",
+    complaintsFound: "plaintes trouvées dans les 30 derniers jours",
+    completeReport: "Voir le Rapport Complet",
+    shareWhatsApp: "Partager sur WhatsApp",
+    newVerification: "Nouvelle Vérification",
+    
+    // Details sections
+    sslCertificate: "Certificat SSL/TLS",
+    domainInfo: "Informations du Domaine (WHOIS)",
+    reclameAqui: "Rapports de Consommateurs",
+    socialNetworks: "Présence sur les Réseaux Sociaux",
+    trustPilot: "TrustPilot",
+    googleResults: "Top 10 Résultats Google",
+    
+    // SSL Details
+    present: "Présent:",
+    valid: "Valide:",
+    validFrom: "Valide de:",
+    validTo: "Valide jusqu'à:",
+    issuer: "Émetteur:",
+    yes: "Oui",
+    no: "Non",
+    
+    // Custom Analysis
+    customAnalysisTitle: "Analyse Personnalisée Premium",
+    customAnalysisSubtitle: "Besoin d'une analyse détaillée de documents, d'IDs d'entreprise, de contrats ou de propositions d'investissement? Notre équipe d'experts effectue une vérification manuelle complète en 1 heure.",
+    expressAnalysis: "Analyse Express - 49,90€",
+    premiumAnalysis: "Analyse Premium - 99,90€",
+    responseTime1h: "Réponse en 1 heure",
+    manualVerification: "Vérification manuelle par des experts",
+    detailedReport: "Rapport détaillé en PDF",
+    whatsappSupport: "Support par WhatsApp",
+    responseTime30min: "Réponse en 30 minutes",
+    legalAnalysis: "Analyse juridique incluse",
+    videoConsultation: "Consultation par vidéo",
+    guarantee30days: "Garantie de 30 jours",
+    requestAnalysis: "Demander une Analyse via WhatsApp",
+    
+    // Trust Indicators
+    completeAnalysis: "Analyse Complète",
+    completeAnalysisDesc: "Nous vérifions le domaine, SSL, les rapports de consommateurs, les réseaux sociaux et plus de 50 sources de données",
+    advancedAI: "IA Avancée",
+    advancedAIDesc: "Notre intelligence artificielle traite des millions de données en temps réel pour une précision maximale",
+    instantResult: "Résultat Instantané",
+    instantResultDesc: "Verdict clair et fiable en secondes, avec indice de confiance et détails complets",
+    
+    // Pricing Plans
+    oneTimePayment: "Paiement Unique",
+    unlimitedConsultations: "Consultations illimitées",
+    completeReports: "Rapports complets",
+    detailedAnalysis: "Analyse détaillée",
+    emailSupport: "Support par email",
+    unlockNow: "Débloquer Maintenant",
+    
+    protectionPremium: "Protection Premium",
+    monitoring247: "Surveillance 24/7",
+    whatsappAlerts: "Alertes WhatsApp/Email",
+    vipSiteList: "Liste VIP de sites",
+    prioritySupport: "Support prioritaire",
+    unlockPremiumNow: "Débloquer Premium Maintenant",
+    
+    annualProtection: "Protection Annuelle",
+    freeMonths: "2 mois gratuits",
+    customAnalysisFeature: "Analyses personnalisées",
+    specializedConsulting: "Conseil spécialisé",
+    businessReports: "Rapports d'entreprise",
+    bestOffer: "Meilleure Offre",
+    
+    // Modals
+    consultationsExhausted: "🔒 Consultations Épuisées",
+    consultationsExhaustedDesc: "Vous avez utilisé vos 5 consultations gratuites. Débloquez l'accès illimité maintenant!",
+    unlimitedAccess: "🚀 Accès Illimité - 29,90€",
+    premium: "👑 Premium - 12€/mois",
+    back: "Retour",
+    maybeLater: "Peut-être plus tard",
+    
+    completeReportTitle: "📊 Rapport Complet",
+    completeReportDesc: "Débloquer tous les détails de l'analyse",
+    whatYouWillSee: "🔓 Ce que vous verrez:",
+    detailedSSL: "Certificats SSL détaillés",
+    completeWHOIS: "Informations WHOIS complètes",
+    reclameAquiHistory: "Historique des rapports de consommateurs",
+    socialAnalysis: "Analyse des réseaux sociaux",
+    trustPilotReviews: "Avis TrustPilot",
+    googleTop10: "Top 10 résultats Google",
+    unlockFor2990: "🚀 Débloquer pour 29,90€ (Une fois)",
+    orPremium: "👑 Ou Premium pour 12€/mois",
+    
+    choosePlan: "👑 Protection Premium",
+    choosePlanDesc: "Choisissez le plan idéal pour votre protection",
+    mostPopular: "🔥 LE PLUS POPULAIRE",
+    continueFreePlan: "Continuer avec le plan gratuit",
+    
+    safeAlternative: "Alternative 100% Sûre",
+    amazonDesc: "Le plus grand e-commerce du monde",
+    upTo70Off: "Jusqu'à 70% DE RÉDUCTION",
+    
+    // Footer
+    totalSecurity: "🛡️ Sécurité Totale",
+    totalSecurityDesc: "Vos données sont protégées avec un chiffrement de niveau bancaire",
+    freeVerification: "✅ Vérification Gratuite",
+    freeVerificationDesc: "5 consultations gratuites pour protéger tout le monde",
+    alwaysUpdated: "🚀 Toujours À Jour",
+    alwaysUpdatedDesc: "Base de données mise à jour en temps réel 24/7",
+    footerCopyright: "© 2025 AntiArnaque - Protégeant les gens contre les fraudes en ligne depuis 2024",
+    footerDisclaimer: "Outil éducatif pour la sensibilisation à la sécurité numérique • Fabriqué au Brésil 🇧🇷"
+  },
+
+  de: {
+    // Header
+    title: "AntiBetrug",
+    subtitle: "Nationaler Betrugsschutz",
+    secure: "100% Sicher",
+    instantVerification: "Sofortige Überprüfung",
+    consultationsLeft: "Beratungen übrig",
+    
+    // Banner
+    specialOffer: "SONDERANGEBOT",
+    premiumProtection: "Premium-Schutz für nur 12€/Monat",
+    guaranteeNow: "JETZT SICHERN →",
+    
+    // Stats
+    sitesVerified: "Überprüfte Websites",
+    usersProtected: "Geschützte Nutzer",
+    accuracy: "Genauigkeit",
+    fraudsPrevented: "Verhinderte Betrügereien",
+    
+    // Main Content
+    mainTitle: "Überprüfen Sie Jede Website oder Marke in Sekunden",
+    mainSubtitle: "Unsere künstliche Intelligenz analysiert Millionen von Daten in Echtzeit, um Sie vor Online-Betrug zu schützen",
+    placeholder: "Geben Sie den Markennamen oder die Website-URL ein (z.B. shop-angebote.com)",
+    verifyButton: "Jetzt Überprüfen - KOSTENLOS",
+    verifying: "Sicherheit wird überprüft...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 Analyse läuft",
+    checkingDomain: "Überprüfung von Domain und SSL-Zertifikaten...",
+    consultingComplaints: "Beschwerdeunterlagen werden konsultiert...",
+    analyzingReputation: "Online-Reputation wird analysiert...",
+    
+    // Results
+    trustIndex: "Vertrauensindex",
+    analysisTime: "Analysezeit",
+    complaintsFound: "Beschwerden in den letzten 30 Tagen gefunden",
+    completeReport: "Vollständigen Bericht anzeigen",
+    shareWhatsApp: "Auf WhatsApp teilen",
+    newVerification: "Neue Überprüfung",
+    
+    // Details sections
+    sslCertificate: "SSL/TLS-Zertifikat",
+    domainInfo: "Domain-Informationen (WHOIS)",
+    reclameAqui: "Verbraucherberichte",
+    socialNetworks: "Präsenz in sozialen Medien",
+    trustPilot: "TrustPilot",
+    googleResults: "Top 10 Google-Ergebnisse",
+    
+    // SSL Details
+    present: "Vorhanden:",
+    valid: "Gültig:",
+    validFrom: "Gültig von:",
+    validTo: "Gültig bis:",
+    issuer: "Aussteller:",
+    yes: "Ja",
+    no: "Nein",
+    
+    // Custom Analysis
+    customAnalysisTitle: "Premium Maßgeschneiderte Analyse",
+    customAnalysisSubtitle: "Benötigen Sie eine detaillierte Analyse von Dokumenten, Unternehmens-IDs, Verträgen oder Investitionsvorschlägen? Unser Expertenteam führt eine vollständige manuelle Überprüfung innerhalb von 1 Stunde durch.",
+    expressAnalysis: "Express-Analyse - 49,90€",
+    premiumAnalysis: "Premium-Analyse - 99,90€",
+    responseTime1h: "Antwort innerhalb von 1 Stunde",
+    manualVerification: "Manuelle Überprüfung durch Experten",
+    detailedReport: "Detaillierter PDF-Bericht",
+    whatsappSupport: "WhatsApp-Support",
+    responseTime30min: "Antwort innerhalb von 30 Minuten",
+    legalAnalysis: "Rechtliche Analyse enthalten",
+    videoConsultation: "Video-Beratung",
+    guarantee30days: "30-Tage-Garantie",
+    requestAnalysis: "Analyse über WhatsApp anfordern",
+    
+    // Trust Indicators
+    completeAnalysis: "Vollständige Analyse",
+    completeAnalysisDesc: "Wir überprüfen Domain, SSL, Verbraucherberichte, soziale Netzwerke und über 50 Datenquellen",
+    advancedAI: "Fortgeschrittene KI",
+    advancedAIDesc: "Unsere künstliche Intelligenz verarbeitet Millionen von Daten in Echtzeit für maximale Genauigkeit",
+    instantResult: "Sofortiges Ergebnis",
+    instantResultDesc: "Klares und zuverlässiges Urteil in Sekunden, mit Vertrauensindex und vollständigen Details",
+    
+    // Pricing Plans
+    oneTimePayment: "Einmalige Zahlung",
+    unlimitedConsultations: "Unbegrenzte Beratungen",
+    completeReports: "Vollständige Berichte",
+    detailedAnalysis: "Detaillierte Analyse",
+    emailSupport: "E-Mail-Support",
+    unlockNow: "Jetzt freischalten",
+    
+    protectionPremium: "Premium-Schutz",
+    monitoring247: "24/7-Überwachung",
+    whatsappAlerts: "WhatsApp/E-Mail-Benachrichtigungen",
+    vipSiteList: "VIP-Site-Liste",
+    prioritySupport: "Prioritäts-Support",
+    unlockPremiumNow: "Premium jetzt freischalten",
+    
+    annualProtection: "Jahresschutz",
+    freeMonths: "2 Monate gratis",
+    customAnalysisFeature: "Maßgeschneiderte Analysen",
+    specializedConsulting: "Spezialisierte Beratung",
+    businessReports: "Geschäftsberichte",
+    bestOffer: "Bestes Angebot",
+    
+    // Modals
+    consultationsExhausted: "🔒 Beratungen Erschöpft",
+    consultationsExhaustedDesc: "Sie haben Ihre 5 kostenlosen Beratungen genutzt. Schalten Sie jetzt unbegrenzten Zugang frei!",
+    unlimitedAccess: "🚀 Unbegrenzter Zugang - 29,90€",
+    premium: "👑 Premium - 12€/Monat",
+    back: "Zurück",
+    maybeLater: "Vielleicht später",
+    
+    completeReportTitle: "📊 Vollständiger Bericht",
+    completeReportDesc: "Alle Analysedetails freischalten",
+    whatYouWillSee: "🔓 Was Sie sehen werden:",
+    detailedSSL: "Detaillierte SSL-Zertifikate",
+    completeWHOIS: "Vollständige WHOIS-Informationen",
+    reclameAquiHistory: "Verbraucherberichtsverlauf",
+    socialAnalysis: "Social-Media-Analyse",
+    trustPilotReviews: "TrustPilot-Bewertungen",
+    googleTop10: "Top 10 Google-Ergebnisse",
+    unlockFor2990: "🚀 Für 29,90€ freischalten (Einmalig)",
+    orPremium: "👑 Oder Premium für 12€/Monat",
+    
+    choosePlan: "👑 Premium-Schutz",
+    choosePlanDesc: "Wählen Sie den idealen Plan für Ihren Schutz",
+    mostPopular: "🔥 AM BELIEBTESTEN",
+    continueFreePlan: "Mit kostenlosem Plan fortfahren",
+    
+    safeAlternative: "100% Sichere Alternative",
+    amazonDesc: "Weltgrößter E-Commerce",
+    upTo70Off: "Bis zu 70% RABATT",
+    
+    // Footer
+    totalSecurity: "🛡️ Totale Sicherheit",
+    totalSecurityDesc: "Ihre Daten sind mit bankentauglicher Verschlüsselung geschützt",
+    freeVerification: "✅ Kostenlose Überprüfung",
+    freeVerificationDesc: "5 kostenlose Beratungen zum Schutz aller",
+    alwaysUpdated: "🚀 Immer Aktuell",
+    alwaysUpdatedDesc: "Datenbank 24/7 in Echtzeit aktualisiert",
+    footerCopyright: "© 2025 AntiBetrug - Schutz von Menschen vor Online-Betrug seit 2024",
+    footerDisclaimer: "Bildungswerkzeug für digitale Sicherheit • Hergestellt in Brasilien 🇧🇷"
+  },
+
+  ar: {
+    // Header
+    title: "مكافح الاحتيال",
+    subtitle: "الحماية الوطنية ضد الاحتيال",
+    secure: "100% آمن",
+    instantVerification: "التحقق الفوري",
+    consultationsLeft: "استشارات متبقية",
+    
+    // Banner
+    specialOffer: "عرض خاص",
+    premiumProtection: "الحماية المميزة بـ 12$ فقط شهرياً",
+    guaranteeNow: "احصل عليها الآن ←",
+    
+    // Stats
+    sitesVerified: "المواقع المتحققة",
+    usersProtected: "المستخدمون المحميون",
+    accuracy: "الدقة",
+    fraudsPrevented: "الاحتيال المنع",
+    
+    // Main Content
+    mainTitle: "تحقق من أي موقع أو علامة تجارية في ثوانٍ",
+    mainSubtitle: "يحلل ذكاؤنا الاصطناعي ملايين البيانات في الوقت الفعلي لحمايتك من الاحتيال عبر الإنترنت",
+    placeholder: "أدخل اسم العلامة التجارية أو رابط الموقع (مثل: متجر-العروض.com)",
+    verifyButton: "تحقق الآن - مجاناً",
+    verifying: "جاري التحقق من الأمان...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 التحليل جارٍ",
+    checkingDomain: "فحص النطاق وشهادات SSL...",
+    consultingComplaints: "استشارة قاعدة الشكاوى...",
+    analyzingReputation: "تحليل السمعة عبر الإنترنت...",
+    
+    // Results
+    trustIndex: "مؤشر الثقة",
+    analysisTime: "وقت التحليل",
+    complaintsFound: "شكاوى وجدت في آخر 30 يوماً",
+    completeReport: "عرض التقرير الكامل",
+    shareWhatsApp: "مشاركة على واتساب",
+    newVerification: "تحقق جديد",
+    
+    // Details sections
+    sslCertificate: "شهادة SSL/TLS",
+    domainInfo: "معلومات النطاق (WHOIS)",
+    reclameAqui: "تقارير المستهلكين",
+    socialNetworks: "الحضور في وسائل التواصل الاجتماعي",
+    trustPilot: "TrustPilot",
+    googleResults: "أفضل 10 نتائج جوجل",
+    
+    // SSL Details
+    present: "موجود:",
+    valid: "صالح:",
+    validFrom: "صالح من:",
+    validTo: "صالح حتى:",
+    issuer: "المُصدر:",
+    yes: "نعم",
+    no: "لا",
+    
+    // Custom Analysis
+    customAnalysisTitle: "التحليل المخصص المميز",
+    customAnalysisSubtitle: "تحتاج إلى تحليل مفصل للوثائق أو معرفات الشركة أو العقود أو مقترحات الاستثمار؟ يقوم فريق الخبراء لدينا بإجراء تحقق يدوي كامل خلال ساعة واحدة.",
+    expressAnalysis: "التحليل السريع - 49.90$",
+    premiumAnalysis: "التحليل المميز - 99.90$",
+    responseTime1h: "الرد خلال ساعة واحدة",
+    manualVerification: "التحقق اليدوي من قبل الخبراء",
+    detailedReport: "تقرير مفصل بصيغة PDF",
+    whatsappSupport: "دعم عبر واتساب",
+    responseTime30min: "الرد خلال 30 دقيقة",
+    legalAnalysis: "التحليل القانوني مشمول",
+    videoConsultation: "استشارة بالفيديو",
+    guarantee30days: "ضمان لمدة 30 يوماً",
+    requestAnalysis: "طلب التحليل عبر واتساب",
+    
+    // Trust Indicators
+    completeAnalysis: "التحليل الكامل",
+    completeAnalysisDesc: "نتحقق من النطاق وSSL وتقارير المستهلكين ووسائل التواصل الاجتماعي وأكثر من 50 مصدر بيانات",
+    advancedAI: "الذكاء الاصطناعي المتقدم",
+    advancedAIDesc: "يعالج ذكاؤنا الاصطناعي ملايين البيانات في الوقت الفعلي للحصول على أقصى دقة",
+    instantResult: "النتيجة الفورية",
+    instantResultDesc: "حكم واضح وموثوق في ثوانٍ، مع مؤشر الثقة والتفاصيل الكاملة",
+    
+    // Pricing Plans
+    oneTimePayment: "دفعة واحدة",
+    unlimitedConsultations: "استشارات غير محدودة",
+    completeReports: "تقارير كاملة",
+    detailedAnalysis: "تحليل مفصل",
+    emailSupport: "دعم عبر البريد الإلكتروني",
+    unlockNow: "فتح الآن",
+    
+    protectionPremium: "الحماية المميزة",
+    monitoring247: "مراقبة على مدار الساعة",
+    whatsappAlerts: "تنبيهات واتساب/البريد الإلكتروني",
+    vipSiteList: "قائمة VIP للمواقع",
+    prioritySupport: "دعم أولوية",
+    unlockPremiumNow: "فتح المميز الآن",
+    
+    annualProtection: "الحماية السنوية",
+    freeMonths: "شهران مجاناً",
+    customAnalysisFeature: "تحليلات مخصصة",
+    specializedConsulting: "استشارة متخصصة",
+    businessReports: "تقارير الأعمال",
+    bestOffer: "أفضل عرض",
+    
+    // Modals
+    consultationsExhausted: "🔒 نفدت الاستشارات",
+    consultationsExhaustedDesc: "لقد استخدمت استشاراتك المجانية الـ5. افتح الوصول غير المحدود الآن!",
+    unlimitedAccess: "🚀 وصول غير محدود - 29.90$",
+    premium: "👑 مميز - 12$/شهر",
+    back: "العودة",
+    maybeLater: "ربما لاحقاً",
+    
+    completeReportTitle: "📊 التقرير الكامل",
+    completeReportDesc: "فتح جميع تفاصيل التحليل",
+    whatYouWillSee: "🔓 ما ستراه:",
+    detailedSSL: "شهادات SSL مفصلة",
+    completeWHOIS: "معلومات WHOIS كاملة",
+    reclameAquiHistory: "تاريخ تقارير المستهلكين",
+    socialAnalysis: "تحليل وسائل التواصل الاجتماعي",
+    trustPilotReviews: "مراجعات TrustPilot",
+    googleTop10: "أفضل 10 نتائج جوجل",
+    unlockFor2990: "🚀 فتح بـ 29.90$ (مرة واحدة)",
+    orPremium: "👑 أو المميز بـ 12$/شهر",
+    
+    choosePlan: "👑 الحماية المميزة",
+    choosePlanDesc: "اختر الخطة المثالية لحمايتك",
+    mostPopular: "🔥 الأكثر شعبية",
+    continueFreePlan: "المتابعة مع الخطة المجانية",
+    
+    safeAlternative: "البديل الآمن 100%",
+    amazonDesc: "أكبر متجر إلكتروني في العالم",
+    upTo70Off: "خصم يصل إلى 70%",
+    
+    // Footer
+    totalSecurity: "🛡️ الأمان التام",
+    totalSecurityDesc: "بياناتك محمية بتشفير على مستوى البنوك",
+    freeVerification: "✅ التحقق المجاني",
+    freeVerificationDesc: "5 استشارات مجانية لحماية الجميع",
+    alwaysUpdated: "🚀 محدث دائماً",
+    alwaysUpdatedDesc: "قاعدة البيانات محدثة في الوقت الفعلي 24/7",
+    footerCopyright: "© 2025 مكافح الاحتيال - حماية الناس ضد الاحتيال عبر الإنترنت منذ 2024",
+    footerDisclaimer: "أداة تعليمية للتوعية بالأمان الرقمي • صنع في البرازيل 🇧🇷"
+  },
+
+  ja: {
+    // Header
+    title: "詐欺対策",
+    subtitle: "国家詐欺防止保護",
+    secure: "100% 安全",
+    instantVerification: "即時検証",
+    consultationsLeft: "相談回数残り",
+    
+    // Banner
+    specialOffer: "特別オファー",
+    premiumProtection: "プレミアム保護が月額わずか$12",
+    guaranteeNow: "今すぐ入手 →",
+    
+    // Stats
+    sitesVerified: "検証済みサイト",
+    usersProtected: "保護されたユーザー",
+    accuracy: "精度",
+    fraudsPrevented: "防止された詐欺",
+    
+    // Main Content
+    mainTitle: "数秒でウェブサイトやブランドを検証",
+    mainSubtitle: "私たちの人工知能は、オンライン詐欺からあなたを守るために、数百万のデータをリアルタイムで分析します",
+    placeholder: "ブランド名またはサイトのURLを入力してください（例：店舗-プロモーション.com）",
+    verifyButton: "今すぐ検証 - 無料",
+    verifying: "セキュリティを検証中...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 分析進行中",
+    checkingDomain: "ドメインとSSL証明書を確認中...",
+    consultingComplaints: "苦情データベースを照会中...",
+    analyzingReputation: "オンライン評判を分析中...",
+    
+    // Results
+    trustIndex: "信頼指数",
+    analysisTime: "分析時間",
+    complaintsFound: "過去30日間に見つかった苦情",
+    completeReport: "完全なレポートを表示",
+    shareWhatsApp: "WhatsAppで共有",
+    newVerification: "新しい検証",
+    
+    // Details sections
+    sslCertificate: "SSL/TLS証明書",
+    domainInfo: "ドメイン情報（WHOIS）",
+    reclameAqui: "消費者レポート",
+    socialNetworks: "ソーシャルメディアでの存在",
+    trustPilot: "TrustPilot",
+    googleResults: "Google上位10結果",
+    
+    // SSL Details
+    present: "存在:",
+    valid: "有効:",
+    validFrom: "有効期間開始:",
+    validTo: "有効期間終了:",
+    issuer: "発行者:",
+    yes: "はい",
+    no: "いいえ",
+    
+    // Custom Analysis
+    customAnalysisTitle: "プレミアムカスタム分析",
+    customAnalysisSubtitle: "文書、会社ID、契約書、投資提案の詳細分析が必要ですか？当社の専門家チームが1時間以内に完全な手動検証を行います。",
+    expressAnalysis: "エクスプレス分析 - $49.90",
+    premiumAnalysis: "プレミアム分析 - $99.90",
+    responseTime1h: "1時間以内に回答",
+    manualVerification: "専門家による手動検証",
+    detailedReport: "詳細なPDFレポート",
+    whatsappSupport: "WhatsAppサポート",
+    responseTime30min: "30分以内に回答",
+    legalAnalysis: "法的分析を含む",
+    videoConsultation: "ビデオ相談",
+    guarantee30days: "30日間保証",
+    requestAnalysis: "WhatsAppで分析を依頼",
+    
+    // Trust Indicators
+    completeAnalysis: "完全な分析",
+    completeAnalysisDesc: "ドメイン、SSL、消費者レポート、ソーシャルネットワーク、50以上のデータソースを検証します",
+    advancedAI: "高度なAI",
+    advancedAIDesc: "私たちの人工知能は、最大の精度のためにリアルタイムで数百万のデータを処理します",
+    instantResult: "即時結果",
+    instantResultDesc: "数秒で明確で信頼できる判定、信頼指数と完全な詳細付き",
+    
+    // Pricing Plans
+    oneTimePayment: "一回払い",
+    unlimitedConsultations: "無制限の相談",
+    completeReports: "完全なレポート",
+    detailedAnalysis: "詳細な分析",
+    emailSupport: "メールサポート",
+    unlockNow: "今すぐロック解除",
+    
+    protectionPremium: "プレミアム保護",
+    monitoring247: "24/7監視",
+    whatsappAlerts: "WhatsApp/メールアラート",
+    vipSiteList: "VIPサイトリスト",
+    prioritySupport: "優先サポート",
+    unlockPremiumNow: "プレミアムを今すぐロック解除",
+    
+    annualProtection: "年間保護",
+    freeMonths: "2ヶ月無料",
+    customAnalysisFeature: "カスタム分析",
+    specializedConsulting: "専門コンサルティング",
+    businessReports: "ビジネスレポート",
+    bestOffer: "最高のオファー",
+    
+    // Modals
+    consultationsExhausted: "🔒 相談回数終了",
+    consultationsExhaustedDesc: "5回の無料相談を使い切りました。今すぐ無制限アクセスをロック解除しましょう！",
+    unlimitedAccess: "🚀 無制限アクセス - $29.90",
+    premium: "👑 プレミアム - $12/月",
+    back: "戻る",
+    maybeLater: "後で",
+    
+    completeReportTitle: "📊 完全なレポート",
+    completeReportDesc: "すべての分析詳細をロック解除",
+    whatYouWillSee: "🔓 表示される内容:",
+    detailedSSL: "詳細なSSL証明書",
+    completeWHOIS: "完全なWHOIS情報",
+    reclameAquiHistory: "消費者レポート履歴",
+    socialAnalysis: "ソーシャルメディア分析",
+    trustPilotReviews: "TrustPilotレビュー",
+    googleTop10: "Google上位10結果",
+    unlockFor2990: "🚀 $29.90でロック解除（一回）",
+    orPremium: "👑 またはプレミアム$12/月",
+    
+    choosePlan: "👑 プレミアム保護",
+    choosePlanDesc: "あなたの保護に最適なプランを選択",
+    mostPopular: "🔥 最も人気",
+    continueFreePlan: "無料プランで続行",
+    
+    safeAlternative: "100%安全な代替案",
+    amazonDesc: "世界最大のeコマース",
+    upTo70Off: "最大70%オフ",
+    
+    // Footer
+    totalSecurity: "🛡️ 完全なセキュリティ",
+    totalSecurityDesc: "あなたのデータは銀行レベルの暗号化で保護されています",
+    freeVerification: "✅ 無料検証",
+    freeVerificationDesc: "皆を守るための5回の無料相談",
+    alwaysUpdated: "🚀 常に更新",
+    alwaysUpdatedDesc: "データベースは24/7リアルタイムで更新",
+    footerCopyright: "© 2025 詐欺対策 - 2024年からオンライン詐欺から人々を保護",
+    footerDisclaimer: "デジタルセキュリティ意識のための教育ツール • ブラジル製 🇧🇷"
+  },
+
+  ru: {
+    // Header
+    title: "АнтиМошенничество",
+    subtitle: "Национальная Защита от Мошенничества",
+    secure: "100% Безопасно",
+    instantVerification: "Мгновенная Проверка",
+    consultationsLeft: "консультаций осталось",
+    
+    // Banner
+    specialOffer: "СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ",
+    premiumProtection: "Премиум Защита всего за $12/месяц",
+    guaranteeNow: "ПОЛУЧИТЬ СЕЙЧАС →",
+    
+    // Stats
+    sitesVerified: "Проверенных Сайтов",
+    usersProtected: "Защищенных Пользователей",
+    accuracy: "Точность",
+    fraudsPrevented: "Предотвращено Мошенничества",
+    
+    // Main Content
+    mainTitle: "Проверьте Любой Сайт или Бренд за Секунды",
+    mainSubtitle: "Наш искусственный интеллект анализирует миллионы данных в реальном времени, чтобы защитить вас от онлайн-мошенничества",
+    placeholder: "Введите название бренда или URL сайта (например: магазин-акции.com)",
+    verifyButton: "Проверить Сейчас - БЕСПЛАТНО",
+    verifying: "Проверка Безопасности...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 Анализ в Процессе",
+    checkingDomain: "Проверка домена и SSL сертификатов...",
+    consultingComplaints: "Консультация базы жалоб...",
+    analyzingReputation: "Анализ онлайн репутации...",
+    
+    // Results
+    trustIndex: "Индекс Доверия",
+    analysisTime: "Время Анализа",
+    complaintsFound: "жалоб найдено за последние 30 дней",
+    completeReport: "Посмотреть Полный Отчет",
+    shareWhatsApp: "Поделиться в WhatsApp",
+    newVerification: "Новая Проверка",
+    
+    // Details sections
+    sslCertificate: "SSL/TLS Сертификат",
+    domainInfo: "Информация о Домене (WHOIS)",
+    reclameAqui: "Отчеты Потребителей",
+    socialNetworks: "Присутствие в Социальных Сетях",
+    trustPilot: "TrustPilot",
+    googleResults: "Топ 10 Результатов Google",
+    
+    // SSL Details
+    present: "Присутствует:",
+    valid: "Действителен:",
+    validFrom: "Действителен с:",
+    validTo: "Действителен до:",
+    issuer: "Издатель:",
+    yes: "Да",
+    no: "Нет",
+    
+    // Custom Analysis
+    customAnalysisTitle: "Премиум Персонализированный Анализ",
+    customAnalysisSubtitle: "Нужен детальный анализ документов, ID компаний, контрактов или инвестиционных предложений? Наша команда экспертов проводит полную ручную проверку в течение 1 часа.",
+    expressAnalysis: "Экспресс Анализ - $49.90",
+    premiumAnalysis: "Премиум Анализ - $99.90",
+    responseTime1h: "Ответ в течение 1 часа",
+    manualVerification: "Ручная проверка экспертами",
+    detailedReport: "Детальный PDF отчет",
+    whatsappSupport: "Поддержка через WhatsApp",
+    responseTime30min: "Ответ в течение 30 минут",
+    legalAnalysis: "Правовой анализ включен",
+    videoConsultation: "Видео консультация",
+    guarantee30days: "Гарантия 30 дней",
+    requestAnalysis: "Запросить Анализ через WhatsApp",
+    
+    // Trust Indicators
+    completeAnalysis: "Полный Анализ",
+    completeAnalysisDesc: "Мы проверяем домен, SSL, отчеты потребителей, социальные сети и более 50 источников данных",
+    advancedAI: "Продвинутый ИИ",
+    advancedAIDesc: "Наш искусственный интеллект обрабатывает миллионы данных в реальном времени для максимальной точности",
+    instantResult: "Мгновенный Результат",
+    instantResultDesc: "Четкий и надежный вердикт за секунды, с индексом доверия и полными деталями",
+    
+    // Pricing Plans
+    oneTimePayment: "Единовременный Платеж",
+    unlimitedConsultations: "Неограниченные консультации",
+    completeReports: "Полные отчеты",
+    detailedAnalysis: "Детальный анализ",
+    emailSupport: "Поддержка по email",
+    unlockNow: "Разблокировать Сейчас",
+    
+    protectionPremium: "Премиум Защита",
+    monitoring247: "Мониторинг 24/7",
+    whatsappAlerts: "Уведомления WhatsApp/Email",
+    vipSiteList: "VIP список сайтов",
+    prioritySupport: "Приоритетная поддержка",
+    unlockPremiumNow: "Разблокировать Премиум Сейчас",
+    
+    annualProtection: "Годовая Защита",
+    freeMonths: "2 месяца бесплатно",
+    customAnalysisFeature: "Персонализированные анализы",
+    specializedConsulting: "Специализированные консультации",
+    businessReports: "Бизнес отчеты",
+    bestOffer: "Лучшее Предложение",
+    
+    // Modals
+    consultationsExhausted: "🔒 Консультации Исчерпаны",
+    consultationsExhaustedDesc: "Вы использовали свои 5 бесплатных консультаций. Разблокируйте неограниченный доступ сейчас!",
+    unlimitedAccess: "🚀 Неограниченный Доступ - $29.90",
+    premium: "👑 Премиум - $12/месяц",
+    back: "Назад",
+    maybeLater: "Может быть позже",
+    
+    completeReportTitle: "📊 Полный Отчет",
+    completeReportDesc: "Разблокировать все детали анализа",
+    whatYouWillSee: "🔓 Что вы увидите:",
+    detailedSSL: "Детальные SSL сертификаты",
+    completeWHOIS: "Полная WHOIS информация",
+    reclameAquiHistory: "История отчетов потребителей",
+    socialAnalysis: "Анализ социальных сетей",
+    trustPilotReviews: "Отзывы TrustPilot",
+    googleTop10: "Топ 10 результатов Google",
+    unlockFor2990: "🚀 Разблокировать за $29.90 (Единовременно)",
+    orPremium: "👑 Или Премиум за $12/месяц",
+    
+    choosePlan: "👑 Премиум Защита",
+    choosePlanDesc: "Выберите идеальный план для вашей защиты",
+    mostPopular: "🔥 САМЫЙ ПОПУЛЯРНЫЙ",
+    continueFreePlan: "Продолжить с бесплатным планом",
+    
+    safeAlternative: "100% Безопасная Альтернатива",
+    amazonDesc: "Крупнейший интернет-магазин в мире",
+    upTo70Off: "До 70% СКИДКА",
+    
+    // Footer
+    totalSecurity: "🛡️ Полная Безопасность",
+    totalSecurityDesc: "Ваши данные защищены шифрованием банковского уровня",
+    freeVerification: "✅ Бесплатная Проверка",
+    freeVerificationDesc: "5 бесплатных консультаций для защиты всех",
+    alwaysUpdated: "🚀 Всегда Обновлено",
+    alwaysUpdatedDesc: "База данных обновляется в реальном времени 24/7",
+    footerCopyright: "© 2025 АнтиМошенничество - Защищаем людей от онлайн мошенничества с 2024",
+    footerDisclaimer: "Образовательный инструмент для повышения осведомленности о цифровой безопасности • Сделано в Бразилии 🇧🇷"
+  },
+
+  hi: {
+    // Header
+    title: "धोखाधड़ी विरोधी",
+    subtitle: "राष्ट्रीय धोखाधड़ी संरक्षण",
+    secure: "100% सुरक्षित",
+    instantVerification: "तत्काल सत्यापन",
+    consultationsLeft: "परामर्श शेष",
+    
+    // Banner
+    specialOffer: "विशेष प्रस्ताव",
+    premiumProtection: "प्रीमियम सुरक्षा केवल $12/माह में",
+    guaranteeNow: "अभी प्राप्त करें →",
+    
+    // Stats
+    sitesVerified: "सत्यापित साइटें",
+    usersProtected: "संरक्षित उपयोगकर्ता",
+    accuracy: "सटीकता",
+    fraudsPrevented: "रोकी गई धोखाधड़ी",
+    
+    // Main Content
+    mainTitle: "कुछ ही सेकंड में किसी भी वेबसाइट या ब्रांड की जांच करें",
+    mainSubtitle: "हमारी कृत्रिम बुद्धिमत्ता आपको ऑनलाइन धोखाधड़ी से बचाने के लिए वास्तविक समय में लाखों डेटा का विश्लेषण करती है",
+    placeholder: "ब्रांड का नाम या वेबसाइट URL दर्ज करें (उदाहरण: दुकान-प्रमोशन.com)",
+    verifyButton: "अभी सत्यापित करें - मुफ्त",
+    verifying: "सुरक्षा सत्यापन...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 विश्लेषण प्रगति में",
+    checkingDomain: "डोमेन और SSL प्रमाणपत्र जांच रहे हैं...",
+    consultingComplaints: "शिकायत डेटाबेस से परामर्श...",
+    analyzingReputation: "ऑनलाइन प्रतिष्ठा का विश्लेषण...",
+    
+    // Results
+    trustIndex: "विश्वास सूचकांक",
+    analysisTime: "विश्लेषण समय",
+    complaintsFound: "पिछले 30 दिनों में मिली शिकायतें",
+    completeReport: "पूरी रिपोर्ट देखें",
+    shareWhatsApp: "WhatsApp पर साझा करें",
+    newVerification: "नया सत्यापन",
+    
+    // Details sections
+    sslCertificate: "SSL/TLS प्रमाणपत्र",
+    domainInfo: "डोमेन जानकारी (WHOIS)",
+    reclameAqui: "उपभोक्ता रिपोर्ट",
+    socialNetworks: "सामाजिक मीडिया उपस्थिति",
+    trustPilot: "TrustPilot",
+    googleResults: "टॉप 10 Google परिणाम",
+    
+    // SSL Details
+    present: "उपस्थित:",
+    valid: "वैध:",
+    validFrom: "से वैध:",
+    validTo: "तक वैध:",
+    issuer: "जारीकर्ता:",
+    yes: "हाँ",
+    no: "नहीं",
+    
+    // Custom Analysis
+    customAnalysisTitle: "प्रीमियम कस्टम विश्लेषण",
+    customAnalysisSubtitle: "दस्तावेज़ों, कंपनी आईडी, अनुबंधों या निवेश प्रस्तावों के विस्तृत विश्लेषण की आवश्यकता है? हमारी विशेषज्ञ टीम 1 घंटे के भीतर पूर्ण मैनुअल सत्यापन करती है।",
+    expressAnalysis: "एक्सप्रेस विश्लेषण - $49.90",
+    premiumAnalysis: "प्रीमियम विश्लेषण - $99.90",
+    responseTime1h: "1 घंटे में जवाब",
+    manualVerification: "विशेषज्ञों द्वारा मैनुअल सत्यापन",
+    detailedReport: "विस्तृत PDF रिपोर्ट",
+    whatsappSupport: "WhatsApp सहायता",
+    responseTime30min: "30 मिनट में जवाब",
+    legalAnalysis: "कानूनी विश्लेषण शामिल",
+    videoConsultation: "वीडियो परामर्श",
+    guarantee30days: "30 दिन की गारंटी",
+    requestAnalysis: "WhatsApp के माध्यम से विश्लेषण का अनुरोध करें",
+    
+    // Trust Indicators
+    completeAnalysis: "पूर्ण विश्लेषण",
+    completeAnalysisDesc: "हम डोमेन, SSL, उपभोक्ता रिपोर्ट, सामाजिक नेटवर्क और 50+ डेटा स्रोतों को सत्यापित करते हैं",
+    advancedAI: "उन्नत एआई",
+    advancedAIDesc: "हमारी कृत्रिम बुद्धिमत्ता अधिकतम सटीकता के लिए वास्तविक समय में लाखों डेटा प्रोसेस करती है",
+    instantResult: "तत्काल परिणाम",
+    instantResultDesc: "सेकंडों में स्पष्ट और विश्वसनीय फैसला, विश्वास सूचकांक और पूर्ण विवरण के साथ",
+    
+    // Pricing Plans
+    oneTimePayment: "एक बार भुगतान",
+    unlimitedConsultations: "असीमित परामर्श",
+    completeReports: "पूर्ण रिपोर्ट",
+    detailedAnalysis: "विस्तृत विश्लेषण",
+    emailSupport: "ईमेल सहायता",
+    unlockNow: "अभी अनलॉक करें",
+    
+    protectionPremium: "प्रीमियम सुरक्षा",
+    monitoring247: "24/7 निगरानी",
+    whatsappAlerts: "WhatsApp/ईमेल अलर्ट",
+    vipSiteList: "VIP साइट सूची",
+    prioritySupport: "प्राथमिकता सहायता",
+    unlockPremiumNow: "प्रीमियम अभी अनलॉक करें",
+    
+    annualProtection: "वार्षिक सुरक्षा",
+    freeMonths: "2 महीने मुफ्त",
+    customAnalysisFeature: "कस्टम विश्लेषण",
+    specializedConsulting: "विशेष परामर्श",
+    businessReports: "व्यापारिक रिपोर्ट",
+    bestOffer: "सर्वोत्तम प्रस्ताव",
+    
+    // Modals
+    consultationsExhausted: "🔒 परामर्श समाप्त",
+    consultationsExhaustedDesc: "आपने अपने 5 मुफ्त परामर्श का उपयोग कर लिया है। अभी असीमित पहुंच अनलॉक करें!",
+    unlimitedAccess: "🚀 असीमित पहुंच - $29.90",
+    premium: "👑 प्रीमियम - $12/माह",
+    back: "वापस",
+    maybeLater: "शायद बाद में",
+    
+    completeReportTitle: "📊 पूरी रिपोर्ट",
+    completeReportDesc: "सभी विश्लेषण विवरण अनलॉक करें",
+    whatYouWillSee: "🔓 आप क्या देखेंगे:",
+    detailedSSL: "विस्तृत SSL प्रमाणपत्र",
+    completeWHOIS: "पूर्ण WHOIS जानकारी",
+    reclameAquiHistory: "उपभोक्ता रिपोर्ट इतिहास",
+    socialAnalysis: "सामाजिक मीडिया विश्लेषण",
+    trustPilotReviews: "TrustPilot समीक्षाएं",
+    googleTop10: "टॉप 10 Google परिणाम",
+    unlockFor2990: "🚀 $29.90 में अनलॉक करें (एक बार)",
+    orPremium: "👑 या प्रीमियम $12/माह में",
+    
+    choosePlan: "👑 प्रीमियम सुरक्षा",
+    choosePlanDesc: "अपनी सुरक्षा के लिए आदर्श योजना चुनें",
+    mostPopular: "🔥 सबसे लोकप्रिय",
+    continueFreePlan: "मुफ्त योजना के साथ जारी रखें",
+    
+    safeAlternative: "100% सुरक्षित विकल्प",
+    amazonDesc: "दुनिया का सबसे बड़ा ई-कॉमर्स",
+    upTo70Off: "70% तक छूट",
+    
+    // Footer
+    totalSecurity: "🛡️ संपूर्ण सुरक्षा",
+    totalSecurityDesc: "आपका डेटा बैंक-स्तरीय एन्क्रिप्शन से सुरक्षित है",
+    freeVerification: "✅ मुफ्त सत्यापन",
+    freeVerificationDesc: "सभी की सुरक्षा के लिए 5 मुफ्त परामर्श",
+    alwaysUpdated: "🚀 हमेशा अपडेटेड",
+    alwaysUpdatedDesc: "डेटाबेस 24/7 वास्तविक समय में अपडेटेड",
+    footerCopyright: "© 2025 धोखाधड़ी विरोधी - 2024 से ऑनलाइन धोखाधड़ी से लोगों की सुरक्षा",
+    footerDisclaimer: "डिजिटल सुरक्षा जागरूकता के लिए शिक्षा उपकरण • ब्राजील में निर्मित 🇧🇷"
+  },
+
+  it: {
+    // Header
+    title: "AntiTruffa",
+    subtitle: "Protezione Nazionale Contro le Frodi",
+    secure: "100% Sicuro",
+    instantVerification: "Verifica Istantanea",
+    consultationsLeft: "consultazioni rimanenti",
+    
+    // Banner
+    specialOffer: "OFFERTA SPECIALE",
+    premiumProtection: "Protezione Premium per soli €12/mese",
+    guaranteeNow: "OTTIENI ORA →",
+    
+    // Stats
+    sitesVerified: "Siti Verificati",
+    usersProtected: "Utenti Protetti",
+    accuracy: "Precisione",
+    fraudsPrevented: "Truffe Prevenute",
+    
+    // Main Content
+    mainTitle: "Verifica Qualsiasi Sito Web o Marchio in Secondi",
+    mainSubtitle: "La nostra intelligenza artificiale analizza milioni di dati in tempo reale per proteggerti dalle truffe online",
+    placeholder: "Inserisci il nome del marchio o l'URL del sito (es: negozio-promozioni.com)",
+    verifyButton: "Verifica Ora - GRATUITO",
+    verifying: "Verifica della Sicurezza...",
+    
+    // Loading messages
+    analysisInProgress: "🔍 Analisi in Corso",
+    checkingDomain: "Verifica dominio e certificati SSL...",
+    consultingComplaints: "Consultazione database reclami...",
+    analyzingReputation: "Analisi della reputazione online...",
+    
+    // Results
+    trustIndex: "Indice di Fiducia",
+    analysisTime: "Tempo di Analisi",
+    complaintsFound: "reclami trovati negli ultimi 30 giorni",
+    completeReport: "Visualizza Rapporto Completo",
+    shareWhatsApp: "Condividi su WhatsApp",
+    newVerification: "Nuova Verifica",
+    
+    // Details sections
+    sslCertificate: "Certificato SSL/TLS",
+    domainInfo: "Informazioni Dominio (WHOIS)",
+    reclameAqui: "Rapporti Consumatori",
+    socialNetworks: "Presenza sui Social Media",
+    trustPilot: "TrustPilot",
+    googleResults: "Top 10 Risultati Google",
+    
+    // SSL Details
+    present: "Presente:",
+    valid: "Valido:",
+    validFrom: "Valido da:",
+    validTo: "Valido fino a:",
+    issuer: "Emittente:",
+    yes: "Sì",
+    no: "No",
+    
+    // Custom Analysis
+    customAnalysisTitle: "Analisi Personalizzata Premium",
+    customAnalysisSubtitle: "Hai bisogno di un'analisi dettagliata di documenti, ID aziendali, contratti o proposte di investimento? Il nostro team di esperti esegue una verifica manuale completa entro 1 ora.",
+    expressAnalysis: "Analisi Express - €49,90",
+    premiumAnalysis: "Analisi Premium - €99,90",
+    responseTime1h: "Risposta entro 1 ora",
+    manualVerification: "Verifica manuale da parte di esperti",
+    detailedReport: "Rapporto dettagliato in PDF",
+    whatsappSupport: "Supporto via WhatsApp",
+    responseTime30min: "Risposta entro 30 minuti",
+    legalAnalysis: "Analisi legale inclusa",
+    videoConsultation: "Consulenza video",
+    guarantee30days: "Garanzia di 30 giorni",
+    requestAnalysis: "Richiedi Analisi via WhatsApp",
+    
+    // Trust Indicators
+    completeAnalysis: "Analisi Completa",
+    completeAnalysisDesc: "Verifichiamo dominio, SSL, rapporti consumatori, social network e oltre 50 fonti di dati",
+    advancedAI: "IA Avanzata",
+    advancedAIDesc: "La nostra intelligenza artificiale elabora milioni di dati in tempo reale per la massima precisione",
+    instantResult: "Risultato Istantaneo",
+    instantResultDesc: "Verdetto chiaro e affidabile in secondi, con indice di fiducia e dettagli completi",
+    
+    // Pricing Plans
+    oneTimePayment: "Pagamento Unico",
+    unlimitedConsultations: "Consultazioni illimitate",
+    completeReports: "Rapporti completi",
+    detailedAnalysis: "Analisi dettagliata",
+    emailSupport: "Supporto via email",
+    unlockNow: "Sblocca Ora",
+    
+    protectionPremium: "Protezione Premium",
+    monitoring247: "Monitoraggio 24/7",
+    whatsappAlerts: "Avvisi WhatsApp/Email",
+    vipSiteList: "Lista VIP siti",
+    prioritySupport: "Supporto prioritario",
+    unlockPremiumNow: "Sblocca Premium Ora",
+    
+    annualProtection: "Protezione Annuale",
+    freeMonths: "2 mesi gratis",
+    customAnalysisFeature: "Analisi personalizzate",
+    specializedConsulting: "Consulenza specializzata",
+    businessReports: "Rapporti aziendali",
+    bestOffer: "Migliore Offerta",
+    
+    // Modals
+    consultationsExhausted: "🔒 Consultazioni Esaurite",
+    consultationsExhaustedDesc: "Hai utilizzato le tue 5 consultazioni gratuite. Sblocca l'accesso illimitato ora!",
+    unlimitedAccess: "🚀 Accesso Illimitato - €29,90",
+    premium: "👑 Premium - €12/mese",
+    back: "Indietro",
+    maybeLater: "Forse più tardi",
+    
+    completeReportTitle: "📊 Rapporto Completo",
+    completeReportDesc: "Sblocca tutti i dettagli dell'analisi",
+    whatYouWillSee: "🔓 Cosa vedrai:",
+    detailedSSL: "Certificati SSL dettagliati",
+    completeWHOIS: "Informazioni WHOIS complete",
+    reclameAquiHistory: "Cronologia rapporti consumatori",
+    socialAnalysis: "Analisi social media",
+    trustPilotReviews: "Recensioni TrustPilot",
+    googleTop10: "Top 10 risultati Google",
+    unlockFor2990: "🚀 Sblocca per €29,90 (Una volta)",
+    orPremium: "👑 O Premium per €12/mese",
+    
+    choosePlan: "👑 Protezione Premium",
+    choosePlanDesc: "Scegli il piano ideale per la tua protezione",
+    mostPopular: "🔥 PIÙ POPOLARE",
+    continueFreePlan: "Continua con piano gratuito",
+    
+    safeAlternative: "Alternativa 100% Sicura",
+    amazonDesc: "Il più grande e-commerce del mondo",
+    upTo70Off: "Fino al 70% DI SCONTO",
+    
+    // Footer
+    totalSecurity: "🛡️ Sicurezza Totale",
+    totalSecurityDesc: "I tuoi dati sono protetti con crittografia di livello bancario",
+    freeVerification: "✅ Verifica Gratuita",
+    freeVerificationDesc: "5 consultazioni gratuite per proteggere tutti",
+    alwaysUpdated: "🚀 Sempre Aggiornato",
+    alwaysUpdatedDesc: "Database aggiornato in tempo reale 24/7",
+    footerCopyright: "© 2025 AntiTruffa - Proteggendo le persone dalle truffe online dal 2024",
+    footerDisclaimer: "Strumento educativo per la consapevolezza della sicurezza digitale • Realizzato in Brasile 🇧🇷"
   }
 };
 
@@ -626,6 +1620,13 @@ const useLanguage = () => {
     if (browserLang.includes('en')) detectedLang = 'en';
     else if (browserLang.includes('es')) detectedLang = 'es';
     else if (browserLang.includes('zh') || browserLang.includes('cn')) detectedLang = 'zh';
+    else if (browserLang.includes('fr')) detectedLang = 'fr';
+    else if (browserLang.includes('de')) detectedLang = 'de';
+    else if (browserLang.includes('ar')) detectedLang = 'ar';
+    else if (browserLang.includes('ja')) detectedLang = 'ja';
+    else if (browserLang.includes('ru')) detectedLang = 'ru';
+    else if (browserLang.includes('hi')) detectedLang = 'hi';
+    else if (browserLang.includes('it')) detectedLang = 'it';
     else if (browserLang.includes('pt')) detectedLang = 'pt';
     
     setLanguage(detectedLang);
@@ -644,15 +1645,22 @@ const useLanguage = () => {
   return { language, changeLanguage, t };
 };
 
-// Component para seletor de idioma
+// Component para seletor de idioma RESPONSIVO
 const LanguageSelector = ({ language, onLanguageChange }: { language: string, onLanguageChange: (lang: string) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   const languages = [
-    { code: 'pt', name: 'Português', flag: '🇧🇷' },
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' },
+    { code: 'pt', name: 'Português', flag: '🇧🇷', short: 'PT' },
+    { code: 'en', name: 'English', flag: '🇺🇸', short: 'EN' },
+    { code: 'es', name: 'Español', flag: '🇪🇸', short: 'ES' },
+    { code: 'zh', name: '中文', flag: '🇨🇳', short: '中文' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷', short: 'FR' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪', short: 'DE' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦', short: 'AR' },
+    { code: 'ja', name: '日本語', flag: '🇯🇵', short: '日本' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺', short: 'RU' },
+    { code: 'hi', name: 'हिन्दी', flag: '🇮🇳', short: 'HI' },
+    { code: 'it', name: 'Italiano', flag: '🇮🇹', short: 'IT' },
   ];
   
   const currentLang = languages.find(lang => lang.code === language) || languages[0];
@@ -661,33 +1669,43 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string, on
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+        className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm"
       >
-        <Globe className="w-4 h-4 text-gray-600" />
-        <span className="text-sm font-medium text-gray-700">{currentLang.flag} {currentLang.name}</span>
-        <ChevronDown className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <Globe className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 flex-shrink-0" />
+        <span className="hidden sm:inline text-sm font-medium text-gray-700">{currentLang.flag} {currentLang.name}</span>
+        <span className="sm:hidden text-xs font-medium text-gray-700">{currentLang.flag} {currentLang.short}</span>
+        <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 text-gray-600 transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 z-50 min-w-full">
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => {
-                onLanguageChange(lang.code);
-                setIsOpen(false);
-              }}
-              className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg ${
-                language === lang.code ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
-              }`}
-            >
-              <span className="flex items-center space-x-3">
-                <span className="text-lg">{lang.flag}</span>
-                <span>{lang.name}</span>
-              </span>
-            </button>
-          ))}
-        </div>
+        <>
+          {/* Overlay para fechar */}
+          <div 
+            className="fixed inset-0 z-40" 
+            onClick={() => setIsOpen(false)}
+          />
+          
+          {/* Dropdown */}
+          <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 z-50 w-48 max-h-64 overflow-y-auto">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  onLanguageChange(lang.code);
+                  setIsOpen(false);
+                }}
+                className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg ${
+                  language === lang.code ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+                }`}
+              >
+                <span className="flex items-center space-x-3">
+                  <span className="text-lg flex-shrink-0">{lang.flag}</span>
+                  <span className="text-sm truncate">{lang.name}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
@@ -782,7 +1800,7 @@ function App() {
       id: "unlimited",
       name: t('oneTimePayment'),
       price: "R$ 29,90",
-      period: language === 'en' ? "once" : language === 'es' ? "una vez" : language === 'zh' ? "一次" : "uma vez",
+      period: language === 'en' ? "once" : language === 'es' ? "una vez" : language === 'zh' ? "一次" : language === 'fr' ? "une fois" : language === 'de' ? "einmal" : language === 'ar' ? "مرة واحدة" : language === 'ja' ? "一回" : language === 'ru' ? "один раз" : language === 'hi' ? "एक बार" : language === 'it' ? "una volta" : "uma vez",
       features: [
         t('unlimitedConsultations'),
         t('completeReports'),
@@ -796,11 +1814,21 @@ function App() {
       name: t('protectionPremium'),
       price: "R$ 12",
       originalPrice: "R$ 17",
-      period: language === 'en' ? "/month" : language === 'es' ? "/mes" : language === 'zh' ? "/月" : "/mês",
+      period: language === 'en' ? "/month" : language === 'es' ? "/mes" : language === 'zh' ? "/月" : language === 'fr' ? "/mois" : language === 'de' ? "/Monat" : language === 'ar' ? "/شهر" : language === 'ja' ? "/月" : language === 'ru' ? "/месяц" : language === 'hi' ? "/माह" : language === 'it' ? "/mese" : "/mês",
       popular: true,
       savings: "31% OFF",
       features: [
-        language === 'en' ? "Everything from previous plan" : language === 'es' ? "Todo del plan anterior" : language === 'zh' ? "前一个计划的所有功能" : "Tudo do plano anterior",
+        language === 'en' ? "Everything from previous plan" : 
+        language === 'es' ? "Todo del plan anterior" : 
+        language === 'zh' ? "前一个计划的所有功能" : 
+        language === 'fr' ? "Tout du plan précédent" :
+        language === 'de' ? "Alles vom vorherigen Plan" :
+        language === 'ar' ? "كل شيء من الخطة السابقة" :
+        language === 'ja' ? "前プランのすべて" :
+        language === 'ru' ? "Всё из предыдущего плана" :
+        language === 'hi' ? "पिछली योजना की सब चीजें" :
+        language === 'it' ? "Tutto dal piano precedente" :
+        "Tudo do plano anterior",
         t('monitoring247'),
         t('whatsappAlerts'),
         t('vipSiteList'),
@@ -813,10 +1841,20 @@ function App() {
       name: t('annualProtection'),
       price: "R$ 99",
       originalPrice: "R$ 144",
-      period: language === 'en' ? "/year" : language === 'es' ? "/año" : language === 'zh' ? "/年" : "/ano",
-      savings: language === 'en' ? "Save R$ 45" : language === 'es' ? "Ahorra R$ 45" : language === 'zh' ? "节省 R$ 45" : "Economize R$ 45",
+      period: language === 'en' ? "/year" : language === 'es' ? "/año" : language === 'zh' ? "/年" : language === 'fr' ? "/an" : language === 'de' ? "/Jahr" : language === 'ar' ? "/سنة" : language === 'ja' ? "/年" : language === 'ru' ? "/год" : language === 'hi' ? "/वर्ष" : language === 'it' ? "/anno" : "/ano",
+      savings: language === 'en' ? "Save R$ 45" : language === 'es' ? "Ahorra R$ 45" : language === 'zh' ? "节省 R$ 45" : language === 'fr' ? "Économisez R$ 45" : language === 'de' ? "Sparen Sie R$ 45" : language === 'ar' ? "وفر R$ 45" : language === 'ja' ? "R$ 45節約" : language === 'ru' ? "Экономия R$ 45" : language === 'hi' ? "R$ 45 बचत" : language === 'it' ? "Risparmia R$ 45" : "Economize R$ 45",
       features: [
-        language === 'en' ? "Everything from Premium" : language === 'es' ? "Todo del Premium" : language === 'zh' ? "高级版的所有功能" : "Tudo do Premium",
+        language === 'en' ? "Everything from Premium" : 
+        language === 'es' ? "Todo del Premium" : 
+        language === 'zh' ? "高级版的所有功能" : 
+        language === 'fr' ? "Tout du Premium" :
+        language === 'de' ? "Alles vom Premium" :
+        language === 'ar' ? "كل شيء من البريميوم" :
+        language === 'ja' ? "プレミアムのすべて" :
+        language === 'ru' ? "Всё из Премиум" :
+        language === 'hi' ? "प्रीमियम की सब चीजें" :
+        language === 'it' ? "Tutto dal Premium" :
+        "Tudo do Premium",
         t('freeMonths'),
         t('customAnalysisFeature'),
         t('specializedConsulting'),
@@ -843,7 +1881,7 @@ function App() {
       const resp = await fetch("/.netlify/functions/verificar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: searchQuery }),
+        body: JSON.stringify({ query: searchQuery, language }),
       });
 
       const data = await resp.json();
@@ -891,8 +1929,28 @@ function App() {
     } catch (e: any) {
       setResult({
         status: "suspicious",
-        title: "⚠️ VERIFICAÇÃO PARCIAL",
-        message: "Não foi possível concluir toda a análise. Recomendamos cautela e verificação adicional.",
+        title: language === 'en' ? "⚠️ PARTIAL VERIFICATION" : 
+               language === 'es' ? "⚠️ VERIFICACIÓN PARCIAL" : 
+               language === 'zh' ? "⚠️ 部分验证" : 
+               language === 'fr' ? "⚠️ VÉRIFICATION PARTIELLE" :
+               language === 'de' ? "⚠️ TEILWEISE ÜBERPRÜFUNG" :
+               language === 'ar' ? "⚠️ التحقق الجزئي" :
+               language === 'ja' ? "⚠️ 部分検証" :
+               language === 'ru' ? "⚠️ ЧАСТИЧНАЯ ПРОВЕРКА" :
+               language === 'hi' ? "⚠️ आंशिक सत्यापन" :
+               language === 'it' ? "⚠️ VERIFICA PARZIALE" :
+               "⚠️ VERIFICAÇÃO PARCIAL",
+        message: language === 'en' ? "Could not complete all analysis. We recommend caution and additional verification." : 
+                 language === 'es' ? "No se pudo completar todo el análisis. Recomendamos precaución y verificación adicional." : 
+                 language === 'zh' ? "无法完成所有分析。我们建议谨慎并进行额外验证。" : 
+                 language === 'fr' ? "Impossible de terminer toute l'analyse. Nous recommandons la prudence et une vérification supplémentaire." :
+                 language === 'de' ? "Konnte nicht alle Analysen abschließen. Wir empfehlen Vorsicht und zusätzliche Überprüfung." :
+                 language === 'ar' ? "لم نتمكن من إكمال جميع التحليلات. نوصي بالحذر والتحقق الإضافي." :
+                 language === 'ja' ? "すべての分析を完了できませんでした。注意と追加の検証をお勧めします。" :
+                 language === 'ru' ? "Не удалось завершить весь анализ. Рекомендуем осторожность и дополнительную проверку." :
+                 language === 'hi' ? "सभी विश्लेषण पूरा नहीं कर सके। हम सावधानी और अतिरिक्त सत्यापन की सिफारिश करते हैं।" :
+                 language === 'it' ? "Impossibile completare tutta l'analisi. Raccomandiamo cautela e verifica aggiuntiva." :
+                 "Não foi possível concluir toda a análise. Recomendamos cautela e verificação adicional.",
         complaints: 0,
         trustScore: 50,
         verificationTime: "—",
@@ -906,7 +1964,7 @@ function App() {
     if (!result) return;
     
     const emoji = result.status === 'safe' ? '✅' : result.status === 'suspicious' ? '⚠️' : '🚨';
-    const message = `${emoji} *${t('title')} ${language === 'en' ? 'Verified' : language === 'es' ? 'Verificó' : language === 'zh' ? '已验证' : 'Verificou'}*\n\n🔍 *${language === 'en' ? 'Site/Brand' : language === 'es' ? 'Sitio/Marca' : language === 'zh' ? '网站/品牌' : 'Site/Marca'}:* ${searchQuery}\n📊 *${language === 'en' ? 'Result' : language === 'es' ? 'Resultado' : language === 'zh' ? '结果' : 'Resultado'}:* ${result.title}\n\n💬 *${language === 'en' ? 'Details' : language === 'es' ? 'Detalles' : language === 'zh' ? '详情' : 'Detalhes'}:* ${result.message}\n\n🛡️ ${language === 'en' ? 'Verify yourself too' : language === 'es' ? 'Verifica tú también' : language === 'zh' ? '您也来验证' : 'Verifique você também'}: ${window.location.href}\n\n_${t('title')} - ${language === 'en' ? 'Your protection against online scams' : language === 'es' ? 'Tu protección contra estafas online' : language === 'zh' ? '您的网络诈骗保护' : 'Sua proteção contra golpes online'}_`;
+    const message = `${emoji} *${t('title')} ${language === 'en' ? 'Verified' : language === 'es' ? 'Verificó' : language === 'zh' ? '已验证' : language === 'fr' ? 'Vérifié' : language === 'de' ? 'Verifiziert' : language === 'ar' ? 'تم التحقق' : language === 'ja' ? '検証済み' : language === 'ru' ? 'Проверено' : language === 'hi' ? 'सत्यापित' : language === 'it' ? 'Verificato' : 'Verificou'}*\n\n🔍 *${language === 'en' ? 'Site/Brand' : language === 'es' ? 'Sitio/Marca' : language === 'zh' ? '网站/品牌' : language === 'fr' ? 'Site/Marque' : language === 'de' ? 'Website/Marke' : language === 'ar' ? 'الموقع/العلامة التجارية' : language === 'ja' ? 'サイト/ブランド' : language === 'ru' ? 'Сайт/Бренд' : language === 'hi' ? 'साइट/ब्रांड' : language === 'it' ? 'Sito/Marchio' : 'Site/Marca'}:* ${searchQuery}\n📊 *${language === 'en' ? 'Result' : language === 'es' ? 'Resultado' : language === 'zh' ? '结果' : language === 'fr' ? 'Résultat' : language === 'de' ? 'Ergebnis' : language === 'ar' ? 'النتيجة' : language === 'ja' ? '結果' : language === 'ru' ? 'Результат' : language === 'hi' ? 'परिणाम' : language === 'it' ? 'Risultato' : 'Resultado'}:* ${result.title}\n\n💬 *${language === 'en' ? 'Details' : language === 'es' ? 'Detalles' : language === 'zh' ? '详情' : language === 'fr' ? 'Détails' : language === 'de' ? 'Details' : language === 'ar' ? 'التفاصيل' : language === 'ja' ? '詳細' : language === 'ru' ? 'Детали' : language === 'hi' ? 'विवरण' : language === 'it' ? 'Dettagli' : 'Detalhes'}:* ${result.message}\n\n🛡️ ${language === 'en' ? 'Verify yourself too' : language === 'es' ? 'Verifica tú también' : language === 'zh' ? '您也来验证' : language === 'fr' ? 'Vérifiez-vous aussi' : language === 'de' ? 'Überprüfen Sie sich auch' : language === 'ar' ? 'تحقق أنت أيضاً' : language === 'ja' ? 'あなたも確認してください' : language === 'ru' ? 'Проверьте сами тоже' : language === 'hi' ? 'आप भी सत्यापित करें' : language === 'it' ? 'Verifica anche tu' : 'Verifique você também'}: ${window.location.href}\n\n_${t('title')} - ${language === 'en' ? 'Your protection against online scams' : language === 'es' ? 'Tu protección contra estafas online' : language === 'zh' ? '您的网络诈骗保护' : language === 'fr' ? 'Votre protection contre les arnaques en ligne' : language === 'de' ? 'Ihr Schutz vor Online-Betrug' : language === 'ar' ? 'حمايتك ضد الاحتيال عبر الإنترنت' : language === 'ja' ? 'オンライン詐欺に対するあなたの保護' : language === 'ru' ? 'Ваша защита от онлайн мошенничества' : language === 'hi' ? 'ऑनलाइन धोखाधड़ी के खिलाफ आपकी सुरक्षा' : language === 'it' ? 'La tua protezione contro le truffe online' : 'Sua proteção contra golpes online'}_`;
     
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -982,23 +2040,9 @@ function App() {
       {
         name: "NordVPN",
         url: "https://nordvpn.com/?utm_source=antigolpe",
-        description: language === 'en' ? "Protect your browsing" : language === 'es' ? "Protege tu navegación" : language === 'zh' ? "保护您的浏览" : "Proteja sua navegação",
-        price: "R$ 12,99/" + (language === 'en' ? "month" : language === 'es' ? "mes" : language === 'zh' ? "月" : "mês"),
+        description: language === 'en' ? "Protect your browsing" : language === 'es' ? "Protege tu navegación" : language === 'zh' ? "保护您的浏览" : language === 'fr' ? "Protégez votre navigation" : language === 'de' ? "Schützen Sie Ihr Surfen" : language === 'ar' ? "احم تصفحك" : language === 'ja' ? "ブラウジングを保護" : language === 'ru' ? "Защитите ваш просмотр" : language === 'hi' ? "अपने ब्राउज़िंग की सुरक्षा करें" : language === 'it' ? "Proteggi la tua navigazione" : "Proteja sua navegação",
+        price: "R$ 12,99/" + (language === 'en' ? "month" : language === 'es' ? "mes" : language === 'zh' ? "月" : language === 'fr' ? "mois" : language === 'de' ? "Monat" : language === 'ar' ? "شهر" : language === 'ja' ? "月" : language === 'ru' ? "месяц" : language === 'hi' ? "माह" : language === 'it' ? "mese" : "mês"),
         discount: "68% OFF"
-      },
-      {
-        name: "Serasa Premium",
-        url: "https://serasa.com.br/?utm_source=antigolpe",
-        description: language === 'en' ? "Monitor your ID 24h" : language === 'es' ? "Monitorea tu ID 24h" : language === 'zh' ? "24小时监控您的ID" : "Monitore seu CPF 24h",
-        price: "R$ 16,90/" + (language === 'en' ? "month" : language === 'es' ? "mes" : language === 'zh' ? "月" : "mês"),
-        discount: language === 'en' ? "1st month free" : language === 'es' ? "1er mes gratis" : language === 'zh' ? "第1个月免费" : "1º mês grátis"
-      },
-      {
-        name: "Kaspersky",
-        url: "https://kaspersky.com.br/?utm_source=antigolpe",
-        description: language === 'en' ? "Premium antivirus" : language === 'es' ? "Antivirus premium" : language === 'zh' ? "高级杀毒软件" : "Antivírus premium",
-        price: "R$ 89,90/" + (language === 'en' ? "year" : language === 'es' ? "año" : language === 'zh' ? "年" : "ano"),
-        discount: "50% OFF"
       }
     ];
 
@@ -1009,14 +2053,14 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Oferta Especial Banner */}
       {!isPremium && !hasUnlimitedAccess && (
-        <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white py-3 px-4 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white py-2 sm:py-3 px-4 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-black opacity-10"></div>
           <div className="relative z-10">
-            <p className="font-bold text-sm md:text-base">
+            <p className="font-bold text-xs sm:text-sm md:text-base">
               🔥 <span className="animate-pulse">{t('specialOffer')}</span> - {t('premiumProtection')} • 
               <button 
                 onClick={() => setShowPremiumModal(true)}
-                className="ml-2 underline hover:no-underline font-black"
+                className="ml-1 sm:ml-2 underline hover:no-underline font-black text-xs sm:text-sm"
               >
                 {t('guaranteeNow')}
               </button>
@@ -1025,44 +2069,44 @@ function App() {
         </div>
       )}
 
-      {/* Header Premium */}
+      {/* Header Premium RESPONSIVO */}
       <header className="bg-white shadow-lg border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 py-4 sm:py-8">
+          <div className="flex items-center justify-between flex-wrap gap-4">
             {/* Logo e título */}
-            <div className="flex items-center justify-center space-x-4 flex-1">
-              <div className="relative">
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg">
-                  <Shield className="w-9 h-9 text-white" />
+            <div className="flex items-center justify-center space-x-3 sm:space-x-4 flex-1 min-w-0">
+              <div className="relative flex-shrink-0">
+                <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-lg">
+                  <Shield className="w-6 h-6 sm:w-9 sm:h-9 text-white" />
                 </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <Star className="w-3 h-3 text-white" />
+                <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <Star className="w-2 h-2 sm:w-3 sm:h-3 text-white" />
                 </div>
               </div>
-              <div className="text-center">
-                <h1 className="text-4xl font-black text-gray-900 tracking-tight">{t('title')}</h1>
-                <p className="text-lg font-semibold text-blue-600 mt-1">{t('subtitle')}</p>
-                <div className="flex items-center justify-center space-x-4 mt-2">
-                  <div className="flex items-center space-x-1 text-sm text-gray-600">
-                    <Lock className="w-4 h-4" />
+              <div className="text-center min-w-0 flex-1">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight truncate">{t('title')}</h1>
+                <p className="text-sm sm:text-lg font-semibold text-blue-600 mt-1 truncate">{t('subtitle')}</p>
+                <div className="flex items-center justify-center space-x-2 sm:space-x-4 mt-2 flex-wrap gap-1">
+                  <div className="flex items-center space-x-1 text-xs sm:text-sm text-gray-600">
+                    <Lock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                     <span className="font-medium">{t('secure')}</span>
                   </div>
-                  <div className="flex items-center space-x-1 text-sm text-gray-600">
-                    <Zap className="w-4 h-4" />
-                    <span className="font-medium">{t('instantVerification')}</span>
+                  <div className="flex items-center space-x-1 text-xs sm:text-sm text-gray-600">
+                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                    <span className="font-medium truncate">{t('instantVerification')}</span>
                   </div>
                   {!isPremium && !hasUnlimitedAccess && (
-                    <div className="flex items-center space-x-1 text-sm text-orange-600">
-                      <Gift className="w-4 h-4" />
-                      <span className="font-medium">{freeSearches} {t('consultationsLeft')}</span>
+                    <div className="flex items-center space-x-1 text-xs sm:text-sm text-orange-600">
+                      <Gift className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                      <span className="font-medium whitespace-nowrap">{freeSearches} {t('consultationsLeft')}</span>
                     </div>
                   )}
                 </div>
               </div>
             </div>
             
-            {/* Seletor de idioma */}
-            <div className="ml-4">
+            {/* Seletor de idioma REPOSICIONADO */}
+            <div className="flex-shrink-0">
               <LanguageSelector language={language} onLanguageChange={changeLanguage} />
             </div>
           </div>
@@ -1077,8 +2121,8 @@ function App() {
               <div className={`flex justify-center mb-2 ${stat.color}`}>
                 {stat.icon}
               </div>
-              <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-              <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-xl sm:text-2xl font-bold text-gray-900">{stat.value}</div>
+              <div className="text-xs sm:text-sm text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -1087,27 +2131,27 @@ function App() {
       {/* Main Content */}
       <main className="max-w-3xl mx-auto px-4 pb-12">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             {t('mainTitle')}
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
             {t('mainSubtitle')}
           </p>
         </div>
 
         {/* Search Form Premium */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 mb-10 border border-gray-100">
+        <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 mb-10 border border-gray-100">
           <div className="space-y-6">
             <div className="relative">
-              <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <Search className="w-6 h-6" />
+              <div className="absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <Search className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('placeholder')}
-                className="w-full pl-16 pr-6 py-6 text-xl border-3 border-gray-200 rounded-2xl focus:border-blue-500 focus:ring-6 focus:ring-blue-100 transition-all duration-300 outline-none font-medium placeholder-gray-400"
+                className="w-full pl-12 sm:pl-16 pr-4 sm:pr-6 py-4 sm:py-6 text-lg sm:text-xl border-3 border-gray-200 rounded-xl sm:rounded-2xl focus:border-blue-500 focus:ring-4 sm:focus:ring-6 focus:ring-blue-100 transition-all duration-300 outline-none font-medium placeholder-gray-400"
                 onKeyPress={(e) => e.key === 'Enter' && handleVerification()}
               />
             </div>
@@ -1115,16 +2159,16 @@ function App() {
             <button
               onClick={handleVerification}
               disabled={!searchQuery.trim() || isVerifying}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-6 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 text-lg sm:text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               {isVerifying ? (
                 <>
-                  <Loader2 className="w-6 h-6 animate-spin" />
+                  <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" />
                   <span>{t('verifying')}</span>
                 </>
               ) : (
                 <>
-                  <Shield className="w-6 h-6" />
+                  <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
                   <span>{t('verifyButton')}</span>
                 </>
               )}
@@ -1134,17 +2178,17 @@ function App() {
 
         {/* Loading State Premium */}
         {isVerifying && (
-          <div className="bg-white rounded-3xl shadow-2xl p-10 text-center border border-gray-100">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 text-center border border-gray-100">
             <div className="flex flex-col items-center space-y-6">
               <div className="relative">
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-                  <Loader2 className="w-12 h-12 text-blue-600 animate-spin" />
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+                  <Loader2 className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 animate-spin" />
                 </div>
                 <div className="absolute inset-0 rounded-full border-4 border-blue-200 animate-pulse"></div>
               </div>
               <div className="space-y-3">
-                <h3 className="text-2xl font-bold text-gray-900">{t('analysisInProgress')}</h3>
-                <div className="space-y-2 text-gray-600">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{t('analysisInProgress')}</h3>
+                <div className="space-y-2 text-gray-600 text-sm sm:text-base">
                   <p className="flex items-center justify-center space-x-2">
                     <Clock className="w-4 h-4" />
                     <span>{t('checkingDomain')}</span>
@@ -1165,40 +2209,40 @@ function App() {
 
         {/* Result Premium */}
         {result && !isVerifying && (
-          <div className={`bg-white rounded-3xl shadow-2xl border-4 ${getResultColors()} p-10`}>
+          <div className={`bg-white rounded-3xl shadow-2xl border-4 ${getResultColors()} p-8 sm:p-10`}>
             <div className="text-center space-y-6">
               <div className="flex justify-center">
                 {getResultIcon()}
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-3xl font-black text-gray-900 leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
                   {result.title}
                 </h3>
-                <p className="text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
                   {result.message}
                 </p>
                 
                 {/* Trust Score */}
-                <div className="bg-gray-50 rounded-2xl p-6 space-y-4">
-                  <div className="flex items-center justify-center space-x-4">
+                <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 space-y-4">
+                  <div className="flex items-center justify-center space-x-4 sm:space-x-8">
                     <div className="text-center">
-                      <div className={`text-4xl font-black ${getTrustScoreColor()}`}>
+                      <div className={`text-3xl sm:text-4xl font-black ${getTrustScoreColor()}`}>
                         {result.trustScore}%
                       </div>
-                      <div className="text-sm text-gray-600 font-semibold">{t('trustIndex')}</div>
+                      <div className="text-xs sm:text-sm text-gray-600 font-semibold">{t('trustIndex')}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-gray-900">
+                      <div className="text-xl sm:text-2xl font-bold text-gray-900">
                         {result.verificationTime}
                       </div>
-                      <div className="text-sm text-gray-600 font-semibold">{t('analysisTime')}</div>
+                      <div className="text-xs sm:text-sm text-gray-600 font-semibold">{t('analysisTime')}</div>
                     </div>
                   </div>
                   
                   {result.complaints > 0 && (
                     <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                      <p className="text-red-800 font-semibold text-center">
+                      <p className="text-red-800 font-semibold text-center text-sm sm:text-base">
                         ⚠️ <strong>{result.complaints} {t('complaintsFound')}</strong>
                       </p>
                     </div>
@@ -1210,17 +2254,17 @@ function App() {
               {(result.ssl || result.whois || result.reclameAqui || result.googleResults?.length || result.social || result.trustPilot) && (
                 <button
                   onClick={handleViewDetails}
-                  className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
-                  <FileText className="w-5 h-5" />
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>{t('completeReport')}</span>
-                  {!isPremium && !hasUnlimitedAccess && <Lock className="w-4 h-4 ml-1" />}
+                  {!isPremium && !hasUnlimitedAccess && <Lock className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />}
                 </button>
               )}
 
               {/* Detalhes da Análise - Apenas para Premium */}
               {showDetails && (isPremium || hasUnlimitedAccess) && (
-                <div className="mt-6 text-left space-y-6 p-6 bg-gray-50 rounded-2xl border border-gray-200">
+                <div className="mt-6 text-left space-y-6 p-4 sm:p-6 bg-gray-50 rounded-2xl border border-gray-200">
                   {/* SSL */}
                   {result.ssl && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
@@ -1228,7 +2272,7 @@ function App() {
                         <Lock className="w-5 h-5 mr-2 text-blue-600" />
                         {t('sslCertificate')}
                       </h4>
-                      <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         <div>
                           <span className="font-semibold">{t('present')}</span> {result.ssl.present ? `✅ ${t('yes')}` : `❌ ${t('no')}`}
                         </div>
@@ -1241,7 +2285,7 @@ function App() {
                         <div>
                           <span className="font-semibold">{t('validTo')}</span> {result.ssl.validTo || "—"}
                         </div>
-                        <div className="col-span-2">
+                        <div className="col-span-1 sm:col-span-2">
                           <span className="font-semibold">{t('issuer')}</span> {result.ssl.issuer?.CN || "—"}
                         </div>
                       </div>
@@ -1256,7 +2300,7 @@ function App() {
                         {t('domainInfo')}
                       </h4>
                       <p className="text-sm">
-                        <span className="font-semibold">Status:</span> {result.whois.hasData ? `✅ ${language === 'en' ? 'Data available' : language === 'es' ? 'Datos disponibles' : language === 'zh' ? '数据可用' : 'Dados disponíveis'}` : `❌ ${language === 'en' ? 'Data not available' : language === 'es' ? 'Datos no disponibles' : language === 'zh' ? '数据不可用' : 'Dados não disponíveis'}`}
+                        <span className="font-semibold">Status:</span> {result.whois.hasData ? `✅ ${language === 'en' ? 'Data available' : language === 'es' ? 'Datos disponibles' : language === 'zh' ? '数据可用' : language === 'fr' ? 'Données disponibles' : language === 'de' ? 'Daten verfügbar' : language === 'ar' ? 'البيانات متاحة' : language === 'ja' ? 'データ利用可能' : language === 'ru' ? 'Данные доступны' : language === 'hi' ? 'डेटा उपलब्ध' : language === 'it' ? 'Dati disponibili' : 'Dados disponíveis'}` : `❌ ${language === 'en' ? 'Data not available' : language === 'es' ? 'Datos no disponibles' : language === 'zh' ? '数据不可用' : language === 'fr' ? 'Données non disponibles' : language === 'de' ? 'Daten nicht verfügbar' : language === 'ar' ? 'البيانات غير متاحة' : language === 'ja' ? 'データ利用不可' : language === 'ru' ? 'Данные недоступны' : language === 'hi' ? 'डेटा उपलब्ध नहीं' : language === 'it' ? 'Dati non disponibili' : 'Dados não disponíveis'}`}
                       </p>
                     </div>
                   )}
@@ -1270,15 +2314,15 @@ function App() {
                       </h4>
                       {result.reclameAqui.found ? (
                         <div className="space-y-2 text-sm">
-                          <div className="grid grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                               <span className="font-semibold">Score RA:</span> {result.reclameAqui.score ?? "—"}
                             </div>
                             <div>
-                              <span className="font-semibold">{language === 'en' ? 'Total Complaints' : language === 'es' ? 'Total Quejas' : language === 'zh' ? '总投诉数' : 'Total Reclamações'}:</span> {result.reclameAqui.totalComplaints ?? "—"}
+                              <span className="font-semibold">{language === 'en' ? 'Total Complaints' : language === 'es' ? 'Total Quejas' : language === 'zh' ? '总投诉数' : language === 'fr' ? 'Total Plaintes' : language === 'de' ? 'Gesamtbeschwerden' : language === 'ar' ? 'إجمالي الشكاوى' : language === 'ja' ? '総苦情数' : language === 'ru' ? 'Всего жалоб' : language === 'hi' ? 'कुल शिकायतें' : language === 'it' ? 'Reclami Totali' : 'Total Reclamações'}:</span> {result.reclameAqui.totalComplaints ?? "—"}
                             </div>
                             <div>
-                              <span className="font-semibold">{language === 'en' ? 'Last 30 days' : language === 'es' ? 'Últimos 30 días' : language === 'zh' ? '最近30天' : 'Últimos 30 dias'}:</span> {result.reclameAqui.last30d ?? "—"}
+                              <span className="font-semibold">{language === 'en' ? 'Last 30 days' : language === 'es' ? 'Últimos 30 días' : language === 'zh' ? '最近30天' : language === 'fr' ? 'Derniers 30 jours' : language === 'de' ? 'Letzten 30 Tage' : language === 'ar' ? 'آخر 30 يوماً' : language === 'ja' ? '過去30日間' : language === 'ru' ? 'Последние 30 дней' : language === 'hi' ? 'पिछले 30 दिन' : language === 'it' ? 'Ultimi 30 giorni' : 'Últimos 30 dias'}:</span> {result.reclameAqui.last30d ?? "—"}
                             </div>
                           </div>
                           {result.reclameAqui.companyLink && (
@@ -1289,13 +2333,13 @@ function App() {
                                 rel="noopener noreferrer" 
                                 className="text-blue-600 hover:text-blue-800 underline font-medium"
                               >
-                                🔗 {language === 'en' ? 'View page on Consumer Reports' : language === 'es' ? 'Ver página en Quejas de Consumidores' : language === 'zh' ? '查看消费者投诉页面' : 'Ver página no Reclame Aqui'}
+                                🔗 {language === 'en' ? 'View page on Consumer Reports' : language === 'es' ? 'Ver página en Quejas de Consumidores' : language === 'zh' ? '查看消费者投诉页面' : language === 'fr' ? 'Voir la page sur les Rapports de Consommateurs' : language === 'de' ? 'Seite in Verbraucherberichten anzeigen' : language === 'ar' ? 'عرض الصفحة في تقارير المستهلكين' : language === 'ja' ? '消費者レポートでページを表示' : language === 'ru' ? 'Посмотреть страницу в Отчетах Потребителей' : language === 'hi' ? 'उपभोक्ता रिपोर्ट में पेज देखें' : language === 'it' ? 'Visualizza pagina sui Rapporti Consumatori' : 'Ver página no Reclame Aqui'}
                               </a>
                             </div>
                           )}
                         </div>
                       ) : (
-                        <p className="text-sm text-gray-600">{language === 'en' ? 'Company not found in Consumer Reports.' : language === 'es' ? 'Empresa no encontrada en Quejas de Consumidores.' : language === 'zh' ? '在消费者投诉中未找到该公司。' : 'Empresa não encontrada no Reclame Aqui.'}</p>
+                        <p className="text-sm text-gray-600">{language === 'en' ? 'Company not found in Consumer Reports.' : language === 'es' ? 'Empresa no encontrada en Quejas de Consumidores.' : language === 'zh' ? '在消费者投诉中未找到该公司。' : language === 'fr' ? 'Entreprise non trouvée dans les Rapports de Consommateurs.' : language === 'de' ? 'Unternehmen nicht in Verbraucherberichten gefunden.' : language === 'ar' ? 'الشركة غير موجودة في تقارير المستهلكين.' : language === 'ja' ? '消費者レポートで会社が見つかりませんでした。' : language === 'ru' ? 'Компания не найдена в Отчетах Потребителей.' : language === 'hi' ? 'कंपनी उपभोक्ता रिपोर्ट में नहीं मिली।' : language === 'it' ? 'Azienda non trovata nei Rapporti Consumatori.' : 'Empresa não encontrada no Reclame Aqui.'}</p>
                       )}
                     </div>
                   )}
@@ -1309,13 +2353,13 @@ function App() {
                       </h4>
                       <div className="space-y-2 text-sm">
                         <div>
-                          <span className="font-semibold">{language === 'en' ? 'Total mentions' : language === 'es' ? 'Total de menciones' : language === 'zh' ? '总提及次数' : 'Total de menções'}:</span> {result.social.mentions || 0}
+                          <span className="font-semibold">{language === 'en' ? 'Total mentions' : language === 'es' ? 'Total de menciones' : language === 'zh' ? '总提及次数' : language === 'fr' ? 'Total des mentions' : language === 'de' ? 'Gesamterwähnungen' : language === 'ar' ? 'إجمالي الإشارات' : language === 'ja' ? '総メンション数' : language === 'ru' ? 'Всего упоминаний' : language === 'hi' ? 'कुल उल्लेख' : language === 'it' ? 'Menzioni totali' : 'Total de menções'}:</span> {result.social.mentions || 0}
                         </div>
                         {result.social.instagram && (
                           <div>
                             <span className="font-semibold">Instagram:</span> 
                             <a href={result.social.instagram} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
-                              {language === 'en' ? 'View profile' : language === 'es' ? 'Ver perfil' : language === 'zh' ? '查看资料' : 'Ver perfil'}
+                              {language === 'en' ? 'View profile' : language === 'es' ? 'Ver perfil' : language === 'zh' ? '查看资料' : language === 'fr' ? 'Voir le profil' : language === 'de' ? 'Profil anzeigen' : language === 'ar' ? 'عرض الملف الشخصي' : language === 'ja' ? 'プロフィールを見る' : language === 'ru' ? 'Посмотреть профиль' : language === 'hi' ? 'प्रोफ़ाइल देखें' : language === 'it' ? 'Visualizza profilo' : 'Ver perfil'}
                             </a>
                           </div>
                         )}
@@ -1323,7 +2367,7 @@ function App() {
                           <div>
                             <span className="font-semibold">Twitter:</span> 
                             <a href={result.social.twitter} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
-                              {language === 'en' ? 'View profile' : language === 'es' ? 'Ver perfil' : language === 'zh' ? '查看资料' : 'Ver perfil'}
+                              {language === 'en' ? 'View profile' : language === 'es' ? 'Ver perfil' : language === 'zh' ? '查看资料' : language === 'fr' ? 'Voir le profil' : language === 'de' ? 'Profil anzeigen' : language === 'ar' ? 'عرض الملف الشخصي' : language === 'ja' ? 'プロフィールを見る' : language === 'ru' ? 'Посмотреть профиль' : language === 'hi' ? 'प्रोफ़ाइल देखें' : language === 'it' ? 'Visualizza profilo' : 'Ver perfil'}
                             </a>
                           </div>
                         )}
@@ -1331,7 +2375,7 @@ function App() {
                           <div>
                             <span className="font-semibold">LinkedIn:</span> 
                             <a href={result.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
-                              {language === 'en' ? 'View profile' : language === 'es' ? 'Ver perfil' : language === 'zh' ? '查看资料' : 'Ver perfil'}
+                              {language === 'en' ? 'View profile' : language === 'es' ? 'Ver perfil' : language === 'zh' ? '查看资料' : language === 'fr' ? 'Voir le profil' : language === 'de' ? 'Profil anzeigen' : language === 'ar' ? 'عرض الملف الشخصي' : language === 'ja' ? 'プロフィールを見る' : language === 'ru' ? 'Посмотреть профиль' : language === 'hi' ? 'प्रोफ़ाइल देखें' : language === 'it' ? 'Visualizza profilo' : 'Ver perfil'}
                             </a>
                           </div>
                         )}
@@ -1339,7 +2383,7 @@ function App() {
                           <div>
                             <span className="font-semibold">Reddit:</span> 
                             <a href={result.social.reddit} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
-                              {language === 'en' ? 'View discussion' : language === 'es' ? 'Ver discusión' : language === 'zh' ? '查看讨论' : 'Ver discussão'}
+                              {language === 'en' ? 'View discussion' : language === 'es' ? 'Ver discusión' : language === 'zh' ? '查看讨论' : language === 'fr' ? 'Voir la discussion' : language === 'de' ? 'Diskussion anzeigen' : language === 'ar' ? 'عرض النقاش' : language === 'ja' ? 'ディスカッションを見る' : language === 'ru' ? 'Посмотреть обсуждение' : language === 'hi' ? 'चर्चा देखें' : language === 'it' ? 'Visualizza discussione' : 'Ver discussão'}
                             </a>
                           </div>
                         )}
@@ -1354,12 +2398,12 @@ function App() {
                         <Star className="w-5 h-5 mr-2 text-yellow-600" />
                         {t('trustPilot')}
                       </h4>
-                      <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         <div>
-                          <span className="font-semibold">{language === 'en' ? 'Rating' : language === 'es' ? 'Calificación' : language === 'zh' ? '评分' : 'Avaliação'}:</span> {result.trustPilot.rating ? `${result.trustPilot.rating}/5 ⭐` : "—"}
+                          <span className="font-semibold">{language === 'en' ? 'Rating' : language === 'es' ? 'Calificación' : language === 'zh' ? '评分' : language === 'fr' ? 'Note' : language === 'de' ? 'Bewertung' : language === 'ar' ? 'التقييم' : language === 'ja' ? '評価' : language === 'ru' ? 'Рейтинг' : language === 'hi' ? 'रेटिंग' : language === 'it' ? 'Valutazione' : 'Avaliação'}:</span> {result.trustPilot.rating ? `${result.trustPilot.rating}/5 ⭐` : "—"}
                         </div>
                         <div>
-                          <span className="font-semibold">{language === 'en' ? 'Total Reviews' : language === 'es' ? 'Total Reseñas' : language === 'zh' ? '总评论数' : 'Total Reviews'}:</span> {result.trustPilot.reviewCount ?? "—"}
+                          <span className="font-semibold">{language === 'en' ? 'Total Reviews' : language === 'es' ? 'Total Reseñas' : language === 'zh' ? '总评论数' : language === 'fr' ? 'Total Avis' : language === 'de' ? 'Gesamtbewertungen' : language === 'ar' ? 'إجمالي المراجعات' : language === 'ja' ? '総レビュー数' : language === 'ru' ? 'Всего отзывов' : language === 'hi' ? 'कुल समीक्षाएं' : language === 'it' ? 'Recensioni Totali' : 'Total Reviews'}:</span> {result.trustPilot.reviewCount ?? "—"}
                         </div>
                       </div>
                       <div className="mt-3">
@@ -1369,7 +2413,7 @@ function App() {
                           rel="noopener noreferrer" 
                           className="text-blue-600 hover:text-blue-800 underline font-medium"
                         >
-                          🔗 {language === 'en' ? 'View on TrustPilot' : language === 'es' ? 'Ver en TrustPilot' : language === 'zh' ? '在TrustPilot上查看' : 'Ver no TrustPilot'}
+                          🔗 {language === 'en' ? 'View on TrustPilot' : language === 'es' ? 'Ver en TrustPilot' : language === 'zh' ? '在TrustPilot上查看' : language === 'fr' ? 'Voir sur TrustPilot' : language === 'de' ? 'Auf TrustPilot anzeigen' : language === 'ar' ? 'عرض على TrustPilot' : language === 'ja' ? 'TrustPilotで見る' : language === 'ru' ? 'Посмотреть на TrustPilot' : language === 'hi' ? 'TrustPilot पर देखें' : language === 'it' ? 'Visualizza su TrustPilot' : 'Ver no TrustPilot'}
                         </a>
                       </div>
                     </div>
@@ -1397,7 +2441,7 @@ function App() {
                             </div>
                             <p className="text-xs text-gray-600 mt-1">{r.snippet}</p>
                             {r.pageError && (
-                              <p className="text-xs text-red-500 mt-1">⚠️ {language === 'en' ? 'Error analyzing content' : language === 'es' ? 'Error al analizar contenido' : language === 'zh' ? '分析内容时出错' : 'Erro ao analisar conteúdo'}</p>
+                              <p className="text-xs text-red-500 mt-1">⚠️ {language === 'en' ? 'Error analyzing content' : language === 'es' ? 'Error al analizar contenido' : language === 'zh' ? '分析内容时出错' : language === 'fr' ? 'Erreur lors de l\'analyse du contenu' : language === 'de' ? 'Fehler beim Analysieren des Inhalts' : language === 'ar' ? 'خطأ في تحليل المحتوى' : language === 'ja' ? 'コンテンツ分析エラー' : language === 'ru' ? 'Ошибка анализа контента' : language === 'hi' ? 'सामग्री विश्लेषण त्रुटि' : language === 'it' ? 'Errore nell\'analisi del contenuto' : 'Erro ao analisar conteúdo'}</p>
                             )}
                           </div>
                         ))}
@@ -1414,7 +2458,7 @@ function App() {
                     <ShoppingCart className="w-6 h-6 mr-2" />
                     {t('safeAlternative')}
                   </h4>
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {getSafeAlternatives().map((alt, index) => (
                       <a
                         key={index}
@@ -1441,17 +2485,17 @@ function App() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleShare}
-                  className="inline-flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="inline-flex items-center justify-center space-x-2 sm:space-x-3 bg-green-600 hover:bg-green-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
-                  <Share2 className="w-5 h-5" />
+                  <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>{t('shareWhatsApp')}</span>
                 </button>
                 
                 <button
                   onClick={() => {setResult(null); setSearchQuery(''); setShowDetails(false);}}
-                  className="inline-flex items-center justify-center space-x-3 bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="inline-flex items-center justify-center space-x-2 sm:space-x-3 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
-                  <Search className="w-5 h-5" />
+                  <Search className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>{t('newVerification')}</span>
                 </button>
               </div>
@@ -1459,189 +2503,222 @@ function App() {
           </div>
         )}
 
-
-
-
-
-
-
-
-
-
-        
-       {/* Security Services - Affiliate Section */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
+        {/* Security Services - Affiliate Section */}
+        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-gray-100">
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Proteção Completa Recomendada</h3>
-            <p className="text-xl text-gray-600">Serviço verificado pelo AntiGolpe para sua segurança total online</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              {language === 'en' ? 'Complete Recommended Protection' : 
+               language === 'es' ? 'Protección Completa Recomendada' : 
+               language === 'zh' ? '推荐的完整保护' : 
+               language === 'fr' ? 'Protection Complète Recommandée' :
+               language === 'de' ? 'Vollständiger Empfohlener Schutz' :
+               language === 'ar' ? 'الحماية الكاملة الموصى بها' :
+               language === 'ja' ? '推奨される完全保護' :
+               language === 'ru' ? 'Полная Рекомендуемая Защита' :
+               language === 'hi' ? 'संपूर्ण अनुशंसित सुरक्षा' :
+               language === 'it' ? 'Protezione Completa Raccomandata' :
+               'Proteção Completa Recomendada'}
+            </h3>
+            <p className="text-lg sm:text-xl text-gray-600">
+              {language === 'en' ? 'Service verified by AntiScam for your complete online security' : 
+               language === 'es' ? 'Servicio verificado por AntiEstafa para tu seguridad online completa' : 
+               language === 'zh' ? '经反诈骗验证的服务，为您提供完整的在线安全' : 
+               language === 'fr' ? 'Service vérifié par AntiArnaque pour votre sécurité en ligne complète' :
+               language === 'de' ? 'Von AntiBetrug verifizierter Service für Ihre vollständige Online-Sicherheit' :
+               language === 'ar' ? 'خدمة تم التحقق منها من قبل مكافح الاحتيال لأمانك الكامل عبر الإنترنت' :
+               language === 'ja' ? '詐欺対策によって検証されたサービスで、完全なオンラインセキュリティを提供' :
+               language === 'ru' ? 'Сервис проверен АнтиМошенничество для вашей полной онлайн безопасности' :
+               language === 'hi' ? 'आपकी संपूर्ण ऑनलाइन सुरक्षा के लिए धोखाधड़ी विरोधी द्वारा सत्यापित सेवा' :
+               language === 'it' ? 'Servizio verificato da AntiTruffa per la tua sicurezza online completa' :
+               'Serviço verificado pelo AntiGolpe para sua segurança total online'}
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-blue-600" />
               </div>
               <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
-              <p className="text-gray-600 mb-4">Navegação 100% anônima e protegida</p>
+              <p className="text-gray-600 mb-4">
+                {language === 'en' ? '100% anonymous and protected browsing' : 
+                 language === 'es' ? 'Navegación 100% anónima y protegida' : 
+                 language === 'zh' ? '100%匿名和受保护的浏览' : 
+                 language === 'fr' ? 'Navigation 100% anonyme et protégée' :
+                 language === 'de' ? '100% anonymes und geschütztes Surfen' :
+                 language === 'ar' ? 'تصفح مجهول ومحمي 100%' :
+                 language === 'ja' ? '100%匿名で保護されたブラウジング' :
+                 language === 'ru' ? '100% анонимный и защищенный просмотр' :
+                 language === 'hi' ? '100% गुमनाम और संरक्षित ब्राउज़िंग' :
+                 language === 'it' ? 'Navigazione 100% anonima e protetta' :
+                 'Navegação 100% anônima e protegida'}
+              </p>
               <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
               <a
                 href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129704&url_id=902"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block text-sm sm:text-base"
               >
-                🔐 Ativar Proteção
+                🔐 {language === 'en' ? 'Activate Protection' : 
+                     language === 'es' ? 'Activar Protección' : 
+                     language === 'zh' ? '激活保护' : 
+                     language === 'fr' ? 'Activer la Protection' :
+                     language === 'de' ? 'Schutz Aktivieren' :
+                     language === 'ar' ? 'تفعيل الحماية' :
+                     language === 'ja' ? '保護を有効化' :
+                     language === 'ru' ? 'Активировать Защиту' :
+                     language === 'hi' ? 'सुरक्षा सक्रिय करें' :
+                     language === 'it' ? 'Attiva Protezione' :
+                     'Ativar Proteção'}
               </a>
             </div>
-
-            
-
-
-            
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">✅ O serviço é verificado e recomendado pelo AntiGolpe</p>
+            <p className="text-sm text-gray-500">
+              ✅ {language === 'en' ? 'The service is verified and recommended by AntiScam' : 
+                   language === 'es' ? 'El servicio está verificado y recomendado por AntiEstafa' : 
+                   language === 'zh' ? '该服务已通过反诈骗验证并推荐' : 
+                   language === 'fr' ? 'Le service est vérifié et recommandé par AntiArnaque' :
+                   language === 'de' ? 'Der Service ist von AntiBetrug verifiziert und empfohlen' :
+                   language === 'ar' ? 'الخدمة محققة وموصى بها من قبل مكافح الاحتيال' :
+                   language === 'ja' ? 'このサービスは詐欺対策によって検証され推奨されています' :
+                   language === 'ru' ? 'Сервис проверен и рекомендован АнтиМошенничество' :
+                   language === 'hi' ? 'सेवा धोखाधड़ी विरोधी द्वारा सत्यापित और अनुशंसित है' :
+                   language === 'it' ? 'Il servizio è verificato e raccomandato da AntiTruffa' :
+                   'O serviço é verificado e recomendado pelo AntiGolpe'}
+            </p>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         
         {/* Custom Check Service */}
-        <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-10">
+        <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-8 sm:p-10">
           <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Headphones className="w-10 h-10 text-yellow-600" />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Headphones className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-600" />
             </div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">{t('customAnalysisTitle')}</h3>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{t('customAnalysisTitle')}</h3>
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
               {t('customAnalysisSubtitle')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <CreditCard className="w-6 h-6 mr-2 text-green-600" />
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-green-600" />
                 {t('expressAnalysis')}
               </h4>
-              <ul className="space-y-3 text-gray-600">
+              <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
                   {t('responseTime1h')}
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
                   {t('manualVerification')}
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
                   {t('detailedReport')}
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2" />
+                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
                   {t('whatsappSupport')}
                 </li>
               </ul>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-purple-200">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <Crown className="w-6 h-6 mr-2 text-purple-600" />
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <Crown className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-purple-600" />
                 {t('premiumAnalysis')}
               </h4>
-              <ul className="space-y-3 text-gray-600">
+              <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
                   {t('responseTime30min')}
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
                   {t('legalAnalysis')}
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
                   {t('videoConsultation')}
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2" />
+                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
                   {t('guarantee30days')}
                 </li>
               </ul>
             </div>
           </div>
 
-
-
-
-<div className="text-center">
-  <a
-    href={`https://wa.me/5524999325986?text=${encodeURIComponent(
-      language === 'en'
-        ? 'Hello! I need a personalized analysis through AntiScam'
-        : language === 'es'
-        ? '¡Hola! Necesito un análisis personalizado a través de AntiEstafa'
-        : language === 'zh'
-        ? '您好！我需要通过反诈骗进行个性化分析'
-        : 'Olá! Preciso de uma análise personalizada pelo AntiGolpe'
-    )}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-  >
-    <Phone className="w-5 h-5" />
-    <span>{t('requestAnalysis')}</span>
-  </a>
-</div>
-
-
-
-
-
-          
+          <div className="text-center">
+            <a
+              href={\`https://wa.me/5524999325986?text=${encodeURIComponent(
+                language === 'en'
+                  ? 'Hello! I need a personalized analysis through AntiScam'
+                  : language === 'es'
+                  ? '¡Hola! Necesito un análisis personalizado a través de AntiEstafa'
+                  : language === 'zh'
+                  ? '您好！我需要通过反诈骗进行个性化分析'
+                  : language === 'fr'
+                  ? 'Bonjour! J\'ai besoin d\'une analyse personnalisée via AntiArnaque'
+                  : language === 'de'
+                  ? 'Hallo! Ich benötige eine personalisierte Analyse über AntiBetrug'
+                  : language === 'ar'
+                  ? 'مرحباً! أحتاج إلى تحليل شخصي من خلال مكافح الاحتيال'
+                  : language === 'ja'
+                  ? 'こんにちは！詐欺対策を通じてパーソナライズされた分析が必要です'
+                  : language === 'ru'
+                  ? 'Привет! Мне нужен персонализированный анализ через АнтиМошенничество'
+                  : language === 'hi'
+                  ? 'नमस्ते! मुझे धोखाधड़ी विरोधी के माध्यम से व्यक्तिगत विश्लेषण की आवश्यकता है'
+                  : language === 'it'
+                  ? 'Ciao! Ho bisogno di un\'analisi personalizzata tramite AntiTruffa'
+                  : 'Olá! Preciso de uma análise personalizada pelo AntiGolpe'
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-2 sm:space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
+            >
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>{t('requestAnalysis')}</span>
+            </a>
+          </div>
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="w-8 h-8 text-blue-600" />
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center hover:shadow-xl transition-all duration-300">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('completeAnalysis')}</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{t('completeAnalysis')}</h3>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               {t('completeAnalysisDesc')}
             </p>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-8 h-8 text-green-600" />
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center hover:shadow-xl transition-all duration-300">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('advancedAI')}</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{t('advancedAI')}</h3>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               {t('advancedAIDesc')}
             </p>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300">
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Award className="w-8 h-8 text-purple-600" />
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center hover:shadow-xl transition-all duration-300">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('instantResult')}</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{t('instantResult')}</h3>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               {t('instantResultDesc')}
             </p>
           </div>
@@ -1652,40 +2729,40 @@ function App() {
       {showPaywall && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-10 h-10 text-purple-600" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-purple-600" />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">{t('completeReportTitle')}</h3>
-                <p className="text-lg text-gray-600">{t('completeReportDesc')}</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{t('completeReportTitle')}</h3>
+                <p className="text-base sm:text-lg text-gray-600">{t('completeReportDesc')}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 mb-6">
-                <h4 className="font-bold text-lg text-gray-900 mb-4">{t('whatYouWillSee')}</h4>
-                <div className="grid md:grid-cols-2 gap-3 text-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-4 sm:p-6 mb-6">
+                <h4 className="font-bold text-base sm:text-lg text-gray-900 mb-4">{t('whatYouWillSee')}</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-center space-x-2">
-                    <Lock className="w-4 h-4 text-purple-600" />
+                    <Lock className="w-4 h-4 text-purple-600 flex-shrink-0" />
                     <span>{t('detailedSSL')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Search className="w-4 h-4 text-purple-600" />
+                    <Search className="w-4 h-4 text-purple-600 flex-shrink-0" />
                     <span>{t('completeWHOIS')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <AlertTriangle className="w-4 h-4 text-purple-600" />
+                    <AlertTriangle className="w-4 h-4 text-purple-600 flex-shrink-0" />
                     <span>{t('reclameAquiHistory')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-purple-600" />
+                    <Users className="w-4 h-4 text-purple-600 flex-shrink-0" />
                     <span>{t('socialAnalysis')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Star className="w-4 h-4 text-purple-600" />
+                    <Star className="w-4 h-4 text-purple-600 flex-shrink-0" />
                     <span>{t('trustPilotReviews')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Search className="w-4 h-4 text-purple-600" />
+                    <Search className="w-4 h-4 text-purple-600 flex-shrink-0" />
                     <span>{t('googleTop10')}</span>
                   </div>
                 </div>
@@ -1694,14 +2771,14 @@ function App() {
               <div className="space-y-4">
                 <button
                   onClick={() => handleUpgrade('unlimited')}
-                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 sm:py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
                   {t('unlockFor2990')}
                 </button>
                 
                 <button
                   onClick={() => setShowPremiumModal(true)}
-                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-3 sm:py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
                   {t('orPremium')}
                 </button>
@@ -1709,7 +2786,7 @@ function App() {
 
               <button
                 onClick={() => setShowPaywall(false)}
-                className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium py-2"
+                className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium py-2 text-sm sm:text-base"
               >
                 {t('maybeLater')}
               </button>
@@ -1722,29 +2799,28 @@ function App() {
       {showPremiumModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Crown className="w-10 h-10 text-orange-600" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Crown className="w-8 h-8 sm:w-10 sm:h-10 text-orange-600" />
                 </div>
-                <h3 className="text-4xl font-bold text-gray-900 mb-2">{t('choosePlan')}</h3>
-                <p className="text-xl text-gray-600">{t('choosePlanDesc')}</p>
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{t('choosePlan')}</h3>
+                <p className="text-lg sm:text-xl text-gray-600">{t('choosePlanDesc')}</p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 {pricingPlans.map((plan, index) => (
                   <div
                     key={index}
-                    className={`relative bg-white rounded-2xl border-2 p-6 ${
-  plan.popular
-    ? 'border-orange-500 shadow-2xl transform scale-105'
-    : 'border-gray-200 shadow-lg'
-}`}
-
+                    className={\`relative bg-white rounded-2xl border-2 p-4 sm:p-6 ${
+                      plan.popular
+                        ? 'border-orange-500 shadow-2xl transform scale-105'
+                        : 'border-gray-200 shadow-lg'
+                    }`}
                   >
                     {plan.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span className="inline-block whitespace-nowrap bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                        <span className="inline-block whitespace-nowrap bg-gradient-to-r from-orange-500 to-red-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold">
                           {t('mostPopular')}
                         </span>
                       </div>
@@ -1752,17 +2828,17 @@ function App() {
                     
                     {plan.savings && (
                       <div className="absolute -top-2 -right-2">
-                        <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        <span className="bg-green-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold">
                           {plan.savings}
                         </span>
                       </div>
                     )}
 
                     <div className="text-center mb-6">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h4>
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{plan.name}</h4>
                       <div className="mb-2">
-                        <span className="text-3xl font-black text-gray-900">{plan.price}</span>
-                        <span className="text-gray-600">{plan.period}</span>
+                        <span className="text-2xl sm:text-3xl font-black text-gray-900">{plan.price}</span>
+                        <span className="text-gray-600 text-sm sm:text-base">{plan.period}</span>
                       </div>
                       {plan.originalPrice && (
                         <div className="text-sm text-gray-500">
@@ -1773,21 +2849,20 @@ function App() {
 
                     <ul className="space-y-3 mb-6">
                       {plan.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-center space-x-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                          <span>{feature}</span>
+                        <li key={fIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
+                          <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                          <span className="leading-relaxed">{feature}</span>
                         </li>
                       ))}
                     </ul>
 
                     <button
                       onClick={() => handleUpgrade(plan.id)}
-                      className={`w-full font-bold py-3 px-4 rounded-xl transition-all duration-300 ${
-  plan.popular
-    ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
-    : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-}`}
-
+                      className={\`w-full font-bold py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl transition-all duration-300 text-xs sm:text-sm ${
+                        plan.popular
+                          ? 'bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+                          : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                      }`}
                     >
                       {plan.cta}
                     </button>
@@ -1798,7 +2873,7 @@ function App() {
               <div className="text-center">
                 <button
                   onClick={() => setShowPremiumModal(false)}
-                  className="text-gray-500 hover:text-gray-700 font-medium"
+                  className="text-gray-500 hover:text-gray-700 font-medium text-sm sm:text-base"
                 >
                   {t('continueFreePlan')}
                 </button>
@@ -1812,26 +2887,26 @@ function App() {
       {showUpgradeModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full">
-            <div className="p-8 text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Gift className="w-10 h-10 text-orange-600" />
+            <div className="p-6 sm:p-8 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Gift className="w-8 h-8 sm:w-10 sm:h-10 text-orange-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('consultationsExhausted')}</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t('consultationsExhausted')}</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-6">
                 {t('consultationsExhaustedDesc')}
               </p>
 
               <div className="space-y-4">
                 <button
                   onClick={() => handleUpgrade('unlimited')}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 sm:py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
                   {t('unlimitedAccess')}
                 </button>
                 
                 <button
                   onClick={() => setShowPremiumModal(true)}
-                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-3 sm:py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
                 >
                   {t('premium')}
                 </button>
@@ -1839,7 +2914,7 @@ function App() {
 
               <button
                 onClick={() => setShowUpgradeModal(false)}
-                className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium py-2"
+                className="w-full mt-4 text-gray-500 hover:text-gray-700 font-medium py-2 text-sm sm:text-base"
               >
                 {t('back')}
               </button>
@@ -1849,25 +2924,25 @@ function App() {
       )}
 
       {/* Símbolo c🔱 fixo no canto inferior direito */}
-      <div className="fixed bottom-6 right-6 text-2xl font-bold text-gray-600 z-40 select-none">
+      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-xl sm:text-2xl font-bold text-gray-600 z-40 select-none">
         c🔱
       </div>
 
       {/* Footer Premium */}
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white mt-20">
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
           <div className="text-center space-y-6">
             <div className="flex items-center justify-center space-x-3">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                <Shield className="w-7 h-7 text-white" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                <Shield className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold">{t('title')}</h3>
-                <p className="text-gray-300">{t('subtitle')}</p>
+                <h3 className="text-xl sm:text-2xl font-bold">{t('title')}</h3>
+                <p className="text-sm sm:text-base text-gray-300">{t('subtitle')}</p>
               </div>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
               <div>
                 <h4 className="font-semibold mb-2 text-blue-400">{t('totalSecurity')}</h4>
                 <p className="text-gray-300">{t('totalSecurityDesc')}</p>
@@ -1898,3 +2973,5 @@ function App() {
 }
 
 export default App;
+
+export default App
