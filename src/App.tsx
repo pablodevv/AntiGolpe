@@ -2658,7 +2658,7 @@ function App() {
 
           <div className="text-center">
             <a
-              href={\`https://wa.me/5524999325986?text=${encodeURIComponent(
+              href={`https://wa.me/5524999325986?text=${encodeURIComponent(
                 language === 'en'
                   ? 'Hello! I need a personalized analysis through AntiScam'
                   : language === 'es'
