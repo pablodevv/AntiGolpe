@@ -3,6 +3,131 @@ import tls from "tls";
 import { parse } from "tldts";
 import * as cheerio from "cheerio";
 
+// ========== SISTEMA DE TRADUÇÕES BACKEND ==========
+const backendTranslations = {
+  pt: {
+    safeSite: "✅ SITE TOTALMENTE SEGURO",
+    suspiciousSite: "⚠️ CUIDADO - SITE SUSPEITO", 
+    dangerSite: "🚨 NÃO COMPRE AQUI - ALTO RISCO",
+    partialVerification: "⚠️ VERIFICAÇÃO PARCIAL",
+    safeMessage: "Site confiável! Pode comprar com segurança.",
+    suspiciousMessage: "Cuidado! Detectamos sinais suspeitos. Recomendamos verificar diretamente com a empresa antes de comprar.",
+    dangerMessage: "ALERTA MÁXIMO! Múltiplos sinais de risco detectados. NÃO recomendamos este site.",
+    partialMessage: "Não foi possível concluir toda a análise. Recomendamos cautela e verificação adicional.",
+    errorMessage: "Por favor, informe um site ou marca para verificar"
+  },
+  en: {
+    safeSite: "✅ COMPLETELY SAFE SITE",
+    suspiciousSite: "⚠️ CAUTION - SUSPICIOUS SITE",
+    dangerSite: "🚨 DON'T BUY HERE - HIGH RISK",
+    partialVerification: "⚠️ PARTIAL VERIFICATION",
+    safeMessage: "Trustworthy site! You can shop safely.",
+    suspiciousMessage: "Caution! We detected suspicious signs. We recommend verifying directly with the company before buying.",
+    dangerMessage: "MAXIMUM ALERT! Multiple risk signals detected. We DO NOT recommend this site.",
+    partialMessage: "Could not complete all analysis. We recommend caution and additional verification.",
+    errorMessage: "Please provide a website or brand to verify"
+  },
+  es: {
+    safeSite: "✅ SITIO COMPLETAMENTE SEGURO",
+    suspiciousSite: "⚠️ CUIDADO - SITIO SOSPECHOSO",
+    dangerSite: "🚨 NO COMPRES AQUÍ - ALTO RIESGO",
+    partialVerification: "⚠️ VERIFICACIÓN PARCIAL",
+    safeMessage: "¡Sitio confiable! Puedes comprar con seguridad.",
+    suspiciousMessage: "¡Cuidado! Detectamos señales sospechosas. Recomendamos verificar directamente con la empresa antes de comprar.",
+    dangerMessage: "¡ALERTA MÁXIMA! Múltiples señales de riesgo detectadas. NO recomendamos este sitio.",
+    partialMessage: "No se pudo completar todo el análisis. Recomendamos precaución y verificación adicional.",
+    errorMessage: "Por favor, proporciona un sitio web o marca para verificar"
+  },
+  zh: {
+    safeSite: "✅ 完全安全的网站",
+    suspiciousSite: "⚠️ 小心 - 可疑网站",
+    dangerSite: "🚨 不要在这里购买 - 高风险",
+    partialVerification: "⚠️ 部分验证",
+    safeMessage: "可信的网站！您可以安全购物。",
+    suspiciousMessage: "小心！我们检测到可疑信号。我们建议在购买前直接与公司核实。",
+    dangerMessage: "最高警报！检测到多个风险信号。我们不推荐这个网站。",
+    partialMessage: "无法完成所有分析。我们建议谨慎并进行额外验证。",
+    errorMessage: "请提供要验证的网站或品牌"
+  },
+  fr: {
+    safeSite: "✅ SITE COMPLÈTEMENT SÛR",
+    suspiciousSite: "⚠️ ATTENTION - SITE SUSPECT",
+    dangerSite: "🚨 N'ACHETEZ PAS ICI - HAUT RISQUE",
+    partialVerification: "⚠️ VÉRIFICATION PARTIELLE",
+    safeMessage: "Site fiable ! Vous pouvez acheter en toute sécurité.",
+    suspiciousMessage: "Attention ! Nous avons détecté des signaux suspects. Nous recommandons de vérifier directement avec l'entreprise avant d'acheter.",
+    dangerMessage: "ALERTE MAXIMALE ! Plusieurs signaux de risque détectés. Nous ne recommandons PAS ce site.",
+    partialMessage: "Impossible de terminer toute l'analyse. Nous recommandons la prudence et une vérification supplémentaire.",
+    errorMessage: "Veuillez fournir un site web ou une marque à vérifier"
+  },
+  de: {
+    safeSite: "✅ VÖLLIG SICHERE WEBSITE",
+    suspiciousSite: "⚠️ VORSICHT - VERDÄCHTIGE WEBSITE",
+    dangerSite: "🚨 KAUFEN SIE HIER NICHT - HOHES RISIKO",
+    partialVerification: "⚠️ TEILWEISE ÜBERPRÜFUNG",
+    safeMessage: "Vertrauenswürdige Website! Sie können sicher einkaufen.",
+    suspiciousMessage: "Vorsicht! Wir haben verdächtige Signale entdeckt. Wir empfehlen, vor dem Kauf direkt mit dem Unternehmen zu verifizieren.",
+    dangerMessage: "MAXIMALE WARNUNG! Mehrere Risikosignale entdeckt. Wir empfehlen diese Website NICHT.",
+    partialMessage: "Konnte nicht alle Analysen abschließen. Wir empfehlen Vorsicht und zusätzliche Überprüfung.",
+    errorMessage: "Bitte geben Sie eine Website oder Marke zur Überprüfung an"
+  },
+  ar: {
+    safeSite: "✅ موقع آمن تماماً",
+    suspiciousSite: "⚠️ حذار - موقع مشبوه",
+    dangerSite: "🚨 لا تشتري هنا - خطر عالي",
+    partialVerification: "⚠️ التحقق الجزئي",
+    safeMessage: "موقع موثوق! يمكنك التسوق بأمان.",
+    suspiciousMessage: "حذار! اكتشفنا إشارات مشبوهة. نوصي بالتحقق مباشرة مع الشركة قبل الشراء.",
+    dangerMessage: "تنبيه أقصى! تم اكتشاف إشارات خطر متعددة. نحن لا نوصي بهذا الموقع.",
+    partialMessage: "لم نتمكن من إكمال جميع التحليلات. نوصي بالحذر والتحقق الإضافي.",
+    errorMessage: "يرجى تقديم موقع ويب أو علامة تجارية للتحقق"
+  },
+  ja: {
+    safeSite: "✅ 完全に安全なサイト",
+    suspiciousSite: "⚠️ 注意 - 疑わしいサイト",
+    dangerSite: "🚨 ここで購入しないでください - 高リスク",
+    partialVerification: "⚠️ 部分検証",
+    safeMessage: "信頼できるサイトです！安全に買い物できます。",
+    suspiciousMessage: "注意！疑わしい信号を検出しました。購入前に会社と直接確認することをお勧めします。",
+    dangerMessage: "最大警告！複数のリスク信号を検出しました。このサイトは推奨しません。",
+    partialMessage: "すべての分析を完了できませんでした。注意と追加の検証をお勧めします。",
+    errorMessage: "確認するウェブサイトまたはブランドを提供してください"
+  },
+  ru: {
+    safeSite: "✅ ПОЛНОСТЬЮ БЕЗОПАСНЫЙ САЙТ",
+    suspiciousSite: "⚠️ ОСТОРОЖНО - ПОДОЗРИТЕЛЬНЫЙ САЙТ",
+    dangerSite: "🚨 НЕ ПОКУПАЙТЕ ЗДЕСЬ - ВЫСОКИЙ РИСК",
+    partialVerification: "⚠️ ЧАСТИЧНАЯ ПРОВЕРКА",
+    safeMessage: "Надежный сайт! Вы можете безопасно делать покупки.",
+    suspiciousMessage: "Осторожно! Мы обнаружили подозрительные сигналы. Рекомендуем проверить напрямую с компанией перед покупкой.",
+    dangerMessage: "МАКСИМАЛЬНОЕ ПРЕДУПРЕЖДЕНИЕ! Обнаружены множественные сигналы риска. Мы НЕ рекомендуем этот сайт.",
+    partialMessage: "Не удалось завершить весь анализ. Рекомендуем осторожность и дополнительную проверку.",
+    errorMessage: "Пожалуйста, предоставьте веб-сайт или бренд для проверки"
+  },
+  hi: {
+    safeSite: "✅ पूर्णतः सुरक्षित साइट",
+    suspiciousSite: "⚠️ सावधान - संदिग्ध साइट",
+    dangerSite: "🚨 यहाँ न खरीदें - उच्च जोखिम",
+    partialVerification: "⚠️ आंशिक सत्यापन",
+    safeMessage: "भरोसेमंद साइट! आप सुरक्षित रूप से खरीदारी कर सकते हैं।",
+    suspiciousMessage: "सावधान! हमने संदिग्ध संकेत पाए हैं। हम खरीदने से पहले कंपनी से सीधे सत्यापन की सिफारिश करते हैं।",
+    dangerMessage: "अधिकतम अलर्ट! कई जोखिम संकेत मिले हैं। हम इस साइट की सिफारिश नहीं करते।",
+    partialMessage: "सभी विश्लेषण पूरा नहीं कर सके। हम सावधानी और अतिरिक्त सत्यापन की सिफारिश करते हैं।",
+    errorMessage: "कृपया सत्यापन के लिए एक वेबसाइट या ब्रांड प्रदान करें"
+  },
+  it: {
+    safeSite: "✅ SITO COMPLETAMENTE SICURO",
+    suspiciousSite: "⚠️ ATTENZIONE - SITO SOSPETTO",
+    dangerSite: "🚨 NON COMPRARE QUI - ALTO RISCHIO",
+    partialVerification: "⚠️ VERIFICA PARZIALE",
+    safeMessage: "Sito affidabile! Puoi acquistare in sicurezza.",
+    suspiciousMessage: "Attenzione! Abbiamo rilevato segnali sospetti. Raccomandiamo di verificare direttamente con l'azienda prima di acquistare.",
+    dangerMessage: "ALLERTA MASSIMA! Rilevati segnali di rischio multipli. NON raccomandiamo questo sito.",
+    partialMessage: "Impossibile completare tutta l'analisi. Raccomandiamo cautela e verifica aggiuntiva.",
+    errorMessage: "Si prega di fornire un sito web o un marchio da verificare"
+  }
+};
+
 // ========== CONFIGURAÇÕES ULTRA ROBUSTAS ==========
 const CONFIG = {
   timeouts: {
@@ -950,28 +1075,31 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
   return { score, factors };
 }
 
-// ===== CLASSIFICADOR =====
-function classifyResult(score) {
+// ===== CLASSIFICADOR COM TRADUÇÃO =====
+function classifyResult(score, language = 'pt') {
+  const t = backendTranslations[language] || backendTranslations.pt;
+  
   if (score >= 75) {
     return {
       status: "safe",
-      title: "✅ SITE TOTALMENTE SEGURO"
+      title: t.safeSite
     };
   } else if (score >= 50) {
     return {
       status: "suspicious", 
-      title: "⚠️ CUIDADO - SITE SUSPEITO"
+      title: t.suspiciousSite
     };
   } else {
     return {
       status: "danger",
-      title: "🚨 NÃO COMPRE AQUI - ALTO RISCO"
+      title: t.dangerSite
     };
   }
 }
 
-// ===== GERADOR DE MENSAGEM INTELIGENTE =====
-function generateSmartMessage(classification, ra, social, ssl, factors) {
+// ===== GERADOR DE MENSAGEM INTELIGENTE COM TRADUÇÃO =====
+function generateSmartMessage(classification, ra, social, ssl, factors, language = 'pt') {
+  const t = backendTranslations[language] || backendTranslations.pt;
   const issues = [];
   const positives = [];
   
@@ -1005,38 +1133,27 @@ function generateSmartMessage(classification, ra, social, ssl, factors) {
   let message = "";
   
   if (classification.status === "safe") {
-    if (positives.length > 0) {
-      message = `Site confiável! ${positives.join(", ").charAt(0).toUpperCase() + positives.join(", ").slice(1)}. Pode comprar com segurança.`;
-    } else {
-      message = "Análise não detectou problemas graves. Site aparenta ser seguro para uso.";
-    }
+    message = t.safeMessage;
   } else if (classification.status === "suspicious") {
-    if (issues.length > 0) {
-      message = `Cuidado! Detectamos: ${issues.join(", ")}. Recomendamos verificar diretamente com a empresa antes de comprar.`;
-    } else {
-      message = "Análise encontrou sinais mistos. Recomendamos cautela e verificação adicional antes de prosseguir.";
-    }
+    message = t.suspiciousMessage;
   } else { // danger
-    if (issues.length > 0) {
-      message = `ALERTA MÁXIMO! ${issues.join(", ").charAt(0).toUpperCase() + issues.join(", ").slice(1)}. NÃO recomendamos este site.`;
-    } else {
-      message = "Múltiplos sinais de risco detectados. Evite fazer compras ou fornecer dados pessoais neste site.";
-    }
+    message = t.dangerMessage;
   }
   
   return message;
 }
 
-// ========== HANDLER PRINCIPAL ULTRA ROBUSTO ==========
+// ========== HANDLER PRINCIPAL ULTRA ROBUSTO COM TRADUÇÃO ==========
 export async function handler(event) {
   const startTime = Date.now();
   
   try {
     console.log(`[HANDLER] Iniciando verificação em ${nowISO()}`);
     
-    // Parse da query
-    const { query } = JSON.parse(event.body || "{}");
+    // Parse da query e idioma
+    const { query, language = 'pt' } = JSON.parse(event.body || "{}");
     const normalizedQuery = normalizeQuery(query);
+    const t = backendTranslations[language] || backendTranslations.pt;
     
     if (!normalizedQuery) {
       console.log("[HANDLER] Query vazia");
@@ -1046,11 +1163,11 @@ export async function handler(event) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
         },
-        body: JSON.stringify({ error: "Por favor, informe um site ou marca para verificar" })
+        body: JSON.stringify({ error: t.errorMessage })
       };
     }
     
-    console.log(`[HANDLER] Query recebida: "${normalizedQuery}"`);
+    console.log(`[HANDLER] Query recebida: "${normalizedQuery}", Idioma: ${language}`);
     
     // Extração de host
     let host = extractHostFromQuery(normalizedQuery);
@@ -1114,9 +1231,9 @@ export async function handler(event) {
       host, brandGuess, sslData, whoisData, raData, socialData, serpResults, trustPilotData
     );
     
-    // Classificação e mensagem
-    const classification = classifyResult(score);
-    const message = generateSmartMessage(classification, raData, socialData, sslData, factors);
+    // Classificação e mensagem com tradução
+    const classification = classifyResult(score, language);
+    const message = generateSmartMessage(classification, raData, socialData, sslData, factors, language);
     
     const complaints = (raData?.last30d ?? raData?.totalComplaints ?? 0) || 0;
     const verificationTime = ((Date.now() - startTime) / 1000).toFixed(1) + "s";
@@ -1136,7 +1253,8 @@ export async function handler(event) {
         host,
         brandGuess,
         factors,
-        processingTime: verificationTime
+        processingTime: verificationTime,
+        language
       },
       ssl: sslData,
       whois: whoisData ? { hasData: true } : { hasData: false },
@@ -1160,18 +1278,28 @@ export async function handler(event) {
   } catch (error) {
     console.error(`[HANDLER] ERRO CRÍTICO:`, error);
     
+    // Parse do idioma para fallback
+    let language = 'pt';
+    try {
+      const body = JSON.parse(event.body || "{}");
+      language = body.language || 'pt';
+    } catch {}
+    
+    const t = backendTranslations[language] || backendTranslations.pt;
+    
     // Fallback garantido - NUNCA retorna erro
     const fallbackResponse = {
       status: "suspicious",
-      title: "⚠️ VERIFICAÇÃO PARCIAL",
-      message: "Não foi possível completar toda a análise no momento. Recomendamos cautela e verificação manual adicional.",
+      title: t.partialVerification,
+      message: t.partialMessage,
       complaints: 0,
       trustScore: 50,
       verificationTime: ((Date.now() - startTime) / 1000).toFixed(1) + "s",
       debug: {
         timestamp: nowISO(),
         error: String(error),
-        fallback: true
+        fallback: true,
+        language
       },
       ssl: null,
       whois: { hasData: false },
