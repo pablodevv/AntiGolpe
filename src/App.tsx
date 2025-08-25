@@ -36,41 +36,34 @@ interface PricingPlan {
   savings?: string;
 }
 
-// Sistema de Tradução Expandido
 const translations = {
   pt: {
-    // Header
     title: "AntiGolpe",
     subtitle: "Proteção Nacional Contra Fraudes",
     secure: "100% Seguro",
     instantVerification: "Verificação Instantânea",
     consultationsLeft: "consultas restantes",
     
-    // Banner
     specialOffer: "OFERTA ESPECIAL",
     premiumProtection: "Proteção Premium por apenas R$12/mês",
     guaranteeNow: "GARANTIR AGORA →",
     
-    // Stats
     sitesVerified: "Sites Verificados",
     usersProtected: "Usuários Protegidos",
     accuracy: "Precisão",
     fraudsPrevented: "Golpes Evitados",
     
-    // Main Content
     mainTitle: "Verifique Qualquer Site ou Marca em Segundos",
     mainSubtitle: "Nossa inteligência artificial analisa milhões de dados em tempo real para proteger você contra golpes online",
     placeholder: "Digite o URL do site ou nome da marca (ex: loja-promocoes.com)",
     verifyButton: "Verificar Agora - GRÁTIS",
     verifying: "Verificando Segurança...",
     
-    // Loading messages
     analysisInProgress: "🔍 Análise em Andamento",
     checkingDomain: "Verificando domínio e certificados SSL...",
     consultingComplaints: "Consultando base de reclamações...",
     analyzingReputation: "Analisando reputação online...",
     
-    // Results
     trustIndex: "Índice de Confiança",
     analysisTime: "Tempo de Análise",
     complaintsFound: "reclamações encontradas nos últimos 30 dias",
@@ -78,7 +71,6 @@ const translations = {
     shareWhatsApp: "Compartilhar no WhatsApp",
     newVerification: "Nova Verificação",
     
-    // Details sections
     sslCertificate: "Certificado SSL/TLS",
     domainInfo: "Informações do Domínio (WHOIS)",
     reclameAqui: "Reclame Aqui",
@@ -86,7 +78,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Top 10 Resultados Google",
     
-    // SSL Details
     present: "Presente:",
     valid: "Válido:",
     validFrom: "Válido de:",
@@ -95,7 +86,6 @@ const translations = {
     yes: "Sim",
     no: "Não",
     
-    // Custom Analysis
     customAnalysisTitle: "Análise Personalizada Premium",
     customAnalysisSubtitle: "Precisa de uma análise detalhada de documentos, CNPJs, contratos ou propostas de investimento? Nossa equipe de especialistas faz uma verificação manual completa em até 1 hora.",
     expressAnalysis: "Análise Expressa - R$ 49,90",
@@ -110,7 +100,6 @@ const translations = {
     guarantee30days: "Garantia de 30 dias",
     requestAnalysis: "Solicitar Análise via WhatsApp",
     
-    // Trust Indicators
     completeAnalysis: "Análise Completa",
     completeAnalysisDesc: "Verificamos domínio, SSL, Reclame Aqui, redes sociais e mais de 50 fontes de dados",
     advancedAI: "IA Avançada",
@@ -118,7 +107,6 @@ const translations = {
     instantResult: "Resultado Instantâneo",
     instantResultDesc: "Veredito claro e confiável em segundos, com índice de confiança e detalhes completos",
     
-    // Pricing Plans
     oneTimePayment: "Pagamento Único",
     unlimitedConsultations: "Consultas ilimitadas",
     completeReports: "Relatórios completos",
@@ -140,7 +128,6 @@ const translations = {
     businessReports: "Relatórios empresariais",
     bestOffer: "Melhor Oferta",
     
-    // Modals
     consultationsExhausted: "🔒 Consultas Esgotadas",
     consultationsExhaustedDesc: "Você usou suas 5 consultas gratuitas. Desbloqueie acesso ilimitado agora!",
     unlimitedAccess: "🚀 Acesso Ilimitado - R$ 29,90",
@@ -169,7 +156,6 @@ const translations = {
     amazonDesc: "Maior e-commerce do mundo",
     upTo70Off: "Até 70% OFF",
     
-    // Footer
     totalSecurity: "🛡️ Segurança Total",
     totalSecurityDesc: "Seus dados são protegidos com criptografia de nível bancário",
     freeVerification: "✅ Verificação Gratuita",
@@ -181,38 +167,32 @@ const translations = {
   },
   
   en: {
-    // Header
     title: "AntiScam",
     subtitle: "National Fraud Protection",
     secure: "100% Secure",
     instantVerification: "Instant Verification",
     consultationsLeft: "consultations left",
     
-    // Banner
     specialOffer: "SPECIAL OFFER",
     premiumProtection: "Premium Protection for only $12/month",
     guaranteeNow: "GET NOW →",
     
-    // Stats
     sitesVerified: "Sites Verified",
     usersProtected: "Users Protected",
     accuracy: "Accuracy",
     fraudsPrevented: "Frauds Prevented",
     
-    // Main Content
     mainTitle: "Verify Any Website or Brand in Seconds",
     mainSubtitle: "Our artificial intelligence analyzes millions of data in real time to protect you against online scams",
     placeholder: "Enter website URL or brand name (e.g. promo-store.com)",
     verifyButton: "Verify Now - FREE",
     verifying: "Verifying Security...",
     
-    // Loading messages
     analysisInProgress: "🔍 Analysis in Progress",
     checkingDomain: "Checking domain and SSL certificates...",
     consultingComplaints: "Consulting complaints database...",
     analyzingReputation: "Analyzing online reputation...",
     
-    // Results
     trustIndex: "Trust Index",
     analysisTime: "Analysis Time",
     complaintsFound: "complaints found in the last 30 days",
@@ -220,7 +200,6 @@ const translations = {
     shareWhatsApp: "Share on WhatsApp",
     newVerification: "New Verification",
     
-    // Details sections
     sslCertificate: "SSL/TLS Certificate",
     domainInfo: "Domain Information (WHOIS)",
     reclameAqui: "Consumer Reports",
@@ -228,7 +207,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Top 10 Google Results",
     
-    // SSL Details
     present: "Present:",
     valid: "Valid:",
     validFrom: "Valid from:",
@@ -237,7 +215,6 @@ const translations = {
     yes: "Yes",
     no: "No",
     
-    // Custom Analysis
     customAnalysisTitle: "Premium Custom Analysis",
     customAnalysisSubtitle: "Need a detailed analysis of documents, company IDs, contracts or investment proposals? Our team of experts performs a complete manual verification within 1 hour.",
     expressAnalysis: "Express Analysis - $49.90",
@@ -252,7 +229,6 @@ const translations = {
     guarantee30days: "30-day guarantee",
     requestAnalysis: "Request Analysis via WhatsApp",
     
-    // Trust Indicators
     completeAnalysis: "Complete Analysis",
     completeAnalysisDesc: "We verify domain, SSL, consumer reports, social networks and over 50 data sources",
     advancedAI: "Advanced AI",
@@ -260,7 +236,6 @@ const translations = {
     instantResult: "Instant Result",
     instantResultDesc: "Clear and reliable verdict in seconds, with trust index and complete details",
     
-    // Pricing Plans
     oneTimePayment: "One-Time Payment",
     unlimitedConsultations: "Unlimited consultations",
     completeReports: "Complete reports",
@@ -282,7 +257,6 @@ const translations = {
     businessReports: "Business reports",
     bestOffer: "Best Offer",
     
-    // Modals
     consultationsExhausted: "🔒 Consultations Exhausted",
     consultationsExhaustedDesc: "You used your 5 free consultations. Unlock unlimited access now!",
     unlimitedAccess: "🚀 Unlimited Access - $29.90",
@@ -311,7 +285,6 @@ const translations = {
     amazonDesc: "World's largest e-commerce",
     upTo70Off: "Up to 70% OFF",
     
-    // Footer
     totalSecurity: "🛡️ Total Security",
     totalSecurityDesc: "Your data is protected with bank-level encryption",
     freeVerification: "✅ Free Verification",
@@ -323,38 +296,32 @@ const translations = {
   },
   
   es: {
-    // Header
     title: "AntiEstafa",
     subtitle: "Protección Nacional Contra Fraudes",
     secure: "100% Seguro",
     instantVerification: "Verificación Instantánea",
     consultationsLeft: "consultas restantes",
     
-    // Banner
     specialOffer: "OFERTA ESPECIAL",
     premiumProtection: "Protección Premium por solo $12/mes",
     guaranteeNow: "OBTENER AHORA →",
     
-    // Stats
     sitesVerified: "Sitios Verificados",
     usersProtected: "Usuarios Protegidos",
     accuracy: "Precisión",
     fraudsPrevented: "Estafas Evitadas",
     
-    // Main Content
     mainTitle: "Verifica Cualquier Sitio Web o Marca en Segundos",
     mainSubtitle: "Nuestra inteligencia artificial analiza millones de datos en tiempo real para protegerte contra estafas online",
     placeholder: "Ingresa el URL del sitio o el nombre de la marca (ej: tienda-promociones.com)",
     verifyButton: "Verificar Ahora - GRATIS",
     verifying: "Verificando Seguridad...",
     
-    // Loading messages
     analysisInProgress: "🔍 Análisis en Progreso",
     checkingDomain: "Verificando dominio y certificados SSL...",
     consultingComplaints: "Consultando base de quejas...",
     analyzingReputation: "Analizando reputación online...",
     
-    // Results
     trustIndex: "Índice de Confianza",
     analysisTime: "Tiempo de Análisis",
     complaintsFound: "quejas encontradas en los últimos 30 días",
@@ -362,7 +329,6 @@ const translations = {
     shareWhatsApp: "Compartir en WhatsApp",
     newVerification: "Nueva Verificación",
     
-    // Details sections
     sslCertificate: "Certificado SSL/TLS",
     domainInfo: "Información del Dominio (WHOIS)",
     reclameAqui: "Quejas de Consumidores",
@@ -370,7 +336,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Top 10 Resultados Google",
     
-    // SSL Details
     present: "Presente:",
     valid: "Válido:",
     validFrom: "Válido desde:",
@@ -379,7 +344,6 @@ const translations = {
     yes: "Sí",
     no: "No",
     
-    // Custom Analysis
     customAnalysisTitle: "Análisis Personalizado Premium",
     customAnalysisSubtitle: "¿Necesitas un análisis detallado de documentos, IDs de empresa, contratos o propuestas de inversión? Nuestro equipo de expertos realiza una verificación manual completa en 1 hora.",
     expressAnalysis: "Análisis Exprés - $49.90",
@@ -394,7 +358,6 @@ const translations = {
     guarantee30days: "Garantía de 30 días",
     requestAnalysis: "Solicitar Análisis por WhatsApp",
     
-    // Trust Indicators
     completeAnalysis: "Análisis Completo",
     completeAnalysisDesc: "Verificamos dominio, SSL, quejas de consumidores, redes sociales y más de 50 fuentes de datos",
     advancedAI: "IA Avanzada",
@@ -402,7 +365,6 @@ const translations = {
     instantResult: "Resultado Instantáneo",
     instantResultDesc: "Veredicto claro y confiable en segundos, con índice de confianza y detalles completos",
     
-    // Pricing Plans
     oneTimePayment: "Pago Único",
     unlimitedConsultations: "Consultas ilimitadas",
     completeReports: "Informes completos",
@@ -424,7 +386,6 @@ const translations = {
     businessReports: "Informes empresariales",
     bestOffer: "Mejor Oferta",
     
-    // Modals
     consultationsExhausted: "🔒 Consultas Agotadas",
     consultationsExhaustedDesc: "Usaste tus 5 consultas gratuitas. ¡Desbloquea acceso ilimitado ahora!",
     unlimitedAccess: "🚀 Acceso Ilimitado - $29.90",
@@ -453,7 +414,6 @@ const translations = {
     amazonDesc: "El mayor e-commerce del mundo",
     upTo70Off: "Hasta 70% OFF",
     
-    // Footer
     totalSecurity: "🛡️ Seguridad Total",
     totalSecurityDesc: "Tus datos están protegidos con cifrado de nivel bancario",
     freeVerification: "✅ Verificación Gratuita",
@@ -465,38 +425,32 @@ const translations = {
   },
   
   zh: {
-    // Header
     title: "反诈骗",
     subtitle: "国家防诈骗保护",
     secure: "100% 安全",
     instantVerification: "即时验证",
     consultationsLeft: "剩余查询次数",
     
-    // Banner
     specialOffer: "特别优惠",
     premiumProtection: "高级保护仅需每月$12",
     guaranteeNow: "立即获取 →",
     
-    // Stats
     sitesVerified: "已验证网站",
     usersProtected: "受保护用户",
     accuracy: "准确率",
     fraudsPrevented: "已阻止诈骗",
     
-    // Main Content
     mainTitle: "在几秒钟内验证任何网站或品牌",
     mainSubtitle: "我们的人工智能实时分析数百万数据，保护您免受网络诈骗",
     placeholder: "输入品牌名称或网站URL（例：促销商店.com）",
     verifyButton: "立即验证 - 免费",
     verifying: "正在验证安全性...",
     
-    // Loading messages
     analysisInProgress: "🔍 分析进行中",
     checkingDomain: "正在检查域名和SSL证书...",
     consultingComplaints: "正在查询投诉数据库...",
     analyzingReputation: "正在分析在线声誉...",
     
-    // Results
     trustIndex: "信任指数",
     analysisTime: "分析时间",
     complaintsFound: "在过去30天内发现的投诉",
@@ -504,7 +458,6 @@ const translations = {
     shareWhatsApp: "在WhatsApp上分享",
     newVerification: "新验证",
     
-    // Details sections
     sslCertificate: "SSL/TLS证书",
     domainInfo: "域名信息（WHOIS）",
     reclameAqui: "消费者投诉",
@@ -512,7 +465,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Google前10结果",
     
-    // SSL Details
     present: "存在：",
     valid: "有效：",
     validFrom: "有效期从：",
@@ -521,7 +473,6 @@ const translations = {
     yes: "是",
     no: "否",
     
-    // Custom Analysis
     customAnalysisTitle: "高级定制分析",
     customAnalysisSubtitle: "需要对文件、公司ID、合同或投资提案进行详细分析吗？我们的专家团队在1小时内进行完整的手动验证。",
     expressAnalysis: "快速分析 - $49.90",
@@ -536,7 +487,6 @@ const translations = {
     guarantee30days: "30天保证",
     requestAnalysis: "通过WhatsApp请求分析",
     
-    // Trust Indicators
     completeAnalysis: "完整分析",
     completeAnalysisDesc: "我们验证域名、SSL、消费者投诉、社交网络和50多个数据源",
     advancedAI: "先进AI",
@@ -544,7 +494,6 @@ const translations = {
     instantResult: "即时结果",
     instantResultDesc: "几秒钟内得到清晰可靠的判决，包含信任指数和完整详情",
     
-    // Pricing Plans
     oneTimePayment: "一次性付款",
     unlimitedConsultations: "无限查询",
     completeReports: "完整报告",
@@ -566,7 +515,6 @@ const translations = {
     businessReports: "商业报告",
     bestOffer: "最佳优惠",
     
-    // Modals
     consultationsExhausted: "🔒 查询已用完",
     consultationsExhaustedDesc: "您已使用完5次免费查询。立即解锁无限访问！",
     unlimitedAccess: "🚀 无限访问 - $29.90",
@@ -595,7 +543,6 @@ const translations = {
     amazonDesc: "世界最大电商",
     upTo70Off: "高达70%折扣",
     
-    // Footer
     totalSecurity: "🛡️ 全面安全",
     totalSecurityDesc: "您的数据受到银行级加密保护",
     freeVerification: "✅ 免费验证",
@@ -607,38 +554,32 @@ const translations = {
   },
 
   fr: {
-    // Header
     title: "AntiArnaque",
     subtitle: "Protection Nationale Contre les Fraudes",
     secure: "100% Sécurisé",
     instantVerification: "Vérification Instantanée",
     consultationsLeft: "consultations restantes",
     
-    // Banner
     specialOffer: "OFFRE SPÉCIALE",
     premiumProtection: "Protection Premium pour seulement 12€/mois",
     guaranteeNow: "OBTENIR MAINTENANT →",
     
-    // Stats
     sitesVerified: "Sites Vérifiés",
     usersProtected: "Utilisateurs Protégés",
     accuracy: "Précision",
     fraudsPrevented: "Arnaques Évitées",
     
-    // Main Content
     mainTitle: "Vérifiez N'importe Quel Site ou Marque en Secondes",
     mainSubtitle: "Notre intelligence artificielle analyse des millions de données en temps réel pour vous protéger contre les arnaques en ligne",
     placeholder: "Entrez le nom de la marque ou l'URL du site (ex: boutique-promos.com)",
     verifyButton: "Vérifier Maintenant - GRATUIT",
     verifying: "Vérification de la Sécurité...",
     
-    // Loading messages
     analysisInProgress: "🔍 Analyse en Cours",
     checkingDomain: "Vérification du domaine et des certificats SSL...",
     consultingComplaints: "Consultation de la base de plaintes...",
     analyzingReputation: "Analyse de la réputation en ligne...",
     
-    // Results
     trustIndex: "Indice de Confiance",
     analysisTime: "Temps d'Analyse",
     complaintsFound: "plaintes trouvées dans les 30 derniers jours",
@@ -646,7 +587,6 @@ const translations = {
     shareWhatsApp: "Partager sur WhatsApp",
     newVerification: "Nouvelle Vérification",
     
-    // Details sections
     sslCertificate: "Certificat SSL/TLS",
     domainInfo: "Informations du Domaine (WHOIS)",
     reclameAqui: "Rapports de Consommateurs",
@@ -654,7 +594,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Top 10 Résultats Google",
     
-    // SSL Details
     present: "Présent:",
     valid: "Valide:",
     validFrom: "Valide de:",
@@ -663,7 +602,6 @@ const translations = {
     yes: "Oui",
     no: "Non",
     
-    // Custom Analysis
     customAnalysisTitle: "Analyse Personnalisée Premium",
     customAnalysisSubtitle: "Besoin d'une analyse détaillée de documents, d'IDs d'entreprise, de contrats ou de propositions d'investissement? Notre équipe d'experts effectue une vérification manuelle complète en 1 heure.",
     expressAnalysis: "Analyse Express - 49,90€",
@@ -678,7 +616,6 @@ const translations = {
     guarantee30days: "Garantie de 30 jours",
     requestAnalysis: "Demander une Analyse via WhatsApp",
     
-    // Trust Indicators
     completeAnalysis: "Analyse Complète",
     completeAnalysisDesc: "Nous vérifions le domaine, SSL, les rapports de consommateurs, les réseaux sociaux et plus de 50 sources de données",
     advancedAI: "IA Avancée",
@@ -686,7 +623,6 @@ const translations = {
     instantResult: "Résultat Instantané",
     instantResultDesc: "Verdict clair et fiable en secondes, avec indice de confiance et détails complets",
     
-    // Pricing Plans
     oneTimePayment: "Paiement Unique",
     unlimitedConsultations: "Consultations illimitées",
     completeReports: "Rapports complets",
@@ -708,7 +644,6 @@ const translations = {
     businessReports: "Rapports d'entreprise",
     bestOffer: "Meilleure Offre",
     
-    // Modals
     consultationsExhausted: "🔒 Consultations Épuisées",
     consultationsExhaustedDesc: "Vous avez utilisé vos 5 consultations gratuites. Débloquez l'accès illimité maintenant!",
     unlimitedAccess: "🚀 Accès Illimité - 29,90€",
@@ -737,7 +672,6 @@ const translations = {
     amazonDesc: "Le plus grand e-commerce du monde",
     upTo70Off: "Jusqu'à 70% DE RÉDUCTION",
     
-    // Footer
     totalSecurity: "🛡️ Sécurité Totale",
     totalSecurityDesc: "Vos données sont protégées avec un chiffrement de niveau bancaire",
     freeVerification: "✅ Vérification Gratuite",
@@ -749,38 +683,32 @@ const translations = {
   },
 
   de: {
-    // Header
     title: "AntiBetrug",
     subtitle: "Nationaler Betrugsschutz",
     secure: "100% Sicher",
     instantVerification: "Sofortige Überprüfung",
     consultationsLeft: "Beratungen übrig",
     
-    // Banner
     specialOffer: "SONDERANGEBOT",
     premiumProtection: "Premium-Schutz für nur 12€/Monat",
     guaranteeNow: "JETZT SICHERN →",
     
-    // Stats
     sitesVerified: "Überprüfte Websites",
     usersProtected: "Geschützte Nutzer",
     accuracy: "Genauigkeit",
     fraudsPrevented: "Verhinderte Betrügereien",
     
-    // Main Content
     mainTitle: "Überprüfen Sie Jede Website oder Marke in Sekunden",
     mainSubtitle: "Unsere künstliche Intelligenz analysiert Millionen von Daten in Echtzeit, um Sie vor Online-Betrug zu schützen",
     placeholder: "Geben Sie den Markennamen oder die Website-URL ein (z.B. shop-angebote.com)",
     verifyButton: "Jetzt Überprüfen - KOSTENLOS",
     verifying: "Sicherheit wird überprüft...",
     
-    // Loading messages
     analysisInProgress: "🔍 Analyse läuft",
     checkingDomain: "Überprüfung von Domain und SSL-Zertifikaten...",
     consultingComplaints: "Beschwerdeunterlagen werden konsultiert...",
     analyzingReputation: "Online-Reputation wird analysiert...",
     
-    // Results
     trustIndex: "Vertrauensindex",
     analysisTime: "Analysezeit",
     complaintsFound: "Beschwerden in den letzten 30 Tagen gefunden",
@@ -788,7 +716,6 @@ const translations = {
     shareWhatsApp: "Auf WhatsApp teilen",
     newVerification: "Neue Überprüfung",
     
-    // Details sections
     sslCertificate: "SSL/TLS-Zertifikat",
     domainInfo: "Domain-Informationen (WHOIS)",
     reclameAqui: "Verbraucherberichte",
@@ -796,7 +723,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Top 10 Google-Ergebnisse",
     
-    // SSL Details
     present: "Vorhanden:",
     valid: "Gültig:",
     validFrom: "Gültig von:",
@@ -805,7 +731,6 @@ const translations = {
     yes: "Ja",
     no: "Nein",
     
-    // Custom Analysis
     customAnalysisTitle: "Premium Maßgeschneiderte Analyse",
     customAnalysisSubtitle: "Benötigen Sie eine detaillierte Analyse von Dokumenten, Unternehmens-IDs, Verträgen oder Investitionsvorschlägen? Unser Expertenteam führt eine vollständige manuelle Überprüfung innerhalb von 1 Stunde durch.",
     expressAnalysis: "Express-Analyse - 49,90€",
@@ -820,7 +745,6 @@ const translations = {
     guarantee30days: "30-Tage-Garantie",
     requestAnalysis: "Analyse über WhatsApp anfordern",
     
-    // Trust Indicators
     completeAnalysis: "Vollständige Analyse",
     completeAnalysisDesc: "Wir überprüfen Domain, SSL, Verbraucherberichte, soziale Netzwerke und über 50 Datenquellen",
     advancedAI: "Fortgeschrittene KI",
@@ -828,7 +752,6 @@ const translations = {
     instantResult: "Sofortiges Ergebnis",
     instantResultDesc: "Klares und zuverlässiges Urteil in Sekunden, mit Vertrauensindex und vollständigen Details",
     
-    // Pricing Plans
     oneTimePayment: "Einmalige Zahlung",
     unlimitedConsultations: "Unbegrenzte Beratungen",
     completeReports: "Vollständige Berichte",
@@ -850,7 +773,6 @@ const translations = {
     businessReports: "Geschäftsberichte",
     bestOffer: "Bestes Angebot",
     
-    // Modals
     consultationsExhausted: "🔒 Beratungen Erschöpft",
     consultationsExhaustedDesc: "Sie haben Ihre 5 kostenlosen Beratungen genutzt. Schalten Sie jetzt unbegrenzten Zugang frei!",
     unlimitedAccess: "🚀 Unbegrenzter Zugang - 29,90€",
@@ -879,7 +801,6 @@ const translations = {
     amazonDesc: "Weltgrößter E-Commerce",
     upTo70Off: "Bis zu 70% RABATT",
     
-    // Footer
     totalSecurity: "🛡️ Totale Sicherheit",
     totalSecurityDesc: "Ihre Daten sind mit bankentauglicher Verschlüsselung geschützt",
     freeVerification: "✅ Kostenlose Überprüfung",
@@ -891,38 +812,32 @@ const translations = {
   },
 
   ar: {
-    // Header
     title: "مكافح الاحتيال",
     subtitle: "الحماية الوطنية ضد الاحتيال",
     secure: "100% آمن",
     instantVerification: "التحقق الفوري",
     consultationsLeft: "استشارات متبقية",
     
-    // Banner
     specialOffer: "عرض خاص",
     premiumProtection: "الحماية المميزة بـ 12$ فقط شهرياً",
     guaranteeNow: "احصل عليها الآن ←",
     
-    // Stats
     sitesVerified: "المواقع المتحققة",
     usersProtected: "المستخدمون المحميون",
     accuracy: "الدقة",
     fraudsPrevented: "الاحتيال المنع",
     
-    // Main Content
     mainTitle: "تحقق من أي موقع أو علامة تجارية في ثوانٍ",
     mainSubtitle: "يحلل ذكاؤنا الاصطناعي ملايين البيانات في الوقت الفعلي لحمايتك من الاحتيال عبر الإنترنت",
     placeholder: "أدخل اسم العلامة التجارية أو رابط الموقع (مثل: متجر-العروض.com)",
     verifyButton: "تحقق الآن - مجاناً",
     verifying: "جاري التحقق من الأمان...",
     
-    // Loading messages
     analysisInProgress: "🔍 التحليل جارٍ",
     checkingDomain: "فحص النطاق وشهادات SSL...",
     consultingComplaints: "استشارة قاعدة الشكاوى...",
     analyzingReputation: "تحليل السمعة عبر الإنترنت...",
     
-    // Results
     trustIndex: "مؤشر الثقة",
     analysisTime: "وقت التحليل",
     complaintsFound: "شكاوى وجدت في آخر 30 يوماً",
@@ -930,7 +845,6 @@ const translations = {
     shareWhatsApp: "مشاركة على واتساب",
     newVerification: "تحقق جديد",
     
-    // Details sections
     sslCertificate: "شهادة SSL/TLS",
     domainInfo: "معلومات النطاق (WHOIS)",
     reclameAqui: "تقارير المستهلكين",
@@ -938,7 +852,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "أفضل 10 نتائج جوجل",
     
-    // SSL Details
     present: "موجود:",
     valid: "صالح:",
     validFrom: "صالح من:",
@@ -947,7 +860,6 @@ const translations = {
     yes: "نعم",
     no: "لا",
     
-    // Custom Analysis
     customAnalysisTitle: "التحليل المخصص المميز",
     customAnalysisSubtitle: "تحتاج إلى تحليل مفصل للوثائق أو معرفات الشركة أو العقود أو مقترحات الاستثمار؟ يقوم فريق الخبراء لدينا بإجراء تحقق يدوي كامل خلال ساعة واحدة.",
     expressAnalysis: "التحليل السريع - 49.90$",
@@ -962,7 +874,6 @@ const translations = {
     guarantee30days: "ضمان لمدة 30 يوماً",
     requestAnalysis: "طلب التحليل عبر واتساب",
     
-    // Trust Indicators
     completeAnalysis: "التحليل الكامل",
     completeAnalysisDesc: "نتحقق من النطاق وSSL وتقارير المستهلكين ووسائل التواصل الاجتماعي وأكثر من 50 مصدر بيانات",
     advancedAI: "الذكاء الاصطناعي المتقدم",
@@ -970,7 +881,6 @@ const translations = {
     instantResult: "النتيجة الفورية",
     instantResultDesc: "حكم واضح وموثوق في ثوانٍ، مع مؤشر الثقة والتفاصيل الكاملة",
     
-    // Pricing Plans
     oneTimePayment: "دفعة واحدة",
     unlimitedConsultations: "استشارات غير محدودة",
     completeReports: "تقارير كاملة",
@@ -992,7 +902,6 @@ const translations = {
     businessReports: "تقارير الأعمال",
     bestOffer: "أفضل عرض",
     
-    // Modals
     consultationsExhausted: "🔒 نفدت الاستشارات",
     consultationsExhaustedDesc: "لقد استخدمت استشاراتك المجانية الـ5. افتح الوصول غير المحدود الآن!",
     unlimitedAccess: "🚀 وصول غير محدود - 29.90$",
@@ -1021,7 +930,6 @@ const translations = {
     amazonDesc: "أكبر متجر إلكتروني في العالم",
     upTo70Off: "خصم يصل إلى 70%",
     
-    // Footer
     totalSecurity: "🛡️ الأمان التام",
     totalSecurityDesc: "بياناتك محمية بتشفير على مستوى البنوك",
     freeVerification: "✅ التحقق المجاني",
@@ -1033,38 +941,32 @@ const translations = {
   },
 
   ja: {
-    // Header
     title: "詐欺対策",
     subtitle: "国家詐欺防止保護",
     secure: "100% 安全",
     instantVerification: "即時検証",
     consultationsLeft: "相談回数残り",
     
-    // Banner
     specialOffer: "特別オファー",
     premiumProtection: "プレミアム保護が月額わずか$12",
     guaranteeNow: "今すぐ入手 →",
     
-    // Stats
     sitesVerified: "検証済みサイト",
     usersProtected: "保護されたユーザー",
     accuracy: "精度",
     fraudsPrevented: "防止された詐欺",
     
-    // Main Content
     mainTitle: "数秒でウェブサイトやブランドを検証",
     mainSubtitle: "私たちの人工知能は、オンライン詐欺からあなたを守るために、数百万のデータをリアルタイムで分析します",
     placeholder: "ブランド名またはサイトのURLを入力してください（例：店舗-プロモーション.com）",
     verifyButton: "今すぐ検証 - 無料",
     verifying: "セキュリティを検証中...",
     
-    // Loading messages
     analysisInProgress: "🔍 分析進行中",
     checkingDomain: "ドメインとSSL証明書を確認中...",
     consultingComplaints: "苦情データベースを照会中...",
     analyzingReputation: "オンライン評判を分析中...",
     
-    // Results
     trustIndex: "信頼指数",
     analysisTime: "分析時間",
     complaintsFound: "過去30日間に見つかった苦情",
@@ -1072,7 +974,6 @@ const translations = {
     shareWhatsApp: "WhatsAppで共有",
     newVerification: "新しい検証",
     
-    // Details sections
     sslCertificate: "SSL/TLS証明書",
     domainInfo: "ドメイン情報（WHOIS）",
     reclameAqui: "消費者レポート",
@@ -1080,7 +981,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Google上位10結果",
     
-    // SSL Details
     present: "存在:",
     valid: "有効:",
     validFrom: "有効期間開始:",
@@ -1089,7 +989,6 @@ const translations = {
     yes: "はい",
     no: "いいえ",
     
-    // Custom Analysis
     customAnalysisTitle: "プレミアムカスタム分析",
     customAnalysisSubtitle: "文書、会社ID、契約書、投資提案の詳細分析が必要ですか？当社の専門家チームが1時間以内に完全な手動検証を行います。",
     expressAnalysis: "エクスプレス分析 - $49.90",
@@ -1104,7 +1003,6 @@ const translations = {
     guarantee30days: "30日間保証",
     requestAnalysis: "WhatsAppで分析を依頼",
     
-    // Trust Indicators
     completeAnalysis: "完全な分析",
     completeAnalysisDesc: "ドメイン、SSL、消費者レポート、ソーシャルネットワーク、50以上のデータソースを検証します",
     advancedAI: "高度なAI",
@@ -1112,7 +1010,6 @@ const translations = {
     instantResult: "即時結果",
     instantResultDesc: "数秒で明確で信頼できる判定、信頼指数と完全な詳細付き",
     
-    // Pricing Plans
     oneTimePayment: "一回払い",
     unlimitedConsultations: "無制限の相談",
     completeReports: "完全なレポート",
@@ -1134,7 +1031,6 @@ const translations = {
     businessReports: "ビジネスレポート",
     bestOffer: "最高のオファー",
     
-    // Modals
     consultationsExhausted: "🔒 相談回数終了",
     consultationsExhaustedDesc: "5回の無料相談を使い切りました。今すぐ無制限アクセスをロック解除しましょう！",
     unlimitedAccess: "🚀 無制限アクセス - $29.90",
@@ -1163,7 +1059,6 @@ const translations = {
     amazonDesc: "世界最大のeコマース",
     upTo70Off: "最大70%オフ",
     
-    // Footer
     totalSecurity: "🛡️ 完全なセキュリティ",
     totalSecurityDesc: "あなたのデータは銀行レベルの暗号化で保護されています",
     freeVerification: "✅ 無料検証",
@@ -1175,38 +1070,32 @@ const translations = {
   },
 
   ru: {
-    // Header
     title: "АнтиМошенничество",
     subtitle: "Национальная Защита от Мошенничества",
     secure: "100% Безопасно",
     instantVerification: "Мгновенная Проверка",
     consultationsLeft: "консультаций осталось",
     
-    // Banner
     specialOffer: "СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ",
     premiumProtection: "Премиум Защита всего за $12/месяц",
     guaranteeNow: "ПОЛУЧИТЬ СЕЙЧАС →",
     
-    // Stats
     sitesVerified: "Проверенных Сайтов",
     usersProtected: "Защищенных Пользователей",
     accuracy: "Точность",
     fraudsPrevented: "Предотвращено Мошенничества",
     
-    // Main Content
     mainTitle: "Проверьте Любой Сайт или Бренд за Секунды",
     mainSubtitle: "Наш искусственный интеллект анализирует миллионы данных в реальном времени, чтобы защитить вас от онлайн-мошенничества",
     placeholder: "Введите название бренда или URL сайта (например: магазин-акции.com)",
     verifyButton: "Проверить Сейчас - БЕСПЛАТНО",
     verifying: "Проверка Безопасности...",
     
-    // Loading messages
     analysisInProgress: "🔍 Анализ в Процессе",
     checkingDomain: "Проверка домена и SSL сертификатов...",
     consultingComplaints: "Консультация базы жалоб...",
     analyzingReputation: "Анализ онлайн репутации...",
     
-    // Results
     trustIndex: "Индекс Доверия",
     analysisTime: "Время Анализа",
     complaintsFound: "жалоб найдено за последние 30 дней",
@@ -1214,7 +1103,6 @@ const translations = {
     shareWhatsApp: "Поделиться в WhatsApp",
     newVerification: "Новая Проверка",
     
-    // Details sections
     sslCertificate: "SSL/TLS Сертификат",
     domainInfo: "Информация о Домене (WHOIS)",
     reclameAqui: "Отчеты Потребителей",
@@ -1222,7 +1110,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Топ 10 Результатов Google",
     
-    // SSL Details
     present: "Присутствует:",
     valid: "Действителен:",
     validFrom: "Действителен с:",
@@ -1231,7 +1118,6 @@ const translations = {
     yes: "Да",
     no: "Нет",
     
-    // Custom Analysis
     customAnalysisTitle: "Премиум Персонализированный Анализ",
     customAnalysisSubtitle: "Нужен детальный анализ документов, ID компаний, контрактов или инвестиционных предложений? Наша команда экспертов проводит полную ручную проверку в течение 1 часа.",
     expressAnalysis: "Экспресс Анализ - $49.90",
@@ -1246,7 +1132,6 @@ const translations = {
     guarantee30days: "Гарантия 30 дней",
     requestAnalysis: "Запросить Анализ через WhatsApp",
     
-    // Trust Indicators
     completeAnalysis: "Полный Анализ",
     completeAnalysisDesc: "Мы проверяем домен, SSL, отчеты потребителей, социальные сети и более 50 источников данных",
     advancedAI: "Продвинутый ИИ",
@@ -1254,7 +1139,6 @@ const translations = {
     instantResult: "Мгновенный Результат",
     instantResultDesc: "Четкий и надежный вердикт за секунды, с индексом доверия и полными деталями",
     
-    // Pricing Plans
     oneTimePayment: "Единовременный Платеж",
     unlimitedConsultations: "Неограниченные консультации",
     completeReports: "Полные отчеты",
@@ -1276,7 +1160,6 @@ const translations = {
     businessReports: "Бизнес отчеты",
     bestOffer: "Лучшее Предложение",
     
-    // Modals
     consultationsExhausted: "🔒 Консультации Исчерпаны",
     consultationsExhaustedDesc: "Вы использовали свои 5 бесплатных консультаций. Разблокируйте неограниченный доступ сейчас!",
     unlimitedAccess: "🚀 Неограниченный Доступ - $29.90",
@@ -1305,7 +1188,6 @@ const translations = {
     amazonDesc: "Крупнейший интернет-магазин в мире",
     upTo70Off: "До 70% СКИДКА",
     
-    // Footer
     totalSecurity: "🛡️ Полная Безопасность",
     totalSecurityDesc: "Ваши данные защищены шифрованием банковского уровня",
     freeVerification: "✅ Бесплатная Проверка",
@@ -1317,38 +1199,32 @@ const translations = {
   },
 
   hi: {
-    // Header
     title: "धोखाधड़ी विरोधी",
     subtitle: "राष्ट्रीय धोखाधड़ी संरक्षण",
     secure: "100% सुरक्षित",
     instantVerification: "तत्काल सत्यापन",
     consultationsLeft: "परामर्श शेष",
     
-    // Banner
     specialOffer: "विशेष प्रस्ताव",
     premiumProtection: "प्रीमियम सुरक्षा केवल $12/माह में",
     guaranteeNow: "अभी प्राप्त करें →",
     
-    // Stats
     sitesVerified: "सत्यापित साइटें",
     usersProtected: "संरक्षित उपयोगकर्ता",
     accuracy: "सटीकता",
     fraudsPrevented: "रोकी गई धोखाधड़ी",
     
-    // Main Content
     mainTitle: "कुछ ही सेकंड में किसी भी वेबसाइट या ब्रांड की जांच करें",
     mainSubtitle: "हमारी कृत्रिम बुद्धिमत्ता आपको ऑनलाइन धोखाधड़ी से बचाने के लिए वास्तविक समय में लाखों डेटा का विश्लेषण करती है",
     placeholder: "ब्रांड का नाम या वेबसाइट URL दर्ज करें (उदाहरण: दुकान-प्रमोशन.com)",
     verifyButton: "अभी सत्यापित करें - मुफ्त",
     verifying: "सुरक्षा सत्यापन...",
     
-    // Loading messages
     analysisInProgress: "🔍 विश्लेषण प्रगति में",
     checkingDomain: "डोमेन और SSL प्रमाणपत्र जांच रहे हैं...",
     consultingComplaints: "शिकायत डेटाबेस से परामर्श...",
     analyzingReputation: "ऑनलाइन प्रतिष्ठा का विश्लेषण...",
     
-    // Results
     trustIndex: "विश्वास सूचकांक",
     analysisTime: "विश्लेषण समय",
     complaintsFound: "पिछले 30 दिनों में मिली शिकायतें",
@@ -1356,7 +1232,6 @@ const translations = {
     shareWhatsApp: "WhatsApp पर साझा करें",
     newVerification: "नया सत्यापन",
     
-    // Details sections
     sslCertificate: "SSL/TLS प्रमाणपत्र",
     domainInfo: "डोमेन जानकारी (WHOIS)",
     reclameAqui: "उपभोक्ता रिपोर्ट",
@@ -1364,7 +1239,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "टॉप 10 Google परिणाम",
     
-    // SSL Details
     present: "उपस्थित:",
     valid: "वैध:",
     validFrom: "से वैध:",
@@ -1373,7 +1247,6 @@ const translations = {
     yes: "हाँ",
     no: "नहीं",
     
-    // Custom Analysis
     customAnalysisTitle: "प्रीमियम कस्टम विश्लेषण",
     customAnalysisSubtitle: "दस्तावेज़ों, कंपनी आईडी, अनुबंधों या निवेश प्रस्तावों के विस्तृत विश्लेषण की आवश्यकता है? हमारी विशेषज्ञ टीम 1 घंटे के भीतर पूर्ण मैनुअल सत्यापन करती है।",
     expressAnalysis: "एक्सप्रेस विश्लेषण - $49.90",
@@ -1388,7 +1261,6 @@ const translations = {
     guarantee30days: "30 दिन की गारंटी",
     requestAnalysis: "WhatsApp के माध्यम से विश्लेषण का अनुरोध करें",
     
-    // Trust Indicators
     completeAnalysis: "पूर्ण विश्लेषण",
     completeAnalysisDesc: "हम डोमेन, SSL, उपभोक्ता रिपोर्ट, सामाजिक नेटवर्क और 50+ डेटा स्रोतों को सत्यापित करते हैं",
     advancedAI: "उन्नत एआई",
@@ -1396,7 +1268,6 @@ const translations = {
     instantResult: "तत्काल परिणाम",
     instantResultDesc: "सेकंडों में स्पष्ट और विश्वसनीय फैसला, विश्वास सूचकांक और पूर्ण विवरण के साथ",
     
-    // Pricing Plans
     oneTimePayment: "एक बार भुगतान",
     unlimitedConsultations: "असीमित परामर्श",
     completeReports: "पूर्ण रिपोर्ट",
@@ -1418,7 +1289,6 @@ const translations = {
     businessReports: "व्यापारिक रिपोर्ट",
     bestOffer: "सर्वोत्तम प्रस्ताव",
     
-    // Modals
     consultationsExhausted: "🔒 परामर्श समाप्त",
     consultationsExhaustedDesc: "आपने अपने 5 मुफ्त परामर्श का उपयोग कर लिया है। अभी असीमित पहुंच अनलॉक करें!",
     unlimitedAccess: "🚀 असीमित पहुंच - $29.90",
@@ -1447,7 +1317,6 @@ const translations = {
     amazonDesc: "दुनिया का सबसे बड़ा ई-कॉमर्स",
     upTo70Off: "70% तक छूट",
     
-    // Footer
     totalSecurity: "🛡️ संपूर्ण सुरक्षा",
     totalSecurityDesc: "आपका डेटा बैंक-स्तरीय एन्क्रिप्शन से सुरक्षित है",
     freeVerification: "✅ मुफ्त सत्यापन",
@@ -1459,38 +1328,32 @@ const translations = {
   },
 
   it: {
-    // Header
     title: "AntiTruffa",
     subtitle: "Protezione Nazionale Contro le Frodi",
     secure: "100% Sicuro",
     instantVerification: "Verifica Istantanea",
     consultationsLeft: "consultazioni rimanenti",
     
-    // Banner
     specialOffer: "OFFERTA SPECIALE",
     premiumProtection: "Protezione Premium per soli €12/mese",
     guaranteeNow: "OTTIENI ORA →",
     
-    // Stats
     sitesVerified: "Siti Verificati",
     usersProtected: "Utenti Protetti",
     accuracy: "Precisione",
     fraudsPrevented: "Truffe Prevenute",
     
-    // Main Content
     mainTitle: "Verifica Qualsiasi Sito Web o Marchio in Secondi",
     mainSubtitle: "La nostra intelligenza artificiale analizza milioni di dati in tempo reale per proteggerti dalle truffe online",
     placeholder: "Inserisci il nome del marchio o l'URL del sito (es: negozio-promozioni.com)",
     verifyButton: "Verifica Ora - GRATUITO",
     verifying: "Verifica della Sicurezza...",
     
-    // Loading messages
     analysisInProgress: "🔍 Analisi in Corso",
     checkingDomain: "Verifica dominio e certificati SSL...",
     consultingComplaints: "Consultazione database reclami...",
     analyzingReputation: "Analisi della reputazione online...",
     
-    // Results
     trustIndex: "Indice di Fiducia",
     analysisTime: "Tempo di Analisi",
     complaintsFound: "reclami trovati negli ultimi 30 giorni",
@@ -1498,7 +1361,6 @@ const translations = {
     shareWhatsApp: "Condividi su WhatsApp",
     newVerification: "Nuova Verifica",
     
-    // Details sections
     sslCertificate: "Certificato SSL/TLS",
     domainInfo: "Informazioni Dominio (WHOIS)",
     reclameAqui: "Rapporti Consumatori",
@@ -1506,7 +1368,6 @@ const translations = {
     trustPilot: "TrustPilot",
     googleResults: "Top 10 Risultati Google",
     
-    // SSL Details
     present: "Presente:",
     valid: "Valido:",
     validFrom: "Valido da:",
@@ -1515,7 +1376,6 @@ const translations = {
     yes: "Sì",
     no: "No",
     
-    // Custom Analysis
     customAnalysisTitle: "Analisi Personalizzata Premium",
     customAnalysisSubtitle: "Hai bisogno di un'analisi dettagliata di documenti, ID aziendali, contratti o proposte di investimento? Il nostro team di esperti esegue una verifica manuale completa entro 1 ora.",
     expressAnalysis: "Analisi Express - €49,90",
@@ -1530,7 +1390,6 @@ const translations = {
     guarantee30days: "Garanzia di 30 giorni",
     requestAnalysis: "Richiedi Analisi via WhatsApp",
     
-    // Trust Indicators
     completeAnalysis: "Analisi Completa",
     completeAnalysisDesc: "Verifichiamo dominio, SSL, rapporti consumatori, social network e oltre 50 fonti di dati",
     advancedAI: "IA Avanzata",
@@ -1538,7 +1397,6 @@ const translations = {
     instantResult: "Risultato Istantaneo",
     instantResultDesc: "Verdetto chiaro e affidabile in secondi, con indice di fiducia e dettagli completi",
     
-    // Pricing Plans
     oneTimePayment: "Pagamento Unico",
     unlimitedConsultations: "Consultazioni illimitate",
     completeReports: "Rapporti completi",
@@ -1560,7 +1418,6 @@ const translations = {
     businessReports: "Rapporti aziendali",
     bestOffer: "Migliore Offerta",
     
-    // Modals
     consultationsExhausted: "🔒 Consultazioni Esaurite",
     consultationsExhaustedDesc: "Hai utilizzato le tue 5 consultazioni gratuite. Sblocca l'accesso illimitato ora!",
     unlimitedAccess: "🚀 Accesso Illimitato - €29,90",
@@ -1589,7 +1446,6 @@ const translations = {
     amazonDesc: "Il più grande e-commerce del mondo",
     upTo70Off: "Fino al 70% DI SCONTO",
     
-    // Footer
     totalSecurity: "🛡️ Sicurezza Totale",
     totalSecurityDesc: "I tuoi dati sono protetti con crittografia di livello bancario",
     freeVerification: "✅ Verifica Gratuita",
@@ -1601,21 +1457,18 @@ const translations = {
   }
 };
 
-// Hook para gerenciar idioma
 const useLanguage = () => {
   const [language, setLanguage] = useState('pt');
   
   useEffect(() => {
-    // Verifica se há idioma salvo no localStorage
     const savedLanguage = localStorage.getItem('antigolpe_language');
     if (savedLanguage && translations[savedLanguage]) {
       setLanguage(savedLanguage);
       return;
     }
     
-    // Detecta idioma do navegador
     const browserLang = navigator.language.toLowerCase();
-    let detectedLang = 'pt'; // padrão
+    let detectedLang = 'pt'; 
     
     if (browserLang.includes('en')) detectedLang = 'en';
     else if (browserLang.includes('es')) detectedLang = 'es';
@@ -1645,7 +1498,6 @@ const useLanguage = () => {
   return { language, changeLanguage, t };
 };
 
-// Component para seletor de idioma RESPONSIVO
 const LanguageSelector = ({ language, onLanguageChange }: { language: string, onLanguageChange: (lang: string) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   
@@ -1679,13 +1531,13 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string, on
       
       {isOpen && (
         <>
-          {/* Overlay para fechar */}
+          {}
           <div 
             className="fixed inset-0 z-40" 
             onClick={() => setIsOpen(false)}
           />
           
-          {/* Dropdown */}
+          {}
           <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 z-50 w-48 max-h-64 overflow-y-auto">
             {languages.map((lang) => (
               <button
@@ -1725,7 +1577,6 @@ function App() {
   const [isPremium, setIsPremium] = useState(false);
   const [hasUnlimitedAccess, setHasUnlimitedAccess] = useState(false);
 
-  // Carrega dados do localStorage
   useEffect(() => {
     const savedSearches = localStorage.getItem('antigolpe_searches');
     const savedPremium = localStorage.getItem('antigolpe_premium');
@@ -1741,14 +1592,13 @@ function App() {
       setHasUnlimitedAccess(true);
     }
 
-    // 🔥 Verifica o slug da URL
     const path = window.location.pathname;
 
     if (path === "/premium-ativar") {
       setIsPremium(true);
       localStorage.setItem('antigolpe_premium', 'true');
       alert("✅ Proteção Premium ativada com sucesso!");
-      window.location.href = "/"; // redireciona para a home
+      window.location.href = "/"; 
     }
 
     if (path === "/unlimited-ativar") {
@@ -1762,11 +1612,10 @@ function App() {
       setIsPremium(true);
       localStorage.setItem('antigolpe_premium', 'true');
       alert("✅ Proteção Anual ativada com sucesso!");
-      window.location.href = "/"; // redireciona para a home
+      window.location.href = "/"; 
     }
   }, []);
 
-  // Estatísticas impressionantes para credibilidade
   const stats: StatCard[] = [
     {
       icon: <Shield className="w-6 h-6" />,
@@ -1794,7 +1643,6 @@ function App() {
     }
   ];
 
-  // Planos de preços
   const pricingPlans: PricingPlan[] = [
     {
       id: "unlimited",
@@ -1867,7 +1715,6 @@ function App() {
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
 
-    // Verifica limite de consultas gratuitas
     if (!isPremium && !hasUnlimitedAccess && freeSearches <= 0) {
       setShowUpgradeModal(true);
       return;
@@ -1887,18 +1734,14 @@ function App() {
       const data = await resp.json();
       if (!resp.ok) throw new Error(data?.error || "Falha na verificação");
 
-      // Ajusta o trustScore para ser mais realista
       let adjustedTrustScore = data.trustScore || 75;
       
-      // Se o status é safe mas o score está baixo, ajusta
       if (data.status === 'safe' && adjustedTrustScore < 75) {
         adjustedTrustScore = Math.max(75, adjustedTrustScore + 15);
       }
-      // Se o status é danger mas o score está alto, ajusta
       else if (data.status === 'danger' && adjustedTrustScore > 40) {
         adjustedTrustScore = Math.min(40, adjustedTrustScore - 10);
       }
-      // Se o status é suspicious, mantém entre 40-75
       else if (data.status === 'suspicious') {
         adjustedTrustScore = Math.max(40, Math.min(75, adjustedTrustScore));
       }
@@ -1919,7 +1762,6 @@ function App() {
         trustPilot: data.trustPilot,
       });
 
-      // Decrementa consultas gratuitas apenas se não for premium
       if (!isPremium && !hasUnlimitedAccess) {
         const newCount = Math.max(0, freeSearches - 1);
         setFreeSearches(newCount);
@@ -2051,7 +1893,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Oferta Especial Banner */}
+      {}
       {!isPremium && !hasUnlimitedAccess && (
         <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white py-2 sm:py-3 px-4 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -2069,11 +1911,11 @@ function App() {
         </div>
       )}
 
-      {/* Header Premium RESPONSIVO */}
+      {}
       <header className="bg-white shadow-lg border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 py-4 sm:py-8">
           <div className="flex items-center justify-between flex-wrap gap-4">
-            {/* Logo e título */}
+            {}
             <div className="flex items-center justify-center space-x-3 sm:space-x-4 flex-1 min-w-0">
               <div className="relative flex-shrink-0">
                 <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-lg">
@@ -2105,7 +1947,7 @@ function App() {
               </div>
             </div>
             
-            {/* Seletor de idioma REPOSICIONADO */}
+            {}
             <div className="flex-shrink-0">
               <LanguageSelector language={language} onLanguageChange={changeLanguage} />
             </div>
@@ -2113,7 +1955,7 @@ function App() {
         </div>
       </header>
 
-      {/* Stats Section */}
+      {}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat, index) => (
@@ -2128,7 +1970,7 @@ function App() {
         </div>
       </section>
 
-      {/* Main Content */}
+      {}
       <main className="max-w-3xl mx-auto px-4 pb-12">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -2139,7 +1981,7 @@ function App() {
           </p>
         </div>
 
-        {/* Search Form Premium */}
+        {}
         <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 mb-10 border border-gray-100">
           <div className="space-y-6">
             <div className="relative">
@@ -2176,7 +2018,7 @@ function App() {
           </div>
         </div>
 
-        {/* Loading State Premium */}
+        {}
         {isVerifying && (
           <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 text-center border border-gray-100">
             <div className="flex flex-col items-center space-y-6">
@@ -2207,7 +2049,7 @@ function App() {
           </div>
         )}
 
-        {/* Result Premium */}
+        {}
         {result && !isVerifying && (
           <div className={`bg-white rounded-3xl shadow-2xl border-4 ${getResultColors()} p-8 sm:p-10`}>
             <div className="text-center space-y-6">
@@ -2223,7 +2065,7 @@ function App() {
                   {result.message}
                 </p>
                 
-                {/* Trust Score */}
+                {}
                 <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 space-y-4">
                   <div className="flex items-center justify-center space-x-4 sm:space-x-8">
                     <div className="text-center">
@@ -2250,7 +2092,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Botão Ver Relatório Completo */}
+              {}
               {(result.ssl || result.whois || result.reclameAqui || result.googleResults?.length || result.social || result.trustPilot) && (
                 <button
                   onClick={handleViewDetails}
@@ -2262,10 +2104,10 @@ function App() {
                 </button>
               )}
 
-              {/* Detalhes da Análise - Apenas para Premium */}
+              {}
               {showDetails && (isPremium || hasUnlimitedAccess) && (
                 <div className="mt-6 text-left space-y-6 p-4 sm:p-6 bg-gray-50 rounded-2xl border border-gray-200">
-                  {/* SSL */}
+                  {}
                   {result.ssl && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
                       <h4 className="font-bold text-lg mb-3 flex items-center">
@@ -2292,7 +2134,7 @@ function App() {
                     </div>
                   )}
 
-                  {/* WHOIS */}
+                  {}
                   {result.whois && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
                       <h4 className="font-bold text-lg mb-3 flex items-center">
@@ -2305,7 +2147,7 @@ function App() {
                     </div>
                   )}
 
-                  {/* Reclame Aqui */}
+                  {}
                   {result.reclameAqui && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
                       <h4 className="font-bold text-lg mb-3 flex items-center">
@@ -2344,7 +2186,7 @@ function App() {
                     </div>
                   )}
 
-                  {/* Redes Sociais */}
+                  {}
                   {result.social && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
                       <h4 className="font-bold text-lg mb-3 flex items-center">
@@ -2391,7 +2233,7 @@ function App() {
                     </div>
                   )}
 
-                  {/* TrustPilot */}
+                  {}
                   {result.trustPilot?.found && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
                       <h4 className="font-bold text-lg mb-3 flex items-center">
@@ -2419,7 +2261,7 @@ function App() {
                     </div>
                   )}
 
-                  {/* Top 10 Google */}
+                  {}
                   {result.googleResults?.length > 0 && (
                     <div className="bg-white p-4 rounded-xl border border-gray-100">
                       <h4 className="font-bold text-lg mb-3 flex items-center">
@@ -2451,7 +2293,7 @@ function App() {
                 </div>
               )}
 
-              {/* Alternativas Seguras - Apenas para sites perigosos */}
+              {}
               {result.status === 'danger' && (
                 <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-2xl">
                   <h4 className="text-xl font-bold text-green-800 mb-4 flex items-center">
@@ -2481,7 +2323,7 @@ function App() {
                 </div>
               )}
 
-              {/* Action Buttons */}
+              {}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleShare}
@@ -2503,7 +2345,7 @@ function App() {
           </div>
         )}
 
-        {/* Security Services - Affiliate Section */}
+        {}
         <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-gray-100">
           <div className="text-center mb-8">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -2592,7 +2434,7 @@ function App() {
           </div>
         </div>
         
-        {/* Custom Check Service */}
+        {}
         <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-8 sm:p-10">
           <div className="text-center mb-8">
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -2691,7 +2533,7 @@ function App() {
           </div>
         </div>
 
-        {/* Trust Indicators */}
+        {}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center hover:shadow-xl transition-all duration-300">
             <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -2725,7 +2567,7 @@ function App() {
         </div>
       </main>
 
-      {/* Modal Paywall - Relatório Completo */}
+      {}
       {showPaywall && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -2795,7 +2637,7 @@ function App() {
         </div>
       )}
 
-      {/* Modal Premium */}
+      {}
       {showPremiumModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
@@ -2883,7 +2725,7 @@ function App() {
         </div>
       )}
 
-      {/* Modal Upgrade - Consultas Esgotadas */}
+      {}
       {showUpgradeModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full">
@@ -2923,12 +2765,12 @@ function App() {
         </div>
       )}
 
-      {/* Símbolo c🔱 fixo no canto inferior direito */}
+      {}
       <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-xl sm:text-2xl font-bold text-gray-600 z-40 select-none">
         c🔱
       </div>
 
-      {/* Footer Premium */}
+      {}
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white mt-20">
         <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
           <div className="text-center space-y-6">
