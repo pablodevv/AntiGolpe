@@ -1,9 +1,7 @@
-// netlify/functions/verificar.js - VERSÃO DEFINITIVA NÍVEL EMPRESA MULTIBILIONÁRIA
 import tls from "tls";
 import { parse } from "tldts";
 import * as cheerio from "cheerio";
 
-// ========== SISTEMA DE TRADUÇÕES BACKEND ==========
 const backendTranslations = {
   pt: {
     safeSite: "✅ SITE TOTALMENTE SEGURO",
@@ -128,7 +126,6 @@ const backendTranslations = {
   }
 };
 
-// ========== CONFIGURAÇÕES ULTRA ROBUSTAS ==========
 const CONFIG = {
   timeouts: {
     ssl: 5000,
@@ -149,7 +146,6 @@ const CONFIG = {
   }
 };
 
-// ========== HELPERS ULTRA ROBUSTOS ==========
 function normalizeQuery(q) { 
   return String(q || "").trim(); 
 }
@@ -187,7 +183,6 @@ function timeoutPromise(promise, ms) {
   ]);
 }
 
-// ========== FETCH ULTRA ROBUSTO ==========
 async function fetchWithRetry(url, options = {}, retries = CONFIG.retries.api, timeout = CONFIG.timeouts.general) {
   const fetchOptions = {
     headers: {
@@ -247,12 +242,10 @@ async function fetchText(url, options = {}, retries = CONFIG.retries.scraping, t
   }
 }
 
-// ========== DOMÍNIO INTELIGENTE ==========
 async function findDomainFromBrand(brandName) {
   try {
     console.log(`[DOMAIN_SEARCH] Procurando domínio para: ${brandName}`);
     
-    // Primeiro, tenta com marcas conhecidas
     const knownBrands = {
       "mercado livre": "mercadolivre.com.br",
       "mercadolivre": "mercadolivre.com.br", 
@@ -293,7 +286,6 @@ async function findDomainFromBrand(brandName) {
       }
     }
     
-    // Se não encontrou, tenta buscar no Google
     const googleKey = process.env.GOOGLE_API_KEY;
     const cx = process.env.GOOGLE_CX;
     
@@ -330,7 +322,6 @@ async function findDomainFromBrand(brandName) {
   }
 }
 
-// ========== WHOIS ULTRA ROBUSTO ==========
 async function getWhoisSafe(host) {
   if (!host) return null;
   
@@ -354,7 +345,6 @@ async function getWhoisSafe(host) {
   }
 }
 
-// ========== SSL ULTRA ROBUSTO ==========
 async function getSSLSafe(host) {
   if (!host) return null;
   
@@ -429,7 +419,6 @@ async function getSSLSafe(host) {
   });
 }
 
-// ========== GOOGLE SEARCH ULTRA ROBUSTO ==========
 async function searchGoogleSafe(query) {
   try {
     console.log(`[GOOGLE] Buscando: ${query}`);
@@ -457,7 +446,7 @@ async function searchGoogleSafe(query) {
     
     const results = [];
     
-    for (const item of items.slice(0, 5)) { // Limita a 5 para ser mais rápido
+    for (const item of items.slice(0, 5)) { 
       const result = {
         title: item.title,
         link: item.link,
@@ -467,7 +456,7 @@ async function searchGoogleSafe(query) {
       
       try {
         console.log(`[GOOGLE] Analisando ${item.link}`);
-        const html = await fetchText(item.link, {}, 1, 8000); // Timeout menor para páginas
+        const html = await fetchText(item.link, {}, 1, 8000); 
         const $ = cheerio.load(html);
         
         result.pageText = $("body").text().replace(/\s+/g, " ").trim().substring(0, 3000);
@@ -513,12 +502,10 @@ async function searchGoogleSafe(query) {
   }
 }
 
-// ========== RECLAME AQUI ULTRA MEGA ROBUSTO ==========
 async function getReclameAquiMegaRobusto(query) {
   try {
     console.log(`[RECLAME_AQUI] Iniciando busca para: ${query}`);
     
-    // Variações do slug
     const variations = [
       query.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, ""),
       query.toLowerCase().replace(/\s+/g, "").replace(/[^\w]/g, ""),
@@ -527,12 +514,10 @@ async function getReclameAquiMegaRobusto(query) {
       query.split(".")[0]?.toLowerCase().replace(/[^\w]/g, "")
     ].filter(v => v && v.length > 2);
     
-    // Remove duplicatas
     const uniqueVariations = [...new Set(variations)];
     
     console.log(`[RECLAME_AQUI] Testando ${uniqueVariations.length} variações: ${uniqueVariations.join(", ")}`);
     
-    // Testa cada variação
     for (const slug of uniqueVariations) {
       if (!slug) continue;
       
@@ -562,7 +547,6 @@ async function getReclameAquiMegaRobusto(query) {
       await sleep(CONFIG.delays.betweenRequests);
     }
     
-    // Se não encontrou diretamente, tenta busca
     console.log(`[RECLAME_AQUI] Tentando busca por nome: ${query}`);
     
     const searchUrls = [
@@ -639,7 +623,6 @@ function parseReclameAquiUltra(html, companyLink) {
     
     console.log(`[RECLAME_AQUI_PARSE] Parseando página: ${companyLink}`);
     
-    // Score com múltiplos seletores
     let score = null;
     const scoreSelectors = [
       ".score .number",
@@ -663,7 +646,6 @@ function parseReclameAquiUltra(html, companyLink) {
       } catch {}
     }
     
-    // Busca score no texto também
     if (!score) {
       const scoreMatch = bodyText.match(/(?:nota|score|avaliação):\s*(\d+(?:\.\d+)?)/i);
       if (scoreMatch) {
@@ -672,7 +654,6 @@ function parseReclameAquiUltra(html, companyLink) {
       }
     }
     
-    // Reclamações com regex mais robusta
     const complaintsPatterns = [
       /(\d{1,3}(?:\.\d{3})*)\s*reclamações?/gi,
       /(\d{1,3}(?:,\d{3})*)\s*reclamações?/gi,
@@ -690,7 +671,6 @@ function parseReclameAquiUltra(html, companyLink) {
       }
     }
     
-    // Últimos 30 dias
     const last30dPatterns = [
       /(\d{1,3}(?:\.\d{3})*)\s*nos?\s*últimos?\s*30\s*dias?/gi,
       /últimos?\s*30\s*dias?[:\s]*(\d{1,3}(?:\.\d{3})*)/gi,
@@ -707,14 +687,12 @@ function parseReclameAquiUltra(html, companyLink) {
       }
     }
     
-    // Verificação
     const verified = bodyText.includes("Selo RA Verificada") || 
                      bodyText.includes("empresa verificada") ||
                      bodyText.includes("verificado");
     
     console.log(`[RECLAME_AQUI_PARSE] Empresa verificada: ${verified}`);
     
-    // Reputação
     let reputation = null;
     const reputationKeywords = ["Não recomendada", "Regular", "Boa", "Ótima"];
     for (const keyword of reputationKeywords) {
@@ -725,7 +703,6 @@ function parseReclameAquiUltra(html, companyLink) {
       }
     }
     
-    // Taxa de resposta
     const responseMatch = bodyText.match(/[Rr]espondeu\s+(\d+)%/);
     const responseRate = responseMatch ? parseInt(responseMatch[1]) : null;
     
@@ -760,7 +737,6 @@ function parseReclameAquiUltra(html, companyLink) {
   }
 }
 
-// ========== ANÁLISE DE SENTIMENTO ULTRA ==========
 function analyzeSentimentUltra(results) {
   const social = {
     instagram: null,
@@ -810,7 +786,6 @@ function analyzeSentimentUltra(results) {
   return social;
 }
 
-// ========== TRUSTPILOT SEGURO ==========
 async function getTrustPilotSafe(domain) {
   if (!domain) return { found: false };
   
@@ -861,14 +836,13 @@ async function getTrustPilotSafe(domain) {
   }
 }
 
-// ========== CALCULADORA DE SCORE ULTRA INTELIGENTE ==========
 function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResults, trustPilot) {
   console.log(`[SCORE] Iniciando cálculo para ${host || brandGuess}`);
   
-  let score = 75; // Score base mais conservador
+  let score = 75; 
   const factors = [];
   
-  // ===== SSL/TLS =====
+  
   if (host) {
     if (!ssl?.present) {
       score -= 25;
@@ -882,7 +856,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== WHOIS/Domínio =====
   if (whois?.WhoisRecord) {
     try {
       const created = whois.WhoisRecord.registryData?.createdDate || 
@@ -908,11 +881,9 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== RECLAME AQUI ULTRA =====
   if (ra?.found) {
     factors.push("Encontrado no Reclame Aqui");
     
-    // Verificação
     if (!ra.verified) {
       score -= 8;
       factors.push("Empresa não verificada (-8)");
@@ -921,7 +892,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
       factors.push("Empresa verificada (+5)");
     }
     
-    // Reputação
     if (ra.reputation) {
       switch (ra.reputation) {
         case "Não recomendada":
@@ -943,7 +913,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
       }
     }
     
-    // Taxa de resposta
     if (ra.responseRate !== null) {
       if (ra.responseRate < 30) {
         score -= 20;
@@ -957,7 +926,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
       }
     }
     
-    // Score do RA
     if (ra.score !== null) {
       if (ra.score < 5) {
         score -= 20;
@@ -971,7 +939,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
       }
     }
     
-    // Reclamações recentes
     if (ra.last30d !== null) {
       if (ra.last30d > 100) {
         score -= 30;
@@ -989,7 +956,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== SENTIMENTO ONLINE =====
   if (social) {
     switch (social.sentiment) {
       case "positive":
@@ -1008,7 +974,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== TRUSTPILOT =====
   if (trustPilot?.found) {
     if (trustPilot.rating >= 4) {
       score += 8;
@@ -1024,7 +989,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== ANÁLISE SERP =====
   if (serpResults && serpResults.length > 0) {
     let positiveHits = 0;
     let negativeHits = 0;
@@ -1055,7 +1019,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== TLD SUSPEITO =====
   if (host) {
     const tld = host.split(".").pop()?.toLowerCase();
     const suspiciousTlds = ["xyz", "top", "click", "tk", "ml", "ga", "cf", "live", "monster"];
@@ -1066,7 +1029,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
     }
   }
   
-  // ===== NORMALIZAÇÃO =====
   score = Math.max(0, Math.min(100, Math.round(score)));
   
   console.log(`[SCORE] Score final: ${score}%`);
@@ -1075,7 +1037,6 @@ function calculateUltraScore(host, brandGuess, ssl, whois, ra, social, serpResul
   return { score, factors };
 }
 
-// ===== CLASSIFICADOR COM TRADUÇÃO =====
 function classifyResult(score, language = 'pt') {
   const t = backendTranslations[language] || backendTranslations.pt;
   
@@ -1097,13 +1058,11 @@ function classifyResult(score, language = 'pt') {
   }
 }
 
-// ===== GERADOR DE MENSAGEM INTELIGENTE COM TRADUÇÃO =====
 function generateSmartMessage(classification, ra, social, ssl, factors, language = 'pt') {
   const t = backendTranslations[language] || backendTranslations.pt;
   const issues = [];
   const positives = [];
   
-  // Analisa fatores para extrair issues e positivos
   for (const factor of factors) {
     if (factor.includes("(-") || factor.includes("baixo") || factor.includes("não") || factor.includes("ausente")) {
       if (factor.includes("reclamações")) {
@@ -1136,21 +1095,19 @@ function generateSmartMessage(classification, ra, social, ssl, factors, language
     message = t.safeMessage;
   } else if (classification.status === "suspicious") {
     message = t.suspiciousMessage;
-  } else { // danger
+  } else { 
     message = t.dangerMessage;
   }
   
   return message;
 }
 
-// ========== HANDLER PRINCIPAL ULTRA ROBUSTO COM TRADUÇÃO ==========
 export async function handler(event) {
   const startTime = Date.now();
   
   try {
     console.log(`[HANDLER] Iniciando verificação em ${nowISO()}`);
     
-    // Parse da query e idioma
     const { query, language = 'pt' } = JSON.parse(event.body || "{}");
     const normalizedQuery = normalizeQuery(query);
     const t = backendTranslations[language] || backendTranslations.pt;
@@ -1169,10 +1126,8 @@ export async function handler(event) {
     
     console.log(`[HANDLER] Query recebida: "${normalizedQuery}", Idioma: ${language}`);
     
-    // Extração de host
     let host = extractHostFromQuery(normalizedQuery);
     
-    // Se não conseguiu extrair host, tenta buscar
     if (!host) {
       console.log(`[HANDLER] Host não extraído, buscando domínio da marca`);
       host = await findDomainFromBrand(normalizedQuery);
@@ -1184,7 +1139,6 @@ export async function handler(event) {
     
     console.log(`[HANDLER] Host: ${host}, Brand: ${brandGuess}`);
     
-    // Executa verificações principais em paralelo
     console.log(`[HANDLER] Iniciando verificações paralelas`);
     
     const [googleResults, sslResult, whoisResult] = await Promise.allSettled([
@@ -1199,7 +1153,6 @@ export async function handler(event) {
     
     console.log(`[HANDLER] Verificações paralelas concluídas`);
     
-    // Reclame Aqui (sequencial por ser mais complexo)
     console.log(`[HANDLER] Iniciando Reclame Aqui`);
     let raData = null;
     try {
@@ -1209,11 +1162,9 @@ export async function handler(event) {
       raData = { found: false, error: String(error) };
     }
     
-    // Análise de redes sociais
     console.log(`[HANDLER] Analisando sentimento`);
     const socialData = analyzeSentimentUltra(serpResults);
     
-    // TrustPilot
     console.log(`[HANDLER] Verificando TrustPilot`);
     let trustPilotData = null;
     if (host) {
@@ -1225,13 +1176,11 @@ export async function handler(event) {
       }
     }
     
-    // Cálculo do score
     console.log(`[HANDLER] Calculando score`);
     const { score, factors } = calculateUltraScore(
       host, brandGuess, sslData, whoisData, raData, socialData, serpResults, trustPilotData
     );
     
-    // Classificação e mensagem com tradução
     const classification = classifyResult(score, language);
     const message = generateSmartMessage(classification, raData, socialData, sslData, factors, language);
     
@@ -1240,7 +1189,6 @@ export async function handler(event) {
     
     console.log(`[HANDLER] Verificação concluída: ${classification.status}, Score: ${score}%, Tempo: ${verificationTime}`);
     
-    // Resposta final
     const response = {
       status: classification.status,
       title: classification.title,
@@ -1259,7 +1207,7 @@ export async function handler(event) {
       ssl: sslData,
       whois: whoisData ? { hasData: true } : { hasData: false },
       reclameAqui: raData,
-      googleResults: serpResults.slice(0, 10), // Limita resultado
+      googleResults: serpResults.slice(0, 10), 
       social: socialData,
       trustPilot: trustPilotData
     };
@@ -1278,7 +1226,6 @@ export async function handler(event) {
   } catch (error) {
     console.error(`[HANDLER] ERRO CRÍTICO:`, error);
     
-    // Parse do idioma para fallback
     let language = 'pt';
     try {
       const body = JSON.parse(event.body || "{}");
@@ -1287,7 +1234,6 @@ export async function handler(event) {
     
     const t = backendTranslations[language] || backendTranslations.pt;
     
-    // Fallback garantido - NUNCA retorna erro
     const fallbackResponse = {
       status: "suspicious",
       title: t.partialVerification,
@@ -1310,7 +1256,7 @@ export async function handler(event) {
     };
     
     return {
-      statusCode: 200, // Sempre 200 para não quebrar o frontend
+      statusCode: 200, 
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
@@ -1322,7 +1268,6 @@ export async function handler(event) {
   }
 }
 
-// ========== HANDLER OPTIONS para CORS ==========
 export async function options() {
   return {
     statusCode: 200,
