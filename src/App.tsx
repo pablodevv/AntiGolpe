@@ -147,7 +147,7 @@ const translations = {
     unlockFor2990: "🚀 Desbloquear por R$ 29,90 (Uma vez)",
     orPremium: "👑 Ou Premium por R$ 12/mês",
     
-    choosePlan: "👑 Proteção Premium",
+    choosePlan: "Proteção Premium",
     choosePlanDesc: "Escolha o plano ideal para sua proteção",
     mostPopular: "🔥 MAIS POPULAR",
     continueFreePlan: "Continuar com plano gratuito",
@@ -171,7 +171,7 @@ const translations = {
     subtitle: "National Fraud Protection",
     secure: "100% Secure",
     instantVerification: "Instant Verification",
-    consultationsLeft: "consultations left",
+    consultationsLeft: "free checks remaining",
     
     specialOffer: "SPECIAL OFFER",
     premiumProtection: "Premium Protection for only $12/month",
@@ -276,7 +276,7 @@ const translations = {
     unlockFor2990: "🚀 Unlock for $29.90 (One time)",
     orPremium: "👑 Or Premium for $12/month",
     
-    choosePlan: "👑 Premium Protection",
+    choosePlan: "Premium Protection",
     choosePlanDesc: "Choose the ideal plan for your protection",
     mostPopular: "🔥 MOST POPULAR",
     continueFreePlan: "Continue with free plan",
@@ -366,7 +366,7 @@ const translations = {
     instantResultDesc: "Veredicto claro y confiable en segundos, con índice de confianza y detalles completos",
     
     oneTimePayment: "Pago Único",
-    unlimitedConsultations: "Consultas ilimitadas",
+    unlimited: "Consultas ilimitadas",
     completeReports: "Informes completos",
     detailedAnalysis: "Análisis detallado",
     emailSupport: "Soporte por email",
@@ -386,7 +386,7 @@ const translations = {
     businessReports: "Informes empresariales",
     bestOffer: "Mejor Oferta",
     
-    consultationsExhausted: "🔒 Consultas Agotadas",
+    Exhausted: "🔒 Consultas Agotadas",
     consultationsExhaustedDesc: "Usaste tus 5 consultas gratuitas. ¡Desbloquea acceso ilimitado ahora!",
     unlimitedAccess: "🚀 Acceso Ilimitado - $29.90",
     premium: "👑 Premium - $12/mes",
@@ -405,7 +405,7 @@ const translations = {
     unlockFor2990: "🚀 Desbloquear por $29.90 (Una vez)",
     orPremium: "👑 O Premium por $12/mes",
     
-    choosePlan: "👑 Protección Premium",
+    choosePlan: "Protección Premium",
     choosePlanDesc: "Elige el plan ideal para tu protección",
     mostPopular: "🔥 MÁS POPULAR",
     continueFreePlan: "Continuar con plan gratuito",
@@ -2345,193 +2345,11 @@ function App() {
           </div>
         )}
 
-        {}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-gray-100">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              {language === 'en' ? 'Complete Recommended Protection' : 
-               language === 'es' ? 'Protección Completa Recomendada' : 
-               language === 'zh' ? '推荐的完整保护' : 
-               language === 'fr' ? 'Protection Complète Recommandée' :
-               language === 'de' ? 'Vollständiger Empfohlener Schutz' :
-               language === 'ar' ? 'الحماية الكاملة الموصى بها' :
-               language === 'ja' ? '推奨される完全保護' :
-               language === 'ru' ? 'Полная Рекомендуемая Защита' :
-               language === 'hi' ? 'संपूर्ण अनुशंसित सुरक्षा' :
-               language === 'it' ? 'Protezione Completa Raccomandata' :
-               'Proteção Completa Recomendada'}
-            </h3>
-            <p className="text-lg sm:text-xl text-gray-600">
-              {language === 'en' ? 'Service verified by AntiScam for your complete online security' : 
-               language === 'es' ? 'Servicio verificado por AntiEstafa para tu seguridad online completa' : 
-               language === 'zh' ? '经反诈骗验证的服务，为您提供完整的在线安全' : 
-               language === 'fr' ? 'Service vérifié par AntiArnaque pour votre sécurité en ligne complète' :
-               language === 'de' ? 'Von AntiBetrug verifizierter Service für Ihre vollständige Online-Sicherheit' :
-               language === 'ar' ? 'خدمة تم التحقق منها من قبل مكافح الاحتيال لأمانك الكامل عبر الإنترنت' :
-               language === 'ja' ? '詐欺対策によって検証されたサービスで、完全なオンラインセキュリティを提供' :
-               language === 'ru' ? 'Сервис проверен АнтиМошенничество для вашей полной онлайн безопасности' :
-               language === 'hi' ? 'आपकी संपूर्ण ऑनलाइन सुरक्षा के लिए धोखाधड़ी विरोधी द्वारा सत्यापित सेवा' :
-               language === 'it' ? 'Servizio verificato da AntiTruffa per la tua sicurezza online completa' :
-               'Serviço verificado pelo AntiGolpe para sua segurança total online'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-blue-600" />
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">NordVPN</h4>
-              <p className="text-gray-600 mb-4">
-                {language === 'en' ? '100% anonymous and protected browsing' : 
-                 language === 'es' ? 'Navegación 100% anónima y protegida' : 
-                 language === 'zh' ? '100%匿名和受保护的浏览' : 
-                 language === 'fr' ? 'Navigation 100% anonyme et protégée' :
-                 language === 'de' ? '100% anonymes und geschütztes Surfen' :
-                 language === 'ar' ? 'تصفح مجهول ومحمي 100%' :
-                 language === 'ja' ? '100%匿名で保護されたブラウジング' :
-                 language === 'ru' ? '100% анонимный и защищенный просмотр' :
-                 language === 'hi' ? '100% गुमनाम और संरक्षित ब्राउज़िंग' :
-                 language === 'it' ? 'Navigazione 100% anonima e protetta' :
-                 'Navegação 100% anônima e protegida'}
-              </p>
-              <div className="text-2xl font-bold text-green-600 mb-2">-68% OFF</div>
-              <a
-                href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=129704&url_id=902"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 inline-block text-sm sm:text-base"
-              >
-                🔐 {language === 'en' ? 'Activate Protection' : 
-                     language === 'es' ? 'Activar Protección' : 
-                     language === 'zh' ? '激活保护' : 
-                     language === 'fr' ? 'Activer la Protection' :
-                     language === 'de' ? 'Schutz Aktivieren' :
-                     language === 'ar' ? 'تفعيل الحماية' :
-                     language === 'ja' ? '保護を有効化' :
-                     language === 'ru' ? 'Активировать Защиту' :
-                     language === 'hi' ? 'सुरक्षा सक्रिय करें' :
-                     language === 'it' ? 'Attiva Protezione' :
-                     'Ativar Proteção'}
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">
-              ✅ {language === 'en' ? 'The service is verified and recommended by AntiScam' : 
-                   language === 'es' ? 'El servicio está verificado y recomendado por AntiEstafa' : 
-                   language === 'zh' ? '该服务已通过反诈骗验证并推荐' : 
-                   language === 'fr' ? 'Le service est vérifié et recommandé par AntiArnaque' :
-                   language === 'de' ? 'Der Service ist von AntiBetrug verifiziert und empfohlen' :
-                   language === 'ar' ? 'الخدمة محققة وموصى بها من قبل مكافح الاحتيال' :
-                   language === 'ja' ? 'このサービスは詐欺対策によって検証され推奨されています' :
-                   language === 'ru' ? 'Сервис проверен и рекомендован АнтиМошенничество' :
-                   language === 'hi' ? 'सेवा धोखाधड़ी विरोधी द्वारा सत्यापित और अनुशंसित है' :
-                   language === 'it' ? 'Il servizio è verificato e raccomandato da AntiTruffa' :
-                   'O serviço é verificado e recomendado pelo AntiGolpe'}
-            </p>
-          </div>
-        </div>
         
-        {}
-        <div className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-3xl shadow-2xl p-8 sm:p-10">
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Headphones className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-600" />
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{t('customAnalysisTitle')}</h3>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              {t('customAnalysisSubtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-green-600" />
-                {t('expressAnalysis')}
-              </h4>
-              <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                  {t('responseTime1h')}
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                  {t('manualVerification')}
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                  {t('detailedReport')}
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                  {t('whatsappSupport')}
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-purple-200">
-              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <Crown className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-purple-600" />
-                {t('premiumAnalysis')}
-              </h4>
-              <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
-                  {t('responseTime30min')}
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
-                  {t('legalAnalysis')}
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
-                  {t('videoConsultation')}
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-purple-600 mr-2 flex-shrink-0" />
-                  {t('guarantee30days')}
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href={`https://wa.me/5524999325986?text=${encodeURIComponent(
-                language === 'en'
-                  ? 'Hello! I need a personalized analysis through AntiScam'
-                  : language === 'es'
-                  ? '¡Hola! Necesito un análisis personalizado a través de AntiEstafa'
-                  : language === 'zh'
-                  ? '您好！我需要通过反诈骗进行个性化分析'
-                  : language === 'fr'
-                  ? 'Bonjour! J\'ai besoin d\'une analyse personnalisée via AntiArnaque'
-                  : language === 'de'
-                  ? 'Hallo! Ich benötige eine personalisierte Analyse über AntiBetrug'
-                  : language === 'ar'
-                  ? 'مرحباً! أحتاج إلى تحليل شخصي من خلال مكافح الاحتيال'
-                  : language === 'ja'
-                  ? 'こんにちは！詐欺対策を通じてパーソナライズされた分析が必要です'
-                  : language === 'ru'
-                  ? 'Привет! Мне нужен персонализированный анализ через АнтиМошенничество'
-                  : language === 'hi'
-                  ? 'नमस्ते! मुझे धोखाधड़ी विरोधी के माध्यम से व्यक्तिगत विश्लेषण की आवश्यकता है'
-                  : language === 'it'
-                  ? 'Ciao! Ho bisogno di un\'analisi personalizzata tramite AntiTruffa'
-                  : 'Olá! Preciso de uma análise personalizada pelo AntiGolpe'
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-2 sm:space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
-            >
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>{t('requestAnalysis')}</span>
-            </a>
-          </div>
-        </div>
+        
+        
+        
+     
 
         {}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
