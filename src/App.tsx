@@ -1619,13 +1619,13 @@ function App() {
   const stats: StatCard[] = [
     {
       icon: <Shield className="w-6 h-6" />,
-      value: "2.8M+",
+      value: "7.2M+",
       label: t('sitesVerified'),
       color: "text-blue-600"
     },
     {
       icon: <Users className="w-6 h-6" />,
-      value: "1.2M+",
+      value: "3.1M+",
       label: t('usersProtected'),
       color: "text-green-600"
     },
@@ -1637,7 +1637,7 @@ function App() {
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      value: "R$ 67M",
+      value: "R$ 173M",
       label: t('fraudsPrevented'),
       color: "text-orange-600"
     }
