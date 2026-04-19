@@ -1620,13 +1620,13 @@ export default function App() {
 
               
                 
-              <div className="flex -space-x-1">
+      <div className="flex items-center gap-1">
   {flags.map((code) => (
     <img
       key={code}
-      src={`https://flagcdn.com/w20/${code}.png`}
+      src={`https://flagcdn.com/${code}.svg`}
       alt={code}
-      className="w-5 h-4 rounded-sm"
+      className="w-5 h-4 object-cover rounded-sm"
     />
   ))}
 </div>
