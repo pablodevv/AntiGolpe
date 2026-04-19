@@ -1620,7 +1620,7 @@ export default function App() {
 
               
                 
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-0.5">
   {flags.map((code) => (
     <img
       key={code}
