@@ -1760,7 +1760,16 @@ export default function App() {
               )}
 
               <div className="flex gap-3">
-                <button onClick={handleShare} className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition-all text-sm"> <Share2 className="w-4 h-4" /> {t('shareWhatsApp')} </button>
+                <button
+  onClick={handleShare}
+  className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition-all text-sm"
+>
+  <div className="flex items-center justify-center gap-2 w-full">
+    <Share2 className="w-4 h-4 shrink-0" />
+    {t('shareWhatsApp')}
+  </div>
+</button>
+                
                 <button onClick={() => { setResult(null); setSearchQuery(''); setShowDetails(false); inputRef.current?.focus(); }}
                   className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 rounded-xl border border-gray-200 transition-all text-sm">
                   <RefreshCw className="w-4 h-4" />
