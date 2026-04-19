@@ -2586,7 +2586,7 @@ function App() {
       {}
       <div className="fixed bottom-4 right-4 z-40 select-none opacity-50 hover:opacity-100 transition-opacity">
   <img 
-    src="/Bune.png" 
+    src="/Bune_Sigil.png" 
     alt="Sigil" 
     className="w-12 h-12 sm:w-16 sm:h-16 object-contain" 
   />
