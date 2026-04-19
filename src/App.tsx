@@ -1917,14 +1917,28 @@ function App() {
           <div className="flex items-center justify-between flex-wrap gap-4">
             {}
             <div className="flex items-center justify-center space-x-3 sm:space-x-4 flex-1 min-w-0">
+              
+              
               <div className="relative flex-shrink-0">
-                <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-lg">
-                  <Shield className="w-6 h-6 sm:w-9 sm:h-9 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <Star className="w-2 h-2 sm:w-3 sm:h-3 text-white" />
-                </div>
-              </div>
+  {/* Container da Logo Principal */}
+  <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+    <img 
+      src="/Fraudara_Logo.png" 
+      alt="Fraudara Logo" 
+      className="w-8 h-8 sm:w-10 sm:h-10 object-contain" // Ajuste o tamanho da logo aqui se necessário
+    />
+  </div>
+  
+  {/* Container do Ícone de Status (Badge) */}
+  <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center border-2 border-white">
+    {/* Se quiser trocar a estrela por outra imagem, coloque aqui, ou mantenha o ícone */}
+    <span className="text-white text-[8px] sm:text-[10px]">✓</span>
+  </div>
+</div>
+
+
+
+              
               <div className="text-center min-w-0 flex-1">
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight truncate">{t('title')}</h1>
                 <p className="text-sm sm:text-lg font-semibold text-blue-600 mt-1 truncate">{t('subtitle')}</p>
