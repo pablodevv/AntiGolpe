@@ -1630,7 +1630,7 @@ export default function App() {
     handleVerification();
 
     document
-      .getElementById('how-it-works')
+      .getElementById('verifying-true')
       ?.scrollIntoView({ behavior: 'smooth' });
   }}
   disabled={!searchQuery.trim() || isVerifying}
@@ -1687,7 +1687,7 @@ export default function App() {
 
         {/* LOADING STATE */}
         {isVerifying && (
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
+          <div id="verifying-true" className="bg-white rounded-3xl shadow-xl border border-gray-100 p-10 text-center">
             <div className="w-20 h-20 mx-auto mb-6 relative">
               <div className="absolute inset-0 rounded-full bg-blue-100 animate-ping opacity-50" />
               <div className="relative w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
