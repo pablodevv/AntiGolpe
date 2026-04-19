@@ -1923,9 +1923,9 @@ function App() {
   {/* Container da Logo Principal */}
   <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
     <img 
-      src="/Fraudara_Logo.png" 
+      src="/Fraudara_Logo1.png" 
       alt="Fraudara Logo" 
-      className="w-8 h-8 sm:w-10 sm:h-10 object-contain" // Ajuste o tamanho da logo aqui se necessário
+      className="w-20 h-20 sm:w-20 sm:h-20 object-contain" // Ajuste o tamanho da logo aqui se necessário
     />
   </div>
   </div>
