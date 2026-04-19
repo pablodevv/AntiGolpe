@@ -1466,7 +1466,7 @@ export default function App() {
 
     setIsVerifying(true);
     document
-    .getElementById('how-it-works')
+    .getElementById('main-content')
     ?.scrollIntoView({ behavior: 'smooth' });
     setResult(null);
     setShowDetails(false);
@@ -1676,7 +1676,7 @@ export default function App() {
       </div>
 
       {/* ── MAIN CONTENT ── */}
-      <main className="max-w-3xl mx-auto px-4 py-12">
+      <main id="main-content" className="max-w-3xl mx-auto px-4 py-12">
 
         {/* LOADING STATE */}
         {isVerifying && (
