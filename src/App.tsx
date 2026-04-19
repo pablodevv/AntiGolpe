@@ -38,7 +38,7 @@ interface PricingPlan {
 
 const translations = {
   pt: {
-    title: "AntiGolpe",
+    title: "Fraudara",
     subtitle: "Proteção Nacional Contra Fraudes",
     secure: "100% Seguro",
     instantVerification: "Verificação Instantânea",
@@ -167,7 +167,7 @@ const translations = {
   },
   
   en: {
-    title: "AntiScam",
+    title: "Fraudara",
     subtitle: "National Fraud Protection",
     secure: "100% Secure",
     instantVerification: "Instant Verification",
@@ -296,7 +296,7 @@ const translations = {
   },
   
   es: {
-    title: "AntiEstafa",
+    title: "Fraudara",
     subtitle: "Protección Nacional Contra Fraudes",
     secure: "100% Seguro",
     instantVerification: "Verificación Instantánea",
@@ -554,7 +554,7 @@ const translations = {
   },
 
   fr: {
-    title: "AntiArnaque",
+    title: "Fraudara",
     subtitle: "Protection Nationale Contre les Fraudes",
     secure: "100% Sécurisé",
     instantVerification: "Vérification Instantanée",
@@ -683,7 +683,7 @@ const translations = {
   },
 
   de: {
-    title: "AntiBetrug",
+    title: "Fraudara",
     subtitle: "Nationaler Betrugsschutz",
     secure: "100% Sicher",
     instantVerification: "Sofortige Überprüfung",
@@ -1328,7 +1328,7 @@ const translations = {
   },
 
   it: {
-    title: "AntiTruffa",
+    title: "Fraudara",
     subtitle: "Protezione Nazionale Contro le Frodi",
     secure: "100% Sicuro",
     instantVerification: "Verifica Istantanea",
