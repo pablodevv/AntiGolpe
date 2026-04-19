@@ -2122,10 +2122,29 @@ export default function App() {
             <div>
               <h4 className="font-bold text-sm mb-4 text-gray-300">{t('footerProduct')}</h4>
               <ul className="space-y-2.5 text-sm text-gray-500">
-                {[t('footerHowItWorks'), t('footerPricing'), t('footerAPI')].map((l, i) => (
-                  <li key={i}><a href="#" className="hover:text-white transition-colors">{l}</a></li>
-                ))}
-              </ul>
+  {[t('footerHowItWorks'), t('footerPricing'), t('footerAPI')].map((l, i) => {
+    if (i === 1) {
+      return (
+        <li key={i}>
+          <button
+            onClick={() => setShowPricingModal(true)}
+            className="hover:text-white transition-colors"
+          >
+            {l}
+          </button>
+        </li>
+      );
+    }
+
+    return (
+      <li key={i}>
+        <a href="#" className="hover:text-white transition-colors">
+          {l}
+        </a>
+      </li>
+    );
+  })}
+</ul>
             </div>
 
             <div>
