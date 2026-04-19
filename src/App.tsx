@@ -1608,7 +1608,7 @@ export default function App() {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-8">
               <div className="flex -space-x-1 font-emoji">
   {['🇧🇷','🇺🇸','🇨🇳','🇮🇳','🇷🇺'].map((f,i) => (
-    <span key={i} className="text-base leading-none">
+    <span key={i} className="text-base leading-none select-none">
       {f}
     </span>
   ))}
