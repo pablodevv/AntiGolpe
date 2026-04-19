@@ -1422,6 +1422,15 @@ const getPricingPlans = (t: (k: string) => string, isBR: boolean) => [
   },
 ];
 
+
+const flags = [
+  "br",
+  "us",
+  "cn",
+  "in",
+  "ru"
+];
+
 // ─── TESTIMONIALS ────────────────────────────────────────────────
 const TESTIMONIALS = [
   { name: "Sarah K.", location: "London, UK", flag: "🇬🇧", text: "Used it before buying from an unfamiliar online store. The AI caught 12 red flags instantly. Total lifesaver!", stars: 5 },
@@ -1607,7 +1616,24 @@ export default function App() {
             
             
             {/* Trust badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-8"> <div className="flex -space-x-1"> {['🇧🇷','🇺🇸','🇨🇳','🇮🇳','🇷🇺'].map((f,i) => <span key={i} className="text-base">{f}</span>)} </div> <span className="font-medium">{t('verifiedBy')}</span> </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-8">
+
+              
+                
+              <div className="flex -space-x-1">
+  {flags.map((code) => (
+    <img
+      key={code}
+      src={`https://flagcdn.com/w20/${code}.png`}
+      alt={code}
+      className="w-5 h-4 rounded-sm"
+    />
+  ))}
+</div>
+
+              
+              <span className="font-medium">{t('verifiedBy')}</span>
+            </div>
 
             
 
