@@ -1881,7 +1881,7 @@ export default function App() {
         {/* HOW IT WORKS */}
         {!result && !isVerifying && (
           <>
-            <div className="mb-12 text-center">
+            <div id="how-it-works" className="mb-12 text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('howItWorks')}</h2>
               <div className="w-12 h-1 bg-blue-600 rounded-full mx-auto" />
             </div>
@@ -2121,8 +2121,25 @@ export default function App() {
 
             <div>
               <h4 className="font-bold text-sm mb-4 text-gray-300">{t('footerProduct')}</h4>
-              <ul className="space-y-2.5 text-sm text-gray-500">
+             <ul className="space-y-2.5 text-sm text-gray-500">
   {[t('footerHowItWorks'), t('footerPricing'), t('footerAPI')].map((l, i) => {
+    if (i === 0) {
+      return (
+        <li key={i}>
+          <button
+            onClick={() => {
+              document
+                .getElementById('how-it-works')
+                ?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="hover:text-white transition-colors"
+          >
+            {l}
+          </button>
+        </li>
+      );
+    }
+
     if (i === 1) {
       return (
         <li key={i}>
