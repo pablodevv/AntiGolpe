@@ -1413,9 +1413,12 @@ const getPricingPlans = (t: (k: string) => string, isBR: boolean) => [
 
 // ─── TESTIMONIALS ────────────────────────────────────────────────
 const TESTIMONIALS = [
-  { name: "Mariana S.", location: "São Paulo, BR", flag: "🇧🇷", text: "Salvou minha vida! Ia cair num golpe de R$2.800. Fraudara apontou que o site tinha só 3 dias de existência.", stars: 5 },
-  { name: "Carlos M.", location: "Buenos Aires, AR", flag: "🇦🇷", text: "Increíble herramienta. Verifiqué 3 tiendas sospechosas y todas salieron como peligrosas. Imprescindible.", stars: 5 },
   { name: "Sarah K.", location: "London, UK", flag: "🇬🇧", text: "Used it before buying from an unfamiliar online store. The AI caught 12 red flags instantly. Total lifesaver!", stars: 5 },
+
+  { name: "Carlos M.", location: "Buenos Aires, AR", flag: "🇦🇷", text: "Increíble herramienta. Verifiqué 3 tiendas sospechosas y todas salieron como peligrosas. Imprescindible.", stars: 5 },
+  
+  { name: "Mariana S.", location: "São Paulo, BR", flag: "🇧🇷", text: "Salvou minha vida! Ia cair num golpe de R$2.800. Fraudara apontou que o site tinha só 3 dias de existência.", stars: 5 }, 
+  
   { name: "Liu W.", location: "Shanghai, CN", flag: "🇨🇳", text: "非常好用！在网购之前总会用Fraudara检查，已经帮我避免了多次诈骗。强烈推荐！", stars: 5 },
   { name: "Ahmad R.", location: "Dubai, AE", flag: "🇦🇪", text: "أداة رائعة! كشفت عن موقع احتيالي كنت على وشك الشراء منه. أنقذت مالي!", stars: 5 },
   { name: "Yuki T.", location: "Tokyo, JP", flag: "🇯🇵", text: "素晴らしいツール！詐欺サイトを即座に検出してくれます。毎回使っています。", stars: 5 },
