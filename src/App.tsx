@@ -147,7 +147,7 @@ const translations: Record<string, Record<string, string>> = {
     footerPrivacy: "Privacidade",
     footerTerms: "Termos de uso",
     footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. Todos os direitos reservados.",
+    footerCopyright: "© 2026 Fraudara. Todos os direitos reservados.",
     footerDisclaimer: "Ferramenta educativa para conscientização sobre segurança digital.",
     footerEmail: "contato@fraudara.com",
     footerMadeWith: "Feito com 🛡️ para proteger o mundo",
@@ -281,9 +281,9 @@ const translations: Record<string, Record<string, string>> = {
     footerPrivacy: "Privacy policy",
     footerTerms: "Terms of use",
     footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. All rights reserved.",
+    footerCopyright: "© 2026 Fraudara. All rights reserved.",
     footerDisclaimer: "Educational tool for digital security awareness.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Made with 🛡️ to protect the world",
     creatorTitle: "About the Creator",
     creatorName: "Pablo Eduardo",
@@ -405,9 +405,9 @@ const translations: Record<string, Record<string, string>> = {
     footerPrivacy: "Privacidad",
     footerTerms: "Términos de uso",
     footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. Todos los derechos reservados.",
+    footerCopyright: "© 2026 Fraudara. Todos los derechos reservados.",
     footerDisclaimer: "Herramienta educativa para la concienciación sobre seguridad digital.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Hecho con 🛡️ para proteger el mundo",
     creatorTitle: "Sobre el Creador",
     creatorName: "Pablo Eduardo",
@@ -529,9 +529,9 @@ const translations: Record<string, Record<string, string>> = {
     footerPrivacy: "隐私政策",
     footerTerms: "使用条款",
     footerCookies: "Cookie政策",
-    footerCopyright: "© 2025 Fraudara. 保留所有权利。",
+    footerCopyright: "© 2026 Fraudara. 保留所有权利。",
     footerDisclaimer: "数字安全意识教育工具。",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "用🛡️守护世界",
     creatorTitle: "关于创始人",
     creatorName: "Pablo Eduardo",
@@ -642,9 +642,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "À propos", footerCreator: "Le créateur", footerBlog: "Blog",
     footerHelp: "Centre d'aide", footerContact: "Contact", footerReport: "Signaler une fraude",
     footerPrivacy: "Confidentialité", footerTerms: "Conditions d'utilisation", footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. Tous droits réservés.",
+    footerCopyright: "© 2026 Fraudara. Tous droits réservés.",
     footerDisclaimer: "Outil éducatif pour la sensibilisation à la sécurité numérique.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Fait avec 🛡️ pour protéger le monde",
     creatorTitle: "À propos du Créateur",
     creatorName: "Pablo Eduardo",
@@ -744,9 +744,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "Über uns", footerCreator: "Der Gründer", footerBlog: "Blog",
     footerHelp: "Hilfezentrum", footerContact: "Kontakt", footerReport: "Betrug melden",
     footerPrivacy: "Datenschutz", footerTerms: "Nutzungsbedingungen", footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. Alle Rechte vorbehalten.",
+    footerCopyright: "© 2026 Fraudara. Alle Rechte vorbehalten.",
     footerDisclaimer: "Bildungswerkzeug für digitale Sicherheit.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Mit 🛡️ gemacht, um die Welt zu schützen",
     creatorTitle: "Über den Gründer",
     creatorName: "Pablo Eduardo",
@@ -845,9 +845,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "معلومات عنا", footerCreator: "عن المنشئ", footerBlog: "المدونة",
     footerHelp: "مركز المساعدة", footerContact: "التواصل", footerReport: "الإبلاغ عن احتيال",
     footerPrivacy: "الخصوصية", footerTerms: "شروط الاستخدام", footerCookies: "ملفات تعريف الارتباط",
-    footerCopyright: "© 2025 Fraudara. جميع الحقوق محفوظة.",
+    footerCopyright: "© 2026 Fraudara. جميع الحقوق محفوظة.",
     footerDisclaimer: "أداة تعليمية للتوعية بالأمان الرقمي.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "صنع بـ 🛡️ لحماية العالم",
     creatorTitle: "عن المنشئ",
     creatorName: "Pablo Eduardo",
@@ -946,9 +946,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "会社概要", footerCreator: "創設者について", footerBlog: "ブログ",
     footerHelp: "ヘルプセンター", footerContact: "お問い合わせ", footerReport: "詐欺を報告",
     footerPrivacy: "プライバシー", footerTerms: "利用規約", footerCookies: "クッキー",
-    footerCopyright: "© 2025 Fraudara. 全著作権所有。",
+    footerCopyright: "© 2026 Fraudara. 全著作権所有。",
     footerDisclaimer: "デジタルセキュリティ意識向上のための教育ツール。",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "🛡️で世界を守るために作成",
     creatorTitle: "創設者について",
     creatorName: "Pablo Eduardo",
@@ -1047,9 +1047,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "О нас", footerCreator: "О создателе", footerBlog: "Блог",
     footerHelp: "Центр помощи", footerContact: "Контакт", footerReport: "Сообщить о мошенничестве",
     footerPrivacy: "Конфиденциальность", footerTerms: "Условия использования", footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. Все права защищены.",
+    footerCopyright: "© 2026 Fraudara. Все права защищены.",
     footerDisclaimer: "Образовательный инструмент для цифровой безопасности.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Создано с 🛡️ для защиты мира",
     creatorTitle: "О Создателе",
     creatorName: "Pablo Eduardo",
@@ -1148,9 +1148,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "हमारे बारे में", footerCreator: "संस्थापक के बारे में", footerBlog: "ब्लॉग",
     footerHelp: "सहायता केंद्र", footerContact: "संपर्क", footerReport: "धोखाधड़ी रिपोर्ट करें",
     footerPrivacy: "गोपनीयता", footerTerms: "उपयोग की शर्तें", footerCookies: "Cookies",
-    footerCopyright: "© 2025 Fraudara. सर्वाधिकार सुरक्षित।",
+    footerCopyright: "© 2026 Fraudara. सर्वाधिकार सुरक्षित।",
     footerDisclaimer: "डिजिटल सुरक्षा जागरूकता के लिए शैक्षिक उपकरण।",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "🛡️ के साथ दुनिया की रक्षा के लिए बनाया गया",
     creatorTitle: "संस्थापक के बारे में",
     creatorName: "Pablo Eduardo",
@@ -1249,9 +1249,9 @@ const translations: Record<string, Record<string, string>> = {
     footerAbout: "Chi siamo", footerCreator: "Il creatore", footerBlog: "Blog",
     footerHelp: "Centro assistenza", footerContact: "Contatto", footerReport: "Segnala una frode",
     footerPrivacy: "Privacy", footerTerms: "Termini d'uso", footerCookies: "Cookie",
-    footerCopyright: "© 2025 Fraudara. Tutti i diritti riservati.",
+    footerCopyright: "© 2026 Fraudara. Tutti i diritti riservati.",
     footerDisclaimer: "Strumento educativo per la consapevolezza della sicurezza digitale.",
-    footerEmail: "contact@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Fatto con 🛡️ per proteggere il mondo",
     creatorTitle: "Il Creatore",
     creatorName: "Pablo Eduardo",
@@ -2085,18 +2085,13 @@ export default function App() {
                 <p className="text-sm text-blue-400 font-medium mb-3">{t('creatorRole')}</p>
                 <p className="text-gray-400 text-sm leading-relaxed max-w-xl">{t('creatorBio')}</p>
                 <div className="flex gap-3 mt-4">
-                  <a href="mailto:contato@fraudara.com" className="w-8 h-8 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors">
+                  <a href="mailto:eupablorodriguez@gmail.com" className="w-8 h-8 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors">
                     <Mail className="w-4 h-4" />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 hover:bg-pink-600 rounded-lg flex items-center justify-center transition-colors">
+                  <a href="https://instagram.com/soupabloeduardo" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 hover:bg-pink-600 rounded-lg flex items-center justify-center transition-colors">
                     <Instagram className="w-4 h-4" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-colors">
-                    <Twitter className="w-4 h-4" />
-                  </a>
+                  
                 </div>
               </div>
             </div>
@@ -2163,7 +2158,6 @@ export default function App() {
         <div className="border-t border-gray-800">
           <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-600">
             <p>{t('footerCopyright')}</p>
-            <p className="text-center">{t('footerDisclaimer')}</p>
             <p>{t('footerMadeWith')}</p>
           </div>
         </div>
