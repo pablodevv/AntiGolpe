@@ -1606,9 +1606,13 @@ export default function App() {
           <div className="py-16 md:py-24 text-center max-w-4xl mx-auto">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-8">
-              <div className="flex -space-x-1">
-                {['🇧🇷','🇺🇸','🇨🇳','🇮🇳','🇷🇺'].map((f,i) => <span key={i} className="text-base">{f}</span>)}
-              </div>
+              <div className="flex -space-x-1 font-emoji">
+  {['🇧🇷','🇺🇸','🇨🇳','🇮🇳','🇷🇺'].map((f,i) => (
+    <span key={i} className="text-base leading-none">
+      {f}
+    </span>
+  ))}
+</div>
               <span className="font-medium">{t('verifiedBy')}</span>
             </div>
 
