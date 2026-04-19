@@ -173,6 +173,7 @@ const translations: Record<string, Record<string, string>> = {
 
     // How it works
     howItWorks: "Como Funciona",
+    stepStep: "PASSO",
     step1Title: "Digite o site ou marca",
     step1Desc: "Cole o URL ou digite o nome da empresa que quer verificar",
     step2Title: "Nossa IA analisa tudo",
@@ -299,6 +300,7 @@ const translations: Record<string, Record<string, string>> = {
     alwaysUpdated: "Always Updated",
     alwaysUpdatedDesc: "Real-time database 24/7",
     howItWorks: "How It Works",
+    stepStep: "STEP",
     step1Title: "Enter the site or brand",
     step1Desc: "Paste the URL or type the company name you want to verify",
     step2Title: "Our AI analyzes everything",
@@ -423,6 +425,7 @@ const translations: Record<string, Record<string, string>> = {
     alwaysUpdated: "Siempre Actualizado",
     alwaysUpdatedDesc: "Base de datos en tiempo real 24/7",
     howItWorks: "Cómo Funciona",
+    stepStep: "PASO",
     step1Title: "Ingresa el sitio o marca",
     step1Desc: "Pega el URL o escribe el nombre de la empresa",
     step2Title: "Nuestra IA analiza todo",
@@ -547,6 +550,7 @@ const translations: Record<string, Record<string, string>> = {
     alwaysUpdated: "实时更新",
     alwaysUpdatedDesc: "24/7实时数据库",
     howItWorks: "工作原理",
+    stepStep: "步骤",
     step1Title: "输入网站或品牌",
     step1Desc: "粘贴URL或输入要验证的公司名称",
     step2Title: "我们的AI分析一切",
@@ -657,6 +661,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "Vérification Gratuite", freeVerificationDesc: "5 consultations sans inscription",
     alwaysUpdated: "Toujours À Jour", alwaysUpdatedDesc: "Base de données en temps réel 24/7",
     howItWorks: "Comment Ça Marche",
+    stepStep: "ÉTAPE",
     step1Title: "Entrez le site ou la marque", step1Desc: "Collez l'URL ou tapez le nom de l'entreprise",
     step2Title: "Notre IA analyse tout", step2Desc: "Nous vérifions 50+ sources de données en secondes",
     step3Title: "Résultat instantané", step3Desc: "Recevez un rapport complet avec indice de confiance",
@@ -759,6 +764,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "Kostenlose Prüfung", freeVerificationDesc: "5 Prüfungen ohne Anmeldung",
     alwaysUpdated: "Immer Aktuell", alwaysUpdatedDesc: "Echtzeit-Datenbank 24/7",
     howItWorks: "Wie Es Funktioniert",
+    stepStep: "SCHRITT",
     step1Title: "Website oder Marke eingeben", step1Desc: "URL einfügen oder Firmennamen eingeben",
     step2Title: "Unsere KI analysiert alles", step2Desc: "Wir prüfen 50+ Datenquellen in Sekunden",
     step3Title: "Sofortiges Ergebnis", step3Desc: "Vollständigen Bericht mit Vertrauensindex erhalten",
@@ -860,6 +866,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "تحقق مجاني", freeVerificationDesc: "5 استشارات بدون تسجيل",
     alwaysUpdated: "دائماً محدث", alwaysUpdatedDesc: "قاعدة بيانات في الوقت الفعلي 24/7",
     howItWorks: "كيف يعمل",
+    stepStep: "الخطوة",
     step1Title: "أدخل الموقع أو العلامة التجارية", step1Desc: "الصق الرابط أو اكتب اسم الشركة",
     step2Title: "ذكاؤنا الاصطناعي يحلل كل شيء", step2Desc: "نتحقق من 50+ مصدر بيانات في ثوانٍ",
     step3Title: "نتيجة فورية", step3Desc: "احصل على تقرير كامل مع مؤشر الثقة",
@@ -961,6 +968,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "無料検証", freeVerificationDesc: "登録なしで5回チェック",
     alwaysUpdated: "常に更新", alwaysUpdatedDesc: "24/7リアルタイムデータベース",
     howItWorks: "仕組み",
+    stepStep: "ステップ",
     step1Title: "サイトまたはブランドを入力", step1Desc: "URLを貼り付けるか企業名を入力",
     step2Title: "AIがすべてを分析", step2Desc: "50以上のデータソースを数秒で確認",
     step3Title: "即時結果", step3Desc: "信頼指数と完全なレポートを受け取る",
@@ -1062,6 +1070,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "Бесплатная Проверка", freeVerificationDesc: "5 проверок без регистрации",
     alwaysUpdated: "Всегда Актуально", alwaysUpdatedDesc: "База данных 24/7 в реальном времени",
     howItWorks: "Как Это Работает",
+    stepStep: "ШАГ",
     step1Title: "Введите сайт или бренд", step1Desc: "Вставьте URL или введите название компании",
     step2Title: "Наш ИИ анализирует всё", step2Desc: "Проверяем 50+ источников данных за секунды",
     step3Title: "Мгновенный результат", step3Desc: "Получите полный отчёт с индексом доверия",
@@ -1163,6 +1172,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "मुफ़्त सत्यापन", freeVerificationDesc: "बिना पंजीकरण 5 जांचें",
     alwaysUpdated: "हमेशा अपडेट", alwaysUpdatedDesc: "24/7 रियल-टाइम डेटाबेस",
     howItWorks: "यह कैसे काम करता है",
+    stepStep: "चरण",
     step1Title: "साइट या ब्रांड दर्ज करें", step1Desc: "URL चिपकाएं या कंपनी का नाम टाइप करें",
     step2Title: "हमारी AI सब कुछ विश्लेषण करती है", step2Desc: "सेकंडों में 50+ डेटा स्रोत जांचते हैं",
     step3Title: "तत्काल परिणाम", step3Desc: "विश्वास सूचकांक के साथ पूरी रिपोर्ट प्राप्त करें",
@@ -1264,6 +1274,7 @@ const translations: Record<string, Record<string, string>> = {
     freeVerification: "Verifica Gratuita", freeVerificationDesc: "5 verifiche senza registrazione",
     alwaysUpdated: "Sempre Aggiornato", alwaysUpdatedDesc: "Database in tempo reale 24/7",
     howItWorks: "Come Funziona",
+    stepStep: "PASSO",
     step1Title: "Inserisci il sito o marchio", step1Desc: "Incolla l'URL o digita il nome dell'azienda",
     step2Title: "La nostra IA analizza tutto", step2Desc: "Verifichiamo 50+ fonti di dati in secondi",
     step3Title: "Risultato istantaneo", step3Desc: "Ricevi un rapporto completo con indice di fiducia",
@@ -1895,7 +1906,7 @@ export default function App() {
                   <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                     {step.icon}
                   </div>
-                  <div className="text-xs font-bold text-gray-400 mb-1">PASSO {step.num}</div>
+                  <div className="text-xs font-bold text-gray-400 mb-1">{t('stepStep')} {step.num}</div>
                   <h3 className="font-bold text-gray-900 mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-500">{step.desc}</p>
                 </div>
