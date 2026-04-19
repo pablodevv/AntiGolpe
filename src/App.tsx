@@ -2081,7 +2081,7 @@ export default function App() {
             <div className="flex flex-col md:flex-row items-start gap-8 max-w-3xl">
               <div className="flex-shrink-0 w-20 h-20 rounded-2xl overflow-hidden shadow-xl shadow-blue-900/50">
   <img
-    src="/creator2.png" // caminho da sua imagem
+    src="/creator1.png" // caminho da sua imagem
     alt="Sua foto"
     className="w-full h-full object-cover"
   />
