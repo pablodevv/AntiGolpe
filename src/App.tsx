@@ -1651,26 +1651,48 @@ export default function App() {
 
             {/* Search box */}
             <div className="bg-white rounded-2xl shadow-2xl shadow-black/30 p-2 max-w-2xl mx-auto mb-6">
+
+
+              
               <div className="flex gap-2">
-                <div className="flex-1 flex items-center gap-3 px-4">
-                  <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={searchQuery}
-                    onChange={e => setSearchQuery(e.target.value)}
-                    placeholder={t('placeholder')}
-                    onKeyDown={e => e.key === 'Enter' && handleVerification()}
-                    className="flex-1 py-4 text-gray-900 placeholder-gray-400 outline-none text-base font-medium bg-transparent"
-                  />
-                </div>
-                <button onClick={handleVerification} disabled={!searchQuery.trim() || isVerifying} className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-300 disabled:to-gray-400 text-white font-bold px-6 py-4 rounded-xl transition-all flex items-center gap-2 text-sm">
-                  {isVerifying ? <Loader2 className="w-5 h-5 animate-spin" /> : <Shield className="w-5 h-5" />}
-                  <span className="hidden sm:inline">{isVerifying ? t('verifying') : t('verifyButton')}</span>
-                  <span className="sm:hidden">{isVerifying ? '...' : t('freeBadge')}</span>
-                </button>
-              </div>
+  <div className="flex-1 flex items-center gap-3 px-4 min-w-0">
+    <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
+    <input
+      ref={inputRef}
+      type="text"
+      value={searchQuery}
+      onChange={e => setSearchQuery(e.target.value)}
+      placeholder={t('placeholder')}
+      onKeyDown={e => e.key === 'Enter' && handleVerification()}
+      className="flex-1 min-w-0 py-4 text-gray-900 placeholder-gray-400 outline-none text-base font-medium bg-transparent"
+    />
+  </div>
+
+  <button
+    onClick={handleVerification}
+    disabled={!searchQuery.trim() || isVerifying}
+    className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-300 disabled:to-gray-400 text-white font-bold px-4 sm:px-6 py-4 rounded-xl transition-all flex items-center gap-2 text-sm"
+  >
+    {isVerifying ? (
+      <Loader2 className="w-5 h-5 animate-spin" />
+    ) : (
+      <Shield className="w-5 h-5" />
+    )}
+    <span className="hidden sm:inline">
+      {isVerifying ? t('verifying') : t('verifyButton')}
+    </span>
+    <span className="sm:hidden">
+      {isVerifying ? '...' : t('freeBadge')}
+    </span>
+  </button>
+</div>
+
+
+
+              
             </div>
+
+            
 
             {/* Free counter */}
             {!isUnlocked && (
