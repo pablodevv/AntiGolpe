@@ -1928,13 +1928,7 @@ function App() {
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain" // Ajuste o tamanho da logo aqui se necessário
     />
   </div>
-  
-  {/* Container do Ícone de Status (Badge) */}
-  <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center border-2 border-white">
-    {/* Se quiser trocar a estrela por outra imagem, coloque aqui, ou mantenha o ícone */}
-    <span className="text-white text-[8px] sm:text-[10px]">✓</span>
   </div>
-</div>
 
 
 
