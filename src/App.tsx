@@ -2128,10 +2128,6 @@ export default function App() {
         <li key={i}>
           <button
             onClick={() => {
-
-              setIsVerifying(false);
-              setShowDetails(true);
-              
               document
                 .getElementById('how-it-works')
                 ?.scrollIntoView({ behavior: 'smooth' });
