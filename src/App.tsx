@@ -1626,9 +1626,16 @@ export default function App() {
                   />
                 </div>
                 <button
-                  onClick={handleVerification}
-                  disabled={!searchQuery.trim() || isVerifying}
-                  className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-300 disabled:to-gray-400 text-white font-bold px-6 py-4 rounded-xl transition-all flex items-center gap-2 text-sm">
+  onClick={() => {
+    handleVerification();
+
+    document
+      .getElementById('how-it-works')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }}
+  disabled={!searchQuery.trim() || isVerifying}
+  className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-300 disabled:to-gray-400 text-white font-bold px-6 py-4 rounded-xl transition-all flex items-center gap-2 text-sm"
+>
                   {isVerifying ? <Loader2 className="w-5 h-5 animate-spin" /> : <Shield className="w-5 h-5" />}
                   <span className="hidden sm:inline">{isVerifying ? t('verifying') : t('verifyButton')}</span>
                   <span className="sm:hidden">{isVerifying ? '...' : t('freeBadge')}</span>
