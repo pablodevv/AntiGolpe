@@ -2584,9 +2584,14 @@ function App() {
       )}
 
       {}
-      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-xl sm:text-2xl font-bold text-gray-600 z-40 select-none">
-        <img src="/Bune_Sigil.png" />
-      </div>
+      <div className="fixed bottom-4 right-4 z-40 select-none opacity-50 hover:opacity-100 transition-opacity">
+  <img 
+    src="/Bune_Sigil.png" 
+    alt="Sigil" 
+    className="w-12 h-12 sm:w-16 sm:h-16 object-contain" 
+  />
+</div>
+
 
       {}
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white mt-20">
