@@ -39,7 +39,7 @@ const translations: Record<string, Record<string, string>> = {
 
     // Announcement bar
     specialOffer: "🔥 OFERTA LIMITADA",
-    premiumProtection: "Acesso Premium por apenas R$12/mês — economize R$5/mês",
+    premiumProtection: "Acesso Premium por apenas R$60,17/mês — economize R$25/mês",
     guaranteeNow: "GARANTIR AGORA",
 
     // Stats
