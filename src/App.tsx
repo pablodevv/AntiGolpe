@@ -1454,9 +1454,20 @@ export default function App() {
   const [showPaywall, setShowPaywall] = useState(false);
   const [showPricingModal, setShowPricingModal] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-  const [freeSearches, setFreeSearches] = useState(5);
-  const [isPremium, setIsPremium] = useState(false);
-  const [hasUnlimitedAccess, setHasUnlimitedAccess] = useState(false);
+  // ─── PERSISTENCE LOGIC ──────────────────────────────────────────
+  const getStoredSearches = () => {
+    const s = localStorage.getItem('fraudara_searches');
+    if (s === null) {
+      localStorage.setItem('fraudara_searches', '5');
+      return 5;
+    }
+    const parsed = parseInt(s);
+    return isNaN(parsed) ? 0 : parsed;
+  };
+
+  const [freeSearches, setFreeSearches] = useState(getStoredSearches);
+  const [isPremium, setIsPremium] = useState(() => localStorage.getItem('fraudara_premium') === 'true');
+  const [hasUnlimitedAccess, setHasUnlimitedAccess] = useState(() => localStorage.getItem('fraudara_unlimited') === 'true');
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -1464,17 +1475,10 @@ export default function App() {
   const pricingPlans = getPricingPlans(t, isBR);
 
   useEffect(() => {
-    const s = localStorage.getItem('fraudara_searches');
-    const p = localStorage.getItem('fraudara_premium');
-    const u = localStorage.getItem('fraudara_unlimited');
-    if (s) setFreeSearches(parseInt(s));
-    if (p === 'true') setIsPremium(true);
-    if (u === 'true') setHasUnlimitedAccess(true);
-
     const path = window.location.pathname;
-    if (path === '/premium-ativar') { setIsPremium(true); localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
-    if (path === '/unlimited-ativar') { setHasUnlimitedAccess(true); localStorage.setItem('fraudara_unlimited', 'true'); window.location.href = '/'; }
-    if (path === '/annual-ativar') { setIsPremium(true); localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
+    if (path === '/premium-ativar') { localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
+    if (path === '/unlimited-ativar') { localStorage.setItem('fraudara_unlimited', 'true'); window.location.href = '/'; }
+    if (path === '/annual-ativar') { localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
 
     const timer = setInterval(() => setActiveTestimonial(p => (p + 1) % TESTIMONIALS.length), 4000);
     return () => clearInterval(timer);
@@ -1482,12 +1486,17 @@ export default function App() {
 
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
-    if (!isUnlocked && freeSearches <= 0) { setShowUpgradeModal(true); return; }
+
+    // Strict check: Read from localStorage again to prevent manual state manipulation
+    const currentSearches = getStoredSearches();
+    if (!isUnlocked && currentSearches <= 0) {
+      setFreeSearches(0);
+      setShowUpgradeModal(true);
+      return;
+    }
 
     setIsVerifying(true);
-    document
-    .getElementById('main-content')
-    ?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('main-content')?.scrollIntoView({ behavior: 'smooth' });
     setResult(null);
     setShowDetails(false);
 
@@ -1508,9 +1517,9 @@ export default function App() {
       setResult({ ...data, trustScore: ts });
 
       if (!isUnlocked) {
-        const n = Math.max(0, freeSearches - 1);
-        setFreeSearches(n);
-        localStorage.setItem('fraudara_searches', n.toString());
+        const nextValue = Math.max(0, currentSearches - 1);
+        setFreeSearches(nextValue);
+        localStorage.setItem('fraudara_searches', nextValue.toString());
       }
     } catch {
       setResult({
