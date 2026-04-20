@@ -1418,7 +1418,7 @@ const getPricingPlans = (t: (k: string) => string, isBR: boolean) => [
       t('featurePriority'),
     ],
     cta: t('upgradePlan'),
-    savings: isBR ? 'Economize R$45' : 'Save $45',
+    savings: isBR ? 'Economize R$225' : 'Save $45',
   },
 ];
 
