@@ -1476,6 +1476,24 @@ export default function App() {
 
   useEffect(() => {
     const path = window.location.pathname;
+    const searchParams = new URLSearchParams(window.location.search);
+    const paymentStatus = searchParams.get('payment_status');
+    const planType = searchParams.get('plan');
+
+    // Logic for Stripe success redirect (e.g., yoursite.com/?payment_status=success&plan=premium)
+    if (paymentStatus === 'success') {
+      if (planType === 'premium' || planType === 'annual') {
+        localStorage.setItem('fraudara_premium', 'true');
+        setIsPremium(true);
+      } else if (planType === 'unlimited') {
+        localStorage.setItem('fraudara_unlimited', 'true');
+        setHasUnlimitedAccess(true);
+      }
+      // Clean URL after activation
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // Legacy paths support
     if (path === '/premium-ativar') { localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
     if (path === '/unlimited-ativar') { localStorage.setItem('fraudara_unlimited', 'true'); window.location.href = '/'; }
     if (path === '/annual-ativar') { localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
