@@ -1364,7 +1364,7 @@ const getPricingPlans = (t: (k: string) => string, isBR: boolean) => [
   {
     id: 'unlimited',
     name: t('planStarter'),
-    price: isBR ? 'R$ 29,90' : '$29.90',
+    price: isBR ? 'R$ 149,92' : '$29.90',
     period: t('freePeriod'),
     badge: null,
     color: 'border-gray-200',
@@ -1381,8 +1381,8 @@ const getPricingPlans = (t: (k: string) => string, isBR: boolean) => [
   {
     id: 'premium',
     name: t('planPro'),
-    price: isBR ? 'R$ 12' : '$12',
-    originalPrice: isBR ? 'R$ 17' : '$17',
+    price: isBR ? 'R$ 60,17' : '$12',
+    originalPrice: isBR ? 'R$ 85,24' : '$17',
     period: t('monthly'),
     badge: t('mostPopular'),
     color: 'border-blue-500',
@@ -1401,8 +1401,8 @@ const getPricingPlans = (t: (k: string) => string, isBR: boolean) => [
   {
     id: 'annual',
     name: t('planBusiness'),
-    price: isBR ? 'R$ 99' : '$99',
-    originalPrice: isBR ? 'R$ 144' : '$144',
+    price: isBR ? 'R$ 496,39' : '$99',
+    originalPrice: isBR ? 'R$ 722,02' : '$144',
     period: t('yearly'),
     badge: t('bestValue'),
     color: 'border-emerald-500',
