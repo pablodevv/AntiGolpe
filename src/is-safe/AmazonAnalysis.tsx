@@ -359,6 +359,7 @@ const AmazonAnalysis: React.FC = () => {
 
         {/* ── EXPLOSIVE SEO CONTENT ── */}
         <article className="prose prose-slate max-w-none mb-20">
+          <br/>
           <h2 className="text-3xl font-black mb-6">Expert Verdict: Is {brand} Truly Safe?</h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-8">
             Our security researchers have thoroughly examined {brand}'s infrastructure and consumer feedback loops. 
