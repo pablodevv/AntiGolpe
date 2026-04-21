@@ -318,6 +318,9 @@ const AmazonAnalysis: React.FC = () => {
                <div className="text-gray-400 text-sm mt-1">Trust Score Index</div>
             </div>
 
+
+
+            
             {/* DETAILS SECTION */}
             <div className="p-8 border-t border-gray-100">
               <div className="flex items-center justify-between mb-8">
@@ -328,18 +331,46 @@ const AmazonAnalysis: React.FC = () => {
 
               {(isUnlocked || isQueryAmazon) ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* SSL */}
                   <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800"><ShieldCheck className="w-5 h-5 text-emerald-500" /> SSL Certificate</div>
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
+                      <ShieldCheck className="w-5 h-5 text-emerald-500" /> SSL Certificate
+                    </div>
                     <div className="space-y-2 text-sm text-slate-600">
                       <div className="flex justify-between"><span>Valid:</span> <span className="font-semibold text-emerald-600">Yes</span></div>
                       <div className="flex justify-between"><span>Issuer:</span> <span className="font-semibold">DigiCert Inc</span></div>
+                      <div className="flex justify-between"><span>Expiration:</span> <span className="font-semibold">2027-10-22</span></div>
                     </div>
                   </div>
+                  {/* WHOIS */}
                   <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800"><Globe className="w-5 h-5 text-blue-500" /> Domain Information</div>
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
+                      <Globe className="w-5 h-5 text-blue-500" /> Domain Information
+                    </div>
                     <div className="space-y-2 text-sm text-slate-600">
                       <div className="flex justify-between"><span>Age:</span> <span className="font-semibold">28 years</span></div>
+                      <div className="flex justify-between"><span>Owner:</span> <span className="font-semibold">Amazon.com, Inc.</span></div>
                       <div className="flex justify-between"><span>Status:</span> <span className="font-semibold">Active</span></div>
+                    </div>
+                  </div>
+                  {/* SOCIAL */}
+                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
+                      <Users className="w-5 h-5 text-purple-500" /> Social Presence
+                    </div>
+                    <div className="space-y-2 text-sm text-slate-600">
+                      <div className="flex justify-between"><span>Instagram:</span> <span className="font-semibold">Verified</span></div>
+                      <div className="flex justify-between"><span>Twitter:</span> <span className="font-semibold">Verified</span></div>
+                    </div>
+                  </div>
+                  {/* REPUTATION */}
+                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
+                      <Star className="w-5 h-5 text-amber-500" /> Online Reputation
+                    </div>
+                    <div className="space-y-2 text-sm text-slate-600">
+                      <div className="flex justify-between"><span>TrustPilot:</span> <span className="font-semibold">4.8/5.0</span></div>
+                      <div className="flex justify-between"><span>Google Reviews:</span> <span className="font-semibold">High</span></div>
                     </div>
                   </div>
                 </div>
