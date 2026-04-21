@@ -119,6 +119,7 @@ const AmazonAnalysis: React.FC = () => {
   const handleUpgrade = (plan: string) => {
     const urls: Record<string, string> = {
       unlimited: 'https://buy.stripe.com/cNidR94ZbgQ28N58Inb7y05',
+      starter: setShowPricingModal(false),
       premium: 'https://buy.stripe.com/dRm4gz2R39nA7J19Mrb7y06',
       annual: 'https://buy.stripe.com/3cI28rezL6bo9R92jZb7y07',
     };
