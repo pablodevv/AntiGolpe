@@ -221,7 +221,7 @@ const AmazonAnalysis: React.FC = () => {
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
           <span className="font-semibold">🔥 LIMITED OFFER</span>{' '}
-          Premium Access for only $12/mo — save $25/mo{' '}
+          Premium Access for only $12/mo — save $5/mo{' '}
           <button onClick={() => setShowPricingModal(true)} className="underline underline-offset-2 font-bold hover:no-underline ml-1">
             GUARANTEE NOW →
           </button>
