@@ -11,7 +11,8 @@ import {
 
 /**
  * AmazonAnalysis.tsx - Fraudara.pro
- * 100% Identical to Home.tsx (App.tsx) but optimized for SEO (Amazon).
+ * Optimized for SEO (Amazon).
+ * 100% Fidelity to Home.tsx loading and UI logic.
  * Language: English Only.
  */
 
@@ -37,6 +38,7 @@ const AmazonAnalysis: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const seoTitle = `Is ${brand} Safe? (${currentYear}) – Fraudara Analysis`;
   const seoH1 = `Is ${brand} Safe or a Scam? Shocking Truth (${currentYear})`;
+  const seoSubtitle = `Is ${brand} a legitimate platform? Our real-time AI analysis cross-references 50+ data sources to protect your transactions in ${currentYear}.`;
 
   // --- APP STATE (IDENTICAL TO HOME.TSX) ---
   const [searchQuery, setSearchQuery] = useState(brand);
@@ -51,11 +53,9 @@ const AmazonAnalysis: React.FC = () => {
     return saved ? parseInt(saved) : 5;
   });
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // --- SEO UNLOCK LOGIC ---
-  // If the query is Amazon, we force unlock the report without consuming free searches.
   const isQueryAmazon = searchQuery.toLowerCase().includes(brand.toLowerCase());
 
   useEffect(() => {
@@ -73,7 +73,6 @@ const AmazonAnalysis: React.FC = () => {
 
     const currentSearches = getStoredSearches();
     
-    // Normal logic: check limits if NOT Amazon and NOT unlocked
     if (!isUnlocked && !isQueryAmazon && currentSearches <= 0) {
       setFreeSearches(0);
       setShowUpgradeModal(true);
@@ -100,7 +99,6 @@ const AmazonAnalysis: React.FC = () => {
 
       setResult({ ...data, trustScore: ts });
 
-      // Consume search ONLY if NOT Amazon and NOT unlocked
       if (!isUnlocked && !isQueryAmazon) {
         const nextValue = Math.max(0, currentSearches - 1);
         setFreeSearches(nextValue);
@@ -155,7 +153,6 @@ const AmazonAnalysis: React.FC = () => {
   };
   const cfg = result ? statusConfig[result.status] : null;
 
-  // --- PRICING DATA ---
   const pricingPlans = [
     { id: 'starter', name: 'Starter', price: 'Free', period: 'forever', features: ['5 verifications', 'Basic analysis', '24/7 Support'], cta: 'Continue Free', btnClass: 'bg-slate-100 text-slate-600 hover:bg-slate-200' },
     { id: 'unlimited', name: 'Pro', price: '$29.90', period: 'one-time', badge: 'MOST POPULAR', features: ['Unlimited verifications', 'Full reports', 'Priority support', 'Real-time alerts'], cta: 'Unlock Now', btnClass: 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200' },
@@ -222,21 +219,13 @@ const AmazonAnalysis: React.FC = () => {
             </div>
           </div>
 
-          <div className="py-16 md:py-24 text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-8">
-              <span className="flex items-center gap-0.5">
-                {['us', 'br', 'gb', 'ca'].map(c => <img key={c} src={`https://flagcdn.com/${c}.svg`} className="w-5 h-4 object-cover rounded-sm" alt={c} />)}
-              </span>
-              <span className="font-medium">Trusted by 3.1M+ users worldwide</span>
-            </div>
-
+          <div className="py-20 md:py-32 text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-              <span className="text-white">Before You Buy, Verify.</span>{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Instantly.</span>
-            </h1>
-            <h2 className="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
               {seoH1}
-            </h2>
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+              {seoSubtitle}
+            </p>
 
             {/* SEARCH BOX */}
             <div className="bg-white rounded-2xl shadow-2xl p-2 max-w-2xl mx-auto mb-6">
@@ -267,10 +256,22 @@ const AmazonAnalysis: React.FC = () => {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-12">
+      <main id="main-content" className="max-w-4xl mx-auto px-4 py-12">
+        
+        {/* LOADING STATE (IDENTICAL TO HOME.TSX) */}
+        {isVerifying && (
+          <div className="bg-white rounded-3xl shadow-xl p-12 text-center animate-pulse border-2 border-blue-100">
+            <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-2">Analysis in Progress</h3>
+            <p className="text-gray-500">Our AI is checking 50+ data sources for {searchQuery}...</p>
+          </div>
+        )}
+
         {/* RESULT SECTION */}
-        {result && (
-          <div id="main-content" className={`bg-white rounded-3xl shadow-xl border-2 ${cfg?.border} overflow-hidden mb-12`}>
+        {result && !isVerifying && (
+          <div className={`bg-white rounded-3xl shadow-xl border-2 ${cfg?.border} overflow-hidden mb-12`}>
             <div className={`bg-gradient-to-br ${cfg?.bg} p-8 md:p-12 text-center`}>
                <div className="flex justify-center mb-6">{cfg?.icon}</div>
                <div className={`inline-block px-4 py-1.5 rounded-full text-sm font-black mb-4 uppercase tracking-wider ${cfg?.badge}`}>
@@ -292,11 +293,6 @@ const AmazonAnalysis: React.FC = () => {
                 <h3 className="text-xl font-bold flex items-center gap-2">
                   <FileText className="w-5 h-5 text-blue-600" /> Full Security Report
                 </h3>
-                {isQueryAmazon && (
-                  <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                    <Zap className="w-3 h-3 fill-current" /> SEO UNLOCKED
-                  </span>
-                )}
               </div>
 
               {(isUnlocked || isQueryAmazon) ? (
@@ -503,7 +499,7 @@ const AmazonAnalysis: React.FC = () => {
             <p className="text-gray-500 text-sm mb-6">You've used all your free checks. Continue protected with unlimited access.</p>
             <div className="space-y-3">
               <button onClick={() => handleUpgrade('unlimited')} className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl text-sm">🚀 Unlock Unlimited — $29.90</button>
-              <button onClick={() => { setShowUpgradeModal(false); setShowPricingModal(true); }} className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 rounded-xl text-sm">👑 Premium — $12/mo</button>
+              <button onClick={() => { setShowUpgradeModal(false); setShowPricingModal(true); }} className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 rounded-xl text-sm">👑 Premium — $12/mo</button>
             </div>
           </div>
         </div>
