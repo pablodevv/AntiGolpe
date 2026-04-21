@@ -434,7 +434,7 @@ const AmazonAnalysis: React.FC = () => {
               </p>
               <div className="flex gap-4 mt-4">
                  <a href="https://instagram.com/soupabloeduardo" target="_blank" className="text-slate-400 hover:text-pink-600 transition-colors"><Instagram className="w-5 h-5" /></a>
-                 <a href="mailto:contato@fraudara.pro" className="text-slate-400 hover:text-blue-600 transition-colors"><MailIcon className="w-5 h-5" /></a>
+                 <a href="mailto:contactfraudara@gmail.com" className="text-slate-400 hover:text-blue-600 transition-colors"><MailIcon className="w-5 h-5" /></a>
               </div>
             </div>
           </div>
