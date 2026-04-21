@@ -1,29 +1,29 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Home'; // Renomeie seu App.tsx original para Home.tsx
+import Home from './Home';
 import AmazonAnalysis from './is-safe/AmazonAnalysis';
+import Blog from './Blog';
 
 /**
- * App.tsx - Configuração de Rotas do Fraudara.pro
- * 
- * Aqui definimos os caminhos para as páginas de SEO.
+ * App.tsx - Main Router for Fraudara.pro
  */
-
-function App() {
+const App: React.FC = () => {
   return (
     <Routes>
-      {/* Página Principal (O que era o seu App.tsx antes) */}
+      {/* Home Page */}
       <Route path="/" element={<Home />} />
-
-      {/* Página de SEO para Amazon */}
+      
+      {/* SEO Dynamic Brand Pages */}
       <Route path="/is-site-safe/amazon" element={<AmazonAnalysis />} />
-
-      {/* 
-        DICA: Se quiser criar páginas para outras marcas sem criar novos arquivos, 
-        você pode usar uma rota dinâmica:
-        <Route path="/is-site-safe/:brand" element={<BrandAnalysis />} />
-      */}
+      
+      {/* Blog Routes */}
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<Blog />} />
+      
+      {/* 404 - Redirect to Home */}
+      <Route path="*" element={<Home />} />
     </Routes>
   );
-}
+};
 
 export default App;
