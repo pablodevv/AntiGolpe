@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   Shield, Search, Share2, CheckCircle, AlertTriangle, XCircle,
   Loader2, Award, Users, Clock, TrendingUp, Star, Lock, Zap,
@@ -6,13 +7,15 @@ import {
   FileText, Globe, ArrowRight, Sparkles, Eye, Bell, Check,
   Twitter, Instagram, Linkedin, MessageCircle, Mail, Phone,
   Code, Cpu, Target, BarChart3, ShieldCheck, BadgeCheck,
-  Flame, Rocket, Infinity, RefreshCw, ChevronRight, X, ArrowDown, Mail as MailIcon
+  Flame, Rocket, Infinity, RefreshCw, ChevronRight, X, ArrowDown, Mail as MailIcon,
+  ThumbsUp, ThumbsDown, ShieldAlert
 } from 'lucide-react';
 
 /**
  * AmazonAnalysis.tsx - Fraudara.pro
  * Optimized for SEO (Amazon).
  * 100% Fidelity to Home.tsx loading and UI logic.
+ * Premium Status Sync & Mobile Responsive Fix.
  * Language: English Only.
  */
 
@@ -36,9 +39,9 @@ const AmazonAnalysis: React.FC = () => {
   // --- SEO CONFIG ---
   const brand = "Amazon";
   const currentYear = new Date().getFullYear();
-  const seoTitle = `Is ${brand} Safe? (${currentYear}) – Fraudara Analysis`;
-  const seoH1 = `Is ${brand} Safe or a Scam? Shocking Truth (${currentYear})`;
-  const seoSubtitle = `Is ${brand} a legitimate platform? Our real-time AI analysis cross-references 50+ data sources to protect your transactions in ${currentYear}.`;
+  const seoTitle = `Is ${brand} Safe? (${currentYear}) – Fraudara Analysis & Security Check`;
+  const seoH1 = `Is ${brand} Safe or a Scam? The Shocking Truth (${currentYear})`;
+  const seoDescription = `Is ${brand} a legitimate platform? Read our expert analysis on ${brand}'s safety, security indicators, and potential risks in ${currentYear}. Protect your money with Fraudara.`;
 
   // --- APP STATE (IDENTICAL TO HOME.TSX) ---
   const [searchQuery, setSearchQuery] = useState(brand);
@@ -48,19 +51,33 @@ const AmazonAnalysis: React.FC = () => {
   const [showPaywall, setShowPaywall] = useState(false);
   const [showPricingModal, setShowPricingModal] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  
+  // Syncing with Home.tsx (localStorage)
   const [freeSearches, setFreeSearches] = useState(() => {
     const saved = localStorage.getItem('fraudara_searches');
     return saved ? parseInt(saved) : 5;
   });
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    // Check if user is premium in Home.tsx
+    return localStorage.getItem('fraudara_premium') === 'true';
+  });
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   // --- SEO UNLOCK LOGIC ---
   const isQueryAmazon = searchQuery.toLowerCase().includes(brand.toLowerCase());
 
   useEffect(() => {
-    document.title = seoTitle;
     handleVerification(); // Auto-check on mount
+    
+    // Listen for storage changes (if user upgrades in another tab)
+    const handleStorage = () => {
+      setIsUnlocked(localStorage.getItem('fraudara_premium') === 'true');
+      const s = localStorage.getItem('fraudara_searches');
+      setFreeSearches(s ? parseInt(s) : 5);
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
   const getStoredSearches = () => {
@@ -73,6 +90,7 @@ const AmazonAnalysis: React.FC = () => {
 
     const currentSearches = getStoredSearches();
     
+    // Normal logic: check limits if NOT Amazon and NOT unlocked
     if (!isUnlocked && !isQueryAmazon && currentSearches <= 0) {
       setFreeSearches(0);
       setShowUpgradeModal(true);
@@ -80,7 +98,7 @@ const AmazonAnalysis: React.FC = () => {
     }
 
     setIsVerifying(true);
-    
+    document.getElementById('main-content')?.scrollIntoView({ behavior: 'smooth' });
     setResult(null);
     setShowDetails(false);
 
@@ -99,6 +117,7 @@ const AmazonAnalysis: React.FC = () => {
 
       setResult({ ...data, trustScore: ts });
 
+      // Consume search ONLY if NOT Amazon and NOT unlocked
       if (!isUnlocked && !isQueryAmazon) {
         const nextValue = Math.max(0, currentSearches - 1);
         setFreeSearches(nextValue);
@@ -119,7 +138,6 @@ const AmazonAnalysis: React.FC = () => {
   const handleUpgrade = (plan: string) => {
     const urls: Record<string, string> = {
       unlimited: 'https://buy.stripe.com/cNidR94ZbgQ28N58Inb7y05',
-      starter: setShowPricingModal(false),
       premium: 'https://buy.stripe.com/dRm4gz2R39nA7J19Mrb7y06',
       annual: 'https://buy.stripe.com/3cI28rezL6bo9R92jZb7y07',
     };
@@ -163,31 +181,41 @@ const AmazonAnalysis: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
-      {/* JSON-LD FAQ SCHEMA */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Is Amazon legit?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Amazon is one of the world's most established and trusted e-commerce platforms. Our AI analysis confirms its high security standards and valid SSL certificates."
+      {/* REACT HELMET FOR DYNAMIC SEO */}
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+        
+        {/* JSON-LD FAQ SCHEMA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Amazon legit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Amazon is one of the world's most established and trusted e-commerce platforms. Our AI analysis confirms its high security standards and valid SSL certificates."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is it safe to buy from Amazon in 2026?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Amazon remains a safe choice for online shopping. However, always ensure you are on the official amazon.com domain to avoid phishing attempts."
+                }
               }
-            },
-            {
-              "@type": "Question",
-              "name": "Is it safe to buy from Amazon in 2026?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, Amazon remains a safe choice for online shopping. However, always ensure you are on the official amazon.com domain to avoid phishing attempts."
-              }
-            }
-          ]
-        })}
-      </script>
+            ]
+          })}
+        </script>
+      </Helmet>
 
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
@@ -211,26 +239,28 @@ const AmazonAnalysis: React.FC = () => {
               <span className="text-xl font-black tracking-tight">Fraudara</span>
             </div>
             <div className="flex items-center gap-3">
-              <button onClick={() => setShowPricingModal(true)} className="hidden sm:flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
-                <Crown className="w-4 h-4 text-amber-400" /> Premium
-              </button>
+              {!isUnlocked && (
+                <button onClick={() => setShowPricingModal(true)} className="hidden sm:flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                  <Crown className="w-4 h-4 text-amber-400" /> Premium
+                </button>
+              )}
               <div className="text-xs font-bold bg-blue-500/20 px-3 py-1.5 rounded-full border border-blue-500/30">
-                {freeSearches} free checks left
+                {isUnlocked ? 'Unlimited Access' : `${freeSearches} free checks left`}
               </div>
             </div>
           </div>
 
           <div className="py-20 md:py-32 text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 px-4">
               {seoH1}
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-              {seoSubtitle}
+            <p className="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto mb-10 leading-relaxed font-medium px-4">
+              Before you spend a dime, let our AI scan the security indicators. Real-time protection for 2026.
             </p>
 
-            {/* SEARCH BOX */}
-            <div className="bg-white rounded-2xl shadow-2xl p-2 max-w-2xl mx-auto mb-6">
-              <div className="flex gap-2">
+            {/* SEARCH BOX (RESPONSIVE FIX) */}
+            <div className="bg-white rounded-2xl shadow-2xl p-2 max-w-2xl mx-auto mb-6 mx-4">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <div className="flex-1 flex items-center gap-3 px-4">
                   <Search className="w-5 h-5 text-gray-400" />
                   <input
@@ -238,18 +268,18 @@ const AmazonAnalysis: React.FC = () => {
                     type="text"
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
-                    placeholder="Enter website URL or brand name..."
+                    placeholder="Enter website URL..."
                     onKeyDown={e => e.key === 'Enter' && handleVerification()}
-                    className="flex-1 py-4 text-gray-900 outline-none text-base font-medium bg-transparent"
+                    className="flex-1 py-4 text-gray-900 outline-none text-base font-medium bg-transparent min-w-0"
                   />
                 </div>
                 <button
                   onClick={handleVerification}
                   disabled={!searchQuery.trim() || isVerifying}
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-6 py-4 rounded-xl transition-all flex items-center gap-2"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   {isVerifying ? <Loader2 className="w-5 h-5 animate-spin" /> : <Shield className="w-5 h-5" />}
-                  <span className="hidden sm:inline">{isVerifying ? "Analyzing..." : "Verify Now — It's Free"}</span>
+                  <span>{isVerifying ? "Analyzing..." : "Verify Now"}</span>
                 </button>
               </div>
             </div>
@@ -298,46 +328,18 @@ const AmazonAnalysis: React.FC = () => {
 
               {(isUnlocked || isQueryAmazon) ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* SSL */}
                   <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
-                      <ShieldCheck className="w-5 h-5 text-emerald-500" /> SSL Certificate
-                    </div>
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800"><ShieldCheck className="w-5 h-5 text-emerald-500" /> SSL Certificate</div>
                     <div className="space-y-2 text-sm text-slate-600">
                       <div className="flex justify-between"><span>Valid:</span> <span className="font-semibold text-emerald-600">Yes</span></div>
                       <div className="flex justify-between"><span>Issuer:</span> <span className="font-semibold">DigiCert Inc</span></div>
-                      <div className="flex justify-between"><span>Expiration:</span> <span className="font-semibold">2027-10-22</span></div>
                     </div>
                   </div>
-                  {/* WHOIS */}
                   <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
-                      <Globe className="w-5 h-5 text-blue-500" /> Domain Information
-                    </div>
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800"><Globe className="w-5 h-5 text-blue-500" /> Domain Information</div>
                     <div className="space-y-2 text-sm text-slate-600">
                       <div className="flex justify-between"><span>Age:</span> <span className="font-semibold">28 years</span></div>
-                      <div className="flex justify-between"><span>Owner:</span> <span className="font-semibold">Amazon.com, Inc.</span></div>
                       <div className="flex justify-between"><span>Status:</span> <span className="font-semibold">Active</span></div>
-                    </div>
-                  </div>
-                  {/* SOCIAL */}
-                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
-                      <Users className="w-5 h-5 text-purple-500" /> Social Presence
-                    </div>
-                    <div className="space-y-2 text-sm text-slate-600">
-                      <div className="flex justify-between"><span>Instagram:</span> <span className="font-semibold">Verified</span></div>
-                      <div className="flex justify-between"><span>Twitter:</span> <span className="font-semibold">Verified</span></div>
-                    </div>
-                  </div>
-                  {/* REPUTATION */}
-                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
-                      <Star className="w-5 h-5 text-amber-500" /> Online Reputation
-                    </div>
-                    <div className="space-y-2 text-sm text-slate-600">
-                      <div className="flex justify-between"><span>TrustPilot:</span> <span className="font-semibold">4.8/5.0</span></div>
-                      <div className="flex justify-between"><span>Google Reviews:</span> <span className="font-semibold">High</span></div>
                     </div>
                   </div>
                 </div>
@@ -355,42 +357,82 @@ const AmazonAnalysis: React.FC = () => {
           </div>
         )}
 
-        {/* ── PERSUASIVE COPY (SEO ENHANCEMENT) ── */}
+        {/* ── EXPLOSIVE SEO CONTENT ── */}
+        <article className="prose prose-slate max-w-none mb-20">
+          <h2 className="text-3xl font-black mb-6">Expert Verdict: Is {brand} Truly Safe?</h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-8">
+            Our security researchers have thoroughly examined {brand}'s infrastructure and consumer feedback loops. 
+            As of {currentYear}, {brand} remains a <strong>benchmark for digital security</strong>. However, safety isn't just about the platform; 
+            it's about the domain you visit. Scammers frequently create "cloned" versions of {brand} to steal login credentials and credit card data.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
+              <h4 className="font-bold text-emerald-800 flex items-center gap-2 mb-4"><ThumbsUp className="w-5 h-5" /> Why it's Safe</h4>
+              <ul className="space-y-2 text-sm text-emerald-700">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4" /> End-to-end payment encryption</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4" /> Robust buyer protection policies</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4" /> 24/7 fraud monitoring systems</li>
+              </ul>
+            </div>
+            <div className="bg-rose-50 p-6 rounded-2xl border border-rose-100">
+              <h4 className="font-bold text-rose-800 flex items-center gap-2 mb-4"><ThumbsDown className="w-5 h-5" /> Potential Risks</h4>
+              <ul className="space-y-2 text-sm text-rose-700">
+                <li className="flex items-center gap-2"><X className="w-4 h-4" /> Phishing sites impersonating {brand}</li>
+                <li className="flex items-center gap-2"><X className="w-4 h-4" /> Suspicious third-party sellers</li>
+                <li className="flex items-center gap-2"><X className="w-4 h-4" /> Fake "order issue" emails</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-black mb-4">Comparison: Fraudara vs. Manual Checking</h3>
+          <div className="overflow-x-auto mb-12">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-100">
+                  <th className="p-4 font-bold border-b">Feature</th>
+                  <th className="p-4 font-bold border-b">Manual Check</th>
+                  <th className="p-4 font-bold border-b text-blue-600">Fraudara.pro</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr>
+                  <td className="p-4 border-b">SSL Verification</td>
+                  <td className="p-4 border-b text-slate-500">Slow / Technical</td>
+                  <td className="p-4 border-b font-bold">Instant (AI)</td>
+                </tr>
+                <tr>
+                  <td className="p-4 border-b">WHOIS History</td>
+                  <td className="p-4 border-b text-slate-500">Requires tools</td>
+                  <td className="p-4 border-b font-bold">Full Deep Scan</td>
+                </tr>
+                <tr>
+                  <td className="p-4 border-b">Real-time Scam Alerts</td>
+                  <td className="p-4 border-b text-slate-500">None</td>
+                  <td className="p-4 border-b font-bold">24/7 Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        {/* ── PERSUASIVE CTA ── */}
         <div className="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-3xl p-8 my-16 text-white shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-10"><Shield className="w-48 h-48" /></div>
+          <div className="absolute top-0 right-0 p-4 opacity-10"><ShieldAlert className="w-48 h-48" /></div>
           <div className="relative z-10">
-            <h3 className="text-3xl font-black mb-4">Don't risk your hard-earned money.</h3>
+            <h3 className="text-3xl font-black mb-4">Don't be the next victim.</h3>
             <p className="text-blue-100 text-lg mb-8 max-w-2xl leading-relaxed">
-              Every day, thousands of people fall victim to phishing sites impersonating brands like <strong>{brand}</strong>. 
-              Fraudara.pro uses real-time AI to detect malicious patterns before you click "Buy".
+              Every single day, thousands of people lose their life savings to sophisticated digital traps. 
+              <strong> Fraudara.pro</strong> is the #1 defense against online fraud.
             </p>
             <a href="https://fraudara.pro" className="bg-white text-indigo-900 font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all inline-flex items-center gap-2 shadow-lg group">
-              Verify any site at Fraudara.pro
+              Scan any website now at Fraudara.pro
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>
 
-        {/* ── COMPARISON SECTION ── */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-black mb-10 text-center">How {brand} Compares</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h4 className="font-bold text-blue-600 mb-2">Security</h4>
-              <p className="text-sm text-slate-600">Uses high-level TLS encryption and multi-factor authentication for all users.</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h4 className="font-bold text-blue-600 mb-2">Refund Policy</h4>
-              <p className="text-sm text-slate-600">Strong buyer protection with A-to-z Guarantee on most purchases.</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h4 className="font-bold text-blue-600 mb-2">Reputation</h4>
-              <p className="text-sm text-slate-600">Consistently ranked as one of the most trusted brands globally.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── FAQ SECTION (SEO GOLD) ── */}
+        {/* ── FAQ SECTION (SEO) ── */}
         <section className="mb-20">
           <h2 className="text-3xl font-black mb-10 text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
@@ -435,7 +477,7 @@ const AmazonAnalysis: React.FC = () => {
               </p>
               <div className="flex gap-4 mt-4">
                  <a href="https://instagram.com/soupabloeduardo" target="_blank" className="text-slate-400 hover:text-pink-600 transition-colors"><Instagram className="w-5 h-5" /></a>
-                 <a href="mailto:contactfraudara@gmail.com" className="text-slate-400 hover:text-blue-600 transition-colors"><MailIcon className="w-5 h-5" /></a>
+                 <a href="mailto:contato@fraudara.pro" className="text-slate-400 hover:text-blue-600 transition-colors"><MailIcon className="w-5 h-5" /></a>
               </div>
             </div>
           </div>
