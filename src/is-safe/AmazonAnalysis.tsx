@@ -80,7 +80,7 @@ const AmazonAnalysis: React.FC = () => {
     }
 
     setIsVerifying(true);
-    document.getElementById('main-content')?.scrollIntoView({ behavior: 'smooth' });
+    
     setResult(null);
     setShowDetails(false);
 
