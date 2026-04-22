@@ -235,12 +235,29 @@ const AmazonAnalysis: React.FC = () => {
       <header className="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between py-4 border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg bg-blue-600">
-                <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-full h-full object-contain" />
-              </div>
-              <span className="text-xl font-black tracking-tight">Fraudara</span>
+
+            
+                        <div className="flex items-center gap-2 sm:gap-6">
+              {/* Botão de Voltar Visível em Todos os Dispositivos */}
+              <a 
+                href="/" 
+                className="flex items-center gap-1.5 text-[10px] sm:text-xs font-black text-white/60 hover:text-white transition-all bg-white/5 border border-white/10 px-2 sm:px-3 py-1.5 rounded-lg group"
+              >
+                <ArrowRight className="w-3 h-3 rotate-180 group-hover:-translate-x-0.5 transition-transform" />
+                <span className="uppercase tracking-wider">Home</span>
+              </a>
+
+              <a href="/" className="flex items-center gap-2 sm:gap-3 group">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl overflow-hidden shadow-lg bg-blue-600 group-hover:scale-105 transition-transform">
+                  <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-full h-full object-contain" />
+                </div>
+                <span className="text-lg sm:text-xl font-black tracking-tight group-hover:text-blue-400 transition-colors">Fraudara</span>
+              </a>
             </div>
+
+
+
+            
             <div className="flex items-center gap-3">
               {!isUnlocked && (
                 <button onClick={() => setShowPricingModal(true)} className="hidden sm:flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
