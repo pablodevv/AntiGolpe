@@ -227,21 +227,7 @@ const Blog: React.FC = () => {
           </div>
         </main>
 
-        {/* NEWSLETTER CTA */}
-        <section className="bg-indigo-950 py-20">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-              <ShieldAlert className="w-8 h-8 text-white" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Stay Protected in 2026</h2>
-            <p className="text-blue-100 text-lg mb-10">Get real-time alerts about new scams and dangerous websites directly in your inbox.</p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input type="email" placeholder="Enter your email..." className="flex-1 px-6 py-4 rounded-xl outline-none font-medium" />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all">Subscribe</button>
-            </div>
-          </div>
-        </section>
-
+        
         <footer className="bg-slate-900 text-slate-500 py-12 text-center text-sm">
           <p>© {currentYear} Fraudara Blog. All rights reserved.</p>
         </footer>
