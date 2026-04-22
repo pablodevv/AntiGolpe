@@ -6,6 +6,7 @@ import InstagramAnalysis from './is-safe/InstagramAnalysis';
 import ShopeeAnalysis from './is-safe/ShopeeAnalysis';
 import AliExpressAnalysis from './is-safe/AliExpressAnalysis';
 import TemuAnalysis from './is-safe/TemuAnalysis';
+import MercadoLivreAnalysis from './is-safe/MercadoLivreAnalysis';
 import Blog from './Blog';
 
 /**
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <Route path="/is-site-safe/shopee" element={<ShopeeAnalysis />} />
       <Route path="/is-site-safe/aliexpress" element={<AliExpressAnalysis />} />
       <Route path="/is-site-safe/temu" element={<TemuAnalysis />} />
+      <Route path="/is-site-safe/mercado-livre" element={<MercadoLivreAnalysis />} />
       
       {/* Blog Routes */}
       <Route path="/blog" element={<Blog />} />
