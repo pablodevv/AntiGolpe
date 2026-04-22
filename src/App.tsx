@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import AmazonAnalysis from './is-safe/AmazonAnalysis';
+import InstagramAnalysis from './is-safe/InstagramAnalysis';
 import Blog from './Blog';
 
 /**
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       
       {/* SEO Dynamic Brand Pages */}
       <Route path="/is-site-safe/amazon" element={<AmazonAnalysis />} />
+      <Route path="/is-site-safe/instagram" element={<InstagramAnalysis />} />
       
       {/* Blog Routes */}
       <Route path="/blog" element={<Blog />} />
