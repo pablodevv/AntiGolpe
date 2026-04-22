@@ -353,6 +353,7 @@ const InstagramAnalysis: React.FC = () => {
 
         {/* ── EXPLOSIVE SEO CONTENT ── */}
         <article className="prose prose-slate max-w-none mb-20">
+          <br/>
           <h2 className="text-3xl font-black mb-6">Final Verdict: Is {brand} Safe in {currentYear}?</h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-8">
             As one of the world's largest social networks, <strong>Instagram</strong> is technically highly secure. 
