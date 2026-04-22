@@ -320,9 +320,9 @@ const Blog: React.FC = () => {
                 Verify Any Site Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <Link to="https://fraudara.pro/is-site-safe/amazon" className="bg-blue-600/30 backdrop-blur-sm border border-white/20 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600/50 transition-all inline-flex items-center justify-center">
+              <a href="https://fraudara.pro/is-site-safe/amazon" className="bg-blue-600/30 backdrop-blur-sm border border-white/20 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600/50 transition-all inline-flex items-center justify-center">
                 Check Amazon Safety
-              </Link>
+              </a>
             </div>
           </div>
         </div>
