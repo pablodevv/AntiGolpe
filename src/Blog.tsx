@@ -347,8 +347,8 @@ const Blog: React.FC = () => {
             <h4 className="font-black text-xl mb-1">Written by Pablo Eduardo</h4>
             <p className="text-slate-500 text-sm mb-4">CEO at Fraudara.pro & Cybersecurity Advocate. 11+ years protecting users from digital fraud.</p>
             <div className="flex justify-center md:justify-start gap-4">
-              <a href="#" className="text-slate-400 hover:text-blue-600"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-blue-600"><MailIcon className="w-5 h-5" /></a>
+              <a href="https://instagram.com/soupabloeduardo" className="text-slate-400 hover:text-blue-600"><Instagram className="w-5 h-5" /></a>
+              <a href="contactfraudara@gmail.com" className="text-slate-400 hover:text-blue-600"><MailIcon className="w-5 h-5" /></a>
             </div>
           </div>
         </div>
