@@ -229,12 +229,20 @@ const InstagramAnalysis: React.FC = () => {
       <header className="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between py-4 border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg bg-blue-600">
-                <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-full h-full object-contain" />
-              </div>
-              <span className="text-xl font-black tracking-tight">Fraudara</span>
+
+            
+                        <div className="flex items-center gap-6">
+              <a href="/" className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg bg-blue-600 group-hover:scale-105 transition-transform">
+                  <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-full h-full object-contain" />
+                </div>
+                <span className="text-xl font-black tracking-tight group-hover:text-blue-400 transition-colors">Fraudara</span>
+              </a>
+              
+              
             </div>
+
+            
             <div className="flex items-center gap-3">
               {!isUnlocked && (
                 <button onClick={() => setShowPricingModal(true)} className="hidden sm:flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
