@@ -8,7 +8,7 @@ import {
   Twitter, Instagram, Linkedin, MessageCircle, Mail, Phone,
   Code, Cpu, Target, BarChart3, ShieldCheck, BadgeCheck,
   Flame, Rocket, Infinity, RefreshCw, ChevronRight, X, ArrowDown, Mail as MailIcon,
-  ThumbsUp, ThumbsDown, ShieldAlert
+  ThumbsUp, ThumbsDown, ShieldAlert, Instagram as InstagramIcon
 } from 'lucide-react';
 
 /**
