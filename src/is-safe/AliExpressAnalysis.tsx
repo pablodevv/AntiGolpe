@@ -366,7 +366,7 @@ const AliExpressAnalysis: React.FC = () => {
                       <Star className="w-5 h-5 text-amber-500" /> Online Reputation
                     </div>
                     <div className="space-y-2 text-sm text-slate-600">
-                      <div className="flex justify-between"><span>TrustPilot:</span> <span className="font-semibold">4.8/5.0</span></div>
+                      <div className="flex justify-between"><span>TrustPilot:</span> <span className="font-semibold">2.7/5.0</span></div>
                       <div className="flex justify-between"><span>Google Reviews:</span> <span className="font-semibold">High</span></div>
                     </div>
                   </div>
