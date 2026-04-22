@@ -230,23 +230,24 @@ const AliExpressAnalysis: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between py-4 border-b border-white/10">
            
-                        <div className="flex items-center gap-6">
-              <a href="/" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg bg-blue-600 group-hover:scale-105 transition-transform">
-                  <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-full h-full object-contain" />
-                </div>
-                <span className="text-xl font-black tracking-tight group-hover:text-blue-400 transition-colors">Fraudara</span>
-              </a>
-              
-              {/* Back to Home Button */}
+                              <div className="flex items-center gap-2 sm:gap-6">
+              {/* Botão de Voltar Visível em Todos os Dispositivos */}
               <a 
                 href="/" 
-                className="hidden md:flex items-center gap-1.5 text-xs font-bold text-white/40 hover:text-white transition-colors border border-white/10 px-3 py-1.5 rounded-lg bg-white/5"
+                className="flex items-center gap-1.5 text-[10px] sm:text-xs font-black text-white/60 hover:text-white transition-all bg-white/5 border border-white/10 px-2 sm:px-3 py-1.5 rounded-lg group"
               >
-                <RefreshCw className="w-3 h-3" />
-                Back to Home
+                <ArrowRight className="w-3 h-3 rotate-180 group-hover:-translate-x-0.5 transition-transform" />
+                <span className="uppercase tracking-wider">Home</span>
+              </a>
+
+              <a href="/" className="flex items-center gap-2 sm:gap-3 group">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl overflow-hidden shadow-lg bg-blue-600 group-hover:scale-105 transition-transform">
+                  <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-full h-full object-contain" />
+                </div>
+                <span className="text-lg sm:text-xl font-black tracking-tight group-hover:text-blue-400 transition-colors">Fraudara</span>
               </a>
             </div>
+
 
             <div className="flex items-center gap-3">
               {!isUnlocked && (
