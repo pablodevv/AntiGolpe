@@ -1,27 +1,20 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import prerender from 'vite-plugin-prerender';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePrerenderPlugin } from 'vite-prerender-plugin'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    prerender({
+    VitePrerenderPlugin({
+      staticDir: 'dist',
       routes: [
         '/',
-        '/blog',
-        '/blog/is-temu-a-scam-shocking-truth-2026',
-        '/blog/how-to-detect-fake-websites-instantly',
-        '/blog/10-most-dangerous-websites-right-now-2026',
-        '/is-site-safe/amazon',
-        '/is-site-safe/instagram',
-        '/is-site-safe/shopee',
-        '/is-site-safe/aliexpress',
-        '/is-site-safe/temu'
-      ]
-    })
+        '/check',
+        '/about'
+      ],
+    }),
   ],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-});
+})
