@@ -1731,7 +1731,6 @@ export default function App() {
   {[
     { name: 'Amazon', path: '/is-site-safe/amazon' },
     { name: 'AliExpress', path: '/is-site-safe/aliexpress' },
-    { name: 'Instagram', path: '/is-site-safe/instagram' },
     { name: 'Temu', path: '/is-site-safe/temu' },
   ].map((brand) => (
     <a
