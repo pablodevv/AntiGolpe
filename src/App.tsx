@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import AmazonAnalysis from './is-safe/AmazonAnalysis';
@@ -9,10 +9,22 @@ import TemuAnalysis from './is-safe/TemuAnalysis';
 import MercadoLivreAnalysis from './is-safe/MercadoLivreAnalysis';
 import Blog from './Blog';
 
+// Isso evita erros de TypeScript ao usar o window.prerenderReady
+declare global {
+  interface Window {
+    prerenderReady?: boolean;
+  }
+}
+
 /**
  * App.tsx - Main Router for Fraudara.pro
  */
 const App: React.FC = () => {
+  useEffect(() => {
+    // Quando o componente App é montado, avisamos ao Netlify que pode "tirar o print" para o SEO
+    window.prerenderReady = true;
+  }, []);
+
   return (
     <Routes>
       {/* Home Page */}
