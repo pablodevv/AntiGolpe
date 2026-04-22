@@ -1,17 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import prerender from 'vite-prerender-plugin'
-
+import { ViteSSG } from 'vite-plugin-ssg'
 
 export default defineConfig({
   plugins: [
     react(),
-    VitePrerenderPlugin({
-      staticDir: 'dist',
+    ViteSSG({
       routes: [
         '/',
-        '/check',
-        '/about'
+        '/about',
+        '/contact',
+        '/faq'
       ],
     }),
   ],
