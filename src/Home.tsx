@@ -2246,7 +2246,7 @@ export default function App() {
               <h4 className="font-bold text-sm mb-4 text-gray-300">{t('footerCompany')}</h4>
               <ul className="space-y-2.5 text-sm text-gray-500">
                 {[t('footerAbout'), t('footerCreator'), t('footerBlog')].map((l, i) => (
-                  <li key={i}><a href="#" className="hover:text-white transition-colors">{l}</a></li>
+                  <li key={i}><a href="https://fraudara.pro/blog" className="hover:text-white transition-colors">{l}</a></li>
                 ))}
               </ul>
             </div>
