@@ -351,6 +351,26 @@ const TemuAnalysis: React.FC = () => {
                       <div className="flex justify-between"><span>Parent:</span> <span className="font-semibold">PDD Holdings</span></div>
                     </div>
                   </div>
+                  {/* SOCIAL */}
+                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
+                      <Users className="w-5 h-5 text-purple-500" /> Social Presence
+                    </div>
+                    <div className="space-y-2 text-sm text-slate-600">
+                      <div className="flex justify-between"><span>Instagram:</span> <span className="font-semibold">Verified</span></div>
+                      <div className="flex justify-between"><span>Twitter:</span> <span className="font-semibold">Verified</span></div>
+                    </div>
+                  </div>
+                  {/* REPUTATION */}
+                  <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div className="flex items-center gap-2 mb-4 font-bold text-slate-800">
+                      <Star className="w-5 h-5 text-amber-500" /> Online Reputation
+                    </div>
+                    <div className="space-y-2 text-sm text-slate-600">
+                      <div className="flex justify-between"><span>TrustPilot:</span> <span className="font-semibold">3.0/5.0</span></div>
+                      <div className="flex justify-between"><span>Google Reviews:</span> <span className="font-semibold">High</span></div>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="text-center py-12 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
