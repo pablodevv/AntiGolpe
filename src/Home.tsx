@@ -183,6 +183,7 @@ const translations: Record<string, Record<string, string>> = {
 
     // Social proof
     testimonials: "O que dizem nossos usuários",
+    popularChecks: "Verificações populares:",
   },
 
   en: {
@@ -307,6 +308,7 @@ const translations: Record<string, Record<string, string>> = {
     step2Desc: "We check 50+ data sources in seconds with artificial intelligence",
     step3Title: "Instant result",
     step3Desc: "Get a complete report with a trust index and recommendations",
+    popularChecks: "Popular checks:",
     testimonials: "What our users say",
   },
 
@@ -432,6 +434,7 @@ const translations: Record<string, Record<string, string>> = {
     step2Desc: "Verificamos 50+ fuentes de datos en segundos",
     step3Title: "Resultado instantáneo",
     step3Desc: "Recibe un informe completo con índice de confianza",
+    popularChecks: "Verificaciones populares:",
     testimonials: "Lo que dicen nuestros usuarios",
   },
 
@@ -1718,6 +1721,28 @@ export default function App() {
 
               
             </div>
+
+
+
+            
+            {/* Popular Checks Section */}
+<div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-blue-100/60 mb-6 animate-in fade-in duration-700 delay-300">
+  <span className="font-semibold">{t('popularChecks')}</span>
+  {[
+    { name: 'Amazon', path: '/is-site-safe/amazon' },
+    { name: 'AliExpress', path: '/is-site-safe/aliexpress' },
+    { name: 'Instagram', path: '/is-site-safe/instagram' },
+    { name: 'Temu', path: '/is-site-safe/temu' },
+  ].map((brand) => (
+    <a
+      key={brand.name}
+      href={brand.path}
+      className="hover:text-white transition-colors underline underline-offset-4 decoration-blue-400/30 hover:decoration-white font-medium"
+    >
+      {brand.name}
+    </a>
+  ))}
+</div>
 
             
 
