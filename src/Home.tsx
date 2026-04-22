@@ -560,6 +560,7 @@ const translations: Record<string, Record<string, string>> = {
     step2Desc: "几秒内检查50多个数据源",
     step3Title: "即时结果",
     step3Desc: "获得包含信任指数的完整报告",
+    popularChecks: "热门检测：",
     testimonials: "用户评价",
   },
 
@@ -668,6 +669,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "Entrez le site ou la marque", step1Desc: "Collez l'URL ou tapez le nom de l'entreprise",
     step2Title: "Notre IA analyse tout", step2Desc: "Nous vérifions 50+ sources de données en secondes",
     step3Title: "Résultat instantané", step3Desc: "Recevez un rapport complet avec indice de confiance",
+    popularChecks: "Vérifications populaires :",
     testimonials: "Ce que disent nos utilisateurs",
   },
 
@@ -771,6 +773,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "Website oder Marke eingeben", step1Desc: "URL einfügen oder Firmennamen eingeben",
     step2Title: "Unsere KI analysiert alles", step2Desc: "Wir prüfen 50+ Datenquellen in Sekunden",
     step3Title: "Sofortiges Ergebnis", step3Desc: "Vollständigen Bericht mit Vertrauensindex erhalten",
+    popularChecks: "Beliebte Überprüfungen:",
     testimonials: "Was unsere Nutzer sagen",
   },
 
@@ -873,6 +876,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "أدخل الموقع أو العلامة التجارية", step1Desc: "الصق الرابط أو اكتب اسم الشركة",
     step2Title: "ذكاؤنا الاصطناعي يحلل كل شيء", step2Desc: "نتحقق من 50+ مصدر بيانات في ثوانٍ",
     step3Title: "نتيجة فورية", step3Desc: "احصل على تقرير كامل مع مؤشر الثقة",
+    popularChecks: "الفحوصات الشائعة:",
     testimonials: "ما يقوله مستخدمونا",
   },
 
@@ -975,6 +979,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "サイトまたはブランドを入力", step1Desc: "URLを貼り付けるか企業名を入力",
     step2Title: "AIがすべてを分析", step2Desc: "50以上のデータソースを数秒で確認",
     step3Title: "即時結果", step3Desc: "信頼指数と完全なレポートを受け取る",
+    popularChecks: "人気のチェック:",
     testimonials: "ユーザーの声",
   },
 
@@ -1077,6 +1082,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "Введите сайт или бренд", step1Desc: "Вставьте URL или введите название компании",
     step2Title: "Наш ИИ анализирует всё", step2Desc: "Проверяем 50+ источников данных за секунды",
     step3Title: "Мгновенный результат", step3Desc: "Получите полный отчёт с индексом доверия",
+    popularChecks: "Популярные проверки:",
     testimonials: "Что говорят наши пользователи",
   },
 
@@ -1179,6 +1185,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "साइट या ब्रांड दर्ज करें", step1Desc: "URL चिपकाएं या कंपनी का नाम टाइप करें",
     step2Title: "हमारी AI सब कुछ विश्लेषण करती है", step2Desc: "सेकंडों में 50+ डेटा स्रोत जांचते हैं",
     step3Title: "तत्काल परिणाम", step3Desc: "विश्वास सूचकांक के साथ पूरी रिपोर्ट प्राप्त करें",
+    popularChecks: "लोकप्रिय जाँच:",
     testimonials: "हमारे उपयोगकर्ता क्या कहते हैं",
   },
 
@@ -1281,6 +1288,7 @@ const translations: Record<string, Record<string, string>> = {
     step1Title: "Inserisci il sito o marchio", step1Desc: "Incolla l'URL o digita il nome dell'azienda",
     step2Title: "La nostra IA analizza tutto", step2Desc: "Verifichiamo 50+ fonti di dati in secondi",
     step3Title: "Risultato istantaneo", step3Desc: "Ricevi un rapporto completo con indice di fiducia",
+    popularChecks: "Controlli popolari:",
     testimonials: "Cosa dicono i nostri utenti",
   },
 };
