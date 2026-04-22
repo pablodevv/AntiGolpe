@@ -1,20 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { ViteSSG } from 'vite-plugin-ssg'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    ViteSSG({
-      routes: [
-        '/',
-        '/about',
-        '/contact',
-        '/faq'
-      ],
-    }),
-  ],
+  plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-})
+});
