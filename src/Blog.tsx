@@ -266,7 +266,7 @@ const Blog: React.FC = () => {
             <ArrowRight className="w-4 h-4 rotate-180" /> Back to Blog
           </Link>
           <Link to="/" className="flex items-center gap-2">
-             <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-8 h-8" />
+             <img src="/Fraudara_Logo1.png" alt="Fraudara" className="w-9 h-8" />
              <span className="font-black text-lg">Fraudara</span>
           </Link>
           <a href="https://fraudara.pro" className="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-lg">Verify a Site</a>
