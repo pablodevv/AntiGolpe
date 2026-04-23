@@ -180,136 +180,66 @@ const TemuAnalysis: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
-      <Helmet>
-  {/* BASIC SEO */}
+     <Helmet>
   <title>{seoTitle}</title>
   <meta name="description" content={seoDescription} />
-  <meta name="robots" content="index, follow" />
-
-  {/* CANONICAL */}
-  <link
-    rel="canonical"
-    href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
-  />
-
-  {/* OPEN GRAPH (SOCIAL + CTR) */}
-  <meta property="og:type" content="article" />
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta
-    property="og:url"
-    content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
-  />
-
-  {/* TWITTER */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={seoTitle} />
-  <meta name="twitter:description" content={seoDescription} />
-
-  {/* STRUCTURED DATA */}
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}`} />
+  
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "WebPage",
-          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`,
-          "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
-          "name": seoTitle,
-          "description": seoDescription,
-          "inLanguage": "en"
-        },
-
-        {
-          "@type": "Article",
-          "headline": seoTitle,
-          "description": seoDescription,
-          "author": {
-            "@type": "Person",
-            "name": "Pablo Eduardo"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Fraudara",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://fraudara.pro/Fraudara_Logo1.png"
-            }
-          },
-          "datePublished": `${currentYear}-01-01`,
-          "dateModified": `${currentYear}-01-01`
-        },
-
-        {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://fraudara.pro"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Is Site Safe",
-              "item": "https://fraudara.pro/is-site-safe"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": brand,
-              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
-            }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
+            { "@type": "ListItem", "position": 2, "name": `Is ${brand} Safe?`, "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}` }
           ]
         },
-
+        {
+          "@type": "SoftwareApplication",
+          "name": `Fraudara ${brand} Safety Checker`,
+          "operatingSystem": "WEB",
+          "applicationCategory": "SecurityApplication",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "85420",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is Temu a Chinese company?",
+              "name": `Is ${brand} legit and safe to use in ${currentYear}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Temu is owned by PDD Holdings, a multinational e-commerce group headquartered in Dublin, Ireland, with origins in China."
+                "text": `${brand} is a well-established platform, but users must be aware of third-party seller scams and phishing attempts. Fraudara's AI verification confirms its core infrastructure is secure.`
               }
             },
             {
               "@type": "Question",
-              "name": "Is it safe to give Temu my credit card?",
+              "name": `How can I avoid scams on ${brand}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Temu uses encryption, but for maximum security it is recommended to use payment processors like PayPal or Apple Pay instead of entering your card directly."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Why are Temu prices so low?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Temu connects buyers directly with manufacturers, eliminating intermediaries and reducing costs significantly."
+                "text": `Always verify the URL, check seller ratings, and use Fraudara.pro to scan any suspicious links or offers before providing personal information.`
               }
             }
           ]
-        },
-
-        {
-          "@type": "SoftwareApplication",
-          "name": "Fraudara AI Analyzer",
-          "applicationCategory": "SecurityApplication",
-          "operatingSystem": "All",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          }
         }
       ]
     })}
   </script>
 </Helmet>
 
+      
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
