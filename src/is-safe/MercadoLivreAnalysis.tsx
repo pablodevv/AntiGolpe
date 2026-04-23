@@ -281,16 +281,6 @@ const MercadoLivreAnalysis: React.FC = () => {
         },
 
         {
-          "@type": "Product",
-          "name": brand,
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.3",
-            "reviewCount": "53218"
-          }
-        },
-
-        {
           "@type": "Review",
           "itemReviewed": {
             "@type": "Organization",
