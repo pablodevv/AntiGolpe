@@ -198,26 +198,26 @@ const InstagramAnalysis: React.FC = () => {
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is Instagram safe for login?",
+              "name": "Is Instagram safe to use?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Instagram uses advanced encryption and two-factor authentication (2FA). However, hackers often use phishing clones. Always verify if the URL is exactly instagram.com before entering credentials."
+                "text": "Yes, Instagram is generally safe and uses encryption and security systems like two-factor authentication. However, scams and phishing attacks are very common, especially through fake login pages and direct messages."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I be scammed on Instagram?",
+              "name": "What are common scams on Instagram?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, common scams include fake verification badges, 'copyright infringement' DMs, and crypto investment fraud. Fraudara.pro uses AI to detect these malicious links instantly."
+                "text": "The most common scams include fake verification messages, phishing links pretending to be Instagram login pages, crypto investment scams, and messages claiming copyright violations to steal your credentials."
               }
             },
             {
               "@type": "Question",
-              "name": "How do I check if an Instagram link is a scam?",
+              "name": "How can I check if an Instagram link is legit?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can use Fraudara's security scanner. Our AI analyzes the domain age, SSL certificate, and phishing databases to confirm if the Instagram-related link is official or a trap."
+                "text": "Always verify that the domain is exactly instagram.com. You can also use Fraudara to scan any link and detect phishing attempts, fake domains, and malicious redirects instantly."
               }
             }
           ]
@@ -242,11 +242,11 @@ const InstagramAnalysis: React.FC = () => {
         },
         {
           "@type": "WebApplication",
-          "name": "Fraudara AI Scanner",
+          "name": "Fraudara AI Security Scanner",
           "url": "https://fraudara.pro",
           "applicationCategory": "SecurityApplication",
           "operatingSystem": "Web",
-          "description": "Real-time AI analysis of Instagram links and profiles to prevent phishing and data theft.",
+          "description": "AI-powered tool that analyzes Instagram links, detects phishing pages, and protects users from account theft and scams.",
           "author": {
             "@type": "Organization",
             "name": "Fraudara"
@@ -256,6 +256,7 @@ const InstagramAnalysis: React.FC = () => {
     })}
   </script>
 </Helmet>
+
       
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
