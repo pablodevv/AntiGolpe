@@ -285,16 +285,6 @@ const AmazonAnalysis: React.FC = () => {
         },
 
         {
-          "@type": "Product",
-          "name": brand,
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.7",
-            "reviewCount": "154382"
-          }
-        },
-
-        {
           "@type": "Review",
           "itemReviewed": {
             "@type": "Organization",
