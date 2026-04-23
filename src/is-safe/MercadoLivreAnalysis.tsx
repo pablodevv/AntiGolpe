@@ -181,38 +181,81 @@ const MercadoLivreAnalysis: React.FC = () => {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
       <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase().replace(' ', '-')}`} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is Mercado Livre safe to buy from?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, Mercado Livre is safe. It uses Mercado Pago to protect your money. Payment is only released to the seller after you receive the product."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How to avoid scams on Mercado Livre?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Always check the seller's reputation, keep all communication within the platform, and never pay outside Mercado Pago. Use Fraudara to verify suspicious links."
-                }
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase().replace(' ', '-')}`} />
+  
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FAQPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase().replace(' ', '-')}#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Mercado Livre safe to buy from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Mercado Livre is safe as long as you stay within the platform. It uses Mercado Pago to protect your money, releasing payment to the seller only after you confirm receipt of the product."
               }
-            ]
-          })}
-        </script>
-      </Helmet>
+            },
+            {
+              "@type": "Question",
+              "name": "How do I avoid scams on Mercado Livre?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Never pay via direct links (Boleto/Pix) sent by sellers outside the platform and avoid communication via WhatsApp. Always use Fraudara to verify if a payment link is an official Mercado Pago domain."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Mercado Livre 'Compra Garantida' policy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is a protection program that guarantees a refund if the product is not delivered or is different from what was advertised, provided the transaction was completed through Mercado Pago."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase().replace(' ', '-')}#breadcrumb`,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Safety Analysis",
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase().replace(' ', '-')}`
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Fraudara AI Security Scanner",
+          "url": "https://fraudara.pro",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Web",
+          "description": "AI-driven fraud detection for Latin American e-commerce, specializing in identifying phishing and fake Mercado Pago checkout pages.",
+          "author": {
+            "@type": "Organization",
+            "name": "Fraudara"
+          }
+        }
+      ]
+    })}
+  </script>
+</Helmet>
 
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
