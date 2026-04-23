@@ -179,41 +179,84 @@ const InstagramAnalysis: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-      
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is Instagram safe for login?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, Instagram uses advanced encryption and 2FA. However, always ensure you are on the official instagram.com domain to avoid phishing scams."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I be scammed on Instagram?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "While the platform is secure, scammers use fake accounts and phishing links to steal data. Always verify suspicious links with Fraudara."
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
 
+      <Helmet>
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FAQPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Instagram safe for login?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Instagram uses advanced encryption and two-factor authentication (2FA). However, hackers often use phishing clones. Always verify if the URL is exactly instagram.com before entering credentials."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I be scammed on Instagram?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, common scams include fake verification badges, 'copyright infringement' DMs, and crypto investment fraud. Fraudara.pro uses AI to detect these malicious links instantly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I check if an Instagram link is a scam?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can use Fraudara's security scanner. Our AI analyzes the domain age, SSL certificate, and phishing databases to confirm if the Instagram-related link is official or a trap."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#breadcrumb`,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Safety Analysis",
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Fraudara AI Scanner",
+          "url": "https://fraudara.pro",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Web",
+          "description": "Real-time AI analysis of Instagram links and profiles to prevent phishing and data theft.",
+          "author": {
+            "@type": "Organization",
+            "name": "Fraudara"
+          }
+        }
+      ]
+    })}
+  </script>
+</Helmet>
+      
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
