@@ -291,8 +291,9 @@ const AliExpressAnalysis: React.FC = () => {
         {
           "@type": "Review",
           "itemReviewed": {
-            "@type": "Thing",
-            "name": brand
+            "@type": "Organization",
+  "name": "AliExpress",
+  "url": "https://www.aliexpress.com"
           },
           "reviewRating": {
             "@type": "Rating",
