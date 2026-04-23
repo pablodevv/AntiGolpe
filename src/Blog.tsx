@@ -244,11 +244,7 @@ const Blog: React.FC = () => {
       "url": "https://fraudara.pro",
       "name": "Fraudara",
       "publisher": {
-        "@id": "https://fraudara.pro/#organization",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://fraudara.pro/Fraudara_Logo1.png"
-  }
+        "@id": "https://fraudara.pro/#organization"
       }
     },
     {
@@ -259,11 +255,7 @@ const Blog: React.FC = () => {
       "description": "Online safety, scam detection and cybersecurity insights.",
       "inLanguage": "en",
       "publisher": {
-        "@id": "https://fraudara.pro/#organization",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://fraudara.pro/Fraudara_Logo1.png"
-  }
+        "@id": "https://fraudara.pro/#organization"
       }
     }
   ]
@@ -386,11 +378,7 @@ const Blog: React.FC = () => {
       "url": "https://fraudara.pro",
       "name": "Fraudara",
       "publisher": {
-        "@id": "https://fraudara.pro/#organization",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://fraudara.pro/Fraudara_Logo1.png"
-  }
+        "@id": "https://fraudara.pro/#organization"
       }
     },
     {
@@ -421,11 +409,7 @@ const Blog: React.FC = () => {
     "@id": "https://fraudara.pro/#author"
   },
   "publisher": {
-    "@id": "https://fraudara.pro/#organization",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://fraudara.pro/Fraudara_Logo1.png"
-  }
+    "@id": "https://fraudara.pro/#organization"
   },
   "mainEntityOfPage": {
     "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
