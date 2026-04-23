@@ -186,7 +186,7 @@ const Blog: React.FC = () => {
         <Helmet>
   <title>Fraudara Blog – Online Safety, Scam Detection & Cybersecurity (2026)</title>
   <meta name="description" content="Learn how to detect scams, verify websites, and stay safe online. Expert guides, real cases, and AI-powered insights from Fraudara." />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
   <link rel="canonical" href="https://fraudara.pro/blog" />
 
@@ -195,17 +195,22 @@ const Blog: React.FC = () => {
   <meta property="og:title" content="Fraudara Blog – Online Safety & Scam Detection" />
   <meta property="og:description" content="Expert insights on scam detection, fake websites, and online security." />
   <meta property="og:url" content="https://fraudara.pro/blog" />
+  <meta property="og:image" content="https://fraudara.pro/og-image.png" />
 
   {/* Twitter */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fraudara Blog" />
+  <meta name="twitter:title" content="Fraudara Blog – Online Safety & Scam Detection" />
   <meta name="twitter:description" content="Stay ahead of scammers with expert cybersecurity insights." />
+  <meta name="twitter:image" content="https://fraudara.pro/og-image.png" />
+
+  {/* Extra SEO */}
+  <meta name="author" content="Fraudara" />
+  <meta name="theme-color" content="#0f172a" />
 
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
-
         {
           "@type": "Organization",
           "@id": "https://fraudara.pro/#organization",
@@ -216,7 +221,6 @@ const Blog: React.FC = () => {
             "url": "https://fraudara.pro/Fraudara_Logo1.png"
           }
         },
-
         {
           "@type": "WebSite",
           "@id": "https://fraudara.pro/#website",
@@ -226,7 +230,6 @@ const Blog: React.FC = () => {
             "@id": "https://fraudara.pro/#organization"
           }
         },
-
         {
           "@type": "CollectionPage",
           "@id": "https://fraudara.pro/blog#page",
@@ -238,9 +241,9 @@ const Blog: React.FC = () => {
           "about": {
             "@type": "Thing",
             "name": "Online Safety & Scam Detection"
-          }
+          },
+          "inLanguage": "en"
         }
-
       ]
     })}
   </script>
@@ -298,7 +301,7 @@ const Blog: React.FC = () => {
   // --- SINGLE POST RENDER ---
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-    <Helmet>
+  <Helmet>
   <title>{currentPost.seoTitle}</title>
   <meta name="description" content={currentPost.seoDesc} />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -318,11 +321,14 @@ const Blog: React.FC = () => {
   <meta name="twitter:description" content={currentPost.seoDesc} />
   <meta name="twitter:image" content={currentPost.image} />
 
+  {/* Extra SEO */}
+  <meta name="author" content={currentPost.author} />
+  <meta name="theme-color" content="#0f172a" />
+
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
-
         {
           "@type": "Organization",
           "@id": "https://fraudara.pro/#organization",
@@ -336,13 +342,11 @@ const Blog: React.FC = () => {
             "https://instagram.com/fraudara"
           ]
         },
-
         {
           "@type": "Person",
           "@id": "https://fraudara.pro/#author",
           "name": currentPost.author
         },
-
         {
           "@type": "WebSite",
           "@id": "https://fraudara.pro/#website",
@@ -352,7 +356,6 @@ const Blog: React.FC = () => {
             "@id": "https://fraudara.pro/#organization"
           }
         },
-
         {
           "@type": "WebPage",
           "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`,
@@ -362,13 +365,8 @@ const Blog: React.FC = () => {
           "isPartOf": {
             "@id": "https://fraudara.pro/#website"
           },
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": currentPost.image
-          },
           "inLanguage": "en"
         },
-
         {
           "@type": "BlogPosting",
           "@id": `https://fraudara.pro/blog/${currentPost.slug}#article`,
@@ -386,14 +384,12 @@ const Blog: React.FC = () => {
           },
           "articleSection": currentPost.category,
           "keywords": currentPost.category + ", scam detection, online safety, website security",
-          "datePublished": currentPost.date,
-          "dateModified": currentPost.date,
+          "datePublished": new Date(currentPost.date).toISOString(),
+          "dateModified": new Date(currentPost.date).toISOString(),
           "inLanguage": "en"
         },
-
         {
           "@type": "FAQPage",
-          "@id": `https://fraudara.pro/blog/${currentPost.slug}#faq`,
           "mainEntity": currentPost.faqs.map(faq => ({
             "@type": "Question",
             "name": faq.q,
@@ -403,7 +399,6 @@ const Blog: React.FC = () => {
             }
           }))
         },
-
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -427,7 +422,6 @@ const Blog: React.FC = () => {
             }
           ]
         }
-
       ]
     })}
   </script>
