@@ -281,16 +281,6 @@ const InstagramAnalysis: React.FC = () => {
         },
 
         {
-          "@type": "Product",
-          "name": brand,
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.4",
-            "reviewCount": "98127"
-          }
-        },
-
-        {
           "@type": "Review",
           "itemReviewed": {
             "@type": "Organization",
