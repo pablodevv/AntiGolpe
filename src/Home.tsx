@@ -1371,33 +1371,58 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string; on
   <meta name="twitter:description" content="Free instant scam detection. Protect yourself before buying online." />
   <meta name="twitter:image" content="https://fraudara.pro/Fraudara-OG.png" />
 
-  {/* Structured Data (Schema.org) - Versão unificada para a Home */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Fraudara",
-      "url": "https://fraudara.pro",
-      "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
-      "applicationCategory": "SecurityApplication",
-      "operatingSystem": "Web",
-      "creator": {
-        "@type": "Organization",
+
+
+        
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://fraudara.pro/#software",
         "name": "Fraudara",
+        "url": "https://fraudara.pro",
+        "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Web",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "2300000"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://fraudara.pro/#website",
+        "url": "https://fraudara.pro",
+        "name": "Fraudara",
+        "publisher": {
+          "@id": "https://fraudara.pro/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://fraudara.pro/is-site-safe/{search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://fraudara.pro/#organization",
+        "name": "Fraudara",
+        "url": "https://fraudara.pro",
         "logo": "https://fraudara.pro/Fraudara_Logo1.png"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "2300000"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+        
       }
-    })}
-  </script>
+    ]
+  })}
+</script>
+        
 </Helmet>
     
     
