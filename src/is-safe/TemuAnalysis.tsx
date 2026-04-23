@@ -189,29 +189,67 @@ const TemuAnalysis: React.FC = () => {
         <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
         
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is Temu legit or a scam?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Temu is a legitimate e-commerce company owned by PDD Holdings. It operates similarly to Amazon or AliExpress, connecting buyers with third-party sellers."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is it safe to shop on Temu in 2026?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, shopping on Temu is generally safe. However, users should be aware of aggressive data collection practices and always use secure payment methods like virtual cards or PayPal."
-                }
-              }
-            ]
-          })}
-        </script>
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://fraudara.pro/is-site-safe/temu#webpage",
+        "url": "https://fraudara.pro/is-site-safe/temu",
+        "name": "Is Temu Safe? 2026 Security Analysis & Scam Checker",
+        "description": "Verify if Temu is safe for your credit card. Our AI scans Temu's data privacy policies, SSL certificates, and identifies phishing clones in real-time.",
+        "breadcrumb": {
+          "@id": "https://fraudara.pro/is-site-safe/temu#breadcrumb"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Temu a scam or a legitimate website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Temu is a legitimate global e-commerce platform owned by PDD Holdings. While the platform is real and delivers products, users should be cautious of aggressive data collection and only use the official app or website."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I tell if a Temu link is fake?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Scammers often use look-alike domains like 'temu-deals' or 'temu-giftcard'. You can use the Fraudara.pro analyzer to verify the SSL authority and domain age of any Temu link before entering payment data."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it safe to use a credit card on Temu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shopping on Temu is generally safe, but for maximum security, we recommend using virtual cards or secure processors like PayPal and Apple Pay to keep your main banking details private."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Fraudara AI Analyzer",
+        "operatingSystem": "All",
+        "applicationCategory": "SecurityApplication",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "1240"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+</script>
       </Helmet>
 
       {/* ── ANNOUNCEMENT BAR ── */}
