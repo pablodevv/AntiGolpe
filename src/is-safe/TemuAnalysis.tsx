@@ -133,8 +133,9 @@ const TemuAnalysis: React.FC = () => {
       setIsVerifying(false);
       // AGORA a página tem o conteúdo real (os cards, o score, etc)
     setTimeout(() => {
+      console.log("Prerender Ready for Analysis Page");
       window.prerenderReady = true;
-    }, 600);
+    }, 800);
     }
   };
 
