@@ -387,35 +387,43 @@ const Blog: React.FC = () => {
       "url": `https://fraudara.pro/blog/${currentPost.slug}`,
       "name": currentPost.seoTitle,
       "description": currentPost.seoDesc,
+      "image": {
+  "@type": "ImageObject",
+  "url": currentPost.image
+},
       "isPartOf": {
         "@id": "https://fraudara.pro/#website"
       },
       "inLanguage": "en"
     },
     {
-      "@type": "BlogPosting",
-      "@id": `https://fraudara.pro/blog/${currentPost.slug}#article`,
-      "headline": currentPost.title,
-      "description": currentPost.seoDesc,
-      "image": {
-        "@type": "ImageObject",
-        "url": currentPost.image
-      },
-      "author": {
-        "@id": "https://fraudara.pro/#author"
-      },
-      "publisher": {
-        "@id": "https://fraudara.pro/#organization"
-      },
-      "mainEntityOfPage": {
-        "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
-      },
-      "articleSection": currentPost.category,
-      "keywords": currentPost.category + ", scam detection, online safety, website security",
-      "datePublished": new Date(currentPost.date).toISOString(),
-      "dateModified": new Date(currentPost.date).toISOString(),
-      "inLanguage": "en"
-    },
+  "@type": "BlogPosting",
+  "@id": `https://fraudara.pro/blog/${currentPost.slug}#article`,
+  "headline": currentPost.title,
+  "description": currentPost.seoDesc,
+  "image": {
+    "@type": "ImageObject",
+    "url": currentPost.image
+  },
+  "author": {
+    "@id": "https://fraudara.pro/#author"
+  },
+  "publisher": {
+    "@id": "https://fraudara.pro/#organization"
+  },
+  "mainEntityOfPage": {
+    "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
+  },
+  "articleSection": currentPost.category,
+  "keywords": currentPost.category + ", scam detection, online safety, website security",
+
+  "dateCreated": new Date(currentPost.date).toISOString(),
+  "datePublished": new Date(currentPost.date).toISOString(),
+  "dateModified": new Date(currentPost.date).toISOString(),
+
+  "inLanguage": "en"
+},
+
     {
       "@type": "FAQPage",
        "@id": `https://fraudara.pro/blog/${currentPost.slug}#faq`,
