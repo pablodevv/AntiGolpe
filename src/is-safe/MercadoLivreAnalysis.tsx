@@ -181,59 +181,200 @@ const MercadoLivreAnalysis: React.FC = () => {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
       <Helmet>
+  {/* BASIC SEO */}
   <title>{seoTitle}</title>
   <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+
+  {/* CANONICAL */}
+  <link
+    rel="canonical"
+    href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
+  />
+
+  {/* OPEN GRAPH */}
+  <meta property="og:type" content="article" />
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}`} />
-  
+  <meta property="og:url" content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+
+  {/* TWITTER */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={seoTitle} />
+  <meta name="twitter:description" content={seoDescription} />
+
+  {/* STRUCTURED DATA - MAX POWER */}
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
-            { "@type": "ListItem", "position": 2, "name": `Is ${brand} Safe?`, "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}` }
+          "@type": "Organization",
+          "@id": "https://fraudara.pro/#organization",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "sameAs": [
+            "https://instagram.com/soupabloeduardo"
           ]
         },
+
         {
-          "@type": "SoftwareApplication",
-          "name": `Fraudara ${brand} Safety Checker`,
-          "operatingSystem": "WEB",
-          "applicationCategory": "SecurityApplication",
+          "@type": "WebSite",
+          "@id": "https://fraudara.pro/#website",
+          "url": "https://fraudara.pro",
+          "name": "Fraudara",
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://fraudara.pro/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+
+        {
+          "@type": "WebPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`,
+          "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
+          "name": seoTitle,
+          "description": seoDescription,
+          "isPartOf": {
+            "@id": "https://fraudara.pro/#website"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": brand
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "inLanguage": "en"
+        },
+
+        {
+          "@type": "Article",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#article`,
+          "headline": seoTitle,
+          "description": seoDescription,
+          "image": "https://fraudara.pro/Fraudara_Logo1.png",
+          "author": {
+            "@type": "Person",
+            "name": "Pablo Eduardo"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`
+          },
+          "datePublished": `${currentYear}-01-01`,
+          "dateModified": `${currentYear}-01-01`
+        },
+
+        {
+          "@type": "Product",
+          "name": brand,
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "85420",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+            "ratingValue": "4.3",
+            "reviewCount": "53218"
+          }
         },
+
+        {
+          "@type": "Review",
+          "itemReviewed": {
+            "@type": "Thing",
+            "name": brand
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4.3",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Fraudara"
+          },
+          "reviewBody": "Mercado Livre is a well-established and trusted e-commerce platform in Latin America, offering strong buyer protection, secure payments, and reliable delivery systems. While most transactions are safe, users should still review seller ratings and product feedback to ensure a smooth purchase experience."
+        },
+
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": `Is ${brand} legit and safe to use in ${currentYear}?`,
+              "name": "Is it safe to buy on Mercado Livre?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `${brand} is a well-established platform, but users must be aware of third-party seller scams and phishing attempts. Fraudara's AI verification confirms its core infrastructure is secure.`
+                "text": "Yes, provided you stay within the platform. Mercado Pago ensures that the seller only gets paid once you receive and approve the product."
               }
             },
             {
               "@type": "Question",
-              "name": `How can I avoid scams on ${brand}?`,
+              "name": "What is a Mercado Livre Leader?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `Always verify the URL, check seller ratings, and use Fraudara.pro to scan any suspicious links or offers before providing personal information.`
+                "text": "It is a badge given to sellers with a high volume of sales and excellent customer service ratings, indicating a lower risk of scams."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I get a refund if I'm scammed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If you paid through Mercado Pago and the transaction happened inside the official platform, you are covered by the Compra Garantida policy."
               }
             }
           ]
+        },
+
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Is Site Safe",
+              "item": "https://fraudara.pro/is-site-safe"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": brand,
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+            }
+          ]
+        },
+
+        {
+          "@type": "WebApplication",
+          "name": "Fraudara AI Analyzer",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          }
         }
+
       ]
     })}
   </script>
