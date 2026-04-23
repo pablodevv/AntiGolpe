@@ -279,15 +279,7 @@ const AliExpressAnalysis: React.FC = () => {
           "dateModified": new Date().toISOString()
 
         },
-        {
-          "@type": "Product",
-          "name": brand,
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.1",
-            "reviewCount": "87321"
-          }
-        },
+      
 
         {
           "@type": "Review",
