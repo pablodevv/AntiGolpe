@@ -180,18 +180,58 @@ const ShopeeAnalysis: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
-      <Helmet>
+  <Helmet>
   <title>{seoTitle}</title>
+
   <meta name="description" content={seoDescription} />
+  <meta name="keywords" content={`is shopee safe, is shopee legit, shopee scam, is shopee trustworthy ${currentYear}, shopee reviews, shopee security, fraudara shopee analysis`} />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  {/* CANONICAL */}
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+
+  {/* OPEN GRAPH */}
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+  <meta property="og:image" content="https://fraudara.pro/og-image.png" />
+
+  {/* TWITTER */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={seoTitle} />
+  <meta name="twitter:description" content={seoDescription} />
+  <meta name="twitter:image" content="https://fraudara.pro/og-image.png" />
 
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+
+        // --- ARTICLE (E-E-A-T BOOST) ---
+        {
+          "@type": "Article",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#article`,
+          "headline": seoTitle,
+          "description": seoDescription,
+          "author": {
+            "@type": "Person",
+            "name": "Pablo Eduardo"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Fraudara",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://fraudara.pro/Fraudara_Logo1.png"
+            }
+          },
+          "datePublished": `${currentYear}-01-01`,
+          "dateModified": `${currentYear}-01-01`,
+          "mainEntityOfPage": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+        },
+
+        // --- FAQ (EXPANDIDO E ALINHADO COM SEO REAL) ---
         {
           "@type": "FAQPage",
           "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#faq`,
@@ -201,15 +241,23 @@ const ShopeeAnalysis: React.FC = () => {
               "name": "Is Shopee legit and safe?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Shopee is a legitimate global e-commerce giant owned by Sea Limited. It is generally safe, but as a marketplace, it hosts third-party sellers. Always check the seller's reputation and use Fraudara to verify links before paying."
+                "text": "Shopee is a legitimate global e-commerce platform owned by Sea Limited. It is generally safe, but users must be careful with third-party sellers and always verify links before making payments."
               }
             },
             {
               "@type": "Question",
-              "name": "Is it safe to buy from Shopee in 2026?",
+              "name": "Can you get scammed on Shopee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Buying from Shopee in 2026 is safe provided you use the official app or website. Fraudara's AI monitoring warns against 'cloned' Shopee sites and off-platform payment requests which are common scam tactics."
+                "text": "Yes, scams on Shopee usually come from fake sellers or phishing links sent outside the platform. Always avoid external payment links and verify suspicious URLs using tools like Fraudara."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Shopee safe for credit card payments?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Shopee uses secure payment systems, making credit card payments safe within the official app or website. Never enter payment details on external or cloned Shopee pages."
               }
             },
             {
@@ -217,11 +265,41 @@ const ShopeeAnalysis: React.FC = () => {
               "name": "How do I avoid scams on Shopee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "To stay safe on Shopee, never pay via external links sent in chat, look for 'Shopee Mall' verified sellers, and use the Shopee Guarantee escrow service. Use Fraudara to scan any suspicious URLs claiming to be Shopee."
+                "text": "Avoid scams by only buying from highly rated sellers, using Shopee Guarantee, and never paying outside the platform. Always scan suspicious links before clicking."
               }
             }
           ]
         },
+
+        // --- HOW TO (RANKEIA MUITO PRA FEATURED SNIPPET) ---
+        {
+          "@type": "HowTo",
+          "name": "How to avoid scams on Shopee",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Check seller ratings",
+              "text": "Always review seller ratings and customer feedback before buying."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Avoid external payment links",
+              "text": "Never pay outside Shopee, even if offered discounts."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Verify suspicious URLs",
+              "text": "Use Fraudara to scan links that claim to be Shopee."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Use Shopee Guarantee",
+              "text": "Ensure your payment is protected with Shopee's escrow system."
+            }
+          ]
+        },
+
+        // --- BREADCRUMB ---
         {
           "@type": "BreadcrumbList",
           "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#breadcrumb`,
@@ -240,22 +318,28 @@ const ShopeeAnalysis: React.FC = () => {
             }
           ]
         },
+
+        // --- WEBAPP ---
         {
           "@type": "WebApplication",
           "name": "Fraudara AI Security Scanner",
           "url": "https://fraudara.pro",
           "applicationCategory": "SecurityApplication",
           "operatingSystem": "Web",
-          "description": "Advanced AI-driven analysis to verify the safety of e-commerce platforms like Shopee, protecting users from phishing, fake sellers, and financial fraud.",
+          "description": "AI-powered tool to detect scams, phishing, and unsafe e-commerce platforms.",
           "author": {
             "@type": "Organization",
             "name": "Fraudara"
           }
         }
+
       ]
     })}
   </script>
 </Helmet>
+
+
+      
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
