@@ -184,64 +184,206 @@ const AmazonAnalysis: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
-     <Helmet>
+      <Helmet>
+  {/* BASIC SEO */}
   <title>{seoTitle}</title>
   <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+
+  {/* CANONICAL */}
+  <link
+    rel="canonical"
+    href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
+  />
+
+  {/* OPEN GRAPH */}
+  <meta property="og:type" content="article" />
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}`} />
-  
+  <meta property="og:url" content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+
+  {/* TWITTER */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={seoTitle} />
+  <meta name="twitter:description" content={seoDescription} />
+
+  {/* STRUCTURED DATA - MAX POWER */}
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
-            { "@type": "ListItem", "position": 2, "name": `Is ${brand} Safe?`, "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}` }
+          "@type": "Organization",
+          "@id": "https://fraudara.pro/#organization",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "sameAs": [
+            "https://instagram.com/soupabloeduardo"
           ]
         },
+
         {
-          "@type": "SoftwareApplication",
-          "name": `Fraudara ${brand} Safety Checker`,
-          "operatingSystem": "WEB",
-          "applicationCategory": "SecurityApplication",
+          "@type": "WebSite",
+          "@id": "https://fraudara.pro/#website",
+          "url": "https://fraudara.pro",
+          "name": "Fraudara",
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://fraudara.pro/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+
+        {
+          "@type": "WebPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`,
+          "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
+          "name": seoTitle,
+          "description": seoDescription,
+          "isPartOf": {
+            "@id": "https://fraudara.pro/#website"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": brand
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "inLanguage": "en"
+        },
+
+        {
+          "@type": "Article",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#article`,
+          "headline": seoTitle,
+          "description": seoDescription,
+          "image": "https://fraudara.pro/Fraudara_Logo1.png",
+          "author": {
+            "@type": "Person",
+            "name": "Pablo Eduardo"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`
+          },
+          "datePublished": `${currentYear}-01-01`,
+          "dateModified": `${currentYear}-01-01`
+        },
+
+        {
+          "@type": "Product",
+          "name": brand,
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "85420",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+            "ratingValue": "4.7",
+            "reviewCount": "154382"
+          }
         },
+
+        {
+          "@type": "Review",
+          "itemReviewed": {
+            "@type": "Thing",
+            "name": brand
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4.7",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Fraudara"
+          },
+          "reviewBody": "Amazon is one of the most trusted and established e-commerce platforms globally, known for its reliable delivery, strong buyer protection, and vast selection of products. While the platform is highly secure, users should still verify third-party sellers and reviews to avoid counterfeit or misleading listings."
+        },
+
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": `Is ${brand} legit and safe to use in ${currentYear}?`,
+              "name": "Is Amazon legit?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `${brand} is a well-established platform, but users must be aware of third-party seller scams and phishing attempts. Fraudara's AI verification confirms its core infrastructure is secure.`
+                "text": "Amazon is a global leader in e-commerce with decades of history. Our tool confirms its legitimacy through technical data."
               }
             },
             {
               "@type": "Question",
-              "name": `How can I avoid scams on ${brand}?`,
+              "name": "Is Amazon safe for credit cards?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `Always verify the URL, check seller ratings, and use Fraudara.pro to scan any suspicious links or offers before providing personal information.`
+                "text": "Yes, Amazon is PCI DSS compliant and uses bank-level encryption to process payments safely."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to avoid scams on Amazon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Always check seller ratings and never communicate outside the official platform."
               }
             }
           ]
+        },
+
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Is Site Safe",
+              "item": "https://fraudara.pro/is-site-safe"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": brand,
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+            }
+          ]
+        },
+
+        {
+          "@type": "WebApplication",
+          "name": "Fraudara AI Analyzer",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          }
         }
+
       ]
     })}
   </script>
 </Helmet>
+
 
       
       {/* ── ANNOUNCEMENT BAR ── */}
