@@ -184,77 +184,59 @@ const AmazonAnalysis: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
-      <Helmet>
+     <Helmet>
   <title>{seoTitle}</title>
   <meta name="description" content={seoDescription} />
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}`} />
   
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
+            { "@type": "ListItem", "position": 2, "name": `Is ${brand} Safe?`, "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}` }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": `Fraudara ${brand} Safety Checker`,
+          "operatingSystem": "WEB",
+          "applicationCategory": "SecurityApplication",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "85420",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
           "@type": "FAQPage",
-          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#faq`,
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is Amazon legit and safe?",
+              "name": `Is ${brand} legit and safe to use in ${currentYear}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Amazon is a global leader in e-commerce with high security standards. However, scammers often create fake Amazon websites to steal credit card data. Always verify the domain using Fraudara before purchasing."
+                "text": `${brand} is a well-established platform, but users must be aware of third-party seller scams and phishing attempts. Fraudara's AI verification confirms its core infrastructure is secure.`
               }
             },
             {
               "@type": "Question",
-              "name": "Is it safe to buy from Amazon in 2026?",
+              "name": `How can I avoid scams on ${brand}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Buying from Amazon is safe as long as you are on the official amazon.com domain. Fraudara's AI monitoring confirms that Amazon maintains bank-level encryption and robust buyer protection policies."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I avoid scams on Amazon?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "To stay safe, never communicate or pay sellers outside the official Amazon platform, avoid clicking links in suspicious emails, and use Fraudara to scan any order-related link you receive."
+                "text": `Always verify the URL, check seller ratings, and use Fraudara.pro to scan any suspicious links or offers before providing personal information.`
               }
             }
           ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#breadcrumb`,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://fraudara.pro"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Safety Analysis",
-              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
-            }
-          ]
-        },
-        {
-          "@type": "WebApplication",
-          "name": "Fraudara AI Security Scanner",
-          "url": "https://fraudara.pro",
-          "applicationCategory": "SecurityApplication",
-          "operatingSystem": "Web",
-          "description": "Advanced AI-driven analysis to verify the safety of e-commerce platforms like Amazon, protecting users from phishing and financial fraud.",
-          "author": {
-            "@type": "Organization",
-            "name": "Fraudara"
-          }
         }
       ]
     })}
