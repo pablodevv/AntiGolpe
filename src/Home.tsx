@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   Shield, Search, Share2, CheckCircle, AlertTriangle, XCircle,
   Loader2, Award, Users, Clock, TrendingUp, Star, Lock, Zap,
@@ -1345,6 +1346,60 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string; on
   const [open, setOpen] = useState(false);
   const cur = LANGS.find(l => l.code === language) || LANGS[0];
   return (
+
+    <>
+
+      <Helmet>
+  {/* SEO Padrão */}
+  <title>Fraudara – #1 Website & Brand Checker | 2.3M+ Scans</title>
+  <meta name="description" content="🚨 Stop scams before you buy. Instantly check if any website or brand is safe. 2.3M+ verifications, $45M+ in fraud prevented. 99.7% accuracy." />
+  <meta name="keywords" content="fraudara, scam checker, website safety, brand verification, online fraud protection, scam detector, trusted websites, phishing check, online shopping safety" />
+  <link rel="canonical" href="https://fraudara.pro/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  {/* Open Graph / Facebook (Importante para compartilhamento social) */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fraudara.pro/" />
+  <meta property="og:title" content="Fraudara – #1 Website & Brand Checker" />
+  <meta property="og:description" content="🚨 Stop scams before you buy. Instantly check if any website or brand is safe. 2.3M+ verifications." />
+  <meta property="og:image" content="https://fraudara.pro/Fraudara-OG.png" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fraudara – #1 Website & Brand Checker" />
+  <meta name="twitter:description" content="Free instant scam detection. Protect yourself before buying online." />
+  <meta name="twitter:image" content="https://fraudara.pro/Fraudara-OG.png" />
+
+  {/* Structured Data (Schema.org) - Versão unificada para a Home */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Fraudara",
+      "url": "https://fraudara.pro",
+      "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web",
+      "creator": {
+        "@type": "Organization",
+        "name": "Fraudara",
+        "logo": "https://fraudara.pro/Fraudara_Logo1.png"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "2300000"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    })}
+  </script>
+</Helmet>
+    
+    
     <div className="relative">
       <button onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all">
@@ -2359,5 +2414,6 @@ function SocialLink({ href, label }: { href: string; label: string }) {
         Ver perfil <ExternalLink className="w-3 h-3" />
       </a>
     </div>
+        </>
   );
 }
