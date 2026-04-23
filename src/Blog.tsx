@@ -173,6 +173,20 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Se existe um slug, estamos em um post. Se não, estamos na home do blog.
+    // Em ambos os casos, a página está "pronta" logo após o render.
+    // Usamos um pequeno delay de 500ms para garantir que o Helmet terminou de trocar as meta tags.
+    const timer = setTimeout(() => {
+      console.log("Sinalizando Prerender: OK");
+      window.prerenderReady = true;
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      window.prerenderReady = false;
+    };
+    
   }, [slug]);
 
   const currentPost = slug ? BLOG_POSTS.find(p => p.slug === slug) : null;
