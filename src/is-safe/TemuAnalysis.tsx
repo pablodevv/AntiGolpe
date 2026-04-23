@@ -287,11 +287,10 @@ const TemuAnalysis: React.FC = () => {
           "@type": "Product",
           "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#product`,
           "name": brand,
-          "image": "https://fraudara.pro/Fraudara_Logo1.png",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "3.8",
-            "reviewCount": "12487",
+            "reviewCount": "12487"
           }
         },
 
