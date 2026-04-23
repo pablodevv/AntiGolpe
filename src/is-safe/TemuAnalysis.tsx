@@ -291,8 +291,9 @@ const TemuAnalysis: React.FC = () => {
         {
           "@type": "Review",
           "itemReviewed": {
-            "@type": "Thing",
-            "name": brand
+            "@type": "Organization",
+  "name": "Temu",
+  "url": "https://www.temu.com"
           },
           "reviewRating": {
             "@type": "Rating",
