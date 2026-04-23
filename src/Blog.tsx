@@ -41,7 +41,7 @@ const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Is Temu safe for your credit card? We analyzed their security protocols, shipping times, and hidden risks. Read before you buy.',
     category: 'Safety Analysis',
     author: 'Pablo Eduardo',
-    date: 'April 20, 2026',
+    date: '2026-04-20',
     readTime: '6 min read',
     image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800',
     seoTitle: 'Is Temu Legit or a Scam? (2026) – Expert Safety Review',
@@ -63,7 +63,7 @@ const BLOG_POSTS: BlogPost[] = [
             Always ensure you are on the official Temu.com. Phishing clones are on the rise. Use <a href="https://fraudara.pro" className="font-bold underline">Fraudara.pro</a> to verify any link before clicking.
           </p>
         </div>
-        <h2 className="text-2xl font-black mb-4">Fators of Risk to Consider</h2>
+        <h2 className="text-2xl font-black mb-4">Factors of Risk to Consider</h2>
         <ul className="list-disc pl-6 mb-8 space-y-3">
           <li><strong>Aggressive Permissions:</strong> The app requests access to contacts, location, and even system logs.</li>
           <li><strong>Third-Party Sellers:</strong> Not all sellers on Temu are vetted equally. Some may ship low-quality or counterfeit goods.</li>
@@ -87,7 +87,7 @@ const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Don’t be the next victim. Learn the 5 red flags that scammers use to clone famous brands like Amazon and Shopee.',
     category: 'Education',
     author: 'Pablo Eduardo',
-    date: 'April 18, 2026',
+    date: '2026-04-18',
     readTime: '8 min read',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800',
     seoTitle: 'How to Spot a Fake Website – 2026 Scam Detection Guide',
@@ -129,7 +129,7 @@ const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Our AI flagged these high-risk domains this week. If you have visited any of these, your data might be compromised.',
     category: 'Lists',
     author: 'Pablo Eduardo',
-    date: 'April 21, 2026',
+    date: '2026-04-21',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
     seoTitle: 'Dangerous Websites List 2026 – Fraudara Scam Alert',
@@ -179,6 +179,25 @@ const Blog: React.FC = () => {
 
   const currentPost = slug ? BLOG_POSTS.find(p => p.slug === slug) : null;
 
+  if (slug && !currentPost) {
+  return (
+    <div className="min-h-screen flex items-center justify-center text-center p-10">
+      <Helmet>
+        <title>Post Not Found – Fraudara</title>
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
+      <div>
+        <h1 className="text-3xl font-black mb-4">Post not found</h1>
+        <p className="text-slate-500 mb-6">This article does not exist or was removed.</p>
+        <Link to="/blog" className="text-blue-600 font-bold underline">
+          Go back to blog
+        </Link>
+      </div>
+    </div>
+  );
+}
+  
+
   // --- BLOG HOME RENDER ---
   if (!slug) {
     return (
@@ -207,46 +226,44 @@ const Blog: React.FC = () => {
   <meta name="author" content="Fraudara" />
   <meta name="theme-color" content="#0f172a" />
 
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://fraudara.pro/#organization",
-          "name": "Fraudara",
-          "url": "https://fraudara.pro",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://fraudara.pro/Fraudara_Logo1.png"
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://fraudara.pro/#website",
-          "url": "https://fraudara.pro",
-          "name": "Fraudara",
-          "publisher": {
-            "@id": "https://fraudara.pro/#organization"
-          }
-        },
-        {
-          "@type": "CollectionPage",
-          "@id": "https://fraudara.pro/blog#page",
-          "url": "https://fraudara.pro/blog",
-          "name": "Fraudara Blog",
-          "isPartOf": {
-            "@id": "https://fraudara.pro/#website"
-          },
-          "about": {
-            "@type": "Thing",
-            "name": "Online Safety & Scam Detection"
-          },
-          "inLanguage": "en"
-        }
-      ]
-    })}
-  </script>
+<script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fraudara.pro/#organization",
+      "name": "Fraudara",
+      "url": "https://fraudara.pro",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://fraudara.pro/Fraudara_Logo1.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fraudara.pro/#website",
+      "url": "https://fraudara.pro",
+      "name": "Fraudara",
+      "publisher": {
+        "@id": "https://fraudara.pro/#organization"
+      }
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://fraudara.pro/blog#blog",
+      "name": "Fraudara Blog",
+      "url": "https://fraudara.pro/blog",
+      "description": "Online safety, scam detection and cybersecurity insights.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://fraudara.pro/#organization"
+      }
+    }
+  ]
+})}
+</script>
+
 </Helmet>
 
         {/* HEADER */}
@@ -276,7 +293,13 @@ const Blog: React.FC = () => {
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="flex items-center gap-4 text-xs text-slate-400 mb-4">
-                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
+                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {new Date(post.date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})}
+
+</span>
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                   </div>
                   <h3 className="text-2xl font-black mb-4 group-hover:text-blue-600 transition-colors leading-tight">{post.title}</h3>
@@ -326,105 +349,115 @@ const Blog: React.FC = () => {
   <meta name="theme-color" content="#0f172a" />
 
   <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fraudara.pro/#organization",
+      "name": "Fraudara",
+      "url": "https://fraudara.pro",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://fraudara.pro/Fraudara_Logo1.png"
+      },
+      "sameAs": [
+        "https://instagram.com/fraudara"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://fraudara.pro/#author",
+      "name": currentPost.author,
+      "url": "https://fraudara.pro",
+      "sameAs": [
+        "https://instagram.com/soupabloeduardo"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fraudara.pro/#website",
+      "url": "https://fraudara.pro",
+      "name": "Fraudara",
+      "publisher": {
+        "@id": "https://fraudara.pro/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`,
+      "url": `https://fraudara.pro/blog/${currentPost.slug}`,
+      "name": currentPost.seoTitle,
+      "description": currentPost.seoDesc,
+      "isPartOf": {
+        "@id": "https://fraudara.pro/#website"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": `https://fraudara.pro/blog/${currentPost.slug}#article`,
+      "headline": currentPost.title,
+      "description": currentPost.seoDesc,
+      "image": {
+        "@type": "ImageObject",
+        "url": currentPost.image
+      },
+      "author": {
+        "@id": "https://fraudara.pro/#author"
+      },
+      "publisher": {
+        "@id": "https://fraudara.pro/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
+      },
+      "articleSection": currentPost.category,
+      "keywords": currentPost.category + ", scam detection, online safety, website security",
+      "datePublished": new Date(currentPost.date).toISOString(),
+      "dateModified": new Date(currentPost.date).toISOString(),
+      "inLanguage": "en"
+    },
+    {
+      "@type": "FAQPage",
+       "@id": `https://fraudara.pro/blog/${currentPost.slug}#faq`,
+      "mainEntity": currentPost.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
         {
-          "@type": "Organization",
-          "@id": "https://fraudara.pro/#organization",
-          "name": "Fraudara",
-          "url": "https://fraudara.pro",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://fraudara.pro/Fraudara_Logo1.png"
-          },
-          "sameAs": [
-            "https://instagram.com/fraudara"
-          ]
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://fraudara.pro"
         },
         {
-          "@type": "Person",
-          "@id": "https://fraudara.pro/#author",
-          "name": currentPost.author
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://fraudara.pro/blog"
         },
         {
-          "@type": "WebSite",
-          "@id": "https://fraudara.pro/#website",
-          "url": "https://fraudara.pro",
-          "name": "Fraudara",
-          "publisher": {
-            "@id": "https://fraudara.pro/#organization"
-          }
-        },
-        {
-          "@type": "WebPage",
-          "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`,
-          "url": `https://fraudara.pro/blog/${currentPost.slug}`,
-          "name": currentPost.seoTitle,
-          "description": currentPost.seoDesc,
-          "isPartOf": {
-            "@id": "https://fraudara.pro/#website"
-          },
-          "inLanguage": "en"
-        },
-        {
-          "@type": "BlogPosting",
-          "@id": `https://fraudara.pro/blog/${currentPost.slug}#article`,
-          "headline": currentPost.title,
-          "description": currentPost.seoDesc,
-          "image": currentPost.image,
-          "author": {
-            "@id": "https://fraudara.pro/#author"
-          },
-          "publisher": {
-            "@id": "https://fraudara.pro/#organization"
-          },
-          "mainEntityOfPage": {
-            "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
-          },
-          "articleSection": currentPost.category,
-          "keywords": currentPost.category + ", scam detection, online safety, website security",
-          "datePublished": new Date(currentPost.date).toISOString(),
-          "dateModified": new Date(currentPost.date).toISOString(),
-          "inLanguage": "en"
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": currentPost.faqs.map(faq => ({
-            "@type": "Question",
-            "name": faq.q,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.a
-            }
-          }))
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://fraudara.pro"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Blog",
-              "item": "https://fraudara.pro/blog"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": currentPost.title,
-              "item": `https://fraudara.pro/blog/${currentPost.slug}`
-            }
-          ]
+          "@type": "ListItem",
+          "position": 3,
+          "name": currentPost.title,
+          "item": `https://fraudara.pro/blog/${currentPost.slug}`
         }
       ]
-    })}
-  </script>
+    }
+  ]
+})}
+</script>
+
+
 </Helmet>
 
       {/* NAV */}
@@ -448,7 +481,12 @@ const Blog: React.FC = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8">{currentPost.title}</h1>
           <div className="flex items-center justify-center gap-6 text-sm text-slate-500 font-medium">
             <div className="flex items-center gap-2"><User className="w-4 h-4" /> {currentPost.author}</div>
-            <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {currentPost.date}</div>
+            <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {new Date(currentPost.date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})}
+</div>
             <div className="flex items-center gap-2"><Clock className="w-4 h-4" /> {currentPost.readTime}</div>
           </div>
         </div>
