@@ -282,6 +282,8 @@ const ShopeeAnalysis: React.FC = () => {
 
         {
           "@type": "Product",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#product`,
+  "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
           "name": brand,
           "aggregateRating": {
             "@type": "AggregateRating",
