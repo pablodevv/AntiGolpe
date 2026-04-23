@@ -1569,6 +1569,19 @@ export default function App() {
   const pricingPlans = getPricingPlans(t, isBR);
 
   useEffect(() => {
+
+    window.scrollTo(0, 0);
+    
+    // Na Home, como o conteúdo é estático, podemos sinalizar 
+    // que está pronto quase imediatamente.
+    const timer = setTimeout(() => {
+      window.prerenderReady = true;
+    }, 400);
+
+    return () => {
+      window.prerenderReady = false;
+    };
+    
     const path = window.location.pathname;
     const searchParams = new URLSearchParams(window.location.search);
     const paymentStatus = searchParams.get('payment_status');
