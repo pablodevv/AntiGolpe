@@ -291,8 +291,9 @@ const ShopeeAnalysis: React.FC = () => {
         {
           "@type": "Review",
           "itemReviewed": {
-            "@type": "Thing",
-            "name": brand
+            "@type": "Organization",
+  "name": "Shopee",
+  "url": "https://www.shopee.com.br"
           },
           "reviewRating": {
             "@type": "Rating",
