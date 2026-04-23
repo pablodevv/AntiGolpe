@@ -179,7 +179,7 @@ const AliExpressAnalysis: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-      
+
       <Helmet>
   <title>{seoTitle}</title>
   <meta name="description" content={seoDescription} />
@@ -201,23 +201,23 @@ const AliExpressAnalysis: React.FC = () => {
               "name": "Is AliExpress safe for my credit card?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, AliExpress is a legitimate platform owned by Alibaba Group and uses high-level encryption for payments. However, you should always verify the store's reputation using Fraudara to avoid fraudulent third-party sellers."
+                "text": "Yes, AliExpress is a legitimate platform owned by Alibaba Group and uses secure payment encryption. However, you should always verify individual sellers to avoid scams."
               }
             },
             {
               "@type": "Question",
-              "name": "What is the AliExpress Buyer Protection?",
+              "name": "Is AliExpress a scam or legit?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "It is a comprehensive security guarantee that ensures a full refund if your item is not delivered, arrives damaged, or is significantly different from the description."
+                "text": "AliExpress itself is legit, but since it hosts third-party sellers, some listings may be misleading or fraudulent. Always check seller reputation and reviews."
               }
             },
             {
               "@type": "Question",
-              "name": "How can I tell if an AliExpress seller is a scammer?",
+              "name": "Does AliExpress have buyer protection?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Look for stores with positive feedback below 90% or stores that have been active for less than 6 months. Using Fraudara's AI scanner helps identify hidden risk patterns in store URLs and seller metadata."
+                "text": "Yes, AliExpress offers buyer protection that guarantees refunds if items are not delivered or do not match the description."
               }
             }
           ]
@@ -246,7 +246,7 @@ const AliExpressAnalysis: React.FC = () => {
           "url": "https://fraudara.pro",
           "applicationCategory": "SecurityApplication",
           "operatingSystem": "Web",
-          "description": "Advanced AI analysis to detect phishing, fraudulent sellers, and fake domains for global marketplaces like AliExpress.",
+          "description": "AI-powered scanner that detects scams, fake sellers, and phishing links on marketplaces like AliExpress.",
           "author": {
             "@type": "Organization",
             "name": "Fraudara"
@@ -257,6 +257,7 @@ const AliExpressAnalysis: React.FC = () => {
   </script>
 </Helmet>
 
+      
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
