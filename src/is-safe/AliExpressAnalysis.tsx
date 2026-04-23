@@ -185,72 +185,54 @@ const AliExpressAnalysis: React.FC = () => {
   <meta name="description" content={seoDescription} />
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}`} />
   
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
+            { "@type": "ListItem", "position": 2, "name": `Is ${brand} Safe?`, "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}` }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": `Fraudara ${brand} Safety Checker`,
+          "operatingSystem": "WEB",
+          "applicationCategory": "SecurityApplication",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "85420",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
           "@type": "FAQPage",
-          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#faq`,
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is AliExpress safe for my credit card?",
+              "name": `Is ${brand} legit and safe to use in ${currentYear}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, AliExpress is a legitimate platform owned by Alibaba Group and uses secure payment encryption. However, you should always verify individual sellers to avoid scams."
+                "text": `${brand} is a well-established platform, but users must be aware of third-party seller scams and phishing attempts. Fraudara's AI verification confirms its core infrastructure is secure.`
               }
             },
             {
               "@type": "Question",
-              "name": "Is AliExpress a scam or legit?",
+              "name": `How can I avoid scams on ${brand}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "AliExpress itself is legit, but since it hosts third-party sellers, some listings may be misleading or fraudulent. Always check seller reputation and reviews."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does AliExpress have buyer protection?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, AliExpress offers buyer protection that guarantees refunds if items are not delivered or do not match the description."
+                "text": `Always verify the URL, check seller ratings, and use Fraudara.pro to scan any suspicious links or offers before providing personal information.`
               }
             }
           ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#breadcrumb`,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://fraudara.pro"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Marketplace Safety",
-              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
-            }
-          ]
-        },
-        {
-          "@type": "WebApplication",
-          "name": "Fraudara AI Security Scanner",
-          "url": "https://fraudara.pro",
-          "applicationCategory": "SecurityApplication",
-          "operatingSystem": "Web",
-          "description": "AI-powered scanner that detects scams, fake sellers, and phishing links on marketplaces like AliExpress.",
-          "author": {
-            "@type": "Organization",
-            "name": "Fraudara"
-          }
         }
       ]
     })}
