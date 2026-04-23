@@ -286,12 +286,7 @@ const TemuAnalysis: React.FC = () => {
         {
           "@type": "Product",
           "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#product`,
-          "name": brand,
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "3.8",
-            "reviewCount": "12487"
-          }
+          "name": brand
         },
 
         {
