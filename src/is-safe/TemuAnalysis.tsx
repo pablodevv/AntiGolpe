@@ -181,76 +181,134 @@ const TemuAnalysis: React.FC = () => {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
       <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
-        
-        <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://fraudara.pro/is-site-safe/temu#webpage",
-        "url": "https://fraudara.pro/is-site-safe/temu",
-        "name": "Is Temu Safe? 2026 Security Analysis & Scam Checker",
-        "description": "Verify if Temu is safe for your credit card. Our AI scans Temu's data privacy policies, SSL certificates, and identifies phishing clones in real-time.",
-        "breadcrumb": {
-          "@id": "https://fraudara.pro/is-site-safe/temu#breadcrumb"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is Temu a scam or a legitimate website?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Temu is a legitimate global e-commerce platform owned by PDD Holdings. While the platform is real and delivers products, users should be cautious of aggressive data collection and only use the official app or website."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I tell if a Temu link is fake?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Scammers often use look-alike domains like 'temu-deals' or 'temu-giftcard'. You can use the Fraudara.pro analyzer to verify the SSL authority and domain age of any Temu link before entering payment data."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is it safe to use a credit card on Temu?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Shopping on Temu is generally safe, but for maximum security, we recommend using virtual cards or secure processors like PayPal and Apple Pay to keep your main banking details private."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Fraudara AI Analyzer",
-        "operatingSystem": "All",
-        "applicationCategory": "SecurityApplication",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "1240"
+  {/* BASIC SEO */}
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+
+  {/* CANONICAL */}
+  <link
+    rel="canonical"
+    href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
+  />
+
+  {/* OPEN GRAPH (SOCIAL + CTR) */}
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDescription} />
+  <meta
+    property="og:url"
+    content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
+  />
+
+  {/* TWITTER */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={seoTitle} />
+  <meta name="twitter:description" content={seoDescription} />
+
+  {/* STRUCTURED DATA */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`,
+          "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
+          "name": seoTitle,
+          "description": seoDescription,
+          "inLanguage": "en"
         },
-        "offers": {
-          "@type": "Offer",
-          "price": "0.00",
-          "priceCurrency": "USD"
+
+        {
+          "@type": "Article",
+          "headline": seoTitle,
+          "description": seoDescription,
+          "author": {
+            "@type": "Person",
+            "name": "Pablo Eduardo"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Fraudara",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://fraudara.pro/Fraudara_Logo1.png"
+            }
+          },
+          "datePublished": `${currentYear}-01-01`,
+          "dateModified": `${currentYear}-01-01`
+        },
+
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Is Site Safe",
+              "item": "https://fraudara.pro/is-site-safe"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": brand,
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+            }
+          ]
+        },
+
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Temu a Chinese company?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Temu is owned by PDD Holdings, a multinational e-commerce group headquartered in Dublin, Ireland, with origins in China."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it safe to give Temu my credit card?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Temu uses encryption, but for maximum security it is recommended to use payment processors like PayPal or Apple Pay instead of entering your card directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are Temu prices so low?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Temu connects buyers directly with manufacturers, eliminating intermediaries and reducing costs significantly."
+              }
+            }
+          ]
+        },
+
+        {
+          "@type": "SoftwareApplication",
+          "name": "Fraudara AI Analyzer",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
         }
-      }
-    ]
-  }
-</script>
-      </Helmet>
+      ]
+    })}
+  </script>
+</Helmet>
 
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
