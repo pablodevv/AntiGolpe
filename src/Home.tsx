@@ -1574,7 +1574,7 @@ export default function App() {
     
     // Na Home, como o conteúdo é estático, podemos sinalizar 
     // que está pronto quase imediatamente.
-    const timer = setTimeout(() => {
+    const prerenderTimer = setTimeout(() => {
       window.prerenderReady = true;
     }, 400);
 
