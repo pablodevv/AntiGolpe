@@ -236,7 +236,10 @@ const Blog: React.FC = () => {
       "logo": {
         "@type": "ImageObject",
         "url": "https://fraudara.pro/Fraudara_Logo1.png"
-      }
+      },
+      "sameAs": [
+        "https://instagram.com/fraudara"
+      ]
     },
     {
       "@type": "WebSite",
@@ -250,13 +253,34 @@ const Blog: React.FC = () => {
     {
       "@type": "Blog",
       "@id": "https://fraudara.pro/blog#blog",
-      "name": "Fraudara Blog",
       "url": "https://fraudara.pro/blog",
+      "name": "Fraudara Blog",
       "description": "Online safety, scam detection and cybersecurity insights.",
-      "inLanguage": "en",
       "publisher": {
         "@id": "https://fraudara.pro/#organization"
-      }
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Fraudara Blog Articles",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://fraudara.pro/blog/is-temu-a-scam-shocking-truth-2026"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://fraudara.pro/blog/how-to-detect-fake-websites-instantly"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://fraudara.pro/blog/10-most-dangerous-websites-right-now-2026"
+        }
+      ]
     }
   ]
 })}
