@@ -1347,7 +1347,8 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string; on
   const cur = LANGS.find(l => l.code === language) || LANGS[0];
   return (
 
-    <>
+    
+    <div className="relative">
 
       <Helmet>
   {/* SEO Padrão */}
@@ -1400,7 +1401,6 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string; on
 </Helmet>
     
     
-    <div className="relative">
       <button onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all">
         <Globe className="w-4 h-4" />
@@ -2414,6 +2414,6 @@ function SocialLink({ href, label }: { href: string; label: string }) {
         Ver perfil <ExternalLink className="w-3 h-3" />
       </a>
     </div>
-        </>
+        
   );
 }
