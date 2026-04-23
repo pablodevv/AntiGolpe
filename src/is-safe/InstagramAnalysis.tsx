@@ -291,8 +291,9 @@ const InstagramAnalysis: React.FC = () => {
         {
           "@type": "Review",
           "itemReviewed": {
-            "@type": "Thing",
-            "name": brand
+            "@type": "Organization",
+  "name": "Instagram",
+  "url": "https://www.instagram.com"
           },
           "reviewRating": {
             "@type": "Rating",
