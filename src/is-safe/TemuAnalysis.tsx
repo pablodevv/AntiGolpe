@@ -361,7 +361,7 @@ const TemuAnalysis: React.FC = () => {
         },
 
         {
-          "@type": "SoftwareApplication",
+          "@type": "WebApplication",
           "name": "Fraudara AI Analyzer",
           "applicationCategory": "SecurityApplication",
           "operatingSystem": "All",
