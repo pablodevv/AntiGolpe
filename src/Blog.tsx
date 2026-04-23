@@ -1,3 +1,5 @@
+src/Blog.tsx:
+
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
@@ -182,41 +184,67 @@ const Blog: React.FC = () => {
     return (
       <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
         <Helmet>
-  <title>{isArticle ? `${currentArticle.title} | Fraudara Blog` : "Fraudara Official Blog – Cybersecurity & Scam Protection"}</title>
-  <meta name="description" content={isArticle ? currentArticle.excerpt : "Stay ahead of scammers with our expert guides, real-time fraud alerts, and safety tips."} />
-  
+  <title>Fraudara Blog – Online Safety, Scam Detection & Cybersecurity (2026)</title>
+  <meta name="description" content="Learn how to detect scams, verify websites, and stay safe online. Expert guides, real cases, and AI-powered insights from Fraudara." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://fraudara.pro/blog" />
+
+  {/* Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fraudara Blog – Online Safety & Scam Detection" />
+  <meta property="og:description" content="Expert insights on scam detection, fake websites, and online security." />
+  <meta property="og:url" content="https://fraudara.pro/blog" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fraudara Blog" />
+  <meta name="twitter:description" content="Stay ahead of scammers with expert cybersecurity insights." />
+
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+
         {
-          "@type": isArticle ? "BlogPosting" : "Blog",
-          "headline": isArticle ? currentArticle.title : "Fraudara Official Blog",
-          "description": isArticle ? currentArticle.excerpt : "Cybersecurity news and scam prevention guides.",
-          "url": window.location.href,
-          "author": { "@type": "Organization", "name": "Fraudara Security Team" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Fraudara",
-            "logo": { "@type": "ImageObject", "url": "https://fraudara.pro/Fraudara_Logo1.png" }
-          },
-          "image": "https://fraudara.pro/Fraudara-OG.png",
-          "datePublished": "2026-01-01",
-          "dateModified": new Date( ).toISOString().split('T')[0]
+          "@type": "Organization",
+          "@id": "https://fraudara.pro/#organization",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          }
         },
+
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fraudara.pro/blog" }
-            {isArticle && { "@type": "ListItem", "position": 3, "name": currentArticle.title, "item": window.location.href }}
-          ].filter(Boolean )
+          "@type": "WebSite",
+          "@id": "https://fraudara.pro/#website",
+          "url": "https://fraudara.pro",
+          "name": "Fraudara",
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          }
+        },
+
+        {
+          "@type": "CollectionPage",
+          "@id": "https://fraudara.pro/blog#page",
+          "url": "https://fraudara.pro/blog",
+          "name": "Fraudara Blog",
+          "isPartOf": {
+            "@id": "https://fraudara.pro/#website"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": "Online Safety & Scam Detection"
+          }
         }
+
       ]
     })}
   </script>
 </Helmet>
-
 
         {/* HEADER */}
         <header className="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white py-20 text-center">
@@ -270,37 +298,120 @@ const Blog: React.FC = () => {
   // --- SINGLE POST RENDER ---
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-      <Helmet>
-  <title>{isArticle ? `${currentArticle.title} | Fraudara Blog` : "Fraudara Official Blog – Cybersecurity & Scam Protection"}</title>
-  <meta name="description" content={isArticle ? currentArticle.excerpt : "Stay ahead of scammers with our expert guides, real-time fraud alerts, and safety tips."} />
-  
+     <Helmet>
+  <title>{currentPost.seoTitle}</title>
+  <meta name="description" content={currentPost.seoDesc} />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href={`https://fraudara.pro/blog/${currentPost.slug}`} />
+
+  {/* Open Graph */}
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={currentPost.seoTitle} />
+  <meta property="og:description" content={currentPost.seoDesc} />
+  <meta property="og:image" content={currentPost.image} />
+  <meta property="og:url" content={`https://fraudara.pro/blog/${currentPost.slug}`} />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={currentPost.seoTitle} />
+  <meta name="twitter:description" content={currentPost.seoDesc} />
+  <meta name="twitter:image" content={currentPost.image} />
+
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+
         {
-          "@type": isArticle ? "BlogPosting" : "Blog",
-          "headline": isArticle ? currentArticle.title : "Fraudara Official Blog",
-          "description": isArticle ? currentArticle.excerpt : "Cybersecurity news and scam prevention guides.",
-          "url": window.location.href,
-          "author": { "@type": "Organization", "name": "Fraudara Security Team" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Fraudara",
-            "logo": { "@type": "ImageObject", "url": "https://fraudara.pro/Fraudara_Logo1.png" }
-          },
-          "image": "https://fraudara.pro/Fraudara-OG.png",
-          "datePublished": "2026-01-01",
-          "dateModified": new Date( ).toISOString().split('T')[0]
+          "@type": "Organization",
+          "@id": "https://fraudara.pro/#organization",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          }
         },
+
+        {
+          "@type": "WebSite",
+          "@id": "https://fraudara.pro/#website",
+          "url": "https://fraudara.pro",
+          "name": "Fraudara",
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          }
+        },
+
+        {
+          "@type": "WebPage",
+          "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`,
+          "url": `https://fraudara.pro/blog/${currentPost.slug}`,
+          "name": currentPost.seoTitle,
+          "description": currentPost.seoDesc,
+          "isPartOf": {
+            "@id": "https://fraudara.pro/#website"
+          },
+          "inLanguage": "en"
+        },
+
+        {
+          "@type": "BlogPosting",
+          "@id": `https://fraudara.pro/blog/${currentPost.slug}#article`,
+          "headline": currentPost.title,
+          "description": currentPost.seoDesc,
+          "image": currentPost.image,
+          "author": {
+            "@type": "Person",
+            "name": currentPost.author
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
+          },
+          "datePublished": currentPost.date,
+          "dateModified": currentPost.date
+        },
+
+        {
+          "@type": "FAQPage",
+          "mainEntity": currentPost.faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.a
+            }
+          }))
+        },
+
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fraudara.pro/blog" }
-            {isArticle && { "@type": "ListItem", "position": 3, "name": currentArticle.title, "item": window.location.href }}
-          ].filter(Boolean )
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://fraudara.pro/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": currentPost.title,
+              "item": `https://fraudara.pro/blog/${currentPost.slug}`
+            }
+          ]
         }
+
       ]
     })}
   </script>
