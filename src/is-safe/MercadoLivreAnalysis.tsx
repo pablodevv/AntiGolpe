@@ -291,8 +291,9 @@ const MercadoLivreAnalysis: React.FC = () => {
         {
           "@type": "Review",
           "itemReviewed": {
-            "@type": "Thing",
-            "name": brand
+            "@type": "Organization",
+  "name": "Mercado Livre",
+  "url": "https://www.mercadolivre.com.br"
           },
           "reviewRating": {
             "@type": "Rating",
