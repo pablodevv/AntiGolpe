@@ -362,6 +362,10 @@ const Blog: React.FC = () => {
           "isPartOf": {
             "@id": "https://fraudara.pro/#website"
           },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": currentPost.image
+          },
           "inLanguage": "en"
         },
 
@@ -382,13 +386,14 @@ const Blog: React.FC = () => {
           },
           "articleSection": currentPost.category,
           "keywords": currentPost.category + ", scam detection, online safety, website security",
-          "datePublished": new Date(currentPost.date).toISOString(),
-          "dateModified": new Date(currentPost.date).toISOString(),
+          "datePublished": currentPost.date,
+          "dateModified": currentPost.date,
           "inLanguage": "en"
         },
 
         {
           "@type": "FAQPage",
+          "@id": `https://fraudara.pro/blog/${currentPost.slug}#faq`,
           "mainEntity": currentPost.faqs.map(faq => ({
             "@type": "Question",
             "name": faq.q,
