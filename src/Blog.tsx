@@ -182,9 +182,41 @@ const Blog: React.FC = () => {
     return (
       <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
         <Helmet>
-          <title>Fraudara Blog – Expert Online Safety & Scam Protection (2026)</title>
-          <meta name="description" content="Stay ahead of scammers with the latest insights on e-commerce safety, fake website detection, and digital security from the Fraudara.pro experts." />
-        </Helmet>
+  <title>{isArticle ? `${currentArticle.title} | Fraudara Blog` : "Fraudara Official Blog – Cybersecurity & Scam Protection"}</title>
+  <meta name="description" content={isArticle ? currentArticle.excerpt : "Stay ahead of scammers with our expert guides, real-time fraud alerts, and safety tips."} />
+  
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": isArticle ? "BlogPosting" : "Blog",
+          "headline": isArticle ? currentArticle.title : "Fraudara Official Blog",
+          "description": isArticle ? currentArticle.excerpt : "Cybersecurity news and scam prevention guides.",
+          "url": window.location.href,
+          "author": { "@type": "Organization", "name": "Fraudara Security Team" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Fraudara",
+            "logo": { "@type": "ImageObject", "url": "https://fraudara.pro/Fraudara_Logo1.png" }
+          },
+          "image": "https://fraudara.pro/Fraudara-OG.png",
+          "datePublished": "2026-01-01",
+          "dateModified": new Date( ).toISOString().split('T')[0]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fraudara.pro/blog" }
+            {isArticle && { "@type": "ListItem", "position": 3, "name": currentArticle.title, "item": window.location.href }}
+          ].filter(Boolean )
+        }
+      ]
+    })}
+  </script>
+</Helmet>
+
 
         {/* HEADER */}
         <header className="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white py-20 text-center">
@@ -239,25 +271,40 @@ const Blog: React.FC = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Helmet>
-        <title>{currentPost.seoTitle}</title>
-        <meta name="description" content={currentPost.seoDesc} />
-        <meta property="og:title" content={currentPost.seoTitle} />
-        <meta property="og:description" content={currentPost.seoDesc} />
-        <meta property="og:image" content={currentPost.image} />
-        <link rel="canonical" href={`https://fraudara.pro/blog/${currentPost.slug}`} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": currentPost.title,
-            "image": currentPost.image,
-            "author": { "@type": "Person", "name": currentPost.author },
-            "datePublished": currentPost.date,
-            "description": currentPost.seoDesc
-          })}
-        </script>
-      </Helmet>
+  <title>{isArticle ? `${currentArticle.title} | Fraudara Blog` : "Fraudara Official Blog – Cybersecurity & Scam Protection"}</title>
+  <meta name="description" content={isArticle ? currentArticle.excerpt : "Stay ahead of scammers with our expert guides, real-time fraud alerts, and safety tips."} />
+  
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": isArticle ? "BlogPosting" : "Blog",
+          "headline": isArticle ? currentArticle.title : "Fraudara Official Blog",
+          "description": isArticle ? currentArticle.excerpt : "Cybersecurity news and scam prevention guides.",
+          "url": window.location.href,
+          "author": { "@type": "Organization", "name": "Fraudara Security Team" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Fraudara",
+            "logo": { "@type": "ImageObject", "url": "https://fraudara.pro/Fraudara_Logo1.png" }
+          },
+          "image": "https://fraudara.pro/Fraudara-OG.png",
+          "datePublished": "2026-01-01",
+          "dateModified": new Date( ).toISOString().split('T')[0]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fraudara.pro/blog" }
+            {isArticle && { "@type": "ListItem", "position": 3, "name": currentArticle.title, "item": window.location.href }}
+          ].filter(Boolean )
+        }
+      ]
+    })}
+  </script>
+</Helmet>
 
       {/* NAV */}
       <nav className="border-b border-slate-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
