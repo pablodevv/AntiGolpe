@@ -1413,11 +1413,6 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string; on
           "applicationCategory": "SecurityApplication",
           "operatingSystem": "Web",
           "image": "https://fraudara.pro/Fraudara-OG.png",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "2300000"
-          },
           "offers": {
             "@type": "Offer",
             "price": "0",
