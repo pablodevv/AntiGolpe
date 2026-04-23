@@ -150,7 +150,7 @@ const translations: Record<string, Record<string, string>> = {
     footerCookies: "Cookies",
     footerCopyright: "© 2026 Fraudara. Todos os direitos reservados.",
     footerDisclaimer: "Ferramenta educativa para conscientização sobre segurança digital.",
-    footerEmail: "contato@fraudara.com",
+    footerEmail: "contactfraudara@gmail.com",
     footerMadeWith: "Feito com 🛡️ para proteger o mundo",
 
     // Creator
