@@ -261,6 +261,7 @@ const AmazonAnalysis: React.FC = () => {
   </script>
 </Helmet>
 
+      
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
