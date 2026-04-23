@@ -255,11 +255,14 @@ const TemuAnalysis: React.FC = () => {
             "@type": "ImageObject",
             "url": "https://fraudara.pro/Fraudara_Logo1.png"
           },
-          "inLanguage": "en"
+          "inLanguage": "en",
+          "mainEntity": {
+  "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#product`
+}
         },
 
         {
-          "@type": "Article",
+          "@type": ["Article", "WebPage"],
           "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#article`,
           "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
           "headline": seoTitle,
@@ -282,6 +285,7 @@ const TemuAnalysis: React.FC = () => {
 
         {
           "@type": "Product",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#product`,
           "name": brand,
           "aggregateRating": {
             "@type": "AggregateRating",
