@@ -259,8 +259,9 @@ const InstagramAnalysis: React.FC = () => {
         },
 
         {
-          "@type": "Article",
+          "@type": ["Article", "WebPage"],
           "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#article`,
+          "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
           "headline": seoTitle,
           "description": seoDescription,
           "image": "https://fraudara.pro/Fraudara_Logo1.png",
@@ -274,8 +275,9 @@ const InstagramAnalysis: React.FC = () => {
           "mainEntityOfPage": {
             "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`
           },
-          "datePublished": `${currentYear}-01-01`,
-          "dateModified": `${currentYear}-01-01`
+          "datePublished": new Date().toISOString(),
+          "dateModified": new Date().toISOString()
+
         },
 
         {
