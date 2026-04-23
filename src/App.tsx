@@ -20,6 +20,11 @@ declare global {
  * App.tsx - Main Router for Fraudara.pro
  */
 const App: React.FC = () => {
+  useEffect(() => {
+    // Sempre que o App iniciar ou mudar de rota, resetamos para false
+    // Isso garante que o Netlify espere o sinal específico da nova página
+    window.prerenderReady = false;
+  }, []);
   return (
     <>
       <Helmet>
