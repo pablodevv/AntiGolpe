@@ -435,11 +435,12 @@ const Blog: React.FC = () => {
 
   "dateCreated": new Date(currentPost.date).toISOString(),
   "datePublished": new Date(currentPost.date).toISOString(),
-  dateModified: new Date(currentPost.updatedAt || currentPost.date).toISOString(),
+  "dateModified": new Date(currentPost.date).toISOString(),
+  
+    
 
   "inLanguage": "en"
 },
-
     {
       "@type": "FAQPage",
        "@id": `https://fraudara.pro/blog/${currentPost.slug}#faq`,
