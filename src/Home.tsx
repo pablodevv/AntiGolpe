@@ -1350,81 +1350,89 @@ const LanguageSelector = ({ language, onLanguageChange }: { language: string; on
     
     <div className="relative">
 
-      <Helmet>
-  {/* SEO Padrão */}
+    <Helmet>
+  {/* SEO */}
   <title>Fraudara – #1 Website & Brand Checker | 2.3M+ Scans</title>
   <meta name="description" content="🚨 Stop scams before you buy. Instantly check if any website or brand is safe. 2.3M+ verifications, $45M+ in fraud prevented. 99.7% accuracy." />
-  <meta name="keywords" content="fraudara, scam checker, website safety, brand verification, online fraud protection, scam detector, trusted websites, phishing check, online shopping safety" />
   <link rel="canonical" href="https://fraudara.pro/" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  {/* Open Graph / Facebook (Importante para compartilhamento social) */}
+  {/* Open Graph */}
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fraudara.pro/" />
   <meta property="og:title" content="Fraudara – #1 Website & Brand Checker" />
-  <meta property="og:description" content="🚨 Stop scams before you buy. Instantly check if any website or brand is safe. 2.3M+ verifications." />
+  <meta property="og:description" content="🚨 Stop scams before you buy. Instantly check any website or brand instantly." />
   <meta property="og:image" content="https://fraudara.pro/Fraudara-OG.png" />
 
-  {/* Twitter Card */}
+  {/* Twitter */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fraudara – #1 Website & Brand Checker" />
   <meta name="twitter:description" content="Free instant scam detection. Protect yourself before buying online." />
   <meta name="twitter:image" content="https://fraudara.pro/Fraudara-OG.png" />
 
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
 
+        {
+          "@type": "Organization",
+          "@id": "https://fraudara.pro/#organization",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "sameAs": [
+            "https://instagram.com/soupabloeduardo"
+          ]
+        },
 
-        
-<script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "@id": "https://fraudara.pro/#software",
-        "name": "Fraudara",
-        "url": "https://fraudara.pro",
-        "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
-        "applicationCategory": "SecurityApplication",
-        "operatingSystem": "Web",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "2300000"
+        {
+          "@type": "WebSite",
+          "@id": "https://fraudara.pro/#website",
+          "url": "https://fraudara.pro",
+          "name": "Fraudara",
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://fraudara.pro/is-site-safe/{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
+
+        {
+          "@type": "WebApplication",
+          "@id": "https://fraudara.pro/#app",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Web",
+          "image": "https://fraudara.pro/Fraudara-OG.png",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "2300000"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          }
         }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://fraudara.pro/#website",
-        "url": "https://fraudara.pro",
-        "name": "Fraudara",
-        "publisher": {
-          "@id": "https://fraudara.pro/#organization"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://fraudara.pro/is-site-safe/{search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://fraudara.pro/#organization",
-        "name": "Fraudara",
-        "url": "https://fraudara.pro",
-        "logo": "https://fraudara.pro/Fraudara_Logo1.png"
-        
-      }
-    ]
-  })}
-</script>
-        
+
+      ]
+    })}
+  </script>
 </Helmet>
-    
+
     
       <button onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all">
