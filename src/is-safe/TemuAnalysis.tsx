@@ -83,6 +83,10 @@ const TemuAnalysis: React.FC = () => {
     return s ? parseInt(s) : 5;
   };
 
+
+
+
+  
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
 
@@ -127,8 +131,24 @@ const TemuAnalysis: React.FC = () => {
       });
     } finally {
       setIsVerifying(false);
+      // AGORA a página tem o conteúdo real (os cards, o score, etc)
+    setTimeout(() => {
+      window.prerenderReady = true;
+    }, 600);
     }
   };
+
+  useEffect(() => {
+    handleVerification(); // Sua chamada automática que já existe
+    
+    return () => { window.prerenderReady = false; };
+  }, []);
+
+
+
+
+
+  
 
   const handleUpgrade = (plan: string) => {
     if (plan === 'starter') {
