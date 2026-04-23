@@ -51,32 +51,47 @@
   <!-- Apple -->
   <link rel="apple-touch-icon" href="/Fraudara_Logo1.png" />
 
-  <!-- Schema.org (CORRIGIDO) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Fraudara",
-    "url": "https://fraudara.pro",
-    "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
-    "applicationCategory": "SecurityApplication",
-    "operatingSystem": "Web",
-    "creator": {
+  <!-- Schema.org Nível Máximo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://fraudara.pro/#website",
+      "name": "Fraudara",
+      "url": "https://fraudara.pro",
+      "description": "AI-powered website and brand verification platform to detect scams and ensure safe online shopping.",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "3124580",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
       "@type": "Organization",
-      "name": "Fraudara"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "2300000"
+      "@id": "https://fraudara.pro/#organization",
+      "name": "Fraudara",
+      "url": "https://fraudara.pro",
+      "logo": "https://fraudara.pro/Fraudara_Logo1.png",
+      "sameAs": [
+        "https://instagram.com/fraudara",
+        "https://twitter.com/fraudara"
+      ]
     }
-  }
-  </script>
+  ]
+}
+</script>
+
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VZ4HD94H3"></script>
