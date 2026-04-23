@@ -298,10 +298,10 @@ const Blog: React.FC = () => {
   // --- SINGLE POST RENDER ---
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-     <Helmet>
+    <Helmet>
   <title>{currentPost.seoTitle}</title>
   <meta name="description" content={currentPost.seoDesc} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
   <link rel="canonical" href={`https://fraudara.pro/blog/${currentPost.slug}`} />
 
@@ -331,7 +331,16 @@ const Blog: React.FC = () => {
           "logo": {
             "@type": "ImageObject",
             "url": "https://fraudara.pro/Fraudara_Logo1.png"
-          }
+          },
+          "sameAs": [
+            "https://instagram.com/fraudara"
+          ]
+        },
+
+        {
+          "@type": "Person",
+          "@id": "https://fraudara.pro/#author",
+          "name": currentPost.author
         },
 
         {
@@ -363,8 +372,7 @@ const Blog: React.FC = () => {
           "description": currentPost.seoDesc,
           "image": currentPost.image,
           "author": {
-            "@type": "Person",
-            "name": currentPost.author
+            "@id": "https://fraudara.pro/#author"
           },
           "publisher": {
             "@id": "https://fraudara.pro/#organization"
@@ -372,8 +380,11 @@ const Blog: React.FC = () => {
           "mainEntityOfPage": {
             "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
           },
-          "datePublished": currentPost.date,
-          "dateModified": currentPost.date
+          "articleSection": currentPost.category,
+          "keywords": currentPost.category + ", scam detection, online safety, website security",
+          "datePublished": new Date(currentPost.date).toISOString(),
+          "dateModified": new Date(currentPost.date).toISOString(),
+          "inLanguage": "en"
         },
 
         {
