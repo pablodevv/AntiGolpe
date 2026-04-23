@@ -295,8 +295,9 @@ const AmazonAnalysis: React.FC = () => {
         {
           "@type": "Review",
           "itemReviewed": {
-            "@type": "Thing",
-            "name": brand
+            "@type": "Organization",
+  "name": "Amazon",
+  "url": "https://www.amazon.com"
           },
           "reviewRating": {
             "@type": "Rating",
