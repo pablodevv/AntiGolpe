@@ -181,39 +181,81 @@ const ShopeeAnalysis: React.FC = () => {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       
       <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is Shopee legit?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, Shopee is a legitimate global e-commerce giant owned by Sea Limited. It offers robust buyer protection through the Shopee Guarantee program."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is it safe to pay on Shopee?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Shopee uses secure payment gateways. Your money is held in escrow until you confirm the receipt of the item, protecting you from fraud."
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
 
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FAQPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Shopee legit and safe?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Shopee is a legitimate global e-commerce giant owned by Sea Limited. It is generally safe, but as a marketplace, it hosts third-party sellers. Always check the seller's reputation and use Fraudara to verify links before paying."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it safe to buy from Shopee in 2026?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Buying from Shopee in 2026 is safe provided you use the official app or website. Fraudara's AI monitoring warns against 'cloned' Shopee sites and off-platform payment requests which are common scam tactics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I avoid scams on Shopee?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To stay safe on Shopee, never pay via external links sent in chat, look for 'Shopee Mall' verified sellers, and use the Shopee Guarantee escrow service. Use Fraudara to scan any suspicious URLs claiming to be Shopee."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#breadcrumb`,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Safety Analysis",
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Fraudara AI Security Scanner",
+          "url": "https://fraudara.pro",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Web",
+          "description": "Advanced AI-driven analysis to verify the safety of e-commerce platforms like Shopee, protecting users from phishing, fake sellers, and financial fraud.",
+          "author": {
+            "@type": "Organization",
+            "name": "Fraudara"
+          }
+        }
+      ]
+    })}
+  </script>
+</Helmet>
       {/* ── ANNOUNCEMENT BAR ── */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
