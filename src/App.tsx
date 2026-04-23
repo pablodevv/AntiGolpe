@@ -8,6 +8,8 @@ import AliExpressAnalysis from './is-safe/AliExpressAnalysis';
 import TemuAnalysis from './is-safe/TemuAnalysis';
 import MercadoLivreAnalysis from './is-safe/MercadoLivreAnalysis';
 import Blog from './Blog';
+import { useLocation } from 'react-router-dom'; 
+import { Helmet } from 'react-helmet-async';
 
 // Isso evita erros de TypeScript ao usar o window.prerenderReady
 declare global {
@@ -20,11 +22,13 @@ declare global {
  * App.tsx - Main Router for Fraudara.pro
  */
 const App: React.FC = () => {
+
+  const location = useLocation();
   useEffect(() => {
     // Sempre que o App iniciar ou mudar de rota, resetamos para false
     // Isso garante que o Netlify espere o sinal específico da nova página
     window.prerenderReady = false;
-  }, []);
+  }, [location.pathname]);
   return (
     <>
       <Helmet>
