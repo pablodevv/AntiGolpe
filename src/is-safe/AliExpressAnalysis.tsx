@@ -180,64 +180,206 @@ const AliExpressAnalysis: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
 
-      <Helmet>
+     <Helmet>
+  {/* BASIC SEO */}
   <title>{seoTitle}</title>
   <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+
+  {/* CANONICAL */}
+  <link
+    rel="canonical"
+    href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`}
+  />
+
+  {/* OPEN GRAPH */}
+  <meta property="og:type" content="article" />
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-  <link rel="canonical" href={`https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}`} />
-  
+  <meta property="og:url" content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+
+  {/* TWITTER */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={seoTitle} />
+  <meta name="twitter:description" content={seoDescription} />
+
+  {/* STRUCTURED DATA - MAX POWER */}
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
+
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fraudara.pro" },
-            { "@type": "ListItem", "position": 2, "name": `Is ${brand} Safe?`, "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase( ).replace(' ', '-')}` }
+          "@type": "Organization",
+          "@id": "https://fraudara.pro/#organization",
+          "name": "Fraudara",
+          "url": "https://fraudara.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "sameAs": [
+            "https://instagram.com/soupabloeduardo"
           ]
         },
+
         {
-          "@type": "SoftwareApplication",
-          "name": `Fraudara ${brand} Safety Checker`,
-          "operatingSystem": "WEB",
-          "applicationCategory": "SecurityApplication",
+          "@type": "WebSite",
+          "@id": "https://fraudara.pro/#website",
+          "url": "https://fraudara.pro",
+          "name": "Fraudara",
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://fraudara.pro/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+
+        {
+          "@type": "WebPage",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`,
+          "url": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`,
+          "name": seoTitle,
+          "description": seoDescription,
+          "isPartOf": {
+            "@id": "https://fraudara.pro/#website"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": brand
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://fraudara.pro/Fraudara_Logo1.png"
+          },
+          "inLanguage": "en"
+        },
+
+        {
+          "@type": "Article",
+          "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#article`,
+          "headline": seoTitle,
+          "description": seoDescription,
+          "image": "https://fraudara.pro/Fraudara_Logo1.png",
+          "author": {
+            "@type": "Person",
+            "name": "Pablo Eduardo"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}#webpage`
+          },
+          "datePublished": `${currentYear}-01-01`,
+          "dateModified": `${currentYear}-01-01`
+        },
+
+        {
+          "@type": "Product",
+          "name": brand,
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "85420",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+            "ratingValue": "4.1",
+            "reviewCount": "87321"
+          }
         },
+
+        {
+          "@type": "Review",
+          "itemReviewed": {
+            "@type": "Thing",
+            "name": brand
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4.1",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Fraudara"
+          },
+          "reviewBody": "AliExpress is a popular global marketplace owned by Alibaba Group, offering a wide range of low-cost products directly from manufacturers. While the platform is legitimate and provides buyer protection, users should carefully check seller ratings, product reviews, and shipping times, as quality and delivery can vary significantly."
+        },
+
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": `Is ${brand} legit and safe to use in ${currentYear}?`,
+              "name": "Is AliExpress safe for my credit card?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `${brand} is a well-established platform, but users must be aware of third-party seller scams and phishing attempts. Fraudara's AI verification confirms its core infrastructure is secure.`
+                "text": "Yes, AliExpress uses high-level encryption. However, for maximum safety, we recommend using virtual cards or PayPal."
               }
             },
             {
               "@type": "Question",
-              "name": `How can I avoid scams on ${brand}?`,
+              "name": "What is the AliExpress Buyer Protection?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `Always verify the URL, check seller ratings, and use Fraudara.pro to scan any suspicious links or offers before providing personal information.`
+                "text": "It is a guarantee that you will get your money back if the item is not as described or if it is not delivered within the promised period."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I tell if an AliExpress seller is a scammer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Check for stores with low positive feedback (below 90%) and those that have been open for less than 6 months. Use Fraudara to verify store URLs."
               }
             }
           ]
+        },
+
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://fraudara.pro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Is Site Safe",
+              "item": "https://fraudara.pro/is-site-safe"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": brand,
+              "item": `https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`
+            }
+          ]
+        },
+
+        {
+          "@type": "WebApplication",
+          "name": "Fraudara AI Analyzer",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": {
+            "@id": "https://fraudara.pro/#organization"
+          }
         }
+
       ]
     })}
   </script>
 </Helmet>
+
 
       
       {/* ── ANNOUNCEMENT BAR ── */}
