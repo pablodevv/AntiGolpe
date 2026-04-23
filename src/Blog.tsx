@@ -244,7 +244,11 @@ const Blog: React.FC = () => {
       "url": "https://fraudara.pro",
       "name": "Fraudara",
       "publisher": {
-        "@id": "https://fraudara.pro/#organization"
+        "@id": "https://fraudara.pro/#organization",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://fraudara.pro/Fraudara_Logo1.png"
+  }
       }
     },
     {
@@ -255,7 +259,11 @@ const Blog: React.FC = () => {
       "description": "Online safety, scam detection and cybersecurity insights.",
       "inLanguage": "en",
       "publisher": {
-        "@id": "https://fraudara.pro/#organization"
+        "@id": "https://fraudara.pro/#organization",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://fraudara.pro/Fraudara_Logo1.png"
+  }
       }
     }
   ]
@@ -378,7 +386,11 @@ const Blog: React.FC = () => {
       "url": "https://fraudara.pro",
       "name": "Fraudara",
       "publisher": {
-        "@id": "https://fraudara.pro/#organization"
+        "@id": "https://fraudara.pro/#organization",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://fraudara.pro/Fraudara_Logo1.png"
+  }
       }
     },
     {
@@ -387,7 +399,7 @@ const Blog: React.FC = () => {
       "url": `https://fraudara.pro/blog/${currentPost.slug}`,
       "name": currentPost.seoTitle,
       "description": currentPost.seoDesc,
-      "image": {
+      "primaryImageOfPage": {
   "@type": "ImageObject",
   "url": currentPost.image
 },
@@ -409,7 +421,11 @@ const Blog: React.FC = () => {
     "@id": "https://fraudara.pro/#author"
   },
   "publisher": {
-    "@id": "https://fraudara.pro/#organization"
+    "@id": "https://fraudara.pro/#organization",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://fraudara.pro/Fraudara_Logo1.png"
+  }
   },
   "mainEntityOfPage": {
     "@id": `https://fraudara.pro/blog/${currentPost.slug}#webpage`
@@ -419,7 +435,7 @@ const Blog: React.FC = () => {
 
   "dateCreated": new Date(currentPost.date).toISOString(),
   "datePublished": new Date(currentPost.date).toISOString(),
-  "dateModified": new Date(currentPost.date).toISOString(),
+  dateModified: new Date(currentPost.updatedAt || currentPost.date).toISOString(),
 
   "inLanguage": "en"
 },
