@@ -283,7 +283,7 @@ const ShopeeAnalysis: React.FC = () => {
           "name": brand,
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.2",
+            "ratingValue": "3.1",
             "reviewCount": "28743"
           }
         },
