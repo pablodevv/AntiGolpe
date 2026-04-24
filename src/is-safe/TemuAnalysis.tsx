@@ -223,6 +223,7 @@ const TemuAnalysis: React.FC = () => {
   <meta property="og:title" content={seoTitle} />
   <meta property="og:description" content={seoDescription} />
   <meta property="og:url" content={`https://fraudara.pro/is-site-safe/${brand.toLowerCase()}`} />
+       <meta property="og:image" content="https://fraudara.pro/safe-og.png" />
 
   {/* TWITTER */}
   <meta name="twitter:card" content="summary_large_image" />
