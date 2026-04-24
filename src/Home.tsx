@@ -2077,7 +2077,7 @@ export default function App() {
 
 
 
-  
+    {/*
               <button onClick={() => {
                     const slug = extractDomainForSlug(searchQuery);
                     navigate(`/check/${slug}`);
@@ -2088,6 +2088,7 @@ export default function App() {
                   View Full Analysis Page
                   <ArrowRight className="w-4 h-4" />
                 </button>
+                */}
 
   
 
