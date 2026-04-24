@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Home';
 import AmazonAnalysis from './is-safe/AmazonAnalysis';
 import InstagramAnalysis from './is-safe/InstagramAnalysis';
@@ -10,6 +10,7 @@ import MercadoLivreAnalysis from './is-safe/MercadoLivreAnalysis';
 import Blog from './Blog';
 import { useLocation } from 'react-router-dom'; 
 import { Helmet } from 'react-helmet-async';
+import BrandAnalysis from './is-safe/BrandAnalysis';
 
 // Isso evita erros de TypeScript ao usar o window.prerenderReady
 declare global {
@@ -56,6 +57,11 @@ const App: React.FC = () => {
       
       {/* 404 - Redirect to Home */}
       <Route path="*" element={<Home />} />
+
+      <Route path="/check/:brand" element={<BrandAnalysis />} />
+        <Route path="/is-site-safe/:brand" element={<BrandAnalysis />} />
+        <Route path="*" element={<Home />} />
+      
     </Routes>
       </>
   );
