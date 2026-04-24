@@ -1578,9 +1578,6 @@ export default function App() {
       window.prerenderReady = true;
     }, 400);
 
-    return () => {
-      window.prerenderReady = false;
-    };
     
     const path = window.location.pathname;
     const searchParams = new URLSearchParams(window.location.search);
@@ -1607,8 +1604,16 @@ export default function App() {
 
     const timer = setInterval(() => setActiveTestimonial(p => (p + 1) % TESTIMONIALS.length), 4000);
     return () => clearInterval(timer);
+
+    return () => {
+      window.prerenderReady = false;
+    };
+    
   }, []);
 
+
+
+  
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
 
