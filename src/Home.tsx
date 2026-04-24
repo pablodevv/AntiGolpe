@@ -1603,11 +1603,13 @@ export default function App() {
     if (path === '/annual-ativar') { localStorage.setItem('fraudara_premium', 'true'); window.location.href = '/'; }
 
     const timer = setInterval(() => setActiveTestimonial(p => (p + 1) % TESTIMONIALS.length), 4000);
-    return () => clearInterval(timer);
-
+    
+    
     return () => {
+      clearTimeout(prerenderTimer);
+      clearInterval(timer);
       window.prerenderReady = false;
-    };
+                 };
     
   }, []);
 
