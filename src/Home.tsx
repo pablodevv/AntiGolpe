@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import {
   Shield, Search, Share2, CheckCircle, AlertTriangle, XCircle,
   Loader2, Award, Users, Clock, TrendingUp, Star, Lock, Zap,
@@ -1538,8 +1539,35 @@ const TESTIMONIALS = [
   { name: "Yuki T.", location: "Tokyo, JP", flag: "🇯🇵", text: "素晴らしいツール！詐欺サイトを即座に検出してくれます。毎回使っています。", stars: 5 },
 ];
 
+
+
+
+
+
+
+
+// ─── HELPER: Extract domain for slug ─────────────────────────────
+function extractDomainForSlug(query: string): string {
+  let cleaned = query.trim().toLowerCase();
+  cleaned = cleaned.replace(/^https?:\/\//, '').replace(/\/+$/, '').replace(/^www\./, '');
+  const match = cleaned.match(/^([a-z0-9-]+\.)+[a-z]{2,}/);
+  if (match) return match[0];
+  return cleaned.replace(/[^a-z0-9.-]/g, '');
+}
+
+
+
+
+
+
+
+
+
+
+
 // ─── MAIN APP ─────────────────────────────────────────────────────
 export default function App() {
+  const navigate = useNavigate();
   const { language, changeLanguage, t, isBR } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [isVerifying, setIsVerifying] = useState(false);
@@ -1615,6 +1643,51 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
+    // ─── BACKGROUND PAGE GENERATION ──────────────────────────────
+  const triggerPageGeneration = (query: string) => {
+    const slug = extractDomainForSlug(query);
+    if (!slug || slug.length < 2) return;
+
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    if (!supabaseUrl || !supabaseAnonKey) return;
+
+    const fnUrl = `${supabaseUrl}/functions/v1/generate-brand-page`;
+
+    // Fire and forget - user never sees this
+    fetch(fnUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${supabaseAnonKey}`,
+      },
+      body: JSON.stringify({ query }),
+    }).catch(() => {
+      // Silently fail - this is background processing
+    });
+  };
+
+
+
+
+  
+  
+
+
+  
+
+
+
+  
+
   
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
@@ -1653,6 +1726,25 @@ export default function App() {
         setFreeSearches(nextValue);
         localStorage.setItem('fraudara_searches', nextValue.toString());
       }
+
+
+
+
+
+
+
+      // ─── TRIGGER BACKGROUND PAGE GENERATION ───
+      triggerPageGeneration(searchQuery);
+
+
+      
+
+      
+
+
+
+
+      
     } catch {
       setResult({
         status: 'suspicious',
@@ -1668,7 +1760,19 @@ export default function App() {
   const handleShare = () => {
     if (!result) return;
     const emoji = result.status === 'safe' ? '✅' : result.status === 'suspicious' ? '⚠️' : '🚨';
-    const msg = `${emoji} *Fraudara verificou: ${searchQuery}*\n\n📊 ${result.title}\n\n${result.message}\n\n🛡️ Verifique você também: ${window.location.href}\n\n_Fraudara — Proteção Global Contra Fraudes_`;
+
+
+
+
+    
+    const slug = extractDomainForSlug(searchQuery);
+    const pageUrl = `https://fraudara.pro/check/${slug}`;
+
+
+    
+
+         {/* //${window.location.href} no lugar de ${pageUrl} */}
+    const msg = `${emoji} *Fraudara verificou: ${searchQuery}*\n\n📊 ${result.title}\n\n${result.message}\n\n🛡️ Verifique você também: ${pageUrl}\n\n_Fraudara — Proteção Global Contra Fraudes_`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -1840,9 +1944,9 @@ export default function App() {
 <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-blue-100/60 mb-6 animate-in fade-in duration-700 delay-300">
   <span className="font-semibold">{t('popularChecks')}</span>
   {[
-    { name: 'Amazon', path: '/is-site-safe/amazon' },
-    { name: 'AliExpress', path: '/is-site-safe/aliexpress' },
-    { name: 'Temu', path: '/is-site-safe/temu' },
+    { name: 'Amazon', path: '/check/amazon.com' },
+    { name: 'AliExpress', path: '/check/aliexpress.com' },
+    { name: 'PayPal', path: '/check/paypal.com' },
   ].map((brand) => (
     <a
       key={brand.name}
@@ -1956,8 +2060,49 @@ export default function App() {
               )}
             </div>
 
+
+
+
+
+
+
+
+            
+            
+{result && (
+
+            
+
+
+            
+
+            
+
             {/* Actions */}
             <div className="space-y-3">
+                {/* ja estava */}
+
+
+
+
+
+  
+              <button onClick={() => {
+                    const slug = extractDomainForSlug(searchQuery);
+                    navigate(`/check/${slug}`);
+                  }}
+                  className="w-full flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-xl transition-all text-sm"
+                >
+                  <FileText className="w-4 h-4" />
+                  View Full Analysis Page
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+  
+
+
+
+  
               {/* View Report */}
               {(result.ssl || result.whois || result.reclameAqui || result.googleResults?.length || result.social || result.trustPilot) && (
                 <button onClick={() => isUnlocked ? setShowDetails(!showDetails) : setShowPaywall(true)}
@@ -1970,6 +2115,19 @@ export default function App() {
 
               <div className="flex gap-3"> <button onClick={handleShare} className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition-all text-sm"> <Share2 className="w-4 h-4" /> {t('shareWhatsApp')} </button> <button onClick={() => { setResult(null); setSearchQuery(''); setShowDetails(false); inputRef.current?.focus(); }} className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 rounded-xl border border-gray-200 transition-all text-sm"> <RefreshCw className="w-4 h-4" /> {t('newVerification')} </button> </div>
             </div>
+
+
+
+
+      
+
+      )}
+            {/* fecha o de cima */}
+
+
+        
+      
+      
 
             {/* Detailed Report */}
             {showDetails && isUnlocked && (
