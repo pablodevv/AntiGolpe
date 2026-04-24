@@ -2065,15 +2065,6 @@ export default function App() {
 
 
 
-
-
-            
-            
-{result && (
-
-            
-
-
             
 
             
@@ -2120,11 +2111,6 @@ export default function App() {
 
 
       
-
-      )}
-            {/* fecha o de cima */}
-
-
         
       
       
