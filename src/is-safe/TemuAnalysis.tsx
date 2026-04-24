@@ -229,6 +229,7 @@ const TemuAnalysis: React.FC = () => {
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={seoTitle} />
   <meta name="twitter:description" content={seoDescription} />
+       <meta name="twitter:image" content="https://fraudara.pro/safe-og.png" />
 
   {/* STRUCTURED DATA - MAX POWER */}
   <script type="application/ld+json">
