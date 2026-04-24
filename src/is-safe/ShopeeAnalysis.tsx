@@ -83,6 +83,9 @@ const ShopeeAnalysis: React.FC = () => {
     return s ? parseInt(s) : 5;
   };
 
+
+
+  
   const handleVerification = async () => {
     if (!searchQuery.trim()) return;
 
@@ -129,6 +132,25 @@ const ShopeeAnalysis: React.FC = () => {
       setIsVerifying(false);
     }
   };
+
+
+
+useEffect(() => {
+    handleVerification(); // Sua chamada automática que já existe
+    
+    // Garante o sinal de pronto independente da velocidade da API
+  const analysisTimer = setTimeout(() => {
+    window.prerenderReady = true;
+  }, 1000); // 1 segundo é suficiente para o Helmet e o esqueleto da página carregarem
+
+  return () => {
+    clearTimeout(analysisTimer);
+    window.prerenderReady = false;
+  };
+  
+  
+  }, []);
+  
 
   const handleUpgrade = (plan: string) => {
     if (plan === 'starter') {
