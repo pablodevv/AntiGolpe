@@ -131,18 +131,23 @@ const TemuAnalysis: React.FC = () => {
       });
     } finally {
       setIsVerifying(false);
-      // AGORA a página tem o conteúdo real (os cards, o score, etc)
-    setTimeout(() => {
-      console.log("Prerender Ready for Analysis Page");
-      window.prerenderReady = true;
-    }, 800);
     }
   };
 
   useEffect(() => {
     handleVerification(); // Sua chamada automática que já existe
     
-    return () => { window.prerenderReady = false; };
+    // Garante o sinal de pronto independente da velocidade da API
+  const analysisTimer = setTimeout(() => {
+    window.prerenderReady = true;
+  }, 1000); // 1 segundo é suficiente para o Helmet e o esqueleto da página carregarem
+
+  return () => {
+    clearTimeout(analysisTimer);
+    window.prerenderReady = false;
+  };
+  
+  
   }, []);
 
 
