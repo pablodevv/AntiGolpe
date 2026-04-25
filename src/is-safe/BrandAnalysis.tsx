@@ -94,26 +94,23 @@ const BrandAnalysis: React.FC = () => {
     loadPageData();
   }, [brandSlug]);
 
+  // Auto-verify on mount only if pageData exists
+  useEffect(() => {
+    if (pageData) {
+      handleVerification();
+    }
+  }, [pageData]);
 
-  // Prerender signal - only after pageData is loaded so content is visible
-// Prerender signal — timeout garantido + sinal quando pageData carrega
-useEffect(() => {
-  // Fallback garantido: dispara depois de 1.5s independente de tudo
-  const fallbackTimer = setTimeout(() => {
-    window.prerenderReady = true;
-  }, 1500);
-
-  return () => clearTimeout(fallbackTimer);
-}, []);
-
-// Sinal antecipado quando pageData já carregou
-useEffect(() => {
-  if ((pageData && !isVerifying) || notFound) {
-    window.prerenderReady = true;
-  }
-}, [pageData, notFound, isVerifying]);
-
-  
+  // Prerender signal
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.prerenderReady = true;
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+      window.prerenderReady = false;
+    };
+  }, []);
 
   // Storage sync
   useEffect(() => {
