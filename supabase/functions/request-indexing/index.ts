@@ -35,7 +35,7 @@ Deno.serve(async (req: Request) => {
 
     const googleServiceAccount = Deno.env.get("GOOGLE_INDEXING_SERVICE_ACCOUNT");
     const supabaseUrl = Deno.env.get("SUPA_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseKey = Deno.env.get("SUPA_SERVICE_ROLE_KEY")!;
 
     const pageUrl = `https://fraudara.pro/check/${slug}`;
 
