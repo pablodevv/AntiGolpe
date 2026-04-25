@@ -94,26 +94,13 @@ const BrandAnalysis: React.FC = () => {
     loadPageData();
   }, [brandSlug]);
 
-  // Auto-verify on mount only if pageData exists
-  useEffect(() => {
-    if (pageData) {
-      handleVerification();
-    }
-  }, [pageData]);
 
   // Prerender signal - only after pageData is loaded so content is visible
-  useEffect(() => {
-    if (pageData || notFound) {
-      // Small delay to let React render the full DOM
-      const timer = setTimeout(() => {
-        window.prerenderReady = true;
-      }, 300);
-      return () => {
-        clearTimeout(timer);
-        window.prerenderReady = false;
-      };
-    }
-  }, [pageData, notFound]);
+useEffect(() => {
+  if ((pageData && !isVerifying) || notFound) {
+    window.prerenderReady = true;
+  }
+}, [pageData, notFound, isVerifying]);
 
   // Storage sync
   useEffect(() => {
