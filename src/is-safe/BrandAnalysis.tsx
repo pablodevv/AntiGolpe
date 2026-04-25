@@ -94,25 +94,26 @@ const BrandAnalysis: React.FC = () => {
     loadPageData();
   }, [brandSlug]);
 
+  // Auto-verify on mount only if pageData exists
+  useEffect(() => {
+    if (pageData) {
+      handleVerification();
+    }
+  }, [pageData]);
 
-  // Prerender signal
- // Prerender signal
-useEffect(() => {
-  if (pageData || notFound) {
-    // Garantimos que o código só rode no browser
-    if (typeof window !== 'undefined') {
+  // Prerender signal - only after pageData is loaded so content is visible
+  useEffect(() => {
+    if (pageData || notFound) {
+      // Small delay to let React render the full DOM
       const timer = setTimeout(() => {
         window.prerenderReady = true;
-        console.log("SEO: Page fully loaded for crawler");
-      }, 1000); // Aumentamos para 1s para garantir renderização de ícones/lucide
-
+      }, 300);
       return () => {
-        window.prerenderReady = false;
         clearTimeout(timer);
+        window.prerenderReady = false;
       };
     }
-  }
-}, [pageData, notFound]);
+  }, [pageData, notFound]);
 
   // Storage sync
   useEffect(() => {
@@ -277,6 +278,10 @@ useEffect(() => {
     );
   }
 
+  // Wait for pageData before rendering content (no loading spinner)
+  if (!pageData) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
