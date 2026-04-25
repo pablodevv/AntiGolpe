@@ -86,7 +86,7 @@ Deno.serve(async (req: Request) => {
 
     // Also update the DB to mark sitemap as updated
     const supabaseUrl = Deno.env.get("SUPA_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseKey = Deno.env.get("SUPA_SERVICE_ROLE_KEY")!;
     await fetch(`${supabaseUrl}/rest/v1/brand_pages?slug=eq.${encodeURIComponent(slug)}`, {
       method: "PATCH",
       headers: {
