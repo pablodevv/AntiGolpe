@@ -94,30 +94,25 @@ const BrandAnalysis: React.FC = () => {
     loadPageData();
   }, [brandSlug]);
 
-  // Auto-verify on mount only if pageData exists
-  useEffect(() => {
-    if (pageData) {
-      handleVerification();
-    }
-  }, [pageData]);
 
   // Prerender signal
- useEffect(() => {
-  // Só damos o sinal de "pronto" se:
-  // 1. Encontramos os dados (pageData)
-  // 2. Ou se definitivamente não existem (notFound)
+ // Prerender signal
+useEffect(() => {
   if (pageData || notFound) {
-    const timer = setTimeout(() => {
-      console.log("Prerender Ready - Brand Data Loaded");
-      window.prerenderReady = true;
-    }, 500); // 500ms extras para o layout estabilizar
+    // Garantimos que o código só rode no browser
+    if (typeof window !== 'undefined') {
+      const timer = setTimeout(() => {
+        window.prerenderReady = true;
+        console.log("SEO: Page fully loaded for crawler");
+      }, 1000); // Aumentamos para 1s para garantir renderização de ícones/lucide
 
-    return () => {
-      clearTimeout(timer);
-      window.prerenderReady = false;
-    };
+      return () => {
+        window.prerenderReady = false;
+        clearTimeout(timer);
+      };
+    }
   }
-}, [pageData, notFound]); // Depende desses dois estados
+}, [pageData, notFound]);
 
   // Storage sync
   useEffect(() => {
