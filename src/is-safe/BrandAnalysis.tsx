@@ -29,29 +29,12 @@ interface BrandPageData {
   created_at: string;
 }
 
-interface VerificationResult {
-  status: 'safe' | 'suspicious' | 'danger';
-  title: string;
-  message: string;
-  complaints: number;
-  trustScore: number;
-  verificationTime: string;
-  debug?: any;
-  ssl?: any;
-  whois?: any;
-  reclameAqui?: any;
-  googleResults?: any[];
-  social?: any;
-  trustPilot?: any;
-}
-
 const BrandAnalysis: React.FC = () => {
   const { brand: brandSlug } = useParams<{ brand: string }>();
   const navigate = useNavigate();
 
   const [pageData, setPageData] = useState<BrandPageData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [notFound, setNotFound] = useState(false);
 
   const brand = pageData?.brand || brandSlug || '';
   const currentYear = new Date().getFullYear();
@@ -61,9 +44,8 @@ const BrandAnalysis: React.FC = () => {
 
   const [searchQuery, setSearchQuery] = useState(brand);
   const [isVerifying, setIsVerifying] = useState(false);
-  const [result, setResult] = useState<VerificationResult | null>(null);
+  const [result, setResult] = useState<any>(null);
   const [, setShowDetails] = useState(false);
-  const [, ] = useState(false);
   const [showPricingModal, setShowPricingModal] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
@@ -78,12 +60,11 @@ const BrandAnalysis: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const isQueryBrand = searchQuery.toLowerCase().includes(brand.toLowerCase());
 
-  // Load page data from Supabase
+  // Load page data from Supabase ONLY - never auto-generate
   useEffect(() => {
     const loadPageData = async () => {
       if (!brandSlug) {
-        setError('No brand specified');
-        setLoading(false);
+        setNotFound(true);
         return;
       }
 
@@ -100,40 +81,20 @@ const BrandAnalysis: React.FC = () => {
           setPageData(data);
           setSearchQuery(data.brand);
         } else {
-          // Page not in DB yet, try to generate it
-          const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-          const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-          const fnUrl = `${supabaseUrl}/functions/v1/generate-brand-page`;
-
-          const resp = await fetch(fnUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${supabaseAnonKey}`,
-            },
-            body: JSON.stringify({ query: brandSlug }),
-          });
-
-          const fnData = await resp.json();
-          if (fnData.page) {
-            setPageData(fnData.page);
-            setSearchQuery(fnData.page.brand);
-          } else {
-            setError('Could not generate page for this brand');
-          }
+          // Page does not exist in DB - do NOT generate it
+          // Only pages created via Home search should exist
+          setNotFound(true);
         }
       } catch (err) {
         console.error('Error loading page data:', err);
-        setError('Failed to load page data');
-      } finally {
-        setLoading(false);
+        setNotFound(true);
       }
     };
 
     loadPageData();
   }, [brandSlug]);
 
-  // Auto-verify on mount
+  // Auto-verify on mount only if pageData exists
   useEffect(() => {
     if (pageData) {
       handleVerification();
@@ -144,7 +105,7 @@ const BrandAnalysis: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.prerenderReady = true;
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(timer);
       window.prerenderReady = false;
@@ -291,31 +252,32 @@ const BrandAnalysis: React.FC = () => {
     { id: 'premium', name: 'Premium', price: '$12', period: '/month', features: ['Unlimited everything', 'API Access', 'Custom analysis', 'WhatsApp alerts'], cta: 'Subscribe', btnClass: 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-200' },
   ];
 
-  // Loading state
-  if (loading) {
+  // NOT FOUND - redirect to home, do NOT create page
+  if (notFound) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
-          <p className="text-gray-600 font-medium">Loading analysis for {brand}...</p>
+        <div className="text-center max-w-md mx-auto px-4">
+          <Shield className="w-16 h-16 text-slate-300 mx-auto mb-6" />
+          <h2 className="text-2xl font-black text-gray-900 mb-3">Analysis Not Available</h2>
+          <p className="text-gray-500 mb-6">
+            We haven't analyzed <span className="font-bold text-gray-700">{brandSlug}</span> yet.
+            Search for it on the home page to generate a full security report.
+          </p>
+          <button
+            onClick={() => navigate('/')}
+            className="bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold hover:bg-blue-700 transition-all inline-flex items-center gap-2"
+          >
+            <Search className="w-5 h-5" />
+            Check on Fraudara Home
+          </button>
         </div>
       </div>
     );
   }
 
-  // Error state
-  if (error && !pageData) {
-    return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="text-center">
-          <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-          <p className="text-gray-600 font-medium mb-4">{error}</p>
-          <button onClick={() => navigate('/')} className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">
-            Back to Home
-          </button>
-        </div>
-      </div>
-    );
+  // Wait for pageData before rendering content (no loading spinner)
+  if (!pageData) {
+    return null;
   }
 
   return (
@@ -373,10 +335,10 @@ const BrandAnalysis: React.FC = () => {
       {/* ANNOUNCEMENT BAR */}
       {!isUnlocked && (
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-center py-2.5 px-4 text-sm">
-          <span className="font-semibold">🔥 LIMITED OFFER</span>{' '}
+          <span className="font-semibold">LIMITED OFFER</span>{' '}
           Premium Access for only $12/mo — save $5/mo{' '}
           <button onClick={() => setShowPricingModal(true)} className="underline underline-offset-2 font-bold hover:no-underline ml-1">
-            GUARANTEE NOW →
+            GUARANTEE NOW
           </button>
         </div>
       )}
@@ -419,7 +381,7 @@ const BrandAnalysis: React.FC = () => {
             </p>
 
             {/* SEARCH BOX */}
-            <div className="bg-white rounded-2xl shadow-2xl p-2 max-w-2xl mx-auto mb-6 mx-4">
+            <div className="bg-white rounded-2xl shadow-2xl p-2 max-w-2xl mx-auto mb-6">
               <div className="flex flex-col sm:flex-row gap-2">
                 <div className="flex-1 flex items-center gap-3 px-4">
                   <Search className="w-5 h-5 text-gray-400" />
@@ -451,7 +413,7 @@ const BrandAnalysis: React.FC = () => {
 
         {/* LOADING STATE */}
         {isVerifying && (
-          <div className="bg-white rounded-3xl shadow-xl p-12 text-center animate-pulse border-2 border-blue-100">
+          <div className="bg-white rounded-3xl shadow-xl p-12 text-center border-2 border-blue-100">
             <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
             </div>
@@ -541,7 +503,7 @@ const BrandAnalysis: React.FC = () => {
                   <h4 className="font-bold text-slate-800 mb-2">Report Locked</h4>
                   <p className="text-slate-500 text-sm mb-6">Unlock full access to see all security indicators.</p>
                   <button onClick={() => setShowPricingModal(true)} className="bg-blue-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:scale-105 transition-all">
-                    Unlock Now →
+                    Unlock Now
                   </button>
                 </div>
               )}
@@ -756,8 +718,8 @@ const BrandAnalysis: React.FC = () => {
             <h3 className="text-2xl font-black text-gray-900 mb-2">Free Checks Exhausted</h3>
             <p className="text-gray-500 text-sm mb-6">You've used all your free checks. Continue protected with unlimited access.</p>
             <div className="space-y-3">
-              <button onClick={() => handleUpgrade('unlimited')} className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl text-sm">🚀 Unlock Unlimited — $29.90</button>
-              <button onClick={() => { setShowUpgradeModal(false); setShowPricingModal(true); }} className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 rounded-xl text-sm">👑 Premium — $12/mo</button>
+              <button onClick={() => handleUpgrade('unlimited')} className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl text-sm">Unlock Unlimited — $29.90</button>
+              <button onClick={() => { setShowUpgradeModal(false); setShowPricingModal(true); }} className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-4 rounded-xl text-sm">Premium — $12/mo</button>
             </div>
           </div>
         </div>
