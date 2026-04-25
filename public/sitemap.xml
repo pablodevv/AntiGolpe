@@ -3279,4 +3279,12 @@
     <priority>0.9</priority>
   </url>
 
+
+  <url>
+    <loc>https://fraudara.pro/check/webmd.com</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
