@@ -1,4 +1,2 @@
-# _redirects
-/check/* /index.html   200!  Status=200
-/is-site-safe/* /index.html   200!  Status=200
-/* /index.html   200
+/check/* /index.html 200
+/is-site-safe/* /index.html 200
