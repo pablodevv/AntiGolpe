@@ -292,7 +292,7 @@ Deno.serve(async (req: Request) => {
     const brand = extractBrandName(domain);
     const slug = generateSlug(domain);
     const openaiKey = Deno.env.get('OPENAI_API_KEY');
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseUrl = Deno.env.get('SUPA_URL')!;
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 
     // Check if page already exists
