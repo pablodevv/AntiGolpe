@@ -1947,7 +1947,7 @@ export default function App() {
   {[
     { name: 'Amazon', path: '/check/amazon.com' },
     { name: 'AliExpress', path: '/check/aliexpress.com' },
-    { name: 'PayPal', path: '/check/paypal.com' },
+    { name: 'PayPal', path: '/check/paypal' },
   ].map((brand) => (
     <a
       key={brand.name}
