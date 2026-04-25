@@ -102,15 +102,22 @@ const BrandAnalysis: React.FC = () => {
   }, [pageData]);
 
   // Prerender signal
-  useEffect(() => {
+ useEffect(() => {
+  // Só damos o sinal de "pronto" se:
+  // 1. Encontramos os dados (pageData)
+  // 2. Ou se definitivamente não existem (notFound)
+  if (pageData || notFound) {
     const timer = setTimeout(() => {
+      console.log("Prerender Ready - Brand Data Loaded");
       window.prerenderReady = true;
-    }, 500);
+    }, 500); // 500ms extras para o layout estabilizar
+
     return () => {
       clearTimeout(timer);
       window.prerenderReady = false;
     };
-  }, []);
+  }
+}, [pageData, notFound]); // Depende desses dois estados
 
   // Storage sync
   useEffect(() => {
@@ -275,10 +282,6 @@ const BrandAnalysis: React.FC = () => {
     );
   }
 
-  // Wait for pageData before rendering content (no loading spinner)
-  if (!pageData) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
