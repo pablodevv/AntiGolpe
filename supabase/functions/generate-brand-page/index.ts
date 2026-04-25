@@ -293,7 +293,7 @@ Deno.serve(async (req: Request) => {
     const slug = generateSlug(domain);
     const openaiKey = Deno.env.get('OPENAI_API_KEY');
     const supabaseUrl = Deno.env.get('SUPA_URL')!;
-    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabaseKey = Deno.env.get('SUPA_SERVICE_ROLE_KEY')!;
 
     // Check if page already exists
     const checkResp = await fetch(`${supabaseUrl}/rest/v1/brand_pages?slug=eq.${encodeURIComponent(slug)}&select=id,ai_content,verification_data,seo_title,seo_h1,seo_description,status,trust_score,schema_data,brand,domain`, {
