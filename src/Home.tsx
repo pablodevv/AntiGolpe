@@ -1548,11 +1548,13 @@ const TESTIMONIALS = [
 
 // ─── HELPER: Extract domain for slug ─────────────────────────────
 function extractDomainForSlug(query: string): string {
-  let cleaned = query.trim().toLowerCase();
-  cleaned = cleaned.replace(/^https?:\/\//, '').replace(/\/+$/, '').replace(/^www\./, '');
-  const match = cleaned.match(/^([a-z0-9-]+\.)+[a-z]{2,}/);
-  if (match) return match[0];
-  return cleaned.replace(/[^a-z0-9.-]/g, '');
+  const q = query.trim().toLowerCase();
+  const cleaned = q
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
+    .split('/')[0]
+    .split('?')[0];
+  return cleaned || q;
 }
 
 
@@ -1652,27 +1654,26 @@ export default function App() {
 
 
     // ─── BACKGROUND PAGE GENERATION ──────────────────────────────
-  const triggerPageGeneration = (query: string) => {
+  const triggerPageGeneration = async (query: string) => {
     const slug = extractDomainForSlug(query);
     if (!slug || slug.length < 2) return;
-
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
     const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
     if (!supabaseUrl || !supabaseAnonKey) return;
-
     const fnUrl = `${supabaseUrl}/functions/v1/generate-brand-page`;
-
-    // Fire and forget - user never sees this
-    fetch(fnUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabaseAnonKey}`,
-      },
-      body: JSON.stringify({ query }),
-    }).catch(() => {
-      // Silently fail - this is background processing
-    });
+    try {
+      await fetch(fnUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+        },
+        body: JSON.stringify({ query }),
+      });
+     
+    } catch {
+      // Silently fail - user still sees result on home page
+    }
   };
 
 
