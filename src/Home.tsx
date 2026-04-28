@@ -1293,6 +1293,167 @@ const translations: Record<string, Record<string, string>> = {
     popularChecks: "Controlli popolari:",
     testimonials: "Cosa dicono i nostri utenti",
   },
+
+  ko: {
+    // Brand
+    title: "Fraudara",
+    subtitle: "글로벌 사기 검증 1위",
+    tagline: "몇 초 만에 사기로부터 자신을 보호하세요",
+    secure: "100% 안전",
+    instantVerification: "즉시 검증",
+    consultationsLeft: "남은 무료 상담 횟수",
+    freeBadge: "무료",
+
+    // Announcement bar
+    specialOffer: "🔥 한정 제안",
+    premiumProtection: "월 $12로 프리미엄 이용 — 월 $5 절약",
+    guaranteeNow: "지금 보장받기",
+
+    // Stats
+    sitesVerified: "검증된 사이트",
+    usersProtected: "보호된 사용자",
+    accuracy: "AI 정확도",
+    fraudsPrevented: "방지된 사기",
+
+    // Hero
+    heroTitle: "구매 전 확인하세요.",
+    heroTitleAccent: "즉시.",
+    heroSubtitle: "당사의 AI는 SSL, WHOIS, 소비자 보고서, TrustPilot, Google 및 소셜 미디어를 포함한 50개 이상의 데이터 소스를 몇 초 만에 분석하여 사이트의 안전 여부를 알려줍니다.",
+    placeholder: "URL 또는 브랜드 이름을 입력하세요 (예: promo-store.com)",
+    verifyButton: "지금 확인 — 무료",
+    verifying: "AI 분석 중...",
+    verifiedBy: "전 세계 310만 명 이상의 사용자가 신뢰함",
+
+    // Loading
+    analysisInProgress: "분석 진행 중",
+    checkingDomain: "도메인 및 SSL 인증서 확인 중...",
+    consultingComplaints: "글로벌 불만 데이터베이스 조회 중...",
+    analyzingReputation: "AI가 온라인 평판 분석 중...",
+    crossChecking: "50개 이상의 데이터 소스 교차 참조 중...",
+
+    // Result
+    trustIndex: "신뢰 지수",
+    analysisTime: "분석 시간",
+    complaintsFound: "최근 30일간 접수된 불만",
+    completeReport: "전체 보고서 보기",
+    shareWhatsApp: "WhatsApp으로 공유",
+    newVerification: "새 검증",
+
+    // Details
+    sslCertificate: "SSL/TLS 인증서",
+    domainInfo: "도메인 정보 (WHOIS)",
+    reclameAqui: "소비자 보고서",
+    socialNetworks: "소셜 미디어 존재 여부",
+    trustPilot: "TrustPilot",
+    googleResults: "Google 검색 결과 상위 10개",
+    present: "존재:", valid: "유효:", validFrom: "유효 시작:",
+    validTo: "유효 만료:", issuer: "발급자:", yes: "예", no: "아니오",
+
+    // Paywall
+    unlockReport: "🔓 전체 보고서 잠금 해제",
+    unlockReportDesc: "모든 보안 분석 세부 정보에 액세스",
+    whatYouGet: "확인할 수 있는 내용:",
+    detailedSSL: "상세 SSL 인증서",
+    completeWHOIS: "날짜가 포함된 전체 WHOIS",
+    reclameAquiHistory: "전체 소비자 보고서 이력",
+    socialAnalysis: "소셜 미디어 분석",
+    trustPilotReviews: "TrustPilot 리뷰",
+    googleTop10: "Google 상위 10개 결과",
+    unlockOneTime: "$29.90에 잠금 해제 (1회성)",
+    orSubscribe: "또는 월 $12에 구독",
+    maybeLater: "나중에 하기",
+
+    // Pricing
+    pricingTitle: "모든 요구에 맞는 완벽한 보호",
+    pricingSubtitle: "수백만 명의 사람들이 온라인 안전을 위해 Fraudara를 선택합니다. 당신의 플랜은 무엇인가요?",
+    mostPopular: "가장 인기 있음",
+    bestValue: "최고의 가치",
+    planFree: "무료",
+    planStarter: "스타터",
+    planPro: "프로",
+    planBusiness: "비즈니스",
+    freePeriod: "영구 무료",
+    monthly: "/월",
+    yearly: "/년",
+    continueFreePlan: "무료로 계속하기",
+    upgradePlan: "지금 시작하기",
+    guarantee: "30일 환불 보장",
+
+    // Features
+    featureUnlimited: "무제한 검증",
+    featureReports: "전체 보고서",
+    featureMonitoring: "24/7 모니터링",
+    featureAlerts: "실시간 알림",
+    featurePriority: "우선 지원",
+    featureAPI: "API 액세스",
+    featureWhatsapp: "WhatsApp 알림",
+    featureCustom: "맞춤형 분석",
+
+    // Exhausted
+    consultationsExhausted: "무료 검증 횟수 초과",
+    consultationsExhaustedDesc: "무료 검증 5회를 모두 사용하셨습니다. 무제한 액세스로 계속 보호받으세요:",
+    unlimitedAccess: "무제한 액세스 — $29.90",
+    premiumMonthly: "프리미엄 — 월 $12",
+    back: "뒤로",
+
+    // Footer
+    footerTagline: "온라인 사기로부터 수백만 명의 사람들을 보호합니다.",
+    footerProduct: "제품",
+    footerCompany: "회사",
+    footerSupport: "지원",
+    footerLegal: "법적 고지",
+    footerHowItWorks: "작동 원리",
+    footerPricing: "가격",
+    footerAPI: "비즈니스용 API",
+    footerAbout: "회사 소개",
+    footerCreator: "제작자 소개",
+    footerBlog: "블로그",
+    footerHelp: "고객 센터",
+    footerContact: "문의하기",
+    footerReport: "사기 신고",
+    footerPrivacy: "개인정보 처리방침",
+    footerTerms: "이용 약관",
+    footerCookies: "쿠키 정책",
+    footerCopyright: "© 2026 Fraudara. All rights reserved.",
+    footerDisclaimer: "디지털 보안 인식을 위한 교육용 도구입니다.",
+    footerEmail: "contactfraudara@gmail.com",
+    footerMadeWith: "세상을 보호하기 위해 🛡️로 제작되었습니다",
+
+    // Creator
+    creatorTitle: "제작자 정보",
+    creatorName: "Pablo Eduardo",
+    creatorBio: "11년 이상의 경력을 가진 기업가, 디지털 비즈니스 개발자 및 앱/게임 제작자입니다. 디지털 마케팅, 인공지능, 카피라이팅 및 온라인 바이럴 마케팅 전문가입니다. 전 세계적으로 다수의 성공적인 디지털 비즈니스와 바이럴 프로젝트를 만들었습니다.",
+    creatorRole: "Fraudara 설립자 겸 CEO",
+
+    // Safe alternative
+    safeAlternative: "✅ 100% 안전한 대안",
+    amazonDesc: "완벽한 보증을 제공하는 세계 최대의 이커머스",
+    upTo70Off: "최대 70% 할인",
+
+    // Trust badges
+    totalSecurity: "완벽한 보안",
+    totalSecurityDesc: "은행 수준의 암호화",
+    freeVerification: "무료 검증",
+    freeVerificationDesc: "가입 없이 5회 확인 가능",
+    alwaysUpdated: "항상 업데이트됨",
+    alwaysUpdatedDesc: "24/7 실시간 데이터베이스",
+
+    // How it works
+    howItWorks: "작동 원리",
+    stepStep: "단계",
+    step1Title: "사이트 또는 브랜드 입력",
+    step1Desc: "확인하고 싶은 URL을 붙여넣거나 회사 이름을 입력하세요",
+    step2Title: "AI가 모든 것을 분석합니다",
+    step2Desc: "인공지능으로 몇 초 만에 50개 이상의 데이터 소스를 확인합니다",
+    step3Title: "즉각적인 결과",
+    step3Desc: "신뢰 지수와 권장 사항이 포함된 전체 보고서를 받으세요",
+
+    // Social proof
+    testimonials: "사용자 후기",
+    popularChecks: "인기 검증:",
+  },
+
+  
 };
 
 // ─── HOOK: LANGUAGE ──────────────────────────────────────────────
@@ -1314,6 +1475,7 @@ const useLanguage = () => {
     else if (bl.startsWith('ru')) d = 'ru';
     else if (bl.startsWith('hi')) d = 'hi';
     else if (bl.startsWith('it')) d = 'it';
+    else if (bl.startsWith('ko')) d = 'ko';
     setLanguage(d);
   }, []);
 
@@ -1341,6 +1503,7 @@ const LANGS = [
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' },
 ];
 
 const LanguageSelector = ({ language, onLanguageChange }: { language: string; onLanguageChange: (l: string) => void }) => {
@@ -1947,7 +2110,7 @@ export default function App() {
   {[
     { name: 'Amazon', path: '/check/amazon.com' },
     { name: 'AliExpress', path: '/check/aliexpress.com' },
-    { name: 'PayPal', path: '/check/paypal' },
+    { name: 'ChatGPT', path: '/check/chatgpt.com' },
   ].map((brand) => (
     <a
       key={brand.name}
