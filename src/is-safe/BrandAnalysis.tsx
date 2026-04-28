@@ -630,7 +630,7 @@ const BrandAnalysis: React.FC = () => {
         <section className="bg-slate-100 rounded-3xl p-8 mb-20 text-center">
           <h3 className="font-bold text-slate-800 mb-6">Check other popular platforms</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {["Amazon", "Shopee", "Instagram", "AliExpress", "Temu", "PayPal", "Mercado Livre"].filter(p => p.toLowerCase() !== brand.toLowerCase()).slice(0, 5).map(p => (
+            {["Amazon.com", "Instagram.com", "ChatGPT.com", "AliExpress.com", "Temu.com", "Shein.com", "Netflix.com"].filter(p => p.toLowerCase() !== brand.toLowerCase()).slice(0, 5).map(p => (
               <a key={p} href={`/check/${p.toLowerCase().replace(' ', '-')}`} className="bg-white px-5 py-2.5 rounded-full text-sm font-semibold text-slate-600 hover:text-blue-600 hover:shadow-md transition-all border border-slate-200">
                 Is {p} safe?
               </a>
