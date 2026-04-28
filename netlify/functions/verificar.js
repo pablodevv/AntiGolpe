@@ -123,6 +123,17 @@ const backendTranslations = {
     dangerMessage: "ALLERTA MASSIMA! Rilevati segnali di rischio multipli. NON raccomandiamo questo sito.",
     partialMessage: "Impossibile completare tutta l'analisi. Raccomandiamo cautela e verifica aggiuntiva.",
     errorMessage: "Si prega di fornire un sito web o un marchio da verificare"
+  },
+    ko: {
+    safeSite: "✅ 완전 안전한 사이트",
+    suspiciousSite: "⚠️ 주의 - 의심스러운 사이트", 
+    dangerSite: "🚨 여기서 구매하지 마세요 - 고위험",
+    partialVerification: "⚠️ 부분 검증",
+    safeMessage: "신뢰할 수 있는 사이트입니다! 안심하고 쇼핑하세요.",
+    suspiciousMessage: "주의! 의심스러운 징후가 감지되었습니다. 구매 전 해당 업체에 직접 확인하는 것을 권장합니다.",
+    dangerMessage: "최고 경고! 다수의 위험 신호가 감지되었습니다. 이 사이트를 권장하지 않습니다.",
+    partialMessage: "모든 분석을 완료할 수 없었습니다. 주의를 기울이고 추가 확인을 권장합니다.",
+    errorMessage: "확인할 사이트 또는 브랜드 이름을 입력해 주세요"
   }
 };
 
